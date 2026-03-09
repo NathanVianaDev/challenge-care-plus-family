@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/CSS/Style.CSS">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Home Page</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-white sticky-top">
+        <div class= "container-fluid" >
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+                <div class="navbar-nav align-items-center gap-5"> 
+                    <a class="navbar-brand m-0" href="#"> 
+                        <img src="/assets/Images/logo-care-plus.png" alt="Logo Care Plus" height="80">
+                    </a>
+                    <a class="nav-link text-dark href="#">INÍCIO</a>
+                    <a class="nav-link text-dark href="#">AGENDAMENTOS</a>
+                    <a class="nav-link text-dark href="#">GAME PLUS +</a>
+                    <a class="nav-link text-dark href="#">UNIDADES</a>
+                    <a class="nav-link text-dark href="#">CONTATO</a>
+                    <a class="btn-perfil-sair" href="login.html">
+                        <span class="texto-sair ">SAIR</span>
+                        <div class="circulo-azul">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 25px;">
+                                <path fill="white" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512h388.6c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card p-4 text-center mb-4" id="perfil">
+                    <div class="text-start mb-2">
+                        <button class="btn btn-link text-dark p-0" id="btn-config">
+                            <i class="bi bi-gear-fill" style="font-size: 1.5rem;"></i>
+                        </button>
+                    </div>
+                    <div class="position-relative d-inline-block mx-auto mb-3">
+                        <div class="profile-ring">
+                            <img src="./assets/Images/avatar-padrao.png" id="user-photo" class="rounded-circle shadow-sm" alt="Perfil">
+                        </div>
+                    </div>
+                    <h3 class="fw-light">Bem Vindo, <span id="display-name" class="fw-bold">Usuário</span>.</h3>
+                </div>
+
+                <div id="calendario-area">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-bold m-0">Março 2026</h5>
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-outline-secondary border-0"><i class="bi bi-chevron-left"></i></button>
+                            <button class="btn btn-sm btn-outline-secondary border-0"><i class="bi bi-chevron-right"></i></button>
+                        </div>
+                    </div>
+    
+                <table class="table table-borderless text-center m-0" id="tabela-calendario">
+                    <thead>
+                        <tr class="text-muted">
+                            <th>D</th><th>S</th><th>T</th><th>Q</th><th>Q</th><th>S</th><th>S</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-muted">1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td>
+                        </tr>
+                        <tr>
+                            <td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td>
+                        </tr>
+                        <tr>
+                            <td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td>
+                        </tr>
+                        <tr>
+                            <td>22</td><td>23</td><td>24</td><td class="dia-atual">25</td><td>26</td><td>27</td><td>28</td>
+                        </tr>
+                        <tr>
+                            <td>29</td><td>30</td><td>31</td><td class="text-muted">1</td><td class="text-muted">2</td><td class="text-muted">3</td><td class="text-muted">4</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="mt-4 d-grid gap-2">
+                    <button class="btn btn-primary rounded-pill fw-bold py-2" style="background-color: #3aadde; border: none;">
+                        NOVA CONSULTA
+                    </button>
+                    <button class="btn btn-danger rounded-pill fw-bold py-2" style="background-color: #ff5c5c; border: none;">
+                        CANCELAR
+                    </button>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-8">
+                <div id="hub-monitoramento" class="mb-0">
+                    <div class="titulo-hub" id="monitoramento">
+                        <h2 class="mb-4 text-center">Hub de Monitoramento</h2>
+                    </div>
+                    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-3">
+                        
+                        <div class="col" >
+                            <div class="card-hub borda-verde text-center h-100 shadow-sm" id="passos">
+                                <div class="card-header-custom pt-3">
+                                    <p class="text-muted fw-bold mb-0 small text-uppercase">Passos</p>
+                                </div>
+
+                                <div class="card-value-container">
+                                    <div class="donut-wrapper">
+                                        <svg class="progress-ring" width="100" height="100">
+                                            <circle class="progress-ring__bg" stroke="#f0f2f5" stroke-width="8" fill="transparent" r="40" cx="50" cy="50"/>
+                                            <circle id="progresso-passos" class="progress-ring__bar" stroke="#92C444" stroke-width="8" stroke-linecap="round" fill="transparent" r="40" cx="50" cy="50" style="stroke-dasharray: 251; stroke-dashoffset: 125;"/>
+                                        </svg>
+                                        <div class="donut-inner">
+                                            <img src="./assets/Images/corredor.png" alt="Corredor" class="img-corredor-min">
+                                            <h5 class="fw-bold mb-0" id="valor-passos-texto">4.5k</h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pb-3">
+                                    <button class="btn-link-custom" id="btn-saiba-mais-passos">Saiba Mais</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card-hub borda-laranja text-center h-100 shadow-sm" id="sono">
+                                <div class="mb-2">
+                                    <i class="bi bi-moon-stars-fill fs-2" style="color: #f39c12;"></i>
+                                </div>
+                                <p class="text-center fw-bold mb-4 small text-uppercase titulo-hub">Sono</p>
+
+                                <div class="card-value-container">
+                                    <h4 class="fw-bold mb-0" id="horas-sono">7h 20m</h4>
+                                </div>
+                            
+                                <div class="card-footer-spacer" style="height: 20px;"></div>
+
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card-hub borda-azul-claro text-center h-100 shadow-sm" id="agua">
+                                <div class="mb-2">
+                                    <i class="bi bi-droplet-fill fs-2" style="color: #00d2ff;"></i>
+                                </div>
+                                <p class="text-center fw-bold mb-4 small text-uppercase titulo-hub">Água</p>
+
+                                <div class="card-value-container">
+                                    <h4 class="fw-bold mb-0" id="litros-agua">1.2 <small class="fw-light">L</small><h4>
+                                </div>
+                            
+                                <div class="card-footer-spacer" style="height: 20px;"></div>
+
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card-hub borda-roxa text-center h-100 shadow-sm" id="glicemia">
+                                <div class="mb-2">
+                                    <i class="bi bi-droplet-half fs-2" style="color: #9b59b6;"></i>
+                                </div>
+                                <p class="text-center fw-bold mb-1 small text-uppercase titulo-hub">Glicemia</p>
+                                <div class="card-value-container">
+                                    <h4 class="fw-bold mb-0" id="litros-agua"> 95 <small class="fw-light">mg/dL</small><h4>
+                                </div>
+                                <div class="card-footer-spacer" style="height: 20px;">
+                                </div>                               
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card-hub borda-azul text-center h-100 shadow-sm" id="batimentos">
+                                <div class="mb-2">
+                                    <i class="bi bi-heart-pulse-fill fs-2" style="color: #3aadde;"></i>
+                                </div>
+                                <p class="text-center fw-bold mb-1 small text-uppercase titulo-hub">Batimentos</p>
+
+                                <div class="card-value-container">
+                                    <h4 class="fw-bold mb-0"> <span id="valor-bpm">82</span> <small class="fw-light text-muted">bpm</small></h4>
+                                </div>
+                                <div class="card-footer-spacer" style="height: 20px;">
+                                </div> 
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+
+                <div id="secao-consultas">
+                    <div class="d-flex justify-content-between align-items-center mb-">
+                        <h2 class="text-center my-3">Próximas Consultas</h2>
+                        <button class="btn btn-sm fw-bold" style="color: #3aadde; background: none; border: none;">VER TODAS</button>
+                    </div>
+
+                    <div class="d-flex flex-column gap-3">
+                        <div class="card-consulta d-flex align-items-center p-3 shadow-sm border-0 bg-white">
+                            <div class="data-badge text-center p-2 rounded-4 me-4" style="background-color: #f0f8ff; min-width: 80px;">
+                                <span class="d-block fw-bold fs-4 color-azul">25</span>
+                                <span class="text-muted small fw-bold">MAR</span>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="fw-bold mb-1">Cardiologia</h5>
+                                <p class="text-muted mb-0 small"><i class="bi bi-person-fill me-1"></i> Dr. Roberto Silva</p>
+                            </div>
+                            <div class="text-end me-4">
+                                <span class="fw-bold d-block">09:30</span>
+                                <span class="badge rounded-pill bg-success-subtle text-success px-3">Confirmado</span>
+                            </div>
+                            <button class="btn btn-light rounded-circle shadow-sm"><i class="bi bi-chevron-right"></i></button>                            
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column gap-3">
+                        <div class="card-consulta d-flex align-items-center p-3 shadow-sm border-0 bg-white">
+                            <div class="data-badge text-center p-2 rounded-4 me-4" style="background-color: #f0f8ff; min-width: 80px;">
+                                <span class="d-block fw-bold fs-4 color-azul">25</span>
+                                <span class="text-muted small fw-bold">MAR</span>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="fw-bold mb-1">Cardiologia</h5>
+                                <p class="text-muted mb-0 small"><i class="bi bi-person-fill me-1"></i> Dr. Roberto Silva</p>
+                            </div>
+                            <div class="text-end me-4">
+                                <span class="fw-bold d-block">09:30</span>
+                                <span class="badge rounded-pill bg-success-subtle text-success px-3">Confirmado</span>
+                            </div>
+                            <button class="btn btn-light rounded-circle shadow-sm"><i class="bi bi-chevron-right"></i></button>                            
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+    </script>
+    <script src="/assets/js/script.js"></script>
+
+</body>
+</html>

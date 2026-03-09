@@ -1,0 +1,308 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-link {
+    color: #212529 !important;
+    font-family: 'Montserrat', sans-serif; /* Garante que o menu use a fonte certa */
+    font-weight: 500;           /* Agora o 500 vai funcionar de verdade! */
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    font-size: 1rem;            /* Um tamanho padrão e limpo */
+}
+
+/* Efeito ao passar o mouse para não ficar estático */
+.nav-link:hover {
+    color: #3aadde !important; /* Muda para o azul da Care Plus ao passar o mouse */
+}
+/* Estilização da barra de navegação */
+.navbar {
+    padding-bottom: 0; /* Remove espaço extra abaixo para a linha colar bem */
+    background-color: white !important; /* Garante que o fundo seja sólido */
+    
+    /* Adiciona a linha azul */
+    border-bottom: 10px solid #3aadde; /* Cor azul (você pode trocar pelo código da sua logo) */
+    
+    /* Opcional: uma sombra bem leve para dar profundidade */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Garante que os itens fiquem bem distribuídos com a nova altura */
+.navbar-nav {
+    padding-bottom: 10px; /* Um pequeno respiro antes da linha azul */
+}
+.btn-perfil-sair {
+    display: flex;
+    align-items: center;
+    background-color: #92C444; /* Verde da foto */
+    border-radius: 18px;
+    height: 40px; /* Ajustei a altura para ficar proporcional aos nomes */
+    padding-left: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.texto-sair {
+    color: white;
+    margin-right: 15px;
+}
+
+.circulo-azul {
+    background-color: #3aadde; /* Azul da foto */
+    width: 40px;  /* Mesma altura do botão para ser um círculo perfeito */
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.circulo-azul svg {
+    width: 25px; /* Tamanho controlado do ícone */
+    height: 22px; /* Mantém a proporção */
+    display: block; /* Evita espaços indesejados */
+}
+
+#perfil {
+    box-shadow: #21252967 0 0px 7px;
+    border-radius: 15px;
+}
+
+.profile-ring {
+    padding: 5px;
+    background: linear-gradient(45deg, #a4d34c, #3aadde); /* Verde e Azul do logo */
+    border-radius: 50%;
+    display: inline-block;
+}
+
+#user-photo {
+    width: 150px;
+    height: 150px;
+    border: 5px solid white;
+    object-fit: cover;
+    
+}
+#calendario-area {
+    box-shadow: #21252967 0 0px 7px;
+    border-radius: 15px;
+    padding: 1.8rem;
+}
+#tabela-calendario th {
+    font-size: 0.8rem;
+    font-weight: 600;
+    
+}
+
+#tabela-calendario td {
+    padding: 14px 0;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    border-radius:50%; /* Faz o efeito de hover ser circular */
+}
+
+#tabela-calendario td:hover:not(.text-muted) {
+    background-color: #f0f8ff;
+    color: #3aadde;
+}
+
+/* O círculo azul no dia atual igual à sua foto */
+.dia-atual {
+    background-color: #3aadde !important;
+    color: white !important;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+/* Área do Hub */
+#hub-monitoramento {
+    background-color: #f8fafc; /* Um cinza bem clarinho quase azulado */
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: #21252967 0 0px 7px;
+}
+
+/* O Título "Hub de Monitoramento" */
+.titulo-hub {
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+
+/* Os Cards Específicos do Hub */
+.card-hub {
+    border: none;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(224, 38, 38, 0.03);
+    transition: 0.3s;
+    border-bottom: 6px solid transparent;
+    
+    /* MÁGICA DO ALINHAMENTO */
+    display: flex;
+    flex-direction: column; /* Alinha os itens em coluna (um embaixo do outro) */
+    align-items: center; /* Centraliza tudo horizontalmente */
+    padding: 0.1rem 0.5rem; /* Padding generoso em cima e embaixo */
+    height: 16rem !important; /* Aumentei um pouco a altura para respirar como na foto */
+}
+
+/* Estilo do Título (Parte de cima) */
+.card-hub p {
+    font-size: 0.75rem;
+    line-height: 1.2;
+    margin-top: 5px; /* Descola um pouco do topo mantendo o padding */
+}
+
+/* Estilo do Valor (Parte do meio/baixo) */
+.card-hub h4 {
+    margin-bottom: 0.75rem; /* Empurra o título para cima */
+    margin-top: auto;    /* Empurra o número para o centro vertical */
+    font-size: 1.6rem;
+}
+
+/* Ajuste dos Ícones */
+.card-hub i {
+    margin-bottom: 10px;
+}
+#monitoramento {
+    background-color: #92C444;
+    padding: 0.2rem;
+    margin-bottom: 0.5rem;
+    border-radius:10px;
+    width: 100%;
+    height: 3rem;
+}
+
+#passos {
+    background: linear-gradient(205deg,#34D052,#ffffff);
+}
+
+#sono {
+        background: linear-gradient(205deg,#000000,#ffffff);
+}
+
+#agua {
+    background: linear-gradient(205deg,#4369E4,#ffffff);
+
+}
+
+#glicemia {
+    background: linear-gradient(205deg,#601060,#ffffff);
+}
+
+#batimentos {
+    background: linear-gradient(205deg,#B30101,#ffffff);
+}
+
+.card-hub:hover {
+    transform: translateY(-8px);
+}
+
+/* Cores das Bordas Inferiores (Igual na sua foto) */
+.borda-azul { border-bottom-color: #B30101; }
+.borda-verde { border-bottom-color: #92C444; }
+.borda-laranja { border-bottom-color: #000000; }
+.borda-roxa { border-bottom-color: #9b59b6; }
+.borda-azul-claro { border-bottom-color: #4369E4; }
+
+.card-value-container {
+    flex-grow: 1;      /* Ela expande para ocupar todo o meio do card */
+    display: flex;
+    align-items: center;    /* Centraliza o número verticalmente */
+    justify-content: center;  /* Centraliza o número horizontalmente */
+}
+
+.card-header-custom {
+    width: 100%;
+}
+
+/* Container que centraliza o SVG e o texto interno */
+.donut-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-ring {
+    transform: rotate(-90deg); /* Inicia o progresso pelo topo */
+}
+
+/* Estilo da barra de progresso com animação */
+.progress-ring__bar {
+    transition: stroke-dashoffset 0.5s ease-in-out;
+}
+
+/*Teste*/
+#progresso-passos {
+    background: linear-gradient(205deg,#34D052,#ffffff);
+
+}
+
+/* Conteúdo dentro do círculo */
+.donut-inner {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-corredor-min {
+    width: 20px; /* Bem pequeno para caber no donut */
+    margin-bottom: 2px;
+}
+
+.donut-inner h5 {
+    font-size: 1.1rem; /* Tamanho ajustado para o card de 16rem */
+}
+
+/* Botão discreto para manter a altura do card */
+.btn-link-custom {
+    background: none;
+    border: none;
+    color: #92C444;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0;
+}
+
+
+/* Ajuste para o texto não ficar colado no ícone */
+.card-header-custom p {
+    margin-top: 5px;
+    font-size: 0.75rem;
+    line-height: 1.1;
+}
+/* Garante que todos os cards tenham a mesma altura */
+.h-100 {
+    height: 14rem !important;
+}
+
+/* Estilo específico para a seção de agenda */
+#secao-consultas {
+    padding: 10px; /* Um leve respiro interno */
+}
+
+.card-consulta {
+    margin-bottom: 15px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    border-left: 6px solid #3aadde !important; /* Identidade visual de agendamento */
+}
+
+.card-consulta:hover {
+    transform: translateX(5px); /* Efeito lateral em vez de subir */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+}
+
+.data-badge {
+    background-color: #f0f8ff;
+    min-width: 85px;
+}
