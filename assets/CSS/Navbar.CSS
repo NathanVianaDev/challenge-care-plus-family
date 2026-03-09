@@ -1,0 +1,60 @@
+/* Estilização do Menu de Navegação */
+.nav-link {
+    color: #212529 !important;
+    font-family: 'Montserrat', sans-serif; /* Garante que o menu use a fonte certa */
+    font-weight: 500;           /* Agora o 500 vai funcionar de verdade! */
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    font-size: 1rem;            /* Um tamanho padrão e limpo */
+}
+
+/* Efeito ao passar o mouse para não ficar estático */
+.nav-link:hover {
+    color: #3aadde !important; /* Muda para o azul da Care Plus ao passar o mouse */
+}
+/* Estilização da barra de navegação */
+.navbar {
+    padding-bottom: 0; /* Remove espaço extra abaixo para a linha colar bem */
+    background-color: white !important; /* Garante que o fundo seja sólido */
+    
+    /* Adiciona a linha azul */
+    border-bottom: 10px solid #3aadde; /* Cor azul (você pode trocar pelo código da sua logo) */
+    
+    /* Opcional: uma sombra bem leve para dar profundidade */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Garante que os itens fiquem bem distribuídos com a nova altura */
+.navbar-nav {
+    padding-bottom: 10px; /* Um pequeno respiro antes da linha azul */
+}
+.btn-perfil-sair {
+    display: flex;
+    align-items: center;
+    background-color: #92C444; /* Verde da foto */
+    border-radius: 18px;
+    height: 40px; /* Ajustei a altura para ficar proporcional aos nomes */
+    padding-left: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.texto-sair {
+    color: white;
+    margin-right: 15px;
+}
+
+.circulo-azul {
+    background-color: #3aadde; /* Azul da foto */
+    width: 40px;  /* Mesma altura do botão para ser um círculo perfeito */
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.circulo-azul svg {
+    width: 25px; /* Tamanho controlado do ícone */
+    height: 22px; /* Mantém a proporção */
+    display: block; /* Evita espaços indesejados */
+}
