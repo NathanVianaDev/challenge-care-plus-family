@@ -1,0 +1,21 @@
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.campo-formulario label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+}
+
+.campo-formulario input,
+.campo-formulario select { 
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white; 
+    font-family: inherit; 
+    cursor: pointer;
+}
