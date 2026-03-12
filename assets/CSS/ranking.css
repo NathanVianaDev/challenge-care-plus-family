@@ -1,5 +1,13 @@
 /* ranking.css - Focado apenas no corpo da pagina*/
 
+/* Estilo para o fundo do ranking */
+#fundo-ranking {
+    max-width: 55rem;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+
 /* Gradiente Dourado para as barras de progresso */
 .progress-gold {
     background: linear-gradient(to right, #ffd700, #b8860b, #ffd700) !important;
