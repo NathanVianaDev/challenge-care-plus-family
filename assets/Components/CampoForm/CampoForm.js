@@ -1,5 +1,6 @@
+// Arquivo: CampoForm.js
+
 export class CampoForm extends HTMLElement {
-    
     connectedCallback() {
         const tamanhoCampo = this.getAttribute('tamanho-campo') || '100%';
         const alturaCampo = this.getAttribute('altura-campo') || 'auto';
@@ -8,15 +9,26 @@ export class CampoForm extends HTMLElement {
         const tipo = this.getAttribute('tipo') || 'text';
         const legenda = this.getAttribute('legenda') || '';
 
-        // Desenhando o HTML interno do nosso componente
+        // Variável que vai guardar a tag correta
+        let campoHtml = '';
+
+        // Se o tipo for textarea, usamos a tag de texto longo (que começa do topo)
+        if (tipo === 'textarea') {
+            campoHtml = `<textarea id="${idCampo}" placeholder="${legenda}"></textarea>`;
+        } 
+        // Se for qualquer outra coisa (text, email, password), usamos o input normal
+        else {
+            campoHtml = `<input id="${idCampo}" type="${tipo}" placeholder="${legenda}">`;
+        }
+
+        // Desenhando o componente na tela
         this.innerHTML = `
-            <div class="campo-formulario" style="width: ${tamanhoCampo}; height: ${alturaCampo};">
+            <div class="campo-formulario" style="width: ${tamanhoCampo}; height: ${alturaCampo}; display: flex; flex-direction: column;">
                 <label>${tituloForm}</label>
-                <input id="${idCampo}" type="${tipo}" placeholder="${legenda}">
+                ${campoHtml}
             </div>
         `;
     }
 }
 
-// Ensinamos ao navegador que a tag <campo-form> existe e deve usar a lógica acima
 customElements.define('campo-form', CampoForm);

@@ -11,11 +11,18 @@
 }
 
 .campo-formulario input,
-.campo-formulario select { 
-    padding: 8px;
+.campo-formulario select,
+.campo-formulario textarea {
+    flex-grow: 1; 
+    padding: 10px; /* Aumentei um pouquinho o padding para o texto não grudar no teto */
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: white; 
-    font-family: inherit; 
-    cursor: pointer;
+    background-color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #212529;
+}
+
+.campo-formulario textarea {
+    resize: none; 
 }

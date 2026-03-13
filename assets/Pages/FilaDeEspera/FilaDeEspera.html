@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="./assets/CSS/Style.CSS">
     <link rel="stylesheet" href="./assets/CSS/Navbar.CSS">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <title>Agendar Consultas</title>
+    <title>Fila de Espera</title>
 
     <link rel="stylesheet" href="../../Components/HeaderLogado/Header.css">
 
     <link rel="stylesheet" href="../../Components/CampoForm/CampoForm.css">
-
-    <link rel="stylesheet" href="../../Components/Calendario/Calendario.css">
+    
+    <link rel="stylesheet" href="../../Components/CampoForm/CampoData.css">
 
     <script type="module">
         import { MeuHeader } from '../../Components/HeaderLogado/Header.js';
@@ -25,15 +25,20 @@
     </script>
 
     <script type="module">
-        import { CalendarioDinamico } from '../../Components/Calendario/Calendario.js';
+        import { CampoData } from '../../Components/CampoForm/CampoData.js';
     </script>
+
+    <script type="module">
+        import { CampoDataCustom } from '../../Components/CampoForm/CampoData.js';
+    </script>
+
 </head>
 
 <body>
     <meu-header></meu-header>
 
     <main class="container my-5">
-        <p style="font-weight: bold; font-size: 2.5rem;">Agende sua Consulta</p>
+        <p style="font-weight: bold; font-size: 2.5rem;">Fila de Espera</p>
 
         <div style="display: flex; justify-content: space-between; gap: 40px; margin-top: 50px;">
             <div style="width: 100%; display: flex; flex-direction: column; gap: 20px">
@@ -46,27 +51,29 @@
                 <campo-select titulo-form="Escolha a unidade:" id-campo="unidade" legenda="..."
                     opcoes="Unidade Alphaville - Barueri, Unidade Brooklin - São Paulo, Unidade Campo Belo - São Paulo, Unidade Morumbi - São Paulo, Unidade Paulista - São Paulo, Unidade Rio Sul - Rio de Janeiro">
                 </campo-select>
-                <campo-select titulo-form="Escolha um horário:" id-campo="horário" legenda="..."
-                    opcoes="08:00, 08:15, 08:30, 08:45, 09:00, 09:15, 09:30, 09:45, 10:00, 10:15, 10:30, 10:45, 11:00, 11:15, 11:30, 11:45, 12:00, 12:15, 12:30, 12:45, 13:00, 13:15, 13:30, 13:45, 14:00, 14:15, 14:30, 14:45, 15:00, 15:15, 15:30, 15:45, 16:00, 16:15, 16:30, 16:45, 17:00, 17:15, 17:30, 17:45, 18:00">
+
+            </div>
+            
+            <div style="width: 100%; display: flex; flex-direction: column; gap: 20px">
+            <campo-data titulo-form-data="Período de interesse" id-campo-data="data-exame">
+                </campo-data>
+
+            <campo-select titulo-form="Período do dia" id-campo="periodo-dia" legenda="..."
+                    opcoes="Manhã, Tarde">
+                </campo-select>
+
+            <campo-select titulo-form="Antecedência mínima" id-campo="antecedencia-min" legenda="..."
+                    opcoes="15 minutos, 30 minutos, 45 minutos">
                 </campo-select>
             </div>
-
-            <calendario-dinamico larguraCalendario="550px" alturaCalendario="450px"
-                legendaCalendario="* Os dias em verde estão disponíveis para agendamento.">
-            </calendario-dinamico>
         </div>
 
         <div style="display: flex; justify-content: center; gap: 20px; margin-top: 50px;">
-            <a href="../FilaDeEspera/FilaDeEspera.html"><button class="btn btn-primary rounded-pill fw-bold py-2"
-                    style="background-color: #92C444; border: none;">
-                    Fila de Espera
-                </button></a>
             <a href="#"><button class="btn btn-primary rounded-pill fw-bold py-2"
                     style="background-color: #92C444; border: none;">
-                    Agendar
+                    Confirmar Fila
                 </button></a>
         </div>
+
     </main>
 </body>
-
-</html>

@@ -2,7 +2,8 @@ export class CampoSelect extends HTMLElement {
     connectedCallback() {
         const tituloForm = this.getAttribute('titulo-form') || '';
         const idCampo = this.getAttribute('id-campo') || '';
-        const legenda = this.getAttribute('legenda') || 'Selecione...';
+        const legenda = this.getAttribute('legenda') || '';
+        const tamanhoCampoSelect = this.getAttribute('tamanho-campo-select') || '100%';
         
         const opcoesString = this.getAttribute('opcoes') || '';
         
@@ -22,7 +23,7 @@ export class CampoSelect extends HTMLElement {
 
         // Desenha o componente
         this.innerHTML = `
-            <div class="campo-formulario" style="width: 100%;">
+            <div class="campo-formulario" style="width: ${tamanhoCampoSelect};">
                 <label>${tituloForm}</label>
                 <select id="${idCampo}">
                     ${opcoesHtml}
