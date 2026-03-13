@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/CSS/Style.CSS">
+    <link rel="stylesheet" href="./assets/CSS/Navbar.CSS">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Fila de Espera</title>
+
+    <link rel="stylesheet" href="../../Components/HeaderLogado/Header.css">
+
+    <link rel="stylesheet" href="../../Components/CampoForm/CampoForm.css">
+
+    <link rel="stylesheet" href="../../Components/CampoForm/CampoData.css">
+
+    <link rel="stylesheet" href="../../Components/PerfilFormulario/PerfilFormulario.css">
+
+    <script type="module">
+        import { MeuHeader } from '../../Components/HeaderLogado/Header.js';
+    </script>
+
+    <script type="module">
+        import { CampoForm } from '../../Components/CampoForm/CampoForm.js';
+    </script>
+
+    <script type="module">
+        import { CampoSelect } from '../../Components/CampoForm/CampoSelect.js';
+    </script>
+
+    <script type="module">
+        import { CampoData } from '../../Components/CampoForm/CampoData.js';
+    </script>
+
+    <script
+        type="module"> import { PerfilFormulario } from '../../Components/PerfilFormulario/PerfilFormulario.js';</script>
+
+</head>
+
+<body>
+    <meu-header></meu-header>
+
+    <main class="container my-5">
+        <!-- <p style="font-weight: bold; font-size: 2.5rem;">Informações Pessoais</p> -->
+
+        <perfil-formulario titulo-caixa="Informações Pessoais">
+            <campo-form titulo-form="Nome Completo" tipo="text" legenda="Seu nome"></campo-form>
+            <campo-form titulo-form="CPF" tipo="text" legenda="000.000.000-00"></campo-form>
+            <campo-data titulo-form-data="Data de Nascimento" id-campo="data-nasc"></campo-data>
+            <campo-select titulo-form="Gênero" opcoes="Feminino, Masculino, Outro"></campo-select>
+        </perfil-formulario>
+
+        <perfil-formulario titulo-caixa="Informações de contato">
+            <campo-form titulo-form="E-mail" tipo="email" legenda="seu@email.com"></campo-form>
+            <campo-form titulo-form="Telefone de recado" tipo="tel" legenda="(00) 00000-0000"></campo-form>
+            <campo-form titulo-form="Telefone" tipo="tel" legenda="(00) 00000-0000"></campo-form>
+        </perfil-formulario>
+
+        <perfil-formulario titulo-caixa="Endereço">
+            <campo-form titulo-form="CEP" tipo="text" legenda="00000-000"></campo-form>
+            <campo-form titulo-form="Número" tipo="text"></campo-form>
+            <campo-form titulo-form="Logradouro" tipo="text" legenda=""></campo-form>
+            <campo-form titulo-form="Complemento" tipo="text"></campo-form>
+            <campo-form titulo-form="Estado" tipo="text" legenda=""></campo-form>
+            <campo-form titulo-form="Cidade" tipo="text" legenda=""></campo-form>
+        </perfil-formulario>
+
+        <perfil-formulario titulo-caixa="Alterar senha">
+            <campo-form titulo-form="Senha" tipo="password"></campo-form>
+            <campo-form titulo-form="Nova senha" tipo="password"></campo-form>
+            <campo-form titulo-form="Confirmar nova senha" tipo="password"></campo-form>
+        </perfil-formulario>
+
+    </main>
+</body>
