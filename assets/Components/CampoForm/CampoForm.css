@@ -26,3 +26,11 @@
 .campo-formulario textarea {
     resize: none; 
 }
+
+input[type=file]::file-selector-button {
+  background-color: #3aadde;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
