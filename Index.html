@@ -24,6 +24,10 @@
         import {CalendarioDinamico} from './assets/Components/Calendario/Calendario.js';
     </script>
 
+    <!--Hub Monitoramento-->
+    <script type="module" src="./assets/Components/CardHub/CardHub.js"></script>
+    
+    
 </head>
 
 <body>
@@ -61,99 +65,36 @@
                     </div>
                     <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-3">
 
-                        <div class="col">
-                            <div class="card-hub borda-verde text-center h-100 shadow-sm" id="passos">
-                                <div class="card-header-custom pt-2">
-                                    <p class="text-muted fw-bold mb-0 small text-uppercase">Passos</p>
-                                </div>
-
-                                <div class="card-value-container">
-                                    <div class="donut-wrapper">
-                                        <svg class="progress-ring" width="100" height="100">
-                                            <circle class="progress-ring__bg" stroke="#f0f2f5" stroke-width="8"
-                                                fill="transparent" r="40" cx="50" cy="50" />
-                                            <circle id="progresso-passos" class="progress-ring__bar" stroke="#92C444"
-                                                stroke-width="8" stroke-linecap="round" fill="transparent" r="40"
-                                                cx="50" cy="50"
-                                                style="stroke-dasharray: 251; stroke-dashoffset: 125;" />
-                                        </svg>
-                                        <div class="donut-inner">
-                                            <img src="./assets/Images/corredor.png" alt="Corredor"
-                                                class="img-corredor-min">
-                                            <h5 class="fw-bold mb-0" id="valor-passos-texto">4.5k</h5>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="pb-3">
-                                    <button class="btn-link-custom" id="btn-saiba-mais-passos">Saiba Mais</button>
-                                </div>
-                            </div>
+                        <div>
+                            <monitor-passos
+                                cor="linear-gradient(205deg, #34D052, #ffffff)">    
+                            </monitor-passos> 
                         </div>
 
-                        <div class="col">
-                            <div class="card-hub borda-laranja text-center h-100 shadow-sm" id="sono">
-                                <div class="mb-2">
-                                    <i class="bi bi-moon-stars-fill fs-2" style="color: #f39c12;"></i>
-                                </div>
-                                <p class="text-center fw-bold mb-4 small text-uppercase titulo-hub">Sono</p>
-
-                                <div class="card-value-container">
-                                    <h4 class="fw-bold mb-0" id="horas-sono">7h 20m</h4>
-                                </div>
-
-                                <div class="card-footer-spacer" style="height: 20px;"></div>
-
-                            </div>
+                        <div>
+                            <monitor-passos
+                                cor="linear-gradient(205deg, #000000, #ffffff)">    
+                            </monitor-passos> 
                         </div>
 
-                        <div class="col">
-                            <div class="card-hub borda-azul-claro text-center h-100 shadow-sm" id="agua">
-                                <div class="mb-2">
-                                    <i class="bi bi-droplet-fill fs-2" style="color: #00d2ff;"></i>
-                                </div>
-                                <p class="text-center fw-bold mb-4 small text-uppercase titulo-hub">Água</p>
-
-                                <div class="card-value-container">
-                                    <h4 class="fw-bold mb-0" id="litros-agua">1.2 <small class="fw-light">L</small>
-                                        <h4>
-                                </div>
-
-                                <div class="card-footer-spacer" style="height: 20px;"></div>
-
-                            </div>
+                        <div>
+                            <monitor-passos
+                                cor="linear-gradient(205deg, #4369E4, #ffffff)">    
+                            </monitor-passos> 
                         </div>
 
-                        <div class="col">
-                            <div class="card-hub borda-roxa text-center h-100 shadow-sm" id="glicemia">
-                                <div class="mb-2">
-                                    <i class="bi bi-droplet-half fs-2" style="color: #9b59b6;"></i>
-                                </div>
-                                <p class="text-center fw-bold mb-1 small text-uppercase titulo-hub">Glicemia</p>
-                                <div class="card-value-container">
-                                    <h4 class="fw-bold mb-0" id="litros-agua"> 95 <small class="fw-light">mg/dL</small>
-                                        <h4>
-                                </div>
-                                <div class="card-footer-spacer" style="height: 20px;">
-                                </div>
-                            </div>
+                        <div>
+                            <monitor-passos
+                                cor="linear-gradient(205deg, #601060, #ffffff)">    
+                            </monitor-passos> 
                         </div>
-
-                        <div class="col">
-                            <div class="card-hub borda-azul text-center h-100 shadow-sm" id="batimentos">
-                                <div class="mb-2">
-                                    <i class="bi bi-heart-pulse-fill fs-2" style="color: #3aadde;"></i>
-                                </div>
-                                <p class="text-center fw-bold mb-1 small text-uppercase titulo-hub">Batimentos</p>
-
-                                <div class="card-value-container">
-                                    <h4 class="fw-bold mb-0"> <span id="valor-bpm">82</span> <small
-                                            class="fw-light text-muted">bpm</small></h4>
-                                </div>
-                                <div class="card-footer-spacer" style="height: 20px;">
-                                </div>
-                            </div>
+                        
+                        <div>
+                            <monitor-passos
+                                cor="linear-gradient(205deg, #B30101, #ffffff)">    
+                            </monitor-passos> 
                         </div>
+                        
                     </div>
                 </div>
                 
