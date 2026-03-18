@@ -14,45 +14,26 @@
     <script type="module">
         import { CardConsulta } from './assets/Components/CardConsulta/CardConsulta.js';
     </script>
-    
+    <!--Menu Header-->
+    <script type="module">
+        import { MeuHeader } from './assets/Components/HeaderLogado/Header.js';
+    </script>
+
+    <!--Calendario-->
+    <script type="module">
+        import {CalendarioDinamico} from './assets/Components/Calendario/Calendario.js';
+    </script>
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-white sticky-top">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-                <div class="navbar-nav align-items-center gap-5">
-                    <a class="navbar-brand m-0" href="#">
-                        <img src="/assets/Images/logo-care-plus.png" alt="Logo Care Plus" height="80">
-                    </a>
-                    <a class="nav-link text-dark href=" #">INÍCIO</a>
-                    <a class="nav-link text-dark href=" #">AGENDAMENTOS</a>
-                    <a class="nav-link text-dark href=" #">GAME PLUS +</a>
-                    <a class="nav-link text-dark href=" #">UNIDADES</a>
-                    <a class="nav-link text-dark href=" #">CONTATO</a>
-                    <a class="btn-perfil-sair" href="login.html">
-                        <span class="texto-sair ">SAIR</span>
-                        <div class="circulo-azul">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 25px;">
-                                <path fill="white"
-                                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512h388.6c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
-                            </svg>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
+    <!--Menu Header-->
+    <meu-header></meu-header>
+    <!--Menu Header-->
     <main class="container my-5">
         <div class="row">
             <div class="col-lg-4">
-                <div class="card p-4 text-center mb-4" id="perfil">
+                <div class="card p-5 text-center mb-4" id="perfil">
                     <div class="text-start mb-2">
                         <button class="btn btn-link text-dark p-0" id="btn-config">
                             <i class="bi bi-gear-fill" style="font-size: 1.5rem;"></i>
@@ -67,92 +48,14 @@
                     <h3 class="fw-light">Bem Vindo, <span id="display-name" class="fw-bold">Usuário</span>.</h3>
                 </div>
 
-                <div id="calendario-area">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h5 class="fw-bold m-0">Março 2026</h5>
-                        <div class="btn-group">
-                            <button class="btn btn-sm btn-outline-secondary border-0"><i
-                                    class="bi bi-chevron-left"></i></button>
-                            <button class="btn btn-sm btn-outline-secondary border-0"><i
-                                    class="bi bi-chevron-right"></i></button>
-                        </div>
-                    </div>
-
-                    <table class="table table-borderless text-center m-0" id="tabela-calendario">
-                        <thead>
-                            <tr class="text-muted">
-                                <th>D</th>
-                                <th>S</th>
-                                <th>T</th>
-                                <th>Q</th>
-                                <th>Q</th>
-                                <th>S</th>
-                                <th>S</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="text-muted">1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>5</td>
-                                <td>6</td>
-                                <td>7</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>9</td>
-                                <td>10</td>
-                                <td>11</td>
-                                <td>12</td>
-                                <td>13</td>
-                                <td>14</td>
-                            </tr>
-                            <tr>
-                                <td>15</td>
-                                <td>16</td>
-                                <td>17</td>
-                                <td>18</td>
-                                <td>19</td>
-                                <td>20</td>
-                                <td>21</td>
-                            </tr>
-                            <tr>
-                                <td>22</td>
-                                <td>23</td>
-                                <td>24</td>
-                                <td class="dia-atual">25</td>
-                                <td>26</td>
-                                <td>27</td>
-                                <td>28</td>
-                            </tr>
-                            <tr>
-                                <td>29</td>
-                                <td>30</td>
-                                <td>31</td>
-                                <td class="text-muted">1</td>
-                                <td class="text-muted">2</td>
-                                <td class="text-muted">3</td>
-                                <td class="text-muted">4</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <div class="mt-4 d-grid gap-2">
-                        <a href="./assets/Pages/AgendarConsulta/AgendarConsulta.html"><button class="btn btn-primary rounded-pill fw-bold py-2" 
-                            style="background-color: #3aadde; border: none; width: 100%;">
-                            NOVA CONSULTA
-                        </button></a>
-                        <a href="./assets/Pages/CancelarConsulta/CancelarConsulta.html"><button class="btn btn-danger rounded-pill fw-bold py-2"
-                            style="background-color: #ff5c5c; border: none; width: 100%;">
-                            CANCELAR
-                        </button></a>
-                    </div>
+<!--Calendario-->
+                <div>
+                    <calendario-dinamico></calendario-dinamico>
                 </div>
+<!--Calendario-->
             </div>
             <div class="col-lg-8">
-                <div id="hub-monitoramento" class="mb-0">
+                <div id="hub-monitoramento" class="mb-4">
                     <div class="titulo-hub" id="monitoramento">
                         <h2 class="mb-4 text-center">Hub de Monitoramento</h2>
                     </div>
@@ -160,7 +63,7 @@
 
                         <div class="col">
                             <div class="card-hub borda-verde text-center h-100 shadow-sm" id="passos">
-                                <div class="card-header-custom pt-3">
+                                <div class="card-header-custom pt-2">
                                     <p class="text-muted fw-bold mb-0 small text-uppercase">Passos</p>
                                 </div>
 
@@ -249,13 +152,11 @@
                                 </div>
                                 <div class="card-footer-spacer" style="height: 20px;">
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
                 </div>
-
+                
                 <div id="secao-consultas">
                     <div class="d-flex justify-content-between align-items-center mb-">
                         <h2 class="text-center my-3">Próximas Consultas</h2>
@@ -263,54 +164,32 @@
                             TODAS</button>
                     </div>
 
-                    <div class="d-flex flex-column gap-3">
-                        <div class="card-consulta d-flex align-items-center p-3 shadow-sm border-0 bg-white">
-                            <div class="data-badge text-center p-2 rounded-4 me-4"
-                                style="background-color: #f0f8ff; min-width: 80px;">
-                                <span class="d-block fw-bold fs-4 color-azul">25</span>
-                                <span class="text-muted small fw-bold">MAR</span>
-                            </div>
-                            <div class="flex-grow-1">
-                                <h5 class="fw-bold mb-1">Cardiologia</h5>
-                                <p class="text-muted mb-0 small"><i class="bi bi-person-fill me-1"></i> Dr. Roberto
-                                    Silva</p>
-                            </div>
-                            <div class="text-end me-4">
-                                <span class="fw-bold d-block">09:30</span>
-                                <span class="badge rounded-pill bg-success-subtle text-success px-3">Confirmado</span>
-                            </div>
-                            <button class="btn btn-light rounded-circle shadow-sm"><i
-                                    class="bi bi-chevron-right"></i></button>
-                        </div>
+                    <div>
+                    <card-consulta 
+                        dia="05" 
+                        mes="MAR" 
+                        especialidade="Cardiologia" 
+                        profissional="Dr. Roberto Silva" 
+                        horario="09:30">
+                    </card-consulta>                        
                     </div>
-                    <div class="d-flex flex-column gap-3">
-                        <div class="card-consulta d-flex align-items-center p-3 shadow-sm border-0 bg-white">
-                            <div class="data-badge text-center p-2 rounded-4 me-4"
-                                style="background-color: #f0f8ff; min-width: 80px;">
-                                <span class="d-block fw-bold fs-4 color-azul">25</span>
-                                <span class="text-muted small fw-bold">MAR</span>
-                            </div>
-                            <div class="flex-grow-1">
-                                <h5 class="fw-bold mb-1">Cardiologia</h5>
-                                <p class="text-muted mb-0 small"><i class="bi bi-person-fill me-1"></i> Dr. Roberto
-                                    Silva</p>
-                            </div>
-                            <div class="text-end me-4">
-                                <span class="fw-bold d-block">09:30</span>
-                                <span class="badge rounded-pill bg-success-subtle text-success px-3">Confirmado</span>
-                            </div>
-                            <button class="btn btn-light rounded-circle shadow-sm"><i
-                                    class="bi bi-chevron-right"></i></button>
-                        </div>
+                    <div>
+                        <card-consulta 
+                            dia="17" 
+                            mes="MAR" 
+                            especialidade="Cardiologia" 
+                            profissional="Dr. Roberto Silva" 
+                            horario="14:30">
+                        </card-consulta>
                     </div>
                     <card-consulta 
-            dia="25" 
-            mes="MAR" 
-            especialidade="Cardiologia" 
-            profissional="Dr. Roberto Silva" 
-            horario="09:30">
-        </card-consulta>
-                </div>
+                        dia="25" 
+                        mes="MAR" 
+                        especialidade="Cardiologia" 
+                        profissional="Dr. Roberto Silva" 
+                        horario="09:30">
+                    </card-consulta>
+                    </div>
             </div>
         </div>
         
@@ -319,7 +198,5 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
         </script>
     <script src="/assets/js/script.js"></script>
-
 </body>
-
 </html>
