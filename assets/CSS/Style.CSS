@@ -1,9 +1,17 @@
-body {
-    font-family: 'Montserrat', sans-serif;
+/* ==========================================================================
+   1. CONFIGURAÇÕES GLOBAIS E RESET
+   ========================================================================== */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #f0f2f5; /* Fundo cinza claro para destacar os cards */
+    font-family: 'Montserrat', 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Estilização do Perfil */
-
+/* ==========================================================================
+   2. ESTILIZAÇÃO DO PERFIL (USER PROFILE)
+   ========================================================================== */
 #perfil {
     box-shadow: #21252967 0 0px 7px;
     border-radius: 15px;
@@ -17,21 +25,25 @@ body {
 }
 
 #user-photo {
-    width: 150px;
-    height: 150px;
+    width: 163px;
+    height: 163px;
     border: 5px solid white;
     object-fit: cover;
-    
 }
+
+/* ==========================================================================
+   3. ÁREA DO CALENDÁRIO
+   ========================================================================== */
 #calendario-area {
+    background-color: #ffffff;
     box-shadow: #21252967 0 0px 7px;
     border-radius: 15px;
     padding: 1.8rem;
 }
+
 #tabela-calendario th {
     font-size: 0.8rem;
     font-weight: 600;
-    
 }
 
 #tabela-calendario td {
@@ -39,7 +51,7 @@ body {
     cursor: pointer;
     font-size: 0.9rem;
     transition: 0.3s;
-    border-radius:50%; /* Faz o efeito de hover ser circular */
+    border-radius: 50%; /* Faz o efeito de hover ser circular */
 }
 
 #tabela-calendario td:hover:not(.text-muted) {
@@ -47,7 +59,7 @@ body {
     color: #3aadde;
 }
 
-/* O círculo azul no dia atual igual à sua foto */
+/* Círculo azul no dia atual */
 .dia-atual {
     background-color: #3aadde !important;
     color: white !important;
@@ -55,9 +67,11 @@ body {
     border-radius: 50%;
 }
 
-/* Área do Hub */
+/* ==========================================================================
+   4. HUB DE MONITORAMENTO (ESTRUTURA E TITULOS)
+   ========================================================================== */
 #hub-monitoramento {
-    min-height: 345px !important; /* Ajuste para igualar à altura do seu card de perfil */
+    min-height: 345px !important; /* Ajuste para igualar à altura do card de perfil */
     display: flex;
     flex-direction: column;
     background-color: #f8fafc; /* Um cinza bem clarinho quase azulado */
@@ -66,45 +80,57 @@ body {
     box-shadow: #21252967 0 0px 7px;
 }
 
-/* O Título "Hub de Monitoramento" */
-.titulo-hub {
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Estilo da barra de título do Hub */
+.hub-header, #monitoramento {
+    width: 100%;
+    max-width: 1200px;
+    background-color: #92C444; /* Verde do logo */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Ajuste específico para o ID monitoramento original */
+#monitoramento {
+    padding: 0.2rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    height: 3rem;
+}
+
+.hub-header h1, .titulo-hub {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
     color: #ffffff;
     display: flex;
     justify-content: center;
 }
 
-
-#monitoramento {
-    background-color: #92C444;
-    padding: 0.2rem;
-    margin-bottom: 0.5rem;
-    border-radius:5px;
+/* Container do Grid de Cards */
+.hub-container {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(220px, 1fr)); 
+    gap: 15px;
     width: 100%;
-    height: 3rem;
+    max-width: 1200px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-
-
-
-/* Cores das Bordas Inferiores (Igual na sua foto) */
-.borda-azul { border-bottom-color: #B30101; }
-.borda-verde { border-bottom-color: #92C444; }
-.borda-laranja { border-bottom-color: #000000; }
-.borda-roxa { border-bottom-color: #9b59b6; }
-.borda-azul-claro { border-bottom-color: #4369E4; }
-
-.card-value-container {
-    flex-grow: 1;      /* Ela expande para ocupar todo o meio do card */
-    display: flex;
-    align-items: center;    /* Centraliza o número verticalmente */
-    justify-content: center;  /* Centraliza o número horizontalmente */
-}
-
-.card-header-custom {
-    width: 100%;
-}
-
-/* Container que centraliza o SVG e o texto interno */
+/* ==========================================================================
+   5. COMPONENTES DOS CARDS (DONUTS E INDICADORES)
+   ========================================================================== */
 .donut-wrapper {
     position: relative;
     display: inline-flex;
@@ -116,18 +142,10 @@ body {
     transform: rotate(-90deg); /* Inicia o progresso pelo topo */
 }
 
-/* Estilo da barra de progresso com animação */
 .progress-ring__bar {
     transition: stroke-dashoffset 0.5s ease-in-out;
 }
 
-/*Teste*/
-#progresso-passos {
-    background: linear-gradient(205deg,#34D052,#ffffff);
-
-}
-
-/* Conteúdo dentro do círculo */
 .donut-inner {
     position: absolute;
     display: flex;
@@ -136,16 +154,44 @@ body {
     justify-content: center;
 }
 
+.donut-inner h5 {
+    font-size: 1.1rem;
+}
+
 .img-corredor-min {
-    width: 20px; /* Bem pequeno para caber no donut */
+    width: 20px;
     margin-bottom: 2px;
 }
 
-.donut-inner h5 {
-    font-size: 1.1rem; /* Tamanho ajustado para o card de 16rem */
+/* Cores das Bordas Inferiores */
+.borda-azul { border-bottom-color: #B30101; }
+.borda-verde { border-bottom-color: #92C444; }
+.borda-laranja { border-bottom-color: #000000; }
+.borda-roxa { border-bottom-color: #9b59b6; }
+.borda-azul-claro { border-bottom-color: #4369E4; }
+
+/* Auxiliares de Card */
+.card-value-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Botão discreto para manter a altura do card */
+.card-header-custom {
+    width: 100%;
+}
+
+.card-header-custom p {
+    margin-top: 5px;
+    font-size: 0.75rem;
+    line-height: 1.1;
+}
+
+.h-100 {
+    height: 14rem !important;
+}
+
 .btn-link-custom {
     background: none;
     border: none;
@@ -157,21 +203,15 @@ body {
     padding: 0;
 }
 
-
-/* Ajuste para o texto não ficar colado no ícone */
-.card-header-custom p {
-    margin-top: 5px;
-    font-size: 0.75rem;
-    line-height: 1.1;
-}
-/* Garante que todos os cards tenham a mesma altura */
-.h-100 {
-    height: 14rem !important;
+#progresso-passos {
+    background: linear-gradient(205deg,#34D052,#ffffff);
 }
 
-/* Estilo específico para a seção de agenda */
+/* ==========================================================================
+   6. SEÇÃO DE AGENDA E CONSULTAS
+   ========================================================================== */
 #secao-consultas {
-    padding: 10px; /* Um leve respiro interno */
+    padding: 10px;
 }
 
 .card-consulta {
@@ -179,11 +219,11 @@ body {
     border-radius: 20px;
     background-color: #ffffff;
     transition: all 0.3s ease;
-    border-left: 6px solid #3aadde !important; /* Identidade visual de agendamento */
+    border-left: 6px solid #3aadde !important; /* Identidade de agendamento */
 }
 
 .card-consulta:hover {
-    transform: translateX(5px); /* Efeito lateral em vez de subir */
+    transform: translateX(5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
 }
 
@@ -192,3 +232,17 @@ body {
     min-width: 85px;
 }
 
+/* ==========================================================================
+   7. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 1100px) {
+    .hub-container { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 700px) {
+    .hub-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+    .hub-container { grid-template-columns: 1fr; }
+}

@@ -1,64 +1,54 @@
-/* CONTAINER PRINCIPAL - SEU ESTILO ORIGINAL MANTIDO */
+/* ==========================================================================
+   COMPONENT: CardHub Universal (Monitoramento Hub)
+   ========================================================================== */
+
+/* CONTAINER PRINCIPAL
+   Define o tamanho, bordas e o comportamento do card como um todo */
 .Card {
     min-height: 250px !important;
     border: none;
     border-radius: 5px;
-    box-shadow: 0 10px 25px rgba(224, 38, 38, 0.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
     transition: 0.3s;
     border-bottom: 6px solid transparent;
     
-    /* ALINHAMENTO FLEXBOX */
+    /* Alinhamento dos elementos internos em coluna */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 0.1rem;
 
-    /* REGRAS CRÍTICAS PARA O FUNCIONAMENTO DA JANELA INTERNA */
+    /* Essencial para que o Modal (janela interna) funcione corretamente */
     position: relative; 
     overflow: hidden; 
     font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
-/* JANELA DE INTERAÇÃO (MODAL) */
-.modal-interativo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.98); 
-    z-index: 10;
-    
+/* CABEÇALHO DO CARD
+   Agrupa o Título e a Data Automática */
+.cabecalho {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 10px;
-    box-sizing: border-box;
-
-    /* ANIMAÇÃO DE SUBIR/DESCER */
-    transform: translateY(100%);
-    opacity: 0;
-    pointer-events: none; /* Bloqueia cliques enquanto escondido */
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
+    margin-top: 10px;
 }
 
-.modal-interativo.active {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: all; /* Ativa cliques apenas quando aberto */
-}
-
-/* ESTILOS DO MONITOR E GRÁFICO */
 .titulo-monitor {
     font-size: 0.8rem;
     font-weight: bold;
-    color: #333;
-    margin-top: 15px;
-    text-transform: uppercase;
+    color: #ffffff;
+    text-transform: uppercase; /* Mantém o padrão visual de etiquetas */
 }
 
+.data-atual {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.85); /* Branco suave para não brilhar mais que o título */
+    margin-top: 2px;
+}
+
+/* GRÁFICO CIRCULAR E CENTRO
+   Controla o círculo de progresso e os textos internos (Número/Meta) */
 .grafico-circular {
     position: relative;
     width: 130px;
@@ -68,52 +58,93 @@
 .svg-progresso {
     width: 100%;
     height: 100%;
-
 }
 
-/* O TRILHO BRANCO */
 .circulo-fundo {
     fill: none;
     stroke: #ffffff; 
     stroke-width: 2.8;
 }
 
-/* A BARRA DE PROGRESSO COM TRANSIÇÃO SUAVE */
 .circulo-progresso {
     fill: none;
-    stroke: #34D052;
     stroke-width: 2.8;
     stroke-linecap: round;
-    /* Mágica da animação: */
+    /* Transição suave para o efeito de "carregamento" da barra */
     transition: stroke-dasharray 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* TEXTOS NO CENTRO DO CÍRCULO */
 .textos-centro {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-corredor {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 1px;
+    opacity: 0.9;
 }
 
 .quantidade {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: #222;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1;
     display: block;
 }
 
 .label {
-    font-size: 0.6rem;
-    color: #888;
-    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
     font-weight: 600;
 }
 
-/* BOTÕES E INPUTS */
+/* SEÇÃO DE INFORMAÇÕES ADICIONAIS
+   Exibe Calorias/Distância ou Menor/Maior no rodapé do card */
+.info-adicional {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.info-label {
+    font-size: 0.55rem;
+    color: rgb(255, 255, 255); 
+    text-transform: capitalize;
+    margin-bottom: 2px;
+}
+
+.info-valor {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.divisor {
+    width: 1.5px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.5); /* Linha divisória vertical sutil */
+}
+
+/* BOTÕES E INTERATIVIDADE
+   Estilo dos botões e do Modal de edição de metas */
 .btn-interativo {
-    background: #34D052;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -128,7 +159,35 @@
 }
 
 .btn-interativo:hover {
-    background: #28a745;
+    filter: brightness(0.9); /* Escurece levemente no hover */
+}
+
+.modal-interativo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.98); 
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+
+    /* Efeito de subir/descer (Slide) */
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
+}
+
+.modal-interativo.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
 }
 
 .modal-interativo p {
@@ -149,10 +208,10 @@
 }
 
 .modal-interativo input:focus {
-    border-color: #34D052;
+    border-color: #34D052; /* Foco do input na cor principal */
 }
 
 #btn-fechar {
-    background: #333; /* Cor neutra para o botão de salvar/fechar */
+    background: #333; /* Botão de salvar com cor neutra */
     margin-top: 15px;
 }
