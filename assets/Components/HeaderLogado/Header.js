@@ -1,7 +1,7 @@
 export class MeuHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-            <link rel="stylesheet" href="MeuHeader.css">
+            <link rel="stylesheet" href="Header.css">
 
             <nav class="navbar navbar-expand-lg bg-white sticky-top">
                 <div class="container-fluid">

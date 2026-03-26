@@ -1,13 +1,22 @@
 // Função para carregar dados do usuário logado
 function carregarPerfil() {
-    const usuarioLogado = {
-        nome: "Pacheco",
-        foto: "./assets/Images/avatar-padrao.png" 
-    };
+    const usuarioLogado = { nome: "Pacheco", foto: "/assets/Images/avatar-padrao.png" };
+    
+    const elementoNome = document.getElementById('display-name');
+    const elementoFoto = document.getElementById('user-photo');
 
-    document.getElementById('display-name').innerText = usuarioLogado.nome;
-    document.getElementById('user-photo').src = usuarioLogado.foto;
+    // A MÁGICA CONTRA O ERRO: Só altera se o elemento existir na página!
+    if (elementoNome) { 
+        elementoNome.innerText = usuarioLogado.nome; 
+    }
+    
+    if (elementoFoto) { 
+        elementoFoto.src = usuarioLogado.foto; 
+    }
 }
+
+// Substitua window.onload por este comando para evitar conflitos
+window.addEventListener('load', carregarPerfil);
 
 // Executa ao carregar a página
 window.onload = carregarPerfil;

@@ -1,7 +1,6 @@
-// assets/Components/PainelProgresso/PainelProgresso.js
-
 class PainelProgresso extends HTMLElement {
     connectedCallback() {
+        // 1. Renderiza o HTML do Componente
         this.innerHTML = `
             <div class="row g-3 mb-4 text-center">
                 <div class="col-6">
@@ -13,7 +12,9 @@ class PainelProgresso extends HTMLElement {
                     <div class="p-2 rounded-pill text-white fw-bold shadow-sm btn-acao">1º Lugar</div>
                 </div>
                 <div class="col-12 mt-3">
-                    <button class="btn btn-acao w-100 rounded-pill py-2 fw-bold text-white shadow-sm">Troque seus pontos</button>
+                    <button class="btn btn-acao w-100 rounded-pill py-2 fw-bold text-white shadow-sm">
+                        Troque seus pontos
+                    </button>
                 </div>
             </div>
 
@@ -44,22 +45,32 @@ class PainelProgresso extends HTMLElement {
             </div>
         `;
 
-        // Ativa a animação das barras após o HTML ser carregado na tela
-        setTimeout(() => this.animarBarras(), 100);
+        // 2. Executa as funções que ficavam no antigo ranking.js
+        this.carregarUsuario();
+        setTimeout(() => this.animarBarras(), 300); // Aguarda 300ms para a transição ficar bonita
     }
 
-    // A lógica de animação agora vive DENTRO do componente! Muito mais organizado.
     animarBarras() {
+        // Busca apenas as barras que estão dentro deste componente
         const barras = this.querySelectorAll('.progress-bar');
+        
         barras.forEach(barra => {
             const valorFinal = barra.getAttribute('data-target'); 
             if (valorFinal) {
-                setTimeout(() => {
-                    barra.style.width = valorFinal + '%'; 
-                    barra.innerText = valorFinal + '% Completo';
-                }, 300);
+                barra.style.width = valorFinal + '%'; 
+                barra.innerText = valorFinal + '% Completo';
             }
         });
+    }
+
+    carregarUsuario() {
+        const usuarioLogado = { nome: "Pacheco" }; // Mude o nome aqui!
+        
+        // Busca o elemento na página global
+        const elementoNome = document.getElementById('display-name');
+        if (elementoNome) { 
+            elementoNome.innerText = usuarioLogado.nome; 
+        }
     }
 }
 
