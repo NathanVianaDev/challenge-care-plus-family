@@ -1,29 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personalizar Avatar - Care Plus Family</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../Components/HeaderLogado/Header.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-
+    <style>
+        #text-avatar { transition: color 0.3s ease; }
+        .cursor-pointer { cursor: pointer; }
+    </style>
     <script type="module" src="../../Components/HeaderLogado/Header.js"></script>
+    <script type="module" src="../../Components/BotaoGenero/BotaoGenero.js"></script>
+    <script type="module" src="../../Components/AvatarPreview/AvatarPreview.js"></script>
 </head>
+<body class="bg-light">
+    <meu-header></meu-header> 
+    <main class="container my-5">
+        <div class="d-flex justify-content-between align-items-center bg-white p-4 shadow-sm rounded-top-4 border-bottom">
+            <h2 class="fw-light m-0">Personalize seu <span id="text-avatar" class="fw-bold">Avatar</span></h2>
+            <div class="d-flex gap-2">
+                <botao-genero id="btn-masculino" genero="masculino" active="true"></botao-genero>
+                <botao-genero id="btn-feminino" genero="feminino"></botao-genero>
+            </div>
+        </div> 
 
-<body>
-    <meu-header></meu-header>
-    <main>
-
-        
-
+        <div class="row g-0 bg-white shadow-sm rounded-bottom-4" style="min-height: 700px;">
+            <div class="col-md-1 border-end d-flex flex-column align-items-center py-4 gap-4 bg-light">
+                <button class="btn btn-outline-success border-0 p-3"><i class="bi bi-scissors fs-2"></i></button>
+                <button class="btn btn-outline-success border-0 p-3"><i class="bi bi-person-badge fs-2"></i></button>
+                <button class="btn btn-outline-success border-0 p-3"><i class="bi bi-universal-access fs-2"></i></button>
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-center p-4">
+                <avatar-preview id="main-avatar" genero="masculino"></avatar-preview>
+            </div>
+            <div class="col-md-5 border-start bg-light p-4">
+                <h5 class="fw-bold mb-4 text-secondary text-center">Escolha uma opção</h5>
+                <div id="opcoes-grid" class="row row-cols-3 g-3">
+                    <div class="col text-center">
+                        <div class="bg-white border rounded-3 p-3 shadow-sm cursor-pointer"><small>Vazio</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../js/script.js"></script>
 </body>

@@ -1,54 +1,54 @@
-// Função para carregar dados do usuário logado
-function carregarPerfil() {
-    const usuarioLogado = { nome: "Pacheco", foto: "/assets/Images/avatar-padrao.png" };
-    
-    const elementoNome = document.getElementById('display-name');
-    const elementoFoto = document.getElementById('user-photo');
+/**
+ * Care Plus Family - Script Unificado (Debug Mode)
+ */
 
-    // A MÁGICA CONTRA O ERRO: Só altera se o elemento existir na página!
-    if (elementoNome) { 
-        elementoNome.innerText = usuarioLogado.nome; 
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("🚀 Script carregado com sucesso!");
+
+    // --- 1. LÓGICA DO AVATAR ---
+    const btnMasc = document.getElementById('btn-masculino');
+    const btnFem = document.getElementById('btn-feminino');
+    const avatarPreview = document.getElementById('main-avatar');
+    const textAvatar = document.getElementById('text-avatar');
+
+    if (btnMasc && btnFem) {
+        console.log("✅ Botões de gênero encontrados!");
+        
+        const trocar = (genero) => {
+            console.log("Changing to:", genero);
+            if (avatarPreview) avatarPreview.setAttribute('genero', genero);
+            
+            if (genero === 'masculino') {
+                btnMasc.setAttribute('active', 'true');
+                btnFem.removeAttribute('active');
+                if (textAvatar) textAvatar.style.color = '#0d6efd';
+            } else {
+                btnFem.setAttribute('active', 'true');
+                btnMasc.removeAttribute('active');
+                if (textAvatar) textAvatar.style.color = '#E84D8A';
+            }
+        };
+
+        btnMasc.addEventListener('click', () => trocar('masculino'));
+        btnFem.addEventListener('click', () => trocar('feminino'));
+    } else {
+        console.warn("⚠️ Botões de gênero não encontrados. Ignore se não estiver na página Avatar.");
     }
-    
-    if (elementoFoto) { 
-        elementoFoto.src = usuarioLogado.foto; 
+
+    // --- 2. LÓGICA DA DASHBOARD (Círculos/Donuts) ---
+    function animarCirculo(idBarra, valor, meta) {
+        const barra = document.getElementById(idBarra);
+        if (barra) {
+            const circunferencia = 251;
+            const porcentagem = Math.min(valor / meta, 1);
+            const offset = circunferencia - (porcentagem * circunferencia);
+            barra.style.strokeDashoffset = offset;
+            console.log(`✅ Círculo ${idBarra} animado!`);
+        }
     }
-}
 
-// Substitua window.onload por este comando para evitar conflitos
-window.addEventListener('load', carregarPerfil);
-
-// Executa ao carregar a página
-window.onload = carregarPerfil;
-
-// Adicione isso ao seu script.js
-function simularMonitoramento() {
-    // Simula batimentos variando entre 75 e 85
-    const bpm = Math.floor(Math.random() * (85 - 75 + 1)) + 75;
-    const elementoBpm = document.getElementById('valor-bpm');
-    if(elementoBpm) elementoBpm.innerText = bpm;
-    
-}
-
-function atualizarDonutPassos(passosDados) {
-    const meta = 10000;
-    const circunferencia = 251; 
-    
-    const porcentagem = Math.min(passosDados / meta, 1);
-    const offset = circunferencia - (porcentagem * circunferencia);
-    
-    const barra = document.getElementById('progresso-passos');
-    const texto = document.getElementById('valor-passos-texto');
-    
-    barra.style.strokeDashoffset = offset;
-    
-    // Formata para "4.5k" se for maior que 1000, ou o número real
-    texto.innerText = passosDados >= 1000 ? (passosDados/1000).toFixed(1) + 'k' : passosDados;
-}
-
-// Gatilho do botão
-document.getElementById('btn-saiba-mais-passos').addEventListener('click', () => {
-    const valor = prompt("Digite os novos passos:");
-    if(valor) atualizarDonutPassos(parseInt(valor));
+    // Tenta animar os círculos da sua Dashboard
+    // Verifique se no seu HTML o ID da barra verde de passos é 'progresso-passos'
+    animarCirculo('progresso-passos', 4500, 10000); 
+    animarCirculo('progresso-bpm', 80, 150);
 });
-
