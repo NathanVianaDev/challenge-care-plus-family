@@ -130,7 +130,7 @@ class FormularioFamilia extends HTMLElement {
                 <div class="modal-dialog modal-dialog-centered modal-sm">
                     <div class="modal-content rounded-4 border-0 shadow-lg">
                         <div class="modal-header border-0 pb-0 justify-content-center pt-4">
-                            <img src="/assets/Images/logo-care-plus.png" alt="Care Plus" class="logo-mensagem">
+                            <img src="/assets/Images//logo-care-plus.png" alt="Care Plus" class="logo-mensagem">
                         </div>
                         <div class="modal-body text-center px-4 pb-4">
                             <h6 class="fw-bold mb-2 mt-3 text-dark">Atenção: Página de Teste</h6>

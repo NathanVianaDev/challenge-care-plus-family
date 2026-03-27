@@ -64,12 +64,14 @@ class PainelProgresso extends HTMLElement {
     }
 
     carregarUsuario() {
-        const usuarioLogado = { nome: "Pacheco" }; // Mude o nome aqui!
+        // 1. O componente "lê" o atributo que você colocou lá no HTML. 
+        // Se por acaso você esquecer de colocar o atributo, ele usa "Usuário" como padrão.
+        const nomeRecebido = this.getAttribute('nome-usuario') || "Usuário";
         
-        // Busca o elemento na página global
+        // 2. Busca o elemento na página global
         const elementoNome = document.getElementById('display-name');
         if (elementoNome) { 
-            elementoNome.innerText = usuarioLogado.nome; 
+            elementoNome.innerText = nomeRecebido; // Escreve o nome dinâmico na tela!
         }
     }
 }
