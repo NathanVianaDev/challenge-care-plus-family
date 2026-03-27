@@ -3,7 +3,7 @@ class AvatarCenario extends HTMLElement {
         // 1. Renderiza o HTML do Componente
         this.innerHTML = `
             <div class="position-relative d-inline-block shadow-lg rounded-4 overflow-hidden border border-5 border-white">
-                <img src="/assets/Images/fundo-avatar01.png" id="img-avatar-bg" class="img-fluid" style="max-height: 550px;">
+                <img src="/assets/Images/fundo-avatar06.jpg" id="img-avatar-bg" class="img-fluid" style="max-height: 550px;">
                 
                 <div class="dropdown">
                     <button class="btn btn-editar-lateral dropdown-toggle" type="button" data-bs-toggle="dropdown">
