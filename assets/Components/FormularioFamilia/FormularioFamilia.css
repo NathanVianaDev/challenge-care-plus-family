@@ -1,0 +1,59 @@
+/* --- Cores e Botões Globais --- */
+.btn-azul {
+    background-color: #3aadde !important;
+    color: white !important;
+    border: none !important;
+    transition: 0.3s;
+}
+
+.btn-azul:hover {
+    background-color: #2c8eb5 !important;
+    transform: translateY(-2px);
+}
+
+.btn-verde {
+    background-color: #92C444 !important;
+    color: white !important;
+    border: none !important;
+    transition: 0.3s;
+}
+
+.btn-verde:hover {
+    background-color: #7da83a !important;
+    transform: scale(1.02);
+}
+
+/* --- Estilização da Tabela de Membros --- */
+.tabela-membros-container {
+    max-height: 250px; /* Limita a altura se houver muitos membros */
+    overflow-y: auto; /* Adiciona scroll se necessário */
+    background-color: white;
+}
+
+.tabela-membros {
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+.tabela-membros th {
+    color: #475569; /* text-muted */
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.tabela-membros td {
+    padding: 12px 8px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Centraliza os textos na coluna Responsável */
+.tabela-membros th:last-child,
+.tabela-membros td:last-child {
+    text-align: center;
+}
+
+/* Ícone do responsável */
+.icon-responsavel {
+    color: #92C444; /* Verde Care Plus */
+    font-weight: bold;
+}
