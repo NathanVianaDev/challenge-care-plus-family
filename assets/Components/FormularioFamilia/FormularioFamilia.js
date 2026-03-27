@@ -57,7 +57,7 @@ class FormularioFamilia extends HTMLElement {
                                 <div class="d-flex flex-wrap gap-3">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="dadosNao" checked>
-                                        <label class="form-check-label small" for="dadosNao">Não desejo</label>
+                                        <label class="form-check-label small" for="dadosNao">Não compartilhar</label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="dadosFamilia">
@@ -155,7 +155,7 @@ class FormularioFamilia extends HTMLElement {
         const checkFamilia = this.querySelector('#dadosFamilia');
         const checkEmpresa = this.querySelector('#dadosEmpresa');
 
-        // 1. Se marcar "Não desejo", limpa as outras opções
+        // 1. Se marcar "Não compartilhar", limpa as outras opções
         checkNao.addEventListener('change', () => {
             if (checkNao.checked) {
                 checkFamilia.checked = false;
@@ -163,12 +163,12 @@ class FormularioFamilia extends HTMLElement {
             }
         });
 
-        // 2. Função para desmarcar o "Não desejo" se escolher Família ou Empresa
+        // 2. Função para desmarcar o "Não compartilhar" se escolher Família ou Empresa
         const desmarcarNao = () => {
             if (checkFamilia.checked || checkEmpresa.checked) {
                 checkNao.checked = false;
             } else if (!checkFamilia.checked && !checkEmpresa.checked) {
-                // Se o usuário desmarcar tudo, volta automaticamente para "Não desejo"
+                // Se o usuário desmarcar tudo, volta automaticamente para "Não compartilhar"
                 checkNao.checked = true;
             }
         };
