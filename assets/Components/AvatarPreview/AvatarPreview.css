@@ -1,0 +1,181 @@
+/* ==========================================================================
+   Care Plus Family - CSS EXCLUSIVO DO AVATAR
+   Centraliza o visual do Boneco (Shadow DOM) e da Vitrine (Página Global).
+   ========================================================================== */
+
+/* --- A. ESTILO INTERNO DO BONECO (USADO NO SHADOW DOM) --- */
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.avatar-container {
+    position: relative;
+    width: 100%;
+    max-width: 550px; /* Boneco imponente */
+    /* Proporção Real 829x1000 */
+    aspect-ratio: 829 / 1000; 
+    border-radius: 20px;
+    background-color: #fff; /* Fundo branco para respiro */
+
+}
+
+/* Estilo para TODAS as camadas de imagem (Base, Cabelo, etc.) */
+.avatar-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Impede que o desenho deforme */
+    pointer-events: none; /* Garante que o clique passe pelas camadas transparentes */
+}
+
+/* Camada da Base (Corpo) - Fica no fundo */
+.base { z-index: 1; }
+
+/* Camadas de personalização (Cabelo, etc.) - Ficam por cima */
+.layer {
+    z-index: 2;
+    opacity: 0; /* Começa invisível para o efeito Fade */
+    transition: opacity 0.4s ease-in-out; /* Transição fluida */
+}
+
+/* Classe de animação aplicada via JS quando o atributo muda */
+.visible {
+    opacity: 1;
+}
+
+/* --- B. ESTILO DAS OPÇÕES DA VITRINE (MENU LATERAL - PÁGINA GLOBAL) --- */
+/* Estes seletores serão injetados na página principal pelo JS do componente. */
+
+/* 1. O PAI: Garante que o container tenha espaço para os 3 itens */
+#opcoes-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important; /* Espaço entre os cards */
+    justify-content: flex-start !important; /* Alinha à esquerda para preencher as colunas */
+    width: 100% !important;
+    
+    /* ALTURA PARA 4 LINHAS: Ajuste esse valor para ver a 4ª linha sem scroll */
+    height: 520px !important; 
+    overflow-y: auto !important;
+}
+
+/* 2. O FILHO: O cálculo para as 3 colunas */
+.item-opcao {
+    /* MATEMÁTICA: 33% menos o desconto do GAP */
+    width: calc(33.33% - 8px) !important; 
+    height: 120px !important; /* Altura do card para caber as 4 linhas */
+    
+    background-color: #ffffff;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.item-opcao img {
+    width: 100%; /* Deixa um respiro interno para a máscara */
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Classe de seleção aplicada via JS ao clicar na miniatura */
+.item-active {
+    border-color: #92C444 !important;
+    background-color: #f8fff0;
+    box-shadow: inset 0 0 8px rgba(146, 196, 68, 0.2);
+}
+
+/* Pequeno texto descritivo abaixo da miniatura */
+.small-desc {
+    font-size: 10px;
+    color: #6c757d;
+    margin-top: 4px;
+    display: block;
+    text-transform: uppercase;
+    text-align: center; /* Centraliza abaixo do card */
+    width: 100%;
+}
+/* --- ESTRUTURA PRINCIPAL (PAI DE TUDO) --- */
+
+/* A folha branca centralizada */
+.customizador-wrapper {
+    max-width: 1200px; /* LARGURA DA CAIXA TODA */
+    margin: 40px auto; /* Centraliza na tela com respiro no topo */
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* O Retângulo do Título */
+.customizador-header {
+    background: white;
+    padding: 25px;
+    border-radius: 20px 20px 0 0; /* Arredonda só em cima */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* O Retângulo do Conteúdo (Boneco + Menu) */
+.customizador-body {
+    background: white;
+    display: flex;
+    min-height: 750px; /* ALTURA DA CAIXA TODA */
+    border-radius: 0 0 20px 20px; /* Arredonda só embaixo */
+    overflow: hidden;
+}
+
+/* Coluna 1: Ícones Laterais (Verdes) */
+.sidebar-icones {
+    width: 80px;
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    gap: 25px;
+    border-right: 1px solid #eee;
+}
+
+.btn-icone-lateral {
+    background: none;
+    border: none;
+    color: #198754;
+    transition: 0.3s;
+}
+
+/* Coluna 2: Onde o Boneco fica */
+.area-preview {
+    flex: 1; /* Ocupa o máximo de espaço possível */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Coluna 3: Onde o Menu de Cabelos fica */
+.area-menu {
+    width: 400px; /* LARGURA FIXA DO MENU DA DIREITA */
+    background: #f8f9fa;
+    padding: 30px;
+    border-left: 1px solid #eee;
+}
+
+/* O GRID DE 5PX (O que você queria!) */
+#opcoes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px; /* DISTÂNCIA EXATA ENTRE OS QUADRADINHOS */
+    justify-content: center;
+    max-height: 600px;
+    overflow-y: auto;
+}
