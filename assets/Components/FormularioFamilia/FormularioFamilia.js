@@ -40,7 +40,7 @@ class FormularioFamilia extends HTMLElement {
                     
                     <div class="col-lg-5 order-1 order-lg-2">
                         <div class="d-block position-relative rounded-4 overflow-hidden border border-4 border-white shadow container-img-familia">
-                            <img src="/assets/Images/Familia-CarPlus.png" class="img-fluid w-100 h-100 object-fit-cover position-absolute top-0 start-0" alt="Sua Família Care Plus">
+                            <img src="/assets/Images/FamiliaCarplus/Familia-CarPlus01.png" class="img-fluid w-100 h-100 object-fit-cover position-absolute top-0 start-0" alt="Sua Família Care Plus">
                         </div>
                     </div>
 

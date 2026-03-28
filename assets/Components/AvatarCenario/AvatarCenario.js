@@ -8,10 +8,9 @@ class AvatarCenario extends HTMLElement {
         let listaImagens = [];
         let prefixoTexto = "Cenário";
 
-        // 3. A MÁGICA: O JS decide quais arquivos usar baseado na pasta
+        // 3. A MÁGICA CORRIGIDA: if / else if / else
         if (pasta === 'FamiliaCarplus') {
             prefixoTexto = "Família";
-            // Nomes exatos conforme o seu print
             listaImagens = [
                 'Familia-CarPlus01.png',
                 'Familia-CarPlus02.png',
@@ -19,8 +18,13 @@ class AvatarCenario extends HTMLElement {
                 'Familia-CarPlus04.png',
                 'Familia-CarPlus05.png'
             ];
+        } else if (pasta === 'AmbienteEmpresa') { // ✅ CORREÇÃO AQUI
+            prefixoTexto = "Ambiente Empresa";
+            listaImagens = [
+                'AmbienteEmpresa.png'
+            ];
         } else {
-            // Padrão da tela de Ranking (FundoAvatar)
+            // Padrão (FundoAvatar) - Vai cair aqui se for a tela de Ranking ou se você não passar a tag
             prefixoTexto = "Cenário";
             listaImagens = [
                 'fundo-avatar01.png',
@@ -39,7 +43,7 @@ class AvatarCenario extends HTMLElement {
             menuItensHTML += `<li><a class="dropdown-item mudar-cenario" href="#" data-bg="${img}">${prefixoTexto} ${numeroCenario}</a></li>`;
         });
 
-        // 5. Renderiza o Componente (Note que a 1ª imagem da lista carrega por padrão)
+        // 5. Renderiza o Componente
         this.innerHTML = `
             <div class="position-relative d-inline-block shadow-lg rounded-4 overflow-hidden border border-5 border-white">
                 
