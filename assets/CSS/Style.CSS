@@ -246,3 +246,51 @@ body, html {
 @media (max-width: 480px) {
     .hub-container { grid-template-columns: 1fr; }
 }
+
+/* ==========================================================================
+    8. ESTILIZAÇÃO DAS MINIATURAS DA VITRINE (GLOBAL)
+   ========================================================================== */
+/* --- ESTILO DAS MINIATURAS DA VITRINE (PÁGINA GLOBAL) --- */
+.item-opcao {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 3px !important;
+    background-color: #ffffff !important;
+    border: 1px solid #dee2e6 !important;
+    border-radius: 8px !important;
+    cursor: pointer;
+    margin: 0 auto;
+    
+    /* PROPORÇÃO VERTICAL 250x385 EM TAMANHO PEQUENO */
+    width: 80px !important; 
+    aspect-ratio: 250 / 385 !important; 
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+}
+
+.item-opcao img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+.item-opcao:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-color: #92C444 !important;
+}
+
+.item-opcao.border-success {
+    border: 2px solid #92C444 !important;
+    background-color: #f8fff0;
+}
+
+.text-muted {
+    font-size: 9px !important;
+}
+
+#opcoes-grid::-webkit-scrollbar { width: 4px; }
+#opcoes-grid::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
