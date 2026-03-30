@@ -1,0 +1,74 @@
+/* Reset e Tipografia */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('/assets/Images/image_b9a77c.jpg') no-repeat center center;
+    background-size: cover;
+    height: 600px; /* Ajuste conforme a necessidade */
+    position: relative;
+}
+
+.hero-content {
+    padding-left: 10%;
+}
+
+.brand-subtitle {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.hero-title {
+    font-weight: 800;
+    font-size: 3rem;
+    color: #000;
+    line-height: 1.1;
+    margin: 15px 0;
+}
+
+.hero-text {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Botão Saiba Mais (Verde Care Plus) */
+.btn-saiba-mais {
+    background-color: #92C444;
+    color: white;
+    text-decoration: none;
+    padding: 12px 60px;
+    font-weight: 700;
+    border-radius: 4px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-saiba-mais:hover {
+    background-color: #7ba339;
+    color: white;
+}
+
+/* About Section */
+.about-title {
+    font-weight: 800;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+}
+
+.highlight-blue {
+    color: #3aadde;
+}
+
+.about-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #1a1a1a;
+    font-weight: 500;
+    text-align: justify;
+}
