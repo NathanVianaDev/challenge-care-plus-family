@@ -1,0 +1,110 @@
+/* Estilização principal do contêiner da página inicial (Hero) */
+.hero-section {
+    /* Define a imagem de fundo da seção */
+    background-image: url('../../Images/InicialDeslogado/CarePlus-PaginaPrincipal.png');
+    /* Impede que a imagem de fundo se repita caso a tela seja maior que ela */
+    background-repeat: no-repeat;
+    /* Faz com que a imagem cubra todo o espaço disponível do contêiner */
+    background-size: cover;
+    /* Alinha a imagem à direita e centraliza verticalmente (evita cortar a família na foto) */
+    background-position: right center; 
+    /* Define uma altura mínima equivalente a 85% da altura da tela (viewport height) */
+    min-height: 85vh; 
+    /* Posição relativa para permitir o posicionamento de elementos filhos sobrepostos, se necessário */
+    position: relative;
+    /* Ativa o Flexbox para facilitar o alinhamento dos itens internos */
+    display: flex;
+    /* Centraliza o conteúdo verticalmente dentro da seção */
+    align-items: center;
+    /* Adiciona um espaçamento nas laterais (5% da largura da tela) */
+    padding: 0 5%;
+}
+
+/* Caixa de conteúdo que contém o texto e o botão */
+.hero-content {
+    /* Limita a largura máxima da caixa de texto para não ficar muito larga em telas grandes */
+    max-width: 550px;
+    /* Espaçamento interno da caixa (distância entre o texto e a borda da caixa) */
+    padding: 30px;
+    /* Fundo branco com 65% de opacidade (semi-transparente para dar destaque ao texto) */
+    background: rgba(255, 255, 255, 0.65); 
+    /* Arredonda os cantos da caixa */
+    border-radius: 12px;
+    /* Aplica um efeito de desfoque (blur) no fundo atrás da caixa de texto (efeito de vidro) */
+    backdrop-filter: blur(5px);
+    /* Adiciona uma sombra leve e difusa ao redor da caixa para dar profundidade */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Estilo para o pequeno subtítulo ou marca registrada acima do título */
+.brand-subtitle {
+    font-weight: 700; /* Texto em negrito (bold) */
+    font-size: 1.1rem; /* Tamanho da fonte ligeiramente maior que o padrão */
+    color: #333; /* Cor cinza escuro para o texto */
+    display: block; /* Força o elemento a ocupar uma linha inteira e quebrar a próxima */
+    margin-bottom: 5px; /* Espaço de 5px abaixo do subtítulo */
+}
+
+/* Estilo do título principal da página */
+.hero-title {
+    font-weight: 800; /* Fonte bastante grossa (extrabold) */
+    font-size: 3.2rem; /* Tamanho do texto bem grande (destaque principal) */
+    line-height: 1.1; /* Altura da linha reduzida para manter as linhas do título próximas */
+    margin: 10px 0 20px 0; /* Margem: 10px cima, 0 direita, 20px baixo, 0 esquerda */
+    color: #000; /* Cor preta para o título */
+}
+
+/* Estilo do texto descritivo abaixo do título */
+.hero-text {
+    font-size: 1.3rem; /* Tamanho da fonte médio-grande para boa leitura */
+    font-weight: 500; /* Peso médio da fonte (nem tão fino, nem tão grosso) */
+    margin-bottom: 30px; /* Espaço abaixo do texto, antes do botão */
+    color: #1a1a1a; /* Cinza quase preto para ser suave, mas muito legível */
+}
+
+/* Estilização do botão "Saiba mais" */
+.btn-saiba-mais {
+    background-color: #92C444; /* Cor de fundo verde clara (cor da marca) */
+    color: white; /* Cor do texto dentro do botão */
+    padding: 14px 45px; /* Espaçamento interno: 14px vertical, 45px horizontal */
+    font-weight: 700; /* Texto do botão em negrito */
+    border-radius: 5px; /* Cantos arredondados no botão */
+    text-decoration: none; /* Remove o sublinhado padrão de links (tag <a>) */
+    display: inline-block; /* Permite aplicar padding/margin sem quebrar a linha toda */
+    transition: all 0.3s ease; /* Efeito suave de 0.3 segundos quando houver alguma mudança (como o hover) */
+}
+
+/* Comportamento do botão quando o mouse passa por cima (Hover) */
+.btn-saiba-mais:hover {
+    background-color: #7da83a; /* Muda para um verde ligeiramente mais escuro */
+    transform: translateY(-2px); /* Levanta o botão 2 pixels para cima criando um efeito de clique/flutuação */
+    color: white; /* Garante que o texto continue branco no hover */
+}
+
+/* ==========================================================================
+   OTIMIZAÇÃO PARA DISPOSITIVOS MÓVEIS (Celulares e Tablets menores)
+   ========================================================================== */
+/* A regra abaixo (media query) será ativada apenas se a tela tiver no MÁXIMO 991px de largura */
+@media (max-width: 991px) {
+    .hero-section {
+        min-height: 600px; /* Reduz a altura mínima da área da página inicial para não esticar demais */
+        background-position: 85% center;  /* Ajusta a imagem um pouco mais para a direita focando nos rostos da família */
+        align-items: flex-end; /* Joga o conteúdo de texto para a parte inferior do contêiner para não cobrir a família */
+        padding-bottom: 40px; /* Adiciona um espaço no fundo da seção para o texto não colar no final da tela */
+    }
+
+    .hero-content {
+        max-width: 100%; /* A caixa de texto passa a ocupar todo o espaço possível horizontalmente */
+        width: 100%; /* Garante a largura total disponível */
+        background: rgba(255, 255, 255, 0.9); /* O fundo fica mais sólido (90% opaco) no celular para facilitar a leitura */
+        padding: 20px; /* Reduz levemente o espaçamento interno no celular */
+    }
+
+    .hero-title {
+        font-size: 2.2rem; /* Diminui significativamente o tamanho do título para caber na tela do celular sem quebrar muitas linhas */
+    }
+
+    .hero-text {
+        font-size: 1.1rem; /* Diminui levemente o texto descritivo no celular */
+    }
+}
