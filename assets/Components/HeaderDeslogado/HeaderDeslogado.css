@@ -1,0 +1,84 @@
+/* ==========================================================================
+   HERO SECTION (Banner Principal)
+   ========================================================================== */
+.hero-section {
+    background: url('/assets/Images/HeaderDeslogado/HeaderDeslogado.png') no-repeat center right; /* Foca na direita para mostrar a família */
+    background-size: cover;
+    min-height: 600px; /* Altura fixa garantida igual ao print */
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    padding: 40px 0;
+    /* Removido o fundo embaçado (backdrop-filter) para ficar clean como no print! */
+}
+
+.brand-subtitle {
+    font-weight: 800;
+    color: #1a1a1a; /* Cor preta conforme o print */
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hero-title {
+    font-weight: 900; /* Super negrito */
+    font-size: 3.5rem; 
+    line-height: 1.1; 
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.hero-text {
+    font-size: 1.3rem; 
+    font-weight: 500; 
+    color: #333;
+    margin-bottom: 35px;
+}
+
+/* Botão Saiba Mais */
+.btn-saiba-mais {
+    background-color: #92C444; 
+    color: white !important; 
+    padding: 12px 45px; 
+    font-size: 1.1rem;
+    font-weight: 700; 
+    border-radius: 4px;
+    border: none;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-saiba-mais:hover {
+    background-color: #7da83a;
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   ABOUT SECTION (Porque escolher)
+   ========================================================================== */
+.about-section {
+    padding: 80px 0; 
+    background-color: #fff;
+}
+
+.about-container {
+    max-width: 950px; /* Limita a largura do texto para não ficar muito esticado */
+    margin: 0 auto;
+}
+
+.about-title {
+    font-size: 2.2rem; 
+    font-weight: 800; 
+    margin-bottom: 25px; 
+    color: #000;
+}
+
+.about-text {
+    font-size: 1.1rem; 
+    line-height: 1.8; 
+    font-weight: 500; 
+    color: #1a1a1a; 
+    text-align: left; /* Alinhamento à esquerda, como no print */
+}
