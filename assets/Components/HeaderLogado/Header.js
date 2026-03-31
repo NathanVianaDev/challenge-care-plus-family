@@ -12,6 +12,7 @@ export class MeuHeader extends HTMLElement {
 
                     <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
                         <div class="navbar-nav align-items-center gap-5">
+                        
                             <a class="navbar-brand m-0" href="../../../index.html">
                                 <img src="/assets/Images/logo-care-plus.png" alt="Logo Care Plus" height="80">
                             </a>
