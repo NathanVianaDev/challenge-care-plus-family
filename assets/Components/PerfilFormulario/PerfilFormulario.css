@@ -1,0 +1,88 @@
+/* Arquivo: PerfilFormulario.css */
+
+.perfil-container {
+    background-color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
+}
+
+.perfil-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+}
+
+.titulo-perfil {
+    margin: 0;
+    color: #212529;
+    font-weight: bold;
+}
+
+.btn-editar {
+    background: none;
+    border: none;
+    color: #3aadde;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+
+.btn-editar:hover {
+    color: #288bb5;
+}
+
+/* O grid agora tem gap vertical para quando você colocar muitos campos */
+.perfil-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dois campos lado a lado */
+    gap: 15px 20px; 
+}
+
+/* Em telas de celular, fica um embaixo do outro */
+@media (max-width: 768px) {
+    .perfil-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.botoes-acao {
+    display: none; 
+    gap: 15px;
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding-top: 15px;
+}
+
+.btn-salvar, .btn-cancelar {
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-salvar { background-color: #3aadde; color: white; }
+.btn-salvar:hover { background-color: #288bb5; }
+.btn-cancelar { background-color: #e9ecef; color: #495057; }
+.btn-cancelar:hover { background-color: #dde0e3; }
+
+/* VISUAL DOS CAMPOS BLOQUEADOS (Cinza escuro, nítido e elegante) */
+.perfil-container input:disabled,
+.perfil-container select:disabled,
+.perfil-container textarea:disabled {
+    background-color: #e9ecef !important; /* Fundo cinza claro */
+    color: #495057 !important; /* Texto grafite bem escuro */
+    border-color: #ced4da !important;
+    cursor: not-allowed !important;
+    opacity: 1 !important; /* Impede que iPhones deixem o texto apagado */
+    font-weight: 500;
+}

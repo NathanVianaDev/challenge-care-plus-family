@@ -1,0 +1,36 @@
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.campo-formulario label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+}
+
+.campo-formulario input,
+.campo-formulario select,
+.campo-formulario textarea {
+    flex-grow: 1; 
+    padding: 10px; /* Aumentei um pouquinho o padding para o texto não grudar no teto */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #212529;
+}
+
+.campo-formulario textarea {
+    resize: none; 
+}
+
+input[type=file]::file-selector-button {
+  background-color: #3aadde;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}

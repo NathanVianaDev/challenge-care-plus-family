@@ -1,0 +1,120 @@
+.calendario-wrapper-externo {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.titulo-externo-calendario {
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 10px; 
+    text-align: left;
+}
+
+#calendario-area {
+    flex-grow: 1; /* Faz a caixa branca do calendário preencher todo o resto do espaço */
+    width: 100%;
+    
+    box-shadow: #21252967 0 0px 7px;
+    border-radius: 15px;
+    padding: 1rem; /* Diminuí um pouco o padding (margem interna) para caber melhor em espaços curtos */
+    background-color: white;
+    
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    
+    /* O SEGREDO 1: Impede rigorosamente que o conteúdo saia da caixa */
+    overflow: hidden; 
+}
+
+/* O Cabeçalho (Mês e Setinhas) */
+#calendario-area .d-flex {
+    flex-shrink: 0; /* Impede o cabeçalho de ser esmagado */
+}
+
+#tabela-calendario {
+    width: 100%;
+    flex: 1 1 auto; /* Permite que a tabela cresça ou encolha ocupando o espaço livre */
+    table-layout: fixed;
+    margin: 0 !important;
+}
+
+#tabela-calendario th {
+    font-size: 0.8rem;
+    font-weight: 600;
+    vertical-align: middle;
+    padding: 5px 0;
+}
+
+#tabela-calendario td {
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    padding: 2px 0; /* Reduz o espaçamento rígido para os números não empurrarem a tabela para fora */
+}
+
+/* O SEGREDO 2: O círculo perfeito agora encolhe se faltar espaço */
+.dia-numero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 100%;
+    max-width: 35px; /* Ele não passa de 35px... */
+    aspect-ratio: 1 / 1; /* ...mas sempre vai manter a proporção de um quadrado/círculo se encolher! */
+    
+    border-radius: 50%;
+    transition: 0.3s;
+    margin: 0 auto;
+    font-size: clamp(0.7rem, 3vw, 0.9rem); /* A fonte do número diminui sozinha se a tela for pequena */
+}
+
+/* Efeito Hover e Cores (Mesma lógica de antes) */
+#tabela-calendario td:hover:not(.dia-inativo) .dia-numero {
+    background-color: #f0f8ff;
+    color: #3aadde !important;
+}
+
+.dia-atual .dia-numero {
+    background-color:rgba(54, 198, 255, 0.5)!important; 
+    color: white !important;
+    font-weight: bold;
+}
+
+.dia-passado .dia-numero { color: #adb5bd !important; }
+.dia-futuro .dia-numero { color: #198754 !important; font-weight: 500; }
+.dia-inativo .dia-numero { color: #e9ecef !important; cursor: default !important; }
+
+#tabela-calendario td.dia-inativo:hover .dia-numero { background-color: transparent !important; }
+
+/* Setas */
+.seta-mes {
+    color: #3aadde !important;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: transparent;
+    transition: 0.3s;
+    padding: 0 10px;
+}
+
+.seta-mes:hover {
+    color: #288bb5 !important;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+}
+
+/* O SEGREDO 3: A legenda se adapta e corta o texto se não couber na largura */
+.legenda-calendario {
+    font-size: 0.85rem;
+    color: #070707;
+    text-align: right;
+    margin-top: 10px;
+    flex-shrink: 0; /* Impede a legenda de ser esmagada pela tabela */
+    
+    white-space: nowrap; /* Evita que a legenda quebre em duas linhas vazando para baixo */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Coloca '...' no final se o texto for maior que a caixa */
+}

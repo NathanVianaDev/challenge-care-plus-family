@@ -1,0 +1,45 @@
+:host {
+    display: inline-block;
+}
+
+.btn-gender {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem 1.8rem;
+    border-radius: 50rem;
+    
+    /* Transição suave de cores */
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    
+    /* Verde solicitado #92C444 */
+    background-color: #92C444;
+    color: #ffffff;
+    border: 2px solid #92C444;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Masculino Ativo: Azul */
+.btn-gender.masculino.active {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+/* Feminino Ativo: Rosa */
+.btn-gender.feminino.active {
+    background-color: #E84D8A;
+    border-color: #E84D8A;
+}
+
+.btn-gender:hover {
+    filter: brightness(105%);
+}
+
+i {
+    font-size: 1.1rem;
+}

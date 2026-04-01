@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking | Care Plus</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/assets/CSS/Navbar.CSS">
+    <link rel="stylesheet" href="/assets/Components/AvatarCenario/AvatarCenario.css">
+    <link rel="stylesheet" href="/assets/Components/PainelProgresso/PainelProgresso.css">
+
+    <script type="module">
+        import { MeuHeader } from '/assets/Components/HeaderLogado/Header.js';
+    </script>
+</head>
+<body class="bg-light">
+
+    <meu-header></meu-header>
+
+    <main class="container my-5">
+        <div class="card shadow-lg border-0 p-4 p-md-5 mx-auto" style="max-width: 55rem; border-radius: 20px; background-color: white;">
+            
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h1 class="fw-light text-center">Olá, <span id="display-name" class="fw-bold">Pacheco</span>.</h1>
+                </div>
+            </div>
+
+            <div class="row align-items-center g-5">
+                
+                <div class="col-lg-7 text-center order-1 order-lg-2">
+                    <avatar-cenario diretorio-imagens="FundoAvatar"></avatar-cenario>
+                </div>
+
+                <div class="col-lg-5 order-2 order-lg-1">
+                    <painel-progresso nome-usuario="Pacheco"></painel-progresso>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="/assets/Components/AvatarCenario/AvatarCenario.js"></script>
+    <script src="/assets/Components/PainelProgresso/PainelProgresso.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,26 @@
+.card-consulta {
+    margin-bottom: 15px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    border-left: 6px solid #3aadde !important;
+}
+
+.card-consulta:hover {
+    transform: translateX(5px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+}
+
+.data-badge {
+    background-color: #f0f8ff;
+    min-width: 85px;
+}
+
+.color-azul {
+    color: #3aadde;
+}
+
+.btn-mudar-status {
+    cursor: pointer;
+    transition: 0.3s;
+}
