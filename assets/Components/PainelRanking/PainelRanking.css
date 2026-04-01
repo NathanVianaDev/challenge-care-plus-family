@@ -1,0 +1,174 @@
+/* ==========================================================================
+   PAINEL DE RANKING - UI/UX MODERNO
+   ========================================================================== */
+.ranking-container {
+    background-color: #ffffff;
+    border-radius: 24px; /* Bordas mais arredondadas (Moderno) */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04); /* Sombra super suave e ampla */
+    padding: 40px;
+}
+
+.ranking-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    color: #3aadde; /* Título no azul da marca */
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+}
+
+/* --- Dashboard do Usuário (Cards do Topo) --- */
+.dashboard-card {
+    background-color: #5f5a5a18;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #f0f0f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
+}
+
+.profile-avatar {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%; /* Foto redonda fica muito mais elegante */
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.text-care-blue { color: #3aadde; }
+.text-care-green { color: #92C444; }
+
+/* --- Abas Modernas (Segmented Control) --- */
+.modern-tabs-wrapper {
+    text-align: center;
+    margin: 40px 0 30px 0;
+}
+
+.ranking-tabs {
+    display: inline-flex;
+    background-color: #f4f5f7;
+    border-radius: 50px;
+    padding: 6px;
+}
+
+.btn-tab {
+    padding: 10px 30px;
+    border-radius: 40px;
+    border: none;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    background-color: transparent;
+    color: #666;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-tab:hover {
+    color: #3aadde;
+}
+
+.btn-tab.active {
+    background-color: #ffffff;
+    color: #3aadde;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Leaderboard (Lista Elegante) --- */
+.leaderboard-header {
+    display: flex;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #999;
+    padding: 0 20px 15px 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.col-posicao { width: 10%; text-align: center; }
+.col-avatar { width: 10%; text-align: center; }
+.col-nome { width: 60%; padding-left: 15px; }
+.col-pontos { width: 20%; text-align: right; }
+
+.ranking-row {
+    display: flex;
+    align-items: center;
+    background-color: #4242421c;
+    border: 1px solid #f0f0f0;
+    border-radius: 16px;
+    padding: 12px 20px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    
+    /* Animação em Cascata */
+    opacity: 0;
+    transform: translateY(15px);
+    animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Micro-interação: Efeito maravilhoso ao passar o mouse na linha */
+.ranking-row:hover {
+    transform: translateX(8px) scale(1.01);
+    border-color: #92C444;
+    box-shadow: 0 8px 20px rgba(146, 196, 68, 0.1);
+}
+
+/* Tempos da Animação */
+.ranking-row:nth-child(2) { animation-delay: 0.1s; }
+.ranking-row:nth-child(3) { animation-delay: 0.2s; }
+.ranking-row:nth-child(4) { animation-delay: 0.3s; }
+.ranking-row:nth-child(5) { animation-delay: 0.4s; }
+.ranking-row:nth-child(6) { animation-delay: 0.5s; }
+
+/* Tipografia e Ícones da Lista */
+.medalha {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #fff;
+    margin: 0 auto;
+}
+.medalha-ouro { background: linear-gradient(135deg, #FFD700, #FDB931); box-shadow: 0 4px 10px rgba(253, 185, 49, 0.4); }
+.medalha-prata { background: linear-gradient(135deg, #E0E0E0, #BDBDBD); }
+.medalha-bronze { background: linear-gradient(135deg, #cd7f32, #a0522d); }
+.medalha-padrao { background-color: #f0f0f0; color: #777; font-size: 0.9rem;}
+
+.avatar-miniatura {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nome-jogador { font-weight: 700; color: #333; font-size: 1.1rem; margin: 0; }
+.pontos-jogador { font-weight: 800; color: #92C444; font-size: 1.2rem; margin: 0; }
+
+@keyframes slideUpFade {
+    to { opacity: 1; transform: translateY(0) translateX(0) scale(1); }
+}
+
+@media (max-width: 768px) {
+    .leaderboard-header { display: none; }
+    .ranking-row { flex-wrap: wrap; text-align: center; justify-content: center; gap: 10px; padding: 20px;}
+    .col-posicao, .col-avatar, .col-nome, .col-pontos { width: 100%; text-align: center; padding: 0;}
+    .medalha { margin-bottom: 5px; }
+    .ranking-tabs { display: flex; flex-direction: column; border-radius: 16px; }
+    .btn-tab { border-radius: 10px; }
+}
