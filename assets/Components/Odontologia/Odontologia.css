@@ -1,0 +1,216 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS DE CORES E EFEITOS
+   ========================================================================== */
+:root {
+    --careplus-blue: #3aadde;
+    --bg-light-blue: #dcf2fa;
+    --text-dark: #333333;
+    
+    /* 1. Borda "Não totalmente viva": O mesmo azul, mas com 40% de opacidade (0.4) */
+    --border-glass: rgba(58, 173, 222, 0.4); 
+    
+    /* 2. Sombreamento Espetacular: Mistura de profundidade (preto suave) + Glow (azul suave) */
+    --shadow-spectacular: 0 10px 30px rgba(0, 0, 0, 0.08), 0 0 20px rgba(58, 173, 222, 0.15); 
+    --shadow-spectacular-hover: 0 15px 40px rgba(0, 0, 0, 0.12), 0 0 35px rgba(58, 173, 222, 0.35); 
+    
+    /* 3. Fundo de vidro jateado: Branco com 85% de opacidade para deixar a sombra vazar um pouco */
+    --bg-glass-card: rgba(255, 255, 255, 0.85); 
+}
+
+/* ==========================================================================
+   SEÇÃO 1: HERO (Medida do Figma: 1919 x 549)
+   ========================================================================== */
+.hero-odontologia {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+                url('/assets/Images/Odontologia/Odontologia.png') no-repeat center center; /* */
+    background-size: cover; /* */
+    width: 100%; /* */
+    height: 549px; /* */
+}
+
+.hero-title {
+    font-weight: 800; /* */
+    font-size: 2.8rem; /* */
+    letter-spacing: 1px; /* */
+    margin-bottom: 20px; /* */
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3); /* */
+}
+
+.hero-text {
+    font-size: 1.25rem; /* */
+    font-weight: 500; /* */
+    line-height: 1.5; /* */
+    max-width: 600px; /* */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3); /* */
+}
+
+/* ==========================================================================
+   SEÇÃO 2: ESPECIALIDADES (Medida do Figma: 1117 x 566)
+   ========================================================================== */
+.container-especialidades {
+    max-width: 1117px; /* */
+    width: 100%; /* */
+    padding: 0 15px; /* */
+    min-height: 566px; /* */
+}
+
+.titulo-secao {
+    color: var(--careplus-blue); /* */
+    font-weight: 700; /* */
+    font-size: 1.4rem; /* */
+}
+
+.card-especialidade {
+    /* Borda espessa (3px), mas com a cor translúcida elegante */
+    border: 3px solid var(--border-glass); 
+    border-radius: 12px; /* */
+    padding: 25px 20px; /* */
+    
+    background-color: var(--bg-glass-card);
+    -webkit-backdrop-filter: blur(8px); /* Desfoque aumentado para dar mais cara de vidro */
+    backdrop-filter: blur(8px);
+    
+    height: 100%; /* */
+    display: flex; /* */
+    flex-direction: column; /* */
+    
+    /* O Sombreamento Espetacular! */
+    box-shadow: var(--shadow-spectacular); 
+    
+    /* Adicionamos border-color na transição para um efeito lindo no hover */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.card-especialidade:hover {
+    transform: translateY(-8px); 
+    box-shadow: var(--shadow-spectacular-hover); 
+    /* A borda "acende" sutilmente quando passa o mouse */
+    border-color: rgba(58, 173, 222, 0.7); 
+}
+
+.card-especialidade h3 {
+    color: var(--careplus-blue); /* */
+    font-size: 1rem; /* */
+    font-weight: 700; /* */
+    margin-bottom: 15px; /* */
+    text-align: center; /* */
+}
+
+.card-especialidade p {
+    font-size: 0.85rem; /* */
+    color: var(--text-dark); /* */
+    line-height: 1.5; /* */
+    margin: 0; /* */
+    text-align: left; /* */
+}
+
+/* ==========================================================================
+   SEÇÃO 3: TRATAMENTOS (Medida do Figma: 1209 x 639)
+   ========================================================================== */
+.tratamentos-section {
+    background-color: var(--bg-light-blue); /* */
+    width: 100%; /* */
+}
+
+.container-tratamentos {
+    max-width: 1209px; /* */
+    width: 100%; /* */
+    padding: 0 15px; /* */
+    min-height: 639px; /* */
+    display: flex; /* */
+    flex-direction: column; /* */
+    justify-content: center; /* */
+}
+
+.card-tratamento {
+    background-color: var(--bg-glass-card); 
+    border-radius: 12px; /* */
+    padding: 30px; /* */
+    
+    /* Borda espessa translúcida */
+    border: 3px solid var(--border-glass); 
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    
+    /* O Sombreamento Espetacular */
+    box-shadow: var(--shadow-spectacular); 
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.card-tratamento:hover {
+    transform: translateY(-8px); 
+    box-shadow: var(--shadow-spectacular-hover); 
+    border-color: rgba(58, 173, 222, 0.7); 
+}
+
+.card-tratamento h4 {
+    color: var(--careplus-blue); /* */
+    font-size: 1.1rem; /* */
+    font-weight: 700; /* */
+    margin-bottom: 10px; /* */
+}
+
+.card-tratamento p {
+    font-size: 0.95rem; /* */
+    color: var(--text-dark); /* */
+    line-height: 1.6; /* */
+    margin: 0; /* */
+}
+
+/* ==========================================================================
+   CONTROLES DO CARROSSEL
+   ========================================================================== */
+.carrossel-controles {
+    width: 100%; /* */
+}
+
+.carrossel-controles .seta {
+    font-size: 1.5rem; /* */
+    color: var(--text-dark); /* */
+    cursor: pointer; /* */
+    font-weight: bold; /* */
+    transition: color 0.3s ease;
+}
+
+.carrossel-controles .seta:hover {
+    color: var(--careplus-blue);
+}
+
+.dot {
+    width: 10px; /* */
+    height: 10px; /* */
+    background-color: #c4c4c4; /* */
+    border-radius: 50%; /* */
+    cursor: pointer; /* */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.dot.ativo {
+    background-color: var(--careplus-blue); /* */
+    transform: scale(1.2); 
+    box-shadow: 0 0 8px rgba(58, 173, 222, 0.6); 
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE 
+   ========================================================================== */
+@media (max-width: 991px) {
+    .hero-odontologia {
+        height: 450px; /* */
+    }
+    
+    .hero-title {
+        font-size: 2.2rem; /* */
+    }
+    
+    .hero-text {
+        font-size: 1.1rem; /* */
+    }
+    
+    .container-especialidades, .container-tratamentos {
+        min-height: auto; /* */
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
