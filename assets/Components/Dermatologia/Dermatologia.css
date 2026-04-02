@@ -1,0 +1,128 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS DE CORES E EFEITOS (UI/UX PREMIUM)
+   ========================================================================== */
+:root {
+    --careplus-blue: #3aadde;
+    --text-dark: #333333;
+    --text-grey: #666666;
+    
+    /* Variáveis para o Efeito de Vidro (Glassmorphism) e Brilho (Glow) */
+    --bg-glass-card: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
+    --border-glass: rgba(58, 173, 222, 0.3);   /* Borda azul suave */
+    
+    /* Sombreamento Espetacular: Profundidade suave + Glow Azul suave */
+    --shadow-spectacular: 0 10px 30px rgba(0, 0, 0, 0.05), 0 0 15px rgba(58, 173, 222, 0.1); 
+    
+    /* Sombreamento no Hover: Intensifica o Glow Azul */
+    --shadow-spectacular-hover: 0 15px 40px rgba(0, 0, 0, 0.08), 0 0 30px rgba(58, 173, 222, 0.3); 
+}
+
+/* ==========================================================================
+   SEÇÃO 1: HERO (Mantida)
+   ========================================================================== */
+.hero-dermatologia {
+    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), 
+                url('/assets/Images/Dermatologia/Dermatologia.png') no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 549px; 
+    border-bottom: 3px solid var(--careplus-blue);
+}
+
+.hero-title {
+    font-weight: 800; 
+    font-size: 2.8rem; 
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+.hero-text {
+    font-size: 1.3rem; 
+    font-weight: 500; 
+    line-height: 1.5;
+    max-width: 600px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+/* ==========================================================================
+   SEÇÃO 2: ESPECIALIDADES (Melhoria UI/UX com Cards)
+   ========================================================================== */
+.container-especialidades {
+    max-width: 1200px; /* Largura ligeiramente maior para acomodar 3 cards */
+    width: 100%;
+    padding: 0 15px; 
+}
+
+.titulo-secao-geral {
+    color: var(--careplus-blue);
+    font-weight: 700;
+    font-size: 2.2rem;
+    letter-spacing: -0.5px;
+}
+
+/* Estilização do Card (Efeito Vidro e Borda Translúcida) */
+.card-especialidade-derma {
+    background-color: var(--bg-glass-card);
+    border: 3px solid var(--border-glass); /* Borda grossa mas suave (conforme Odontologia) */
+    border-radius: 15px;
+    padding: 40px 30px;
+    text-align: center;
+    
+    /* Efeito de desfoque de fundo */
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    
+    /* Aplica o sombreamento base */
+    box-shadow: var(--shadow-spectacular);
+    
+    /* Transições suaves para transformações e sombras */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Efeito Hover: O Card flutua e o brilho intensifica */
+.card-especialidade-derma:hover {
+    transform: translateY(-10px); /* Flutua 10px para cima */
+    box-shadow: var(--shadow-spectacular-hover); /* Brilho azul intenso no fundo */
+    border-color: rgba(58, 173, 222, 0.6); /* Borda fica ligeiramente mais viva */
+}
+
+/* Container do Ícone */
+.card-icon-derma {
+    margin-bottom: 25px;
+    display: inline-block;
+    padding: 15px;
+    background-color: rgba(58, 173, 222, 0.05); /* Círculo suave atrás do ícone */
+    border-radius: 50%;
+}
+
+.titulo-card-derma {
+    color: var(--careplus-blue);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.texto-card-derma {
+    font-size: 1rem;
+    color: var(--text-grey);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE 
+   ========================================================================== */
+@media (max-width: 991px) {
+    .hero-dermatologia {
+        height: 400px; 
+    }
+    
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .card-especialidade-derma {
+        padding: 30px 20px;
+    }
+}
