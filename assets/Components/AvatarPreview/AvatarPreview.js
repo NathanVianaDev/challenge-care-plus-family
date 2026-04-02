@@ -12,15 +12,16 @@ class AvatarPreview extends HTMLElement {
         this.imgBase = null;
         this.imgCabelo = null;
         this.imgOlhos = null; 
-        this.imgBoca = null; // Adicionado: Referência para a camada de boca
+        this.imgBoca = null;
+        this.imgRoupa = null; 
     }
 
     static get observedAttributes() {
-        return ['genero', 'cabelo', 'olhos', 'boca']; // Adicionado: 'boca'
+        return ['genero', 'cabelo', 'olhos', 'boca', 'roupa']; 
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        if (!this.imgBase || !this.imgCabelo || !this.imgOlhos || !this.imgBoca) return;
+        if (!this.imgBase || !this.imgCabelo || !this.imgOlhos || !this.imgBoca || !this.imgRoupa) return;
         
         if (name === 'genero') {
             this.atualizarGenero(newValue);
@@ -29,7 +30,9 @@ class AvatarPreview extends HTMLElement {
         } else if (name === 'olhos') {
             this.atualizarOlhos(newValue); 
         } else if (name === 'boca') {
-            this.atualizarBoca(newValue); // Adicionado: Chamada para atualizar boca
+            this.atualizarBoca(newValue); 
+        } else if (name === 'roupa') {
+            this.atualizarRoupa(newValue);
         }
     }
 
@@ -44,7 +47,9 @@ class AvatarPreview extends HTMLElement {
             <link rel="stylesheet" href="${CSS_URL}">
             <div class="avatar-container">
                 <img class="base" alt="Corpo Base">
-                <img class="layer boca" alt="Boca"> <img class="layer olhos" alt="Olhos"> 
+                <img class="layer roupa" alt="Roupa">
+                <img class="layer boca" alt="Boca"> 
+                <img class="layer olhos" alt="Olhos"> 
                 <img class="layer cabelo" alt="Cabelo">
             </div>
         `;
@@ -52,7 +57,8 @@ class AvatarPreview extends HTMLElement {
         this.imgBase = this.shadowRoot.querySelector('.base');
         this.imgCabelo = this.shadowRoot.querySelector('.cabelo');
         this.imgOlhos = this.shadowRoot.querySelector('.olhos'); 
-        this.imgBoca = this.shadowRoot.querySelector('.boca'); // Cache da nova camada
+        this.imgBoca = this.shadowRoot.querySelector('.boca');
+        this.imgRoupa = this.shadowRoot.querySelector('.roupa');
 
         this.atualizarGenero(this.getAttribute('genero') || 'masculino');
         
@@ -64,6 +70,9 @@ class AvatarPreview extends HTMLElement {
 
         const bocaInicial = this.getAttribute('boca'); 
         if (bocaInicial) this.atualizarBoca(bocaInicial);
+
+        const roupaInicial = this.getAttribute('roupa');
+        if (roupaInicial) this.atualizarRoupa(roupaInicial);
     }
 
     // --- MÉTODOS DE ATUALIZAÇÃO DO AVATAR ---
@@ -79,11 +88,13 @@ class AvatarPreview extends HTMLElement {
             this.imgCabelo.classList.remove('visible');
             this.imgOlhos.classList.remove('visible');
             this.imgBoca.classList.remove('visible');
+            this.imgRoupa.classList.remove('visible');
         };
 
         this.imgCabelo.classList.remove('visible');
         this.imgOlhos.classList.remove('visible');
         this.imgBoca.classList.remove('visible');
+        this.imgRoupa.classList.remove('visible');
     }
 
     atualizarCabelo(cabeloId) {
@@ -104,7 +115,6 @@ class AvatarPreview extends HTMLElement {
         this.imgOlhos.src = `../../Images/Avatares/${pasta}/Olhos/${olhosId}.png`;
     }
 
-    // Adicionado: Método para atualizar a boca
     atualizarBoca(bocaId) {
         if (!bocaId) { this.imgBoca.classList.remove('visible'); return; }
         const genero = this.getAttribute('genero') || 'masculino';
@@ -114,14 +124,38 @@ class AvatarPreview extends HTMLElement {
         this.imgBoca.src = `../../Images/Avatares/${pasta}/Boca/${bocaId}.png`;
     }
 
+    atualizarRoupa(roupaId) {
+        if (!roupaId) { this.imgRoupa.classList.remove('visible'); return; }
+        const genero = this.getAttribute('genero') || 'masculino';
+        const pasta = genero === 'masculino' ? 'Masculino' : 'Feminino';
+        this.imgRoupa.classList.remove('visible');
+        this.imgRoupa.onload = () => { this.imgRoupa.classList.add('visible'); };
+        this.imgRoupa.src = `../../Images/Avatares/${pasta}/Roupas/${roupaId}.png`;
+    }
+
     // --- LÓGICA DE INTERAÇÃO COM A UI ---
     inicializarLogicaMenu() {
         const btnMasc = document.getElementById('btn-masculino');
         const btnFem = document.getElementById('btn-feminino');
         const textAvatar = document.getElementById('text-avatar');
-        
         const botoesMenuLateral = document.querySelectorAll('.menu-item-lateral');
         const gridOpcoes = document.getElementById('opcoes-grid');
+
+        // LÓGICA DO BOTÃO SALVAR
+        const btnSalvar = document.getElementById('btn-salvar-avatar');
+        if (btnSalvar) {
+            btnSalvar.addEventListener('click', () => {
+                const config = {
+                    genero: this.getAttribute('genero'),
+                    cabelo: this.getAttribute('cabelo'),
+                    olhos: this.getAttribute('olhos'),
+                    boca: this.getAttribute('boca'),
+                    roupa: this.getAttribute('roupa')
+                };
+                localStorage.setItem('careplus_avatar', JSON.stringify(config));
+                alert("✅ Avatar salvo com sucesso!");
+            });
+        }
 
         botoesMenuLateral.forEach((botao, index) => {
             botao.addEventListener('click', () => {
@@ -133,8 +167,9 @@ class AvatarPreview extends HTMLElement {
                 } else if (index === 1) {
                     this.carregarMenuOlhos(this.getAttribute('genero') || 'masculino');
                 } else if (index === 2) {
-                    // Adicionado: BOTÃO 3 para carregar Boca
                     this.carregarMenuBoca(this.getAttribute('genero') || 'masculino');
+                } else if (index === 3) {
+                    this.carregarMenuRoupas(this.getAttribute('genero') || 'masculino');
                 } else {
                     if (gridOpcoes) gridOpcoes.innerHTML = '';
                 }
@@ -144,17 +179,14 @@ class AvatarPreview extends HTMLElement {
         if (btnMasc && btnFem) {
             const trocarGenero = (genero) => {
                 this.setAttribute('genero', genero);
-                this.setAttribute('cabelo', ''); 
-                this.setAttribute('olhos', ''); 
-                this.setAttribute('boca', ''); 
+                this.setAttribute('cabelo', ''); this.setAttribute('olhos', ''); 
+                this.setAttribute('boca', ''); this.setAttribute('roupa', ''); 
                 
                 if (genero === 'masculino') {
-                    btnMasc.setAttribute('active', 'true');
-                    btnFem.removeAttribute('active');
+                    btnMasc.setAttribute('active', 'true'); btnFem.removeAttribute('active');
                     if (textAvatar) textAvatar.style.color = '#0d6efd';
                 } else {
-                    btnFem.setAttribute('active', 'true');
-                    btnMasc.removeAttribute('active');
+                    btnFem.setAttribute('active', 'true'); btnMasc.removeAttribute('active');
                     if (textAvatar) textAvatar.style.color = '#E84D8A';
                 }
 
@@ -162,6 +194,7 @@ class AvatarPreview extends HTMLElement {
                 if (ativo === 0) this.carregarMenuCabelo(genero);
                 else if (ativo === 1) this.carregarMenuOlhos(genero);
                 else if (ativo === 2) this.carregarMenuBoca(genero);
+                else if (ativo === 3) this.carregarMenuRoupas(genero);
             };
 
             btnMasc.addEventListener('click', () => trocarGenero('masculino'));
@@ -180,10 +213,9 @@ class AvatarPreview extends HTMLElement {
         gridOpcoes.innerHTML = ''; 
         for (let i = 1; i <= 10; i++) {
             const num = i.toString().padStart(2, '0');
-            const nomeMascara = `opcao_${num}`;
             const sufixo = genero === 'masculino' ? 'Masc' : 'Fem';
             const nomeArq = `Cabelo_${sufixo}_${num}`;
-            this.criarItemGrid(gridOpcoes, nomeArq, `Cabelos/Mascaras/${nomeMascara}`, 'cabelo');
+            this.criarItemGrid(gridOpcoes, nomeArq, `Cabelos/Mascaras/opcao_${num}`, 'cabelo');
         }
     }
 
@@ -193,31 +225,36 @@ class AvatarPreview extends HTMLElement {
         gridOpcoes.innerHTML = ''; 
         for (let i = 1; i <= 3; i++) {
             const num = i.toString().padStart(2, '0');
-            const nomeMascara = `perfilopcao_${num}`;
             const sufixo = genero === 'masculino' ? 'Masc' : 'Fem';
             const nomeArq = `Olhos_${sufixo}_${num}`;
-            this.criarItemGrid(gridOpcoes, nomeArq, `Olhos/Mascaras/${nomeMascara}`, 'olhos');
+            this.criarItemGrid(gridOpcoes, nomeArq, `Olhos/Mascaras/perfilopcao_${num}`, 'olhos');
         }
     }
 
-    // Adicionado: Método para carregar as opções de Boca
     carregarMenuBoca(genero) {
         const gridOpcoes = document.getElementById('opcoes-grid');
         if (!gridOpcoes) return;
         gridOpcoes.innerHTML = ''; 
-        
-        // Você mencionou que tem a opcao_01 e 02
         for (let i = 1; i <= 2; i++) {
             const num = i.toString().padStart(2, '0');
-            const nomeMascara = `opcao_${num}`;
             const sufixo = genero === 'masculino' ? 'Masc' : 'Fem';
-            // Seguindo o padrão: Boca_Fem_01
             const nomeArq = `Boca_${sufixo}_${num}`;
-            this.criarItemGrid(gridOpcoes, nomeArq, `Boca/Mascaras/${nomeMascara}`, 'boca');
+            this.criarItemGrid(gridOpcoes, nomeArq, `Boca/Mascaras/opcao_${num}`, 'boca');
         }
     }
 
-    // Função auxiliar para evitar repetição de código no grid
+    carregarMenuRoupas(genero) {
+        const gridOpcoes = document.getElementById('opcoes-grid');
+        if (!gridOpcoes) return;
+        gridOpcoes.innerHTML = ''; 
+        for (let i = 1; i <= 3; i++) {
+            const num = i.toString().padStart(2, '0');
+            const sufixo = genero === 'masculino' ? 'Masc' : 'Fem';
+            const nomeArq = `Roupas_${sufixo}_${num}`;
+            this.criarItemGrid(gridOpcoes, nomeArq, `Roupas/Mascaras/opcao_${num}`, 'roupa');
+        }
+    }
+
     criarItemGrid(container, nomeArquivo, pathMascara, atributo) {
         const genero = this.getAttribute('genero') || 'masculino';
         const pasta = genero === 'masculino' ? 'Masculino' : 'Feminino';

@@ -179,3 +179,8 @@
     max-height: 600px;
     overflow-y: auto;
 }
+/* Quando o botão estiver com a classe .active, o ícone dentro dele muda de cor */
+.btn-icone-lateral.active i {
+    color: #92C444; /* O verde claro que você usa no grid */
+    transform: scale(1.2); /* Dá um leve aumento para destacar */
+}
