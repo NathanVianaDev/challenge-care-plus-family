@@ -3,6 +3,7 @@
    ========================================================================== */
 :root {
     --careplus-blue: #3aadde;
+    --careplus-green: #8CC63F; /* O verde do botão de Login */
     --text-dark: #333333;
     --text-grey: #666666;
     
@@ -18,7 +19,7 @@
 }
 
 /* ==========================================================================
-   SEÇÃO 1: HERO (Mantida)
+   SEÇÃO 1: HERO
    ========================================================================== */
 .hero-dermatologia {
     background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), 
@@ -49,13 +50,14 @@
    SEÇÃO 2: ESPECIALIDADES (Melhoria UI/UX com Cards)
    ========================================================================== */
 .container-especialidades {
-    max-width: 1200px; /* Largura ligeiramente maior para acomodar 3 cards */
+    max-width: 1200px; 
     width: 100%;
     padding: 0 15px; 
 }
 
+/* Título Geral (Agora com o Verde Care Plus!) */
 .titulo-secao-geral {
-    color: var(--careplus-blue);
+    color: var(--careplus-green); 
     font-weight: 700;
     font-size: 2.2rem;
     letter-spacing: -0.5px;
@@ -64,7 +66,7 @@
 /* Estilização do Card (Efeito Vidro e Borda Translúcida) */
 .card-especialidade-derma {
     background-color: var(--bg-glass-card);
-    border: 3px solid var(--border-glass); /* Borda grossa mas suave (conforme Odontologia) */
+    border: 3px solid var(--border-glass); 
     border-radius: 15px;
     padding: 40px 30px;
     text-align: center;
@@ -82,9 +84,9 @@
 
 /* Efeito Hover: O Card flutua e o brilho intensifica */
 .card-especialidade-derma:hover {
-    transform: translateY(-10px); /* Flutua 10px para cima */
-    box-shadow: var(--shadow-spectacular-hover); /* Brilho azul intenso no fundo */
-    border-color: rgba(58, 173, 222, 0.6); /* Borda fica ligeiramente mais viva */
+    transform: translateY(-10px); 
+    box-shadow: var(--shadow-spectacular-hover); 
+    border-color: rgba(58, 173, 222, 0.6); 
 }
 
 /* Container do Ícone */
@@ -92,7 +94,7 @@
     margin-bottom: 25px;
     display: inline-block;
     padding: 15px;
-    background-color: rgba(58, 173, 222, 0.05); /* Círculo suave atrás do ícone */
+    background-color: rgba(58, 173, 222, 0.05); 
     border-radius: 50%;
 }
 
