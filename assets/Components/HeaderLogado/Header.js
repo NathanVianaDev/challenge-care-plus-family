@@ -16,12 +16,13 @@ export class MeuHeader extends HTMLElement {
                             <a class="navbar-brand m-0" href="../../../index.html">
                                 <img src="/assets/Images/logo-care-plus.png" alt="Logo Care Plus" height="80">
                             </a>
-                            <a class="nav-link text-dark" href="../../../index.html">INÍCIO</a>
+                            
                             <a class="nav-link text-dark" href="#">AGENDAMENTOS</a>
                             <a class="nav-link text-dark" href="#">GAME PLUS +</a>
                             <a class="nav-link text-dark" href="#">UNIDADES</a>
                             <a class="nav-link text-dark" href="#">CONTATO</a>
-                            <a class="btn-perfil-sair" href="../../Pages/EditarPerfil/EditarPerfil.html">
+                            <a class="nav-link text-dark" href="../../assets/Pages/EditarPerfil/EditarPerfil.html">PERFIL</a>
+                            <a class="btn-perfil-sair" >
                                 <span class="texto-sair">SAIR</span>
                                 <div class="circulo-azul">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" >
