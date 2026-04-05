@@ -2,32 +2,26 @@
    CONFIGURAÇÕES GERAIS DE CORES E EFEITOS (UI/UX PREMIUM)
    ========================================================================== */
 :root {
-    
     --careplus-blue: #3aadde;
     --careplus-green: #8CC63F; /* O verde do botão de Login */
     --text-dark: #333333;
     --text-grey: #666666;
     
-    /* Variáveis para o Efeito de Vidro (Glassmorphism) e Brilho (Glow) */
-    --bg-glass-card: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
-    --border-glass: rgba(58, 173, 222, 0.3);   /* Borda azul suave */
-    
-    /* Sombreamento Espetacular: Profundidade suave + Glow Azul suave */
+    --bg-glass-card: rgba(255, 255, 255, 0.9); 
+    --border-glass: rgba(58, 173, 222, 0.3);   
     --shadow-spectacular: 0 10px 30px rgba(0, 0, 0, 0.05), 0 0 15px rgba(58, 173, 222, 0.1); 
-    
-    /* Sombreamento no Hover: Intensifica o Glow Azul */
     --shadow-spectacular-hover: 0 15px 40px rgba(0, 0, 0, 0.08), 0 0 30px rgba(58, 173, 222, 0.3); 
 }
 
 /* ==========================================================================
-   SEÇÃO 1: HERO
+   SEÇÃO 1: HERO (BANNER PADRONIZADO)
    ========================================================================== */
 .hero-dermatologia {
     background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), 
-                url('/assets/Images/Dermatologia/Dermatologia.png') no-repeat center center;
+                url('/assets/Images/Dermatologia/Dermatologia.png') no-repeat center 30%;
     background-size: cover;
     width: 100%;
-    height: 549px; 
+    height: 380px; /* Altura reduzida para o padrão de faixa */
     border-bottom: 3px solid var(--careplus-blue);
 }
 
@@ -56,7 +50,7 @@
     padding: 0 15px; 
 }
 
-/* Título Geral (Agora com o Verde Care Plus!) */
+/* Título Geral em Verde */
 .titulo-secao-geral {
     color: var(--careplus-green); 
     font-weight: 700;
@@ -64,7 +58,6 @@
     letter-spacing: -0.5px;
 }
 
-/* Estilização do Card (Efeito Vidro e Borda Translúcida) */
 .card-especialidade-derma {
     background-color: var(--bg-glass-card);
     border: 3px solid var(--border-glass); 
@@ -72,25 +65,19 @@
     padding: 40px 30px;
     text-align: center;
     
-    /* Efeito de desfoque de fundo */
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     
-    /* Aplica o sombreamento base */
     box-shadow: var(--shadow-spectacular);
-    
-    /* Transições suaves para transformações e sombras */
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
-/* Efeito Hover: O Card flutua e o brilho intensifica */
 .card-especialidade-derma:hover {
     transform: translateY(-10px); 
     box-shadow: var(--shadow-spectacular-hover); 
     border-color: rgba(58, 173, 222, 0.6); 
 }
 
-/* Container do Ícone */
 .card-icon-derma {
     margin-bottom: 25px;
     display: inline-block;
@@ -114,11 +101,11 @@
 }
 
 /* ==========================================================================
-   RESPONSIVIDADE 
+   RESPONSIVIDADE (MOBILE PADRONIZADO)
    ========================================================================== */
 @media (max-width: 991px) {
     .hero-dermatologia {
-        height: 400px; 
+        height: 250px; /* Altura de mobile padronizada! */
     }
     
     .hero-title {

@@ -1,0 +1,85 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS E CORES
+   ========================================================================== */
+:root {
+    --careplus-blue: #3aadde;
+    --text-dark: #1a1a1a;
+    --text-black: #000000;
+}
+
+/* ==========================================================================
+   HERO SECTION (BANNER PADRONIZADO)
+   ========================================================================== */
+.hero-contatos {
+    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), 
+                url('/assets/Images/Contatos/Contatos.png') no-repeat center 30%;
+    background-size: cover;
+    width: 100%;
+    height: 380px; 
+    border-bottom: 4px solid var(--careplus-blue);
+}
+
+.hero-title {
+    font-weight: 800; 
+    font-size: 2.8rem; 
+    letter-spacing: 2px;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* ==========================================================================
+   ÁREA DE CONTATOS (Layout Limpo)
+   ========================================================================== */
+.container-contatos {
+    max-width: 900px; /* Um pouco mais estreito para o texto não espalhar muito */
+    padding: 0 20px;
+}
+
+.titulo-bloco {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-black);
+    letter-spacing: -0.5px;
+}
+
+.contato-header {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Espaço entre ícone e título */
+    margin-bottom: 8px;
+}
+
+.contato-header h3 {
+    font-size: 1.25rem;
+    color: var(--careplus-blue);
+    font-weight: 500;
+    margin: 0;
+}
+
+.contato-numeros {
+    /* Indentação para o número ficar alinhado com a palavra, não com o ícone */
+    padding-left: 36px; 
+}
+
+.contato-numeros p {
+    font-size: 1.15rem;
+    color: var(--text-black);
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+/* Linha divisória sutil entre os blocos */
+.border-bottom {
+    border-bottom: 1px solid #e0e5eb !important;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE PADRÃO
+   ========================================================================== */
+@media (max-width: 991px) {
+    .hero-contatos { height: 250px; }
+    .hero-title { font-size: 2.2rem; }
+    .titulo-bloco { font-size: 1.5rem; }
+    .contato-header h3 { font-size: 1.15rem; }
+    .contato-numeros p { font-size: 1rem; }
+}

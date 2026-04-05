@@ -1,0 +1,146 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS DE CORES E EFEITOS
+   ========================================================================== */
+:root {
+    --careplus-blue: #3aadde;
+    --careplus-green: #8CC63F; /* Verde oficial padronizado com as outras telas */
+    --text-dark: #333333;
+    --text-grey: #636262;
+}
+
+/* ==========================================================================
+   HERO SECTION (Banner Principal Padronizado)
+   ========================================================================== */
+.hero-section {
+    /* Foco na família à direita */
+    background: url('/assets/Images/HeaderDeslogado/HeaderDeslogado.png') no-repeat center right;
+    background-size: cover;
+    
+    /* Altura padronizada igual às páginas de especialidades */
+    height: 380px; 
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+    border-bottom: 4px solid var(--careplus-blue); /* Borda padronizada de 4px */
+}
+
+.hero-content {
+    padding: 20px 0;
+}
+
+.brand-subtitle {
+    font-weight: 800;
+    color: var(--text-grey);
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-title {
+    font-weight: 900; 
+    font-size: 3.2rem; 
+    line-height: 1.1; 
+    color: #000;
+    margin-bottom: 15px;
+    letter-spacing: -1px; 
+}
+
+.hero-text {
+    font-size: 1.3rem; 
+    font-weight: 500; 
+    color: var(--text-dark);
+    margin-bottom: 30px;
+}
+
+/* Botão Verde "Saiba Mais" - Agora com a cor oficial */
+.btn-saiba-mais {
+    background-color: var(--careplus-green); 
+    color: white !important; 
+    padding: 12px 60px; 
+    font-size: 1.1rem;
+    font-weight: 700; 
+    border-radius: 6px; /* Arredondamento sutil moderno */
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    display: inline-block;
+}
+
+.btn-saiba-mais:hover {
+    background-color: #7ab035; /* Tom ligeiramente mais escuro no hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(140, 198, 63, 0.4); /* Glow verde suave */
+}
+
+/* ==========================================================================
+   ABOUT SECTION (Porque escolher)
+   ========================================================================== */
+.about-section {
+    background-color: #fcfcfc; 
+}
+
+.about-title {
+    font-size: 2.2rem; 
+    font-weight: 800; 
+    margin-bottom: 25px; 
+    color: #000;
+    letter-spacing: -0.5px;
+}
+
+.text-careplus-blue {
+    color: var(--careplus-blue); 
+}
+
+.about-text {
+    font-size: 1.15rem; 
+    line-height: 1.8; 
+    font-weight: 500; 
+    color: var(--text-dark); 
+    text-align: justify; /* Alinha o texto perfeitamente nas laterais */
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (AJUSTES EXCLUSIVOS PARA MOBILE)
+   ========================================================================== */
+@media (max-width: 991px) {
+    
+    .hero-section {
+        /* Altura padronizada para mobile! */
+        height: 250px; 
+        
+        /* Película branca translúcida para garantir a leitura do texto */
+        background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), 
+                    url('/assets/Images/HeaderDeslogado/HeaderDeslogado-Mobile.png') no-repeat center center;
+        background-size: cover;
+    }
+
+    .hero-title {
+        font-size: 2rem; 
+        margin-bottom: 10px;
+    }
+
+    .hero-text {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .brand-subtitle {
+        font-size: 1rem;
+    }
+
+    .btn-saiba-mais {
+        padding: 10px 40px;
+        font-size: 1rem;
+    }
+
+    .about-title {
+        font-size: 1.8rem;
+    }
+    
+    .about-text {
+        font-size: 1rem;
+        text-align: justify; /* Mantém o texto justificado na tela do celular */
+    }
+}

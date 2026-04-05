@@ -22,8 +22,11 @@
 .hero-gameplus {
     background: url('/assets/Images/GamePlus/GamePlus.png') no-repeat center center;
     background-size: cover;
+    /* Adicionado para focar na parte mais importante da imagem */
+    background-position: center 30%; 
     width: 100%;
-    height: 558px; 
+    /* Altura reduzida de 558px para 380px para um visual de "faixa" */
+    height: 380px; 
     border-bottom: 4px solid var(--careplus-blue);
 }
 
@@ -160,7 +163,9 @@
    RESPONSIVIDADE (Mobile e Tablets)
    ========================================================================== */
 @media (max-width: 991px) {
-    .hero-gameplus { height: 350px; }
+    /* Altura reduzida de 350px para 250px no celular */
+    .hero-gameplus { height: 250px; } 
+
     .subtitulo-destaque { font-size: 1.6rem; padding: 0 15px; }
 
     /* Esconde elementos visuais complexos no mobile para foco na leitura */
