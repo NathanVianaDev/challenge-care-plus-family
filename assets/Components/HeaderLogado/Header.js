@@ -18,11 +18,11 @@ export class MeuHeader extends HTMLElement {
                             </a>
                             
                             <a class="nav-link text-dark" href="#">AGENDAMENTOS</a>
-                            <a class="nav-link text-dark" href="#">GAME PLUS +</a>
+                            <a class="nav-link text-dark" href="/assets/Pages/Ranking/Ranking.html">GAME PLUS +</a>
                             <a class="nav-link text-dark" href="#">UNIDADES</a>
                             <a class="nav-link text-dark" href="#">CONTATO</a>
                             <a class="nav-link text-dark" href="../../assets/Pages/EditarPerfil/EditarPerfil.html">PERFIL</a>
-                            <a class="btn-perfil-sair" >
+                            <a href="/assets/Pages/HomePage/HomePage.html" class="btn-perfil-sair" >
                                 <span class="texto-sair">SAIR</span>
                                 <div class="circulo-azul">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" >

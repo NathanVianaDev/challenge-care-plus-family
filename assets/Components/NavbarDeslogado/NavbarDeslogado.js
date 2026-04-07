@@ -4,7 +4,7 @@ export class NavbarDeslogado extends HTMLElement {
             <nav class="navbar navbar-expand-lg sticky-top navbar-deslogado-custom">
                 <div class="container-fluid px-4 px-lg-5">
                     
-                    <a class="navbar-brand m-0 d-lg-none" href="/index.html">
+                    <a class="navbar-brand m-0 d-lg-none" href="/Pages/HomePage/HomePage.html">
                         <img src="/assets/Images/logo-care-plus.png" alt="Logo Care Plus" height="60" onerror="this.style.display='none';">
                     </a>
 
@@ -16,18 +16,18 @@ export class NavbarDeslogado extends HTMLElement {
                         
                         <div class="navbar-nav align-items-center gap-3 gap-lg-4">
                             
-                            <a class="navbar-brand m-0 d-none d-lg-block" href="/index.html">
+                            <a class="navbar-brand m-0 d-none d-lg-block" href="/assets/Pages/HomePage/HomePage.html">
                                 <img src="/assets/Images/logo-care-plus.png" alt="Logo Care Plus" height="80" onerror="this.style.display='none';">
                             </a>
 
-                            <a class="nav-link" href="/index.html">INÍCIO</a>
-                            <a class="nav-link" href="#">ODONTOLOGIA</a>
-                            <a class="nav-link" href="#">DERMATOLOGIA</a>
-                            <a class="nav-link" href="#">GAME PLUS +</a>
-                            <a class="nav-link" href="#">UNIDADES</a>
-                            <a class="nav-link" href="#">CONTATO</a>
+                            <a class="nav-link" href="/assets/Pages/HomePage/HomePage.html">INÍCIO</a>
+                            <a class="nav-link" href="/assets/Pages/Odontologia/Odontologia.html">ODONTOLOGIA</a>
+                            <a class="nav-link" href="/assets/Pages/Dermatologia/Dermatologia.html">DERMATOLOGIA</a>
+                            <a class="nav-link" href="/assets/Pages/GamePlus/GamePlus.html">GAME PLUS +</a>
+                            <a class="nav-link" href="/assets/Pages/Unidades/Unidades.html">UNIDADES</a>
+                            <a class="nav-link" href="/assets/Pages/Contatos/Contatos.html">CONTATO</a>
                             
-                            <a class="btn-login ms-lg-2" href="/assets/Pages/Login/Base.html">
+                            <a class="btn-login ms-lg-2" href="/assets/Pages/Login/Login.html">
                                 <span class="texto-login">LOGIN</span>
                                 <div class="circulo-azul-login">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

@@ -12,9 +12,9 @@ class PainelProgresso extends HTMLElement {
                     <div class="p-2 rounded-pill text-white fw-bold shadow-sm btn-acao">1º Lugar</div>
                 </div>
                 <div class="col-12 mt-3">
-                    <button class="btn btn-acao w-100 rounded-pill py-2 fw-bold text-white shadow-sm">
+                    <a href="../TrocadePontos/TrocadePontos.html"><button class="btn btn-acao w-100 rounded-pill py-2 fw-bold text-white shadow-sm">
                         Troque seus pontos
-                    </button>
+                    </button><a>
                 </div>
             </div>
 
@@ -40,8 +40,8 @@ class PainelProgresso extends HTMLElement {
             </div>
 
             <div class="d-grid gap-3 mt-4">
-                <button class="btn btn-acao btn-lg rounded-pill fw-bold text-white shadow-sm">Tarefas +</button>
-                <button class="btn btn-acao btn-lg rounded-pill fw-bold text-white shadow-sm">Ranking Global</button>
+                <a href="../PainelTarefas/PainelTarefas.html"><button class="btn btn-acao btn-lg rounded-pill fw-bold text-white shadow-sm">Tarefas +</button></a>
+                <a href="../PainelRanking/PainelRanking.html"><button class="btn btn-acao btn-lg rounded-pill fw-bold text-white shadow-sm">Ranking Global</button></a>
             </div>
         `;
 
@@ -53,11 +53,11 @@ class PainelProgresso extends HTMLElement {
     animarBarras() {
         // Busca apenas as barras que estão dentro deste componente
         const barras = this.querySelectorAll('.progress-bar');
-        
+
         barras.forEach(barra => {
-            const valorFinal = barra.getAttribute('data-target'); 
+            const valorFinal = barra.getAttribute('data-target');
             if (valorFinal) {
-                barra.style.width = valorFinal + '%'; 
+                barra.style.width = valorFinal + '%';
                 barra.innerText = valorFinal + '% Completo';
             }
         });
@@ -67,10 +67,10 @@ class PainelProgresso extends HTMLElement {
         // 1. O componente "lê" o atributo que você colocou lá no HTML. 
         // Se por acaso você esquecer de colocar o atributo, ele usa "Usuário" como padrão.
         const nomeRecebido = this.getAttribute('nome-usuario') || "Usuário";
-        
+
         // 2. Busca o elemento na página global
         const elementoNome = document.getElementById('display-name');
-        if (elementoNome) { 
+        if (elementoNome) {
             elementoNome.innerText = nomeRecebido; // Escreve o nome dinâmico na tela!
         }
     }

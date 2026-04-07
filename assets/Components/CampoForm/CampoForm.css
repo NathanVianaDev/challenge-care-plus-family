@@ -15,8 +15,8 @@
 .campo-formulario textarea {
     flex-grow: 1; 
     padding: 10px; /* Aumentei um pouquinho o padding para o texto não grudar no teto */
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #3aadde;
+    border-radius: 10px;
     background-color: white;
     font-family: inherit;
     font-size: 1rem;

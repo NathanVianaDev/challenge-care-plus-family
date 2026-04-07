@@ -6,6 +6,7 @@
     color: white !important;
     border: none !important;
     transition: 0.3s;
+    width: 100% !important;
 }
 
 .btn-acao:hover {
@@ -28,6 +29,7 @@
     box-shadow: 2px 0 10px rgba(0,0,0,0.2);
     transition: width 1.5s ease-in-out !important;
 }
+
 
 @keyframes move-shimmer {
     0% { background-position: 200% 0; }
