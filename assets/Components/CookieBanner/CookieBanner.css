@@ -1,0 +1,87 @@
+/* Arquivo: CookieBanner.css */
+
+.cookie-wrapper {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: none; /* Escondido por padrão, o JS decide quando mostrar */
+}
+
+.cookie-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    padding: 20px 30px;
+    border-left: 6px solid #8cc63f; /* Linha verde da marca */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cookie-text {
+    font-size: 14px;
+    color: #495057;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.cookie-text a {
+    color: #1d4b70;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.cookie-btns {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.btn-cookie-accept {
+    background-color: #8cc63f;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-cookie-accept:hover {
+    background-color: #7ab332;
+}
+
+.btn-cookie-decline {
+    background-color: transparent;
+    color: #6c757d;
+    border: 1px solid #dee2e6;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-cookie-decline:hover {
+    background-color: #f8f9fa;
+}
+
+/* Responsividade para celular */
+@media (max-width: 768px) {
+    .cookie-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .cookie-btns {
+        width: 100%;
+        flex-direction: column;
+    }
+}
