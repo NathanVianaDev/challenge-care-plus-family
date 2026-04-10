@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,40 +9,46 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../Components/HeaderLogado/Header.css">
     <style>
-        #text-avatar { transition: color 0.3s ease; }
-        .cursor-pointer { cursor: pointer; }
+        #text-avatar {
+            transition: color 0.3s ease;
+        }
+
+        .cursor-pointer {
+            cursor: pointer;
+        }
     </style>
     <link rel="stylesheet" href="../../assets/CSS/Avatar.css">
-    <script type="module" src="../../Components/HeaderLogado/Header.js"></script>
+    <script type="module" src="/assets/js/LayoutGlobal.js"></script>
     <script type="module" src="../../Components/BotaoGenero/BotaoGenero.js"></script>
     <script type="module" src="../../Components/AvatarPreview/AvatarPreview.js"></script>
 </head>
+
 <body class="bg-light">
-    <meu-header></meu-header> 
-    <main class="customizador-wrapper"> 
+    
+    <main class="customizador-wrapper">
         <div class="customizador-header shadow-sm">
             <h2 class="fw-light m-0">Personalize seu <span id="text-avatar" class="fw-bold">Avatar</span></h2>
             <div class="d-flex gap-2">
                 <botao-genero id="btn-masculino" genero="masculino" active="true"></botao-genero>
                 <botao-genero id="btn-feminino" genero="feminino"></botao-genero>
             </div>
-        </div> 
+        </div>
 
         <div class="customizador-body shadow-sm">
-            <div class="sidebar-icones"> 
+            <div class="sidebar-icones">
                 <button class="btn-icone-lateral menu-item-lateral"><i class="bi bi-scissors fs-2"></i></button>
-                
+
                 <button class="btn-icone-lateral menu-item-lateral"><i class="bi bi-eye-fill fs-2"></i></button>
-                
+
                 <button class="btn-icone-lateral menu-item-lateral"><i class="bi bi-emoji-smile-fill fs-2"></i></button>
 
                 <button class="btn-icone-lateral menu-item-lateral"><i class="bi bi-person-vcard fs-2"></i></button>
             </div>
-            
+
             <div class="area-preview">
                 <avatar-preview id="main-avatar" genero="masculino"></avatar-preview>
             </div>
-            
+
             <div class="area-menu">
                 <h5 class="fw-bold mb-4 text-secondary text-center">Escolha uma opção</h5>
                 <div id="opcoes-grid">
@@ -50,10 +57,11 @@
                     <button id="btn-salvar-avatar" class="btn btn-success btn-lg shadow-sm w-100">
                         <i class="bi bi-check-circle-fill me-2"></i>Salvar Avatar
                     </button>
+                </div>
             </div>
-        </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../js/script.js"></script>
 </body>
+
 </html>

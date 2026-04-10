@@ -4,7 +4,6 @@
             padding: 0;
             font-family: 'Montserrat', sans-serif;
             background-image: url('../Images/logo-care-plus-background.png');
-            /* Fundo base */
             min-height: 100vh;
             display: flex;
             overflow-x: hidden;
@@ -18,7 +17,6 @@
             max-width: 1200px;
             margin: 0 auto;
             z-index: 1;
-            /* Fica acima das formas do fundo */
         }
 
         /* Lado Esquerdo (Textos) */
@@ -90,7 +88,6 @@
             margin: 0 0 30px 0;
             color: #000;
             border-left: 4px solid #8cc63f;
-            /* Linha verde da imagem */
             padding-left: 10px;
         }
 
@@ -113,27 +110,22 @@
             transition: 0.3s;
         }
 
-        /* Estado ATIVO (Azul Claro) */
         .btn-toggle.ativo {
             background-color: #38b6ff;
             color: white;
         }
 
-        /* Estado INATIVO (Azul Escuro) */
         .btn-toggle.inativo {
             background-color: #1d4b70;
             color: white;
         }
 
-        /* --- ESTILIZANDO OS SEUS COMPONENTES PARA ESTA TELA --- */
-        /* Pinta o texto da label de azul escuro */
         .login-card campo-form label {
             color: #1d4b70 !important;
             font-size: 15px;
             margin-bottom: 8px;
         }
 
-        /* Pinta a borda do input de verde */
         .login-card campo-form input {
             border: 1px solid #8cc63f !important;
             padding: 12px !important;
@@ -143,7 +135,6 @@
             color: #999;
         }
 
-        /* Links e Botão de Login */
         .esqueceu-senha {
             font-size: 12px;
             color: #333;

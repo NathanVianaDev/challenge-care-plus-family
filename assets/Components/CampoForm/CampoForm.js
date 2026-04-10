@@ -14,11 +14,11 @@ export class CampoForm extends HTMLElement {
 
         // Se o tipo for textarea, usamos a tag de texto longo (que começa do topo)
         if (tipo === 'textarea') {
-            campoHtml = `<textarea id="${idCampo}" placeholder="${legenda}"></textarea>`;
+            campoHtml = `<textarea class="form-control form-control-sm rounded-3" id="${idCampo}" placeholder="${legenda}"></textarea>`;
         } 
         // Se for qualquer outra coisa (text, email, password), usamos o input normal
         else {
-            campoHtml = `<input id="${idCampo}" type="${tipo}" placeholder="${legenda}">`;
+            campoHtml = `<input class="form-control form-control-sm rounded-3" id="${idCampo}" type="${tipo}" placeholder="${legenda}">`;
         }
 
         // Desenhando o componente na tela

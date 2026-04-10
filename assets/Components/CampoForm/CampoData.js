@@ -14,7 +14,7 @@ export class CampoData extends HTMLElement {
             <div class="campo-data-wrapper">
                 <div class="campo-formulario">
                     <label>${tituloFormData}</label>
-                    <input type="text" id="${idCampoData}" class="input-data-custom" placeholder="${legendaData}" readonly>
+                    <input type="text" id="${idCampoData}" class="input-data-custom form-control form-control-sm rounded-3" placeholder="${legendaData}" readonly>
                 </div>
 
                 <div class="calendario-popup">

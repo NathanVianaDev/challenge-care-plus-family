@@ -5,19 +5,17 @@ import { MeuHeader } from '../Components/HeaderLogado/Header.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Descobre o nome do arquivo atual (Ex: "Login.html" ou "Perfil.html")
     const urlAtual = window.location.pathname;
 
-    // 2. Lista com os nomes de TODAS as telas que devem ter o Header DESLOGADO
     const telasSemLogin = [
-        'Login.html', 
-        'Cadastro.html', 
-        'ConcluirCadastroPessoal.html',
-        'ConcluirCadastroEmpresarial.html',
-        'index.html'
+        'HomePage.html',
+        'Odontologia.html',
+        'Dermatologia.html',
+        'GamePlus.html',
+        'Unidades.html',
+        'Contatos.html',
     ];
 
-    // 3. Verifica se a tela atual está dentro da nossa lista ali de cima
     const precisaDeLogin = !telasSemLogin.some(tela => urlAtual.includes(tela));
 
     if (precisaDeLogin) {

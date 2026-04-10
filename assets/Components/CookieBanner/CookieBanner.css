@@ -5,8 +5,8 @@
     bottom: 20px;
     left: 20px;
     right: 20px;
-    z-index: 9999;
-    display: none; /* Escondido por padrão, o JS decide quando mostrar */
+    z-index: 9998; /* Um pouco menor que o pop-up */
+    display: none; 
 }
 
 .cookie-card {
@@ -14,7 +14,7 @@
     border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     padding: 20px 30px;
-    border-left: 6px solid #8cc63f; /* Linha verde da marca */
+    border-left: 6px solid #8cc63f; 
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -31,10 +31,17 @@
     margin: 0;
 }
 
-.cookie-text a {
+/* Transformamos o link em um botão disfarçado de texto */
+.link-politica {
     color: #1d4b70;
     text-decoration: underline;
     font-weight: 600;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
 }
 
 .cookie-btns {
@@ -54,9 +61,7 @@
     transition: 0.3s;
 }
 
-.btn-cookie-accept:hover {
-    background-color: #7ab332;
-}
+.btn-cookie-accept:hover { background-color: #7ab332; }
 
 .btn-cookie-decline {
     background-color: transparent;
@@ -68,8 +73,79 @@
     transition: 0.3s;
 }
 
-.btn-cookie-decline:hover {
-    background-color: #f8f9fa;
+.btn-cookie-decline:hover { background-color: #f8f9fa; }
+
+
+/* =========================================
+   ESTILOS DO POP-UP DA POLÍTICA (MODAL)
+   ========================================= */
+.modal-overlay {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro transparente */
+    z-index: 9999; /* Fica acima de TUDO na tela, inclusive do banner */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Classe que o JS vai adicionar para mostrar o pop-up */
+.modal-overlay.ativo {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 80vh; /* Não deixa ficar maior que a tela */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #003057;
+    font-size: 20px;
+}
+
+.btn-fechar-modal {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #6c757d;
+    cursor: pointer;
+    line-height: 1;
+    transition: 0.3s;
+}
+
+.btn-fechar-modal:hover {
+    color: #dc3545; /* Fica vermelho ao passar o mouse */
+}
+
+.modal-body {
+    padding: 20px 30px;
+    overflow-y: auto; /* Se o texto for longo, cria uma barra de rolagem só aqui dentro */
+}
+
+.modal-body p {
+    font-size: 14px;
+    color: #495057;
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
 /* Responsividade para celular */
@@ -79,9 +155,11 @@
         text-align: center;
         padding: 20px;
     }
-    
     .cookie-btns {
         width: 100%;
         flex-direction: column;
+    }
+    .modal-content {
+        max-height: 90vh;
     }
 }

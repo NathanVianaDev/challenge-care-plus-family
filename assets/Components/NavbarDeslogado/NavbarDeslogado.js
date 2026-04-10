@@ -1,6 +1,9 @@
 export class NavbarDeslogado extends HTMLElement {
     connectedCallback() {
+        const caminhoNavDeslogCSS = new URL('./NavbarDeslogado.css', import.meta.url).href;
+
         this.innerHTML = `
+            <link rel="stylesheet" href="${caminhoNavDeslogCSS}">
             <nav class="navbar navbar-expand-lg sticky-top navbar-deslogado-custom">
                 <div class="container-fluid px-4 px-lg-5">
                     

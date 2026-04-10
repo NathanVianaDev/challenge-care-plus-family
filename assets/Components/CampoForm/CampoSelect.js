@@ -25,7 +25,7 @@ export class CampoSelect extends HTMLElement {
         this.innerHTML = `
             <div class="campo-formulario" style="width: ${tamanhoCampoSelect};">
                 <label>${tituloForm}</label>
-                <select id="${idCampo}">
+                <select class="form-select" id="${idCampo}">
                     ${opcoesHtml}
                 </select>
             </div>
