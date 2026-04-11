@@ -18,7 +18,7 @@
    ========================================================================== */
 .hero-dermatologia {
     background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), 
-                url('/assets/Images/Dermatologia/Dermatologia.png') no-repeat center 30%;
+                url('/assets/Images/Dermatologia/Dermatologia.png') no-repeat center 65%;
     background-size: cover;
     width: 100%;
     height: 380px; /* Altura reduzida para o padrão de faixa */
