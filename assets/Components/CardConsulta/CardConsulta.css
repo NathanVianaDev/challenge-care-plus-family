@@ -1,23 +1,31 @@
+/* Arquivo: CardConsulta.css */
+
 .card-consulta {
+    /* Controlamos o layout por aqui para manter o tamanho original exato */
+    display: flex;
+    align-items: center;
+    padding: 16px 20px; /* Este é o padding exato para afastar os textos da borda */
     margin-bottom: 15px;
-    border-radius: 20px;
+    border-radius: 15px;
     background-color: #ffffff;
+    
+    /* Configuração perfeita da Imagem: cover obriga a imagem a colar em todas as paredes do card */
+    background-size: cover !important; 
+    background-position: center right !important;
+    background-repeat: no-repeat !important;
+    
+    /* A sombra é aplicada APENAS na caixa externa do card */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
-    border-left: 6px solid #3aadde !important;
 }
 
 .card-consulta:hover {
     transform: translateX(5px); 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 .data-badge {
-    background-color: #f0f8ff;
     min-width: 85px;
-}
-
-.color-azul {
-    color: #3aadde;
 }
 
 .btn-mudar-status {

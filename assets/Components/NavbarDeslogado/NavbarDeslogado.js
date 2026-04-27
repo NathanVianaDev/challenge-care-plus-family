@@ -19,11 +19,10 @@ export class NavbarDeslogado extends HTMLElement {
                         
                         <div class="navbar-nav align-items-center gap-3 gap-lg-4">
                             
-                            <a class="navbar-brand m-0 d-none d-lg-block" href="/assets/Pages/HomePage/HomePage.html">
+                            <a class="navbar-brand m-0 d-none d-lg-block" href="/Index.html">
                                 <img src="/assets/Images/logo-care-plus.png" alt="Logo Care Plus" height="80" onerror="this.style.display='none';">
                             </a>
 
-                            <a class="nav-link" href="/assets/Pages/HomePage/HomePage.html">INÍCIO</a>
                             <a class="nav-link" href="/assets/Pages/Odontologia/Odontologia.html">ODONTOLOGIA</a>
                             <a class="nav-link" href="/assets/Pages/Dermatologia/Dermatologia.html">DERMATOLOGIA</a>
                             <a class="nav-link" href="/assets/Pages/GamePlus/GamePlus.html">GAME PLUS +</a>

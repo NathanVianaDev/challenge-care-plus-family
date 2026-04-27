@@ -15,16 +15,16 @@ export class MeuHeader extends HTMLElement {
                     <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
                         <div class="navbar-nav align-items-center gap-5">
                         
-                            <a class="navbar-brand m-0" href="/index.html">
+                            <a class="navbar-brand m-0" href="/assets/Pages/HomePageLogado/HomePageLogado.html">
                                 <img src="/assets/Images/logo-care-plus.png" alt="Logo Care Plus" height="80">
                             </a>
                             
                             <a class="nav-link text-dark" href="#">AGENDAMENTOS</a>
                             <a class="nav-link text-dark" href="/assets/Pages/Ranking/Ranking.html">GAME PLUS +</a>
-                            <a class="nav-link text-dark" href="#">UNIDADES</a>
-                            <a class="nav-link text-dark" href="#">CONTATO</a>
+                            <a class="nav-link text-dark" href="/assets/Pages/AmbienteFamilia/AmbienteFamilia.html">FAMILIA</a>
+                            <a class="nav-link text-dark" href="/assets/Pages/AmbienteEmpresa/AmbienteEmpresa.html">EMPRESA</a>
                             <a class="nav-link text-dark" href="/assets/Pages/EditarPerfil/EditarPerfil.html">PERFIL</a>
-                            <a href="/assets/Pages/HomePage/HomePage.html" class="btn-perfil-sair" >
+                            <a href="/Index.html" class="btn-perfil-sair" >
                                 <span class="texto-sair">SAIR</span>
                                 <div class="circulo-azul">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" >

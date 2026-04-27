@@ -71,8 +71,9 @@ export class CardHubUniversal extends HTMLElement {
     }
 
     render() {
+        const caminhoCardHubCSS = new URL('./CardHub.css', import.meta.url).href;
         this.shadowRoot.innerHTML = `
-        <link rel="stylesheet" href="./assets/Components/CardHub/CardHub.css">
+        <link rel="stylesheet" href="${caminhoCardHubCSS}">
         <div class="Card" style="background: ${this.corFundo}">
             <div class="cabecalho">
                 <span class="titulo-monitor">${this.titulo}</span>

@@ -1,3 +1,5 @@
+// Arquivo: CardConsulta.js
+
 export class CardConsulta extends HTMLElement {
     connectedCallback() {
         const dia = this.getAttribute('dia') || '00';
@@ -7,25 +9,53 @@ export class CardConsulta extends HTMLElement {
         const horario = this.getAttribute('horario') || '00:00';
         
         let isConfirmado = false;
-
-        // Criamos um ID único para o Modal, para que um card não abra o Modal do outro sem querer
         const idUnico = Math.random().toString(36).substr(2, 9);
 
+        // --- LÓGICA DAS CORES ---
+        const imgAzul = new URL('../../Images/FundoConsulta/consulta-azul.png', import.meta.url).href;
+        const imgVerde = new URL('../../Images/FundoConsulta/consulta-verde.png', import.meta.url).href;
+        const caminhoCSS = new URL('./CardConsulta.css', import.meta.url).href;
+
+        let imagemEscolhida = imgAzul; 
+        let corBorda = '#3aadde';     
+        let corTitulo = '#3aadde';    
+        let corFundoData = '#f0f8ff'; 
+
+        const espMinuscula = especialidade.toLowerCase();
+
+        if (espMinuscula.includes('derma') || espMinuscula.includes('odonto') || espMinuscula.includes('nutri') || espMinuscula.includes('psico')) {
+            imagemEscolhida = imgVerde;
+            corBorda = '#8cc63f';     
+            corTitulo = '#8cc63f';    
+            corFundoData = '#f4faeb'; 
+        } 
+        else {
+            imagemEscolhida = imgAzul;
+            corBorda = '#3aadde';
+            corTitulo = '#3aadde';
+            corFundoData = '#f0f8ff';
+        }
+
+        // --- INJETANDO O HTML ---
         this.innerHTML = `
-            <div class="card-consulta d-flex align-items-center p-3 shadow-sm border-0 bg-white">
-                <div class="data-badge text-center p-2 rounded-4 me-4" style="background-color: #f0f8ff; min-width: 80px;">
-                    <span class="d-block fw-bold fs-4 color-azul">${dia}</span>
+            <link rel="stylesheet" href="${caminhoCSS}">
+            
+            <div class="card-consulta" 
+                 style="background-image: url('${imagemEscolhida}'); border-left: 6px solid ${corBorda} !important;">
+                
+                <div class="data-badge text-center p-2 rounded-4 me-4" style="background-color: ${corFundoData}; min-width: 80px;">
+                    <span class="d-block fw-bold fs-4" style="color: ${corTitulo};">${dia}</span>
                     <span class="text-muted small fw-bold">${mes}</span>
                 </div>
                 
                 <div class="flex-grow-1">
-                    <h5 class="fw-bold mb-1">${especialidade}</h5>
+                    <h5 class="fw-bold mb-1" style="color: ${corTitulo};">${especialidade}</h5>
                     <p class="text-muted mb-0 small"><i class="bi bi-person-fill me-1"></i> ${profissional}</p>
                 </div>
                 
                 <div class="text-end me-4">
-                    <span class="fw-bold d-block">${horario}</span>
-                    <span class="badge-status badge rounded-pill bg-secondary text-white px-3">Desconfirmado</span>
+                    <span class="fw-bold d-block text-dark">${horario}</span>
+                    <span class="badge-status badge rounded-pill bg-secondary text-white px-3">Aguardando confirmação</span>
                 </div>
                 
                 <button class="btn-mudar-status btn btn-secondary rounded-circle shadow-sm d-flex align-items-center justify-content-center" 
@@ -59,21 +89,15 @@ export class CardConsulta extends HTMLElement {
         const badge = this.querySelector('.badge-status');
         const modalElement = this.querySelector('.modal');
         const btnConfirmarModal = this.querySelector('.btn-confirmar-modal');
-
-        // Inicializamos o Modal usando o JavaScript nativo do Bootstrap
         const modalBootstrap = new bootstrap.Modal(modalElement);
 
-        // Ação 1: Quando clica no botão redondo do card
         botaoCard.addEventListener('click', () => {
             if (isConfirmado) return; 
             modalBootstrap.show();
         });
 
-        // Ação 2: Quando clica no botão verde "Sim, Confirmar" DENTRO do Modal
         btnConfirmarModal.addEventListener('click', () => {
             isConfirmado = true;
-
-            // Atualiza as cores do card para Verde
             badge.textContent = 'Confirmado';
             badge.classList.replace('bg-secondary', 'bg-success-subtle');
             badge.classList.replace('text-white', 'text-success');
@@ -81,8 +105,6 @@ export class CardConsulta extends HTMLElement {
             botaoCard.classList.replace('btn-secondary', 'btn-success');
             botaoCard.style.cursor = 'default';
             botaoCard.title = 'Consulta Confirmada';
-
-            // Esconde o modal automaticamente após confirmar
             modalBootstrap.hide();
         });
     }
