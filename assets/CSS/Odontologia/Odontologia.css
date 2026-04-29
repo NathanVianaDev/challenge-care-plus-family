@@ -121,13 +121,12 @@
     border: 3px solid var(--border-glass); 
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
-    box-shadow: var(--shadow-spectacular); 
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .card-tratamento:hover {
     transform: translateY(-8px); 
-    box-shadow: var(--shadow-spectacular-hover); 
+    box-shadow: var(--shadow-spectacular); 
     border-color: rgba(58, 173, 222, 0.7); 
 }
 
@@ -178,6 +177,33 @@
     background-color: var(--careplus-blue); 
     transform: scale(1.2); 
     box-shadow: 0 0 8px rgba(58, 173, 222, 0.6); 
+}
+
+/* ==========================================================================
+   CARROSSEL FUNCIONAL (ESTRUTURA CORRIGIDA)
+   ========================================================================== */
+.carousel-tratamentos {
+    overflow: hidden; 
+    width: 100%;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 100%;
+    align-items: stretch; /* Garante que os cards acompanhem a altura máxima */
+}
+
+.carousel-slide {
+    flex: 0 0 100%; /* Trava o tamanho do slide em exatos 100% do container pai */
+    width: 100%;
+    max-width: 100%; /* Impede o vazamento horizontal */
+    
+    /* O padding lateral (15px) neutraliza as margens negativas da .row do Bootstrap.
+       O padding vertical (20px) garante que a sombra do :hover não seja cortada. */
+    padding: 20px 15px; 
+    box-sizing: border-box;
 }
 
 /* ==========================================================================

@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const precisaDeLogin = !telasSemLogin.some(tela => urlAtual.includes(tela));
 
-    if (telasSemLogin) {
-        document.body.insertAdjacentHTML('afterbegin', '<navbar-deslogado></navbar-deslogado>');
-    } else {
+    if (precisaDeLogin) {
         document.body.insertAdjacentHTML('afterbegin', '<meu-header></meu-header>');
+    } else {
+        document.body.insertAdjacentHTML('afterbegin', '<navbar-deslogado></navbar-deslogado>');
     }
 
     document.body.insertAdjacentHTML('beforeend', '<footer-care></footer-care>');

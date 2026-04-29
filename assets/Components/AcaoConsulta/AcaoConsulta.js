@@ -7,12 +7,12 @@ export class CaixaAcaoConsulta extends HTMLElement {
                 
                 <div class="radio-group">
                     <label class="radio-label">
-                        <input type="radio" name="tipo_acao" value="cancelar" checked>
-                        Cancelar
+                        <input type="radio" name="tipo_acao" value="remarcar"checked>
+                        Remarcar
                     </label>
                     <label class="radio-label">
-                        <input type="radio" name="tipo_acao" value="remarcar">
-                        Remarcar
+                        <input type="radio" name="tipo_acao" value="cancelar"> 
+                        Cancelar
                     </label>
                 </div>
 
