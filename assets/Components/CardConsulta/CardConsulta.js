@@ -41,7 +41,7 @@ export class CardConsulta extends HTMLElement {
             <link rel="stylesheet" href="${caminhoCSS}">
             
             <div class="card-consulta" 
-                 style="background-image: url('${imagemEscolhida}'); border-left: 6px solid ${corBorda} !important;">
+                style="background-image: url('${imagemEscolhida}'); border-left: 6px solid ${corBorda} !important;">
                 
                 <div class="data-badge text-center p-2 rounded-4 me-4" style="background-color: ${corFundoData}; min-width: 80px;">
                     <span class="d-block fw-bold fs-4" style="color: ${corTitulo};">${dia}</span>
