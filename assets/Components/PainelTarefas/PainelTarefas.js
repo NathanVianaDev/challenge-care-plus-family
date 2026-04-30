@@ -6,7 +6,13 @@ export class PainelTarefas extends HTMLElement {
     render() {
         this.innerHTML = `
             <div class="tarefas-container">
-                <h2 class="tarefas-title">Tarefas gerais</h2>
+    
+                <!-- Wrapper com Flexbox para alinhar lado a lado -->
+                <div class="d-flex align-items-center gap-3 mb-4">
+                    <botao-voltar texto="Voltar" href="../../Pages/HomePageLogado/HomePageLogado.html"></botao-voltar>
+                    <h2 class="tarefas-title m-0">Tarefas gerais</h2>
+                </div>
+                
                 <div class="tarefas-lista">
                     <div class="tarefas-header">
                         <div class="col-num">#</div>

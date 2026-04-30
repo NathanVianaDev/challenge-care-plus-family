@@ -10,18 +10,25 @@
         
     <link rel="stylesheet" href="/assets/Components/AvatarCenario/AvatarCenario.css">
     <link rel="stylesheet" href="/assets/Components/PainelProgresso/PainelProgresso.css">
+    <link rel="stylesheet" href="/assets/Components/BotaoVoltar/BotaoVoltar.css">
 
     <script type="module" src="/assets/js/LayoutGlobal.js"></script>
-
+    <script type="module" src="/assets/Components/BotaoVoltar/BotaoVoltar.js"></script>
 </head>
 <body class="bg-light">
 
-    <main class="container my-5">
+    <main class="container my-3">
         <div class="card shadow-lg border-0 p-4 p-md-5 mx-auto" style="max-width: 55rem; border-radius: 20px; background-color: white;">
             
             <div class="row mb-4">
                 <div class="col-12">
-                    <h1 class="fw-light text-center">Olá, <span id="display-name" class="fw-bold">Pacheco</span>.</h1>
+                    <!-- ALINHAMENTO LADO A LADO: Botão + Título -->
+                    <div class="d-flex align-items-center position-relative">
+                        <div class="position-absolute start-0">
+                            <botao-voltar texto="Voltar" href="../../Pages/HomePageLogado/HomePageLogado.html"></botao-voltar>
+                        </div>
+                        <h1 class="fw-light text-center w-100 m-0">Olá, <span id="display-name" class="fw-bold">Harry</span>.</h1>
+                    </div>
                 </div>
             </div>
 
@@ -30,9 +37,9 @@
                 <div class="col-lg-7 text-center order-1 order-lg-2">
                     <avatar-cenario diretorio-imagens="FundoAvatar"></avatar-cenario>
                 </div>
-
+                
                 <div class="col-lg-5 order-2 order-lg-1">
-                    <painel-progresso nome-usuario="Pacheco"></painel-progresso>
+                    <painel-progresso nome-usuario="Harry"></painel-progresso>
                 </div>
 
             </div>
