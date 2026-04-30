@@ -31,8 +31,12 @@ class FormularioFamilia extends HTMLElement {
                 <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-3">
                     <h2 class="fw-light m-0 fs-3">Personalize sua <span class="fw-bold">Família</span></h2>
                     <div class="d-flex gap-2">
-                        <button class="btn btn-azul fw-bold px-4 rounded-pill shadow-sm">Avatar</button>
-                        <button class="btn btn-azul fw-bold px-4 rounded-pill shadow-sm">Empresa</button>
+                        <button onclick="window.location.href='/assets/Pages/Avatar/Avatar.html'" class="btn btn-azul fw-bold px-4 rounded-pill shadow-sm">
+                            Avatar
+                        </button>
+                        <button onclick="window.location.href='/assets/Pages/IncluindoEmpresa/IncluindoEmpresa.html'" class="btn btn-azul fw-bold px-4 rounded-pill shadow-sm">
+                            Empresa
+                        </button>
                     </div>
                 </div>
 
@@ -203,13 +207,13 @@ class FormularioFamilia extends HTMLElement {
 
         const btnEntendi = this.querySelector('#btnEntendiMensagem');
         btnEntendi.addEventListener('click', () => {
-            
+
             // CORREÇÃO DE ACESSIBILIDADE: Tira o foco do botão para evitar o erro do aria-hidden
             btnEntendi.blur();
 
             // Executa a limpeza da página
             const form = this.querySelector('#form-familia-principal');
-            if (form) form.reset(); 
+            if (form) form.reset();
             this.membros = [];
             this.atualizarTabela();
             console.log("Página limpa após confirmação do usuário.");
