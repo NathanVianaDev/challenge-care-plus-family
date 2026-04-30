@@ -153,7 +153,6 @@ class AvatarPreview extends HTMLElement {
                     roupa: this.getAttribute('roupa')
                 };
                 localStorage.setItem('careplus_avatar', JSON.stringify(config));
-                alert("✅ Avatar salvo com sucesso!");
             });
         }
 

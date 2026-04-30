@@ -1,0 +1,18 @@
+/* assets/Components/BotaoVoltar/BotaoVoltar.css */
+
+.btn-voltar-custom {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Pequena animação para a seta ir um pouco para trás ao passar o mouse */
+.btn-voltar-custom:hover {
+    transform: translateX(-4px);
+    background-color: #f8f9fa; /* Fundo leve do bootstrap */
+    color: #000;
+}
