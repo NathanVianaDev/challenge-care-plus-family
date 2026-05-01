@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha - Care Plus</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../Login2/AuthGlass.css">
+    <link rel="stylesheet" href="../../Components/CampoForm/CampoForm.css">
+
+    <script type="module">
+        import { CampoForm } from '../../Components/CampoForm/CampoForm.js';
+    </script>
+</head>
+<body>
+
+    <div class="glass-card">
+        <div class="glass-left">
+            <img src="../../Images/logo-care-plus.png" alt="Care Plus Family" class="logo-img">
+            <h1>Recuperação de acesso simples e rápida.</h1>
+            <ul>
+                <li>Insira seu documento de identificação</li>
+                <li>Verifique a caixa de entrada do seu e-mail cadastrado</li>
+                <li>Siga o link seguro para redefinir sua senha</li>
+            </ul>
+        </div>
+
+        <div class="glass-right">
+            <h2 class="titulo-auth">Esqueci minha senha</h2>
+            
+            <p style="font-size: 0.9rem; color: #555; margin-bottom: 1.5rem;">
+                Preencha o campo com seu documento e clique em Enviar.
+            </p>
+
+            <campo-form 
+                id-campo="input-recuperar" 
+                titulo-form="CPF / CNPJ" 
+                tipo="text" 
+                legenda="Informe o CPF ou CNPJ cadastrado">
+            </campo-form>
+
+            <button class="btn-primary-glass">Enviar Instruções</button>
+
+            <div class="links-uteis mt-4">
+                Lembrou a senha? <a href="./Login.html">Fazer login.</a><br><br>
+                Não tem conta? <a href="./Cadastro.html">Cadastre-se.</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

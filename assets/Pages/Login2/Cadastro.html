@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Care Plus</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../Login2/AuthGlass.css">
+    <link rel="stylesheet" href="../../Components/CampoForm/CampoForm.css">
+
+    <script type="module">
+        import { CampoForm } from '../../Components/CampoForm/CampoForm.js';
+    </script>
+</head>
+
+<body>
+
+    <div class="glass-card">
+        <div class="glass-left d-none d-md-flex">
+            <img src="../../Images/logo-care-plus.png" alt="Care Plus Family" class="logo-img">
+            <h1>Crie sua conta e acesse o Hub de Saúde.</h1>
+            <ul>
+                <li>Acompanhamento de métricas de saúde</li>
+                <li>Agendamento de consultas facilitado</li>
+                <li>Gestão de dependentes</li>
+            </ul>
+        </div>
+
+        <div class="glass-right">
+            <h2 class="titulo-auth">Cadastre-se</h2>
+
+            <div class="row">
+                <div class="col-12">
+                    <campo-form id-campo="cad-nome" titulo-form="Nome Completo" legenda="Informe seu Nome"></campo-form>
+                </div>
+                <div class="col-md-6">
+                    <campo-form id-campo="cad-cpf" titulo-form="CPF" legenda="Informe seu CPF"></campo-form>
+                </div>
+                <div class="col-md-6">
+                    <campo-form id-campo="cad-data" titulo-form="Data de Nascimento" tipo="date"
+                        legenda=""></campo-form>
+                </div>
+
+                <div class="col-12">
+                    <campo-form id-campo="cad-email" titulo-form="E-mail" tipo="email"
+                        legenda="Informe o Email"></campo-form>
+                </div>
+
+                <div class="col-12">
+                    <campo-form id-campo="cad-telefone" titulo-form="Telefone" tipo="tel"
+                        legenda="Informe seu Telefone ou Celular"></campo-form>
+                </div>
+
+                <div class="col-md-6">
+                    <campo-form id-campo="cad-senha" titulo-form="Senha" tipo="password"
+                        legenda="Crie uma Senha"></campo-form>
+                </div>
+                <div class="col-md-6">
+                    <campo-form id-campo="cad-confirma-senha" titulo-form="Confirmar Senha" tipo="password"
+                        legenda="Confirme a Senha"></campo-form>
+                </div>
+            </div>
+
+            <button class="btn-primary-glass">Criar Conta</button>
+
+            <div class="links-uteis">
+                Já possui uma conta? <a href="./Login.html">Fazer login.</a>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-discreto">
+        <div class="container text-center">
+            <p class="m-0">© 2026 Care Plus Family. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Care Plus</title>
+    
+    <!-- Bootstrap & Fontes -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Unificado para as telas de Autenticação -->
+    <link rel="stylesheet" href="../Login2/AuthGlass.css">
+    <link rel="stylesheet" href="../../Components/CampoForm/CampoForm.css">
+
+    <!-- Script de Toggle -->
+    <script src="../../js/Login.js" defer></script>
+    <script type="module">
+        import { CampoForm } from '../../Components/CampoForm/CampoForm.js';
+    </script>
+</head>
+<body>
+
+    <div class="glass-card">
+        <div class="glass-left">
+            <img src="../../Images/logo-care-plus.png" alt="Care Plus Family" class="logo-img">
+            <h1>Selecione seu perfil e tenha acesso aos serviços Care Plus.</h1>
+            <ul>
+                <li>Atendimento Personalizado</li>
+                <li>Solicitação e Consulta de Reembolsos</li>
+                <li>Solicitação e Autorização de Atendimentos</li>
+                <li>Busca de Rede Credenciada</li>
+                <li>Hub personalizado com seus dados médicos</li>
+                <li>Perfil totalmente interativo</li>
+            </ul>
+        </div>
+
+        <div class="glass-right">
+            <h2 class="titulo-auth">Login</h2>
+            
+            <div class="toggle-group">
+                <button id="btn-beneficiario" class="btn-toggle ativo">Beneficiário</button>
+                <button id="btn-empresa" class="btn-toggle inativo">Empresa</button>
+            </div>
+
+            <div id="caixa-cpf">
+                <campo-form id-campo="input-cpf" titulo-form="CPF" legenda="Informe seu CPF"></campo-form>
+            </div>
+
+            <div id="caixa-cnpj" style="display: none;">
+                <campo-form id-campo="input-cnpj" titulo-form="CNPJ" legenda="Informe seu CNPJ"></campo-form>
+            </div>
+
+            <campo-form id-campo="input-senha" titulo-form="Senha" tipo="password" legenda="Informe sua Senha"></campo-form>
+
+            <div class="d-flex justify-content-end mb-3">
+                <a href="./EsqueceuSenha.html" style="font-size: 0.85rem; color: #777; text-decoration: none;">Esqueceu sua senha?</a>
+            </div>
+
+            <a href="/assets/Pages/HomePageLogado/HomePageLogado.html" class="text-decoration-none">
+                <button class="btn-primary-glass">Entrar</button>
+            </a>
+
+            <div class="links-uteis">
+                Primeiro acesso? <a href="./Cadastro.html">Clique aqui e cadastre-se.</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
