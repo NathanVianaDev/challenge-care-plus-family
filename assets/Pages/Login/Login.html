@@ -3,37 +3,33 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/CSS/Style.CSS">
-    <link rel="stylesheet" href="./assets/CSS/Navbar.CSS">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Care Plus</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Seu CSS Global de Autenticação -->
+    <link rel="stylesheet" href="../../CSS/AuthGlass.css">
     <link rel="stylesheet" href="../../Components/CampoForm/CampoForm.css">
-
-    <link rel="stylesheet" href="../../CSS/Login.css">
-
-    <script src="../../js/Login.js"> </script>
 
     <script type="module">
         import { CampoForm } from '../../Components/CampoForm/CampoForm.js';
     </script>
-
 </head>
 
 <body>
 
-    <div class="login-container">
-        
-        <div class="login-left">
-            <img src="../../Images/logo-care-plus.png" alt="Care Plus Family" class="logo-img">
-            
-            <h1>Selecione seu perfil e tenha<br>acesso aos serviços Care Plus.</h1>
-            
+    <div class="glass-card">
+        <!-- LADO ESQUERDO (Informativo) -->
+        <div class="glass-left">
+            <img src="../../Images/logo-care-plus.png" alt="Care Plus Family" class="logo-img logo-login">
+            <h1>Selecione seu perfil e tenha acesso aos serviços Care Plus.</h1>
             <ul>
+                <li>Acompanhamento de métricas de saúde</li>
+                <li>Agendamento de consultas facilitado</li>
+                <li>Gestão de dependentes</li>
                 <li>Atendimento Personalizado</li>
-                <li>Solicitação e Consulta de Reembolsos</li>
                 <li>Solicitação e Autorização de Atendimentos</li>
                 <li>Busca de Rede Credenciada</li>
                 <li>Hub personalizado com seus dados médicos</li>
@@ -41,50 +37,70 @@
             </ul>
         </div>
 
-        <div class="login-right">
-            <div class="login-card">
-                <h2 class="titulo-login">Login</h2>
-                
-                <div class="toggle-group">
-                    <button id="btn-beneficiario" class="btn-toggle ativo">Beneficiário</button>
-                    <button id="btn-empresa" class="btn-toggle inativo">Empresa</button>
-                </div>
+        <!-- LADO DIREITO (Formulário Flip) -->
+        <div class="glass-right">
+            <h2 class="titulo-auth">Login</h2>
 
-                <div id="caixa-cpf">
-                    <campo-form 
-                        id-campo="input-cpf" 
-                        titulo-form="CPF" 
-                        legenda="Informe seu CPF">
-                    </campo-form>
-                </div>
-
-                <div id="caixa-cnpj" style="display: none;">
-                    <campo-form 
-                        id-campo="input-cnpj" 
-                        titulo-form="CNPJ" 
-                        legenda="Informe seu CNPJ">
-                    </campo-form>
-                </div>
-
-                <campo-form 
-                    id-campo="input-senha" 
-                    titulo-form="Senha" 
-                    tipo="password" 
-                    legenda="Informe sua Senha">
-                </campo-form>
-
-                <a href="./EsqueceuSenha.html" class="esqueceu-senha">Esqueceu sua senha ?</a>
-
-                <a  href="/assets/Pages/HomePageLogado/HomePageLogado.html"><button class="btn-login">Login</button></a>
-
-                <div class="primeiro-acesso">
-                    Meu primeiro acesso, <a href="./Cadastro.html">Clique aqui.</a>
-                </div>
-
+            <!-- Botões de Toggle -->
+            <div class="toggle-group">
+                <button id="btn-log-beneficiario" class="btn-toggle ativo">Beneficiário</button>
+                <button id="btn-log-empresa" class="btn-toggle inativo">Empresa</button>
             </div>
-        </div>
 
-    </div>
+            <!-- CONTAINER DO EFEITO 3D -->
+            <div class="flip-container" id="flip-container" style="min-height: 380px;">
+                <div class="flipper">
+
+                    <!-- FRENTE: LOGIN BENEFICIÁRIO -->
+                    <div class="front">
+                        <campo-form id-campo="log-cpf" titulo-form="CPF" legenda="Informe seu CPF"></campo-form>
+                        <campo-form id-campo="log-senha" titulo-form="Senha" tipo="password" legenda="Informe sua Senha"></campo-form>
+
+                        <div class="d-flex justify-content-end mb-3 mt-2">
+                            <a href="./EsqueceuSenha.html" style="font-size: 0.85rem; color: #777; text-decoration: none;">Esqueceu sua senha?</a>
+                        </div>
+
+                        <a href="/assets/Pages/HomePageLogado/HomePageLogado.html" class="text-decoration-none">
+                            <button class="btn-primary-glass">Login</button>
+                        </a>
+
+                        <div class="links-uteis mt-4">
+                            Meu primeiro acesso, <a href="./Cadastro.html">Clique aqui.</a>
+                        </div>
+                    </div>
+
+                    <!-- VERSO: LOGIN EMPRESA -->
+                    <div class="back">
+                        <campo-form id-campo="log-cnpj" titulo-form="CNPJ" legenda="Informe seu CNPJ"></campo-form>
+                        <campo-form id-campo="log-senha-emp" titulo-form="Senha" tipo="password" legenda="Informe sua Senha"></campo-form>
+
+                        <div class="d-flex justify-content-end mb-3 mt-2">
+                            <a href="./EsqueceuSenha.html" style="font-size: 0.85rem; color: #777; text-decoration: none;">Esqueceu sua senha?</a>
+                        </div>
+
+                        <a href="/assets/Pages/HomePageLogado/HomePageLogado.html" class="text-decoration-none">
+                            <!-- Mantive a âncora visual do Azul para o botão de Empresa -->
+                            <button class="btn-primary-glass" style="background-color: #3aadde;">Login</button>
+                        </a>
+
+                        <div class="links-uteis mt-4">
+                            Meu primeiro acesso, <a href="./Cadastro.html">Clique aqui.</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- FIM CONTAINER 3D -->
+
+        </div> <!-- FIM LADO DIREITO -->
+    </div> <!-- FIM GLASS CARD -->
+
+    <footer class="footer-discreto">
+        <div class="container text-center">
+            <p class="m-0">© 2026 Care Plus Family. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../../js/Login.js" defer></script>
 
 </body>
 </html>

@@ -17,66 +17,163 @@
     </script>
 </head>
 
-<body>
-
-    <div class="glass-card">
-        <div class="glass-left d-none d-md-flex">
-            <img src="../../Images/logo-care-plus.png" alt="Care Plus Family" class="logo-img">
-            <h1>Crie sua conta e acesse o Hub de Saúde.</h1>
-            <ul>
-                <li>Acompanhamento de métricas de saúde</li>
-                <li>Agendamento de consultas facilitado</li>
-                <li>Gestão de dependentes</li>
-            </ul>
-        </div>
-
-        <div class="glass-right">
-            <h2 class="titulo-auth">Cadastre-se</h2>
-
-            <div class="row">
-                <div class="col-12">
-                    <campo-form id-campo="cad-nome" titulo-form="Nome Completo" legenda="Informe seu Nome"></campo-form>
-                </div>
-                <div class="col-md-6">
-                    <campo-form id-campo="cad-cpf" titulo-form="CPF" legenda="Informe seu CPF"></campo-form>
-                </div>
-                <div class="col-md-6">
-                    <campo-form id-campo="cad-data" titulo-form="Data de Nascimento" tipo="date"
-                        legenda=""></campo-form>
-                </div>
-
-                <div class="col-12">
-                    <campo-form id-campo="cad-email" titulo-form="E-mail" tipo="email"
-                        legenda="Informe o Email"></campo-form>
-                </div>
-
-                <div class="col-12">
-                    <campo-form id-campo="cad-telefone" titulo-form="Telefone" tipo="tel"
-                        legenda="Informe seu Telefone ou Celular"></campo-form>
-                </div>
-
-                <div class="col-md-6">
-                    <campo-form id-campo="cad-senha" titulo-form="Senha" tipo="password"
-                        legenda="Crie uma Senha"></campo-form>
-                </div>
-                <div class="col-md-6">
-                    <campo-form id-campo="cad-confirma-senha" titulo-form="Confirmar Senha" tipo="password"
-                        legenda="Confirme a Senha"></campo-form>
-                </div>
-            </div>
-
-            <button class="btn-primary-glass">Criar Conta</button>
-
-            <div class="links-uteis">
-                Já possui uma conta? <a href="./Login.html">Fazer login.</a>
-            </div>
-        </div>
+<div class="glass-card">
+    <!-- LADO ESQUERDO -->
+    <div class="glass-left d-none d-md-flex">
+        <img src="../../Images/logo-care-plus.png" alt="Care Plus Family" class="logo-img">
+        <h1>Crie sua conta e acesse o Hub de Saúde.</h1>
+        <ul>
+            <li>Acompanhamento de métricas de saúde</li>
+            <li>Agendamento de consultas facilitado</li>
+            <li>Gestão de dependentes</li>
+            <li>Atendimento Personalizado</li>
+            <li>Solicitação e Consulta de Reembolsos</li>
+            <li>Solicitação e Autorização de Atendimentos</li>
+            <li>Busca de Rede Credenciada</li>
+            <li>Hub personalizado com seus dados médicos</li>
+            <li>Perfil totalmente personalizado e interativo</li>
+        </ul>
     </div>
-    <footer class="footer-discreto">
-        <div class="container text-center">
-            <p class="m-0">© 2026 Care Plus Family. Todos os direitos reservados.</p>
+
+    <!-- LADO DIREITO (Corrigido) -->
+    <div class="glass-right">
+        <h2 class="titulo-auth">Cadastre-se</h2>
+
+        <!-- Botões de Toggle -->
+        <div class="toggle-group">
+            <button id="btn-cad-beneficiario" class="btn-toggle ativo">Beneficiário</button>
+            <button id="btn-cad-empresa" class="btn-toggle inativo">Empresa</button>
         </div>
-    </footer>
-</body>
+
+        <!-- CONTAINER DO EFEITO 3D -->
+        <div class="flip-container" id="flip-container">
+            <div class="flipper">
+
+                <!-- FRENTE: FORMULÁRIO DE BENEFICIÁRIO -->
+                <div class="front">
+
+                    <!-- BENEFICIÁRIO: PASSO 1 -->
+                    <div id="passo1-ben" class="passo ativo">
+                        <div class="row">
+                            <div class="col-12"><campo-form id-campo="cad-nome" titulo-form="Nome Completo"
+                                    legenda="Informe seu Nome"></campo-form></div>
+                            <div class="col-md-6"><campo-form id-campo="cad-cpf" titulo-form="CPF"
+                                    legenda="Informe seu CPF"></campo-form></div>
+                            <div class="col-md-6"><campo-form id-campo="cad-data" titulo-form="Data de Nascimento"
+                                    tipo="date" legenda=""></campo-form></div>
+                            <div class="col-12"><campo-form id-campo="cad-email-ben" titulo-form="E-mail" tipo="email"
+                                    legenda="Informe o Email"></campo-form></div>
+                            <div class="col-12"><campo-form id-campo="cad-telefone-ben" titulo-form="Telefone"
+                                    tipo="tel" legenda="Informe seu Celular"></campo-form></div>
+                            <div class="col-md-6"><campo-form id-campo="cad-senha-ben" titulo-form="Senha"
+                                    tipo="password" legenda="Crie uma Senha"></campo-form></div>
+                            <div class="col-md-6"><campo-form id-campo="cad-confirma-senha-ben"
+                                    titulo-form="Confirmar Senha" tipo="password" legenda="Confirme"></campo-form></div>
+                        </div>
+                        <!-- O botão agora avança para o Passo 2 -->
+                        <button type="button" id="btn-avancar-ben" class="btn-primary-glass">Concluir seu
+                            Cadastro</button>
+                    </div>
+
+                    <!-- BENEFICIÁRIO: PASSO 2 (Novos Campos) -->
+                    <div id="passo2-ben" class="passo">
+                        <div class="row">
+                            <div class="col-md-6"><campo-form id-campo="cad-genero-ben" titulo-form="Gênero"
+                                    legenda="Ex: Feminino, Masculino..."></campo-form></div>
+                            <div class="col-md-6"><campo-form id-campo="cad-recado-ben" titulo-form="Telefone de Recado"
+                                    tipo="tel" legenda="Opcional"></campo-form></div>
+
+                            <div class="col-md-4"><campo-form id-campo="cad-cep-ben" titulo-form="CEP"
+                                    legenda="00000-000"></campo-form></div>
+                            <div class="col-md-8"><campo-form id-campo="cad-logradouro-ben" titulo-form="Logradouro"
+                                    legenda="Rua, Avenida..."></campo-form></div>
+
+                            <div class="col-md-4"><campo-form id-campo="cad-num-ben" titulo-form="Número"
+                                    legenda="Ex: 123"></campo-form></div>
+                            <div class="col-md-8"><campo-form id-campo="cad-comp-ben" titulo-form="Complemento"
+                                    legenda="Apto, Bloco..."></campo-form></div>
+
+                            <div class="col-md-6"><campo-form id-campo="cad-cidade-ben" titulo-form="Cidade"
+                                    legenda="Sua Cidade"></campo-form></div>
+                            <div class="col-md-6"><campo-form id-campo="cad-uf-ben" titulo-form="Estado"
+                                    legenda="Seu Estado"></campo-form></div>
+
+                            <div class="col-12"><campo-form id-campo="cad-empresa-vinculo" titulo-form="Empresa"
+                                    legenda="Onde você trabalha"></campo-form></div>
+                        </div>
+                        <button type="submit" class="btn-primary-glass">Finalizar Cadastro</button>
+                        <button type="button" id="btn-voltar-ben" class="btn-voltar">Voltar</button>
+                    </div>
+
+                </div>
+
+                <!-- VERSO: FORMULÁRIO DE EMPRESA -->
+                <div class="back">
+
+                    <!-- EMPRESA: PASSO 1 -->
+                    <div id="passo1-emp" class="passo ativo">
+                        <div class="row">
+                            <div class="col-12"><campo-form id-campo="cad-razao" titulo-form="Razão Social"
+                                    legenda="Informe a Razão Social"></campo-form></div>
+                            <div class="col-12"><campo-form id-campo="cad-cnpj" titulo-form="CNPJ"
+                                    legenda="Informe o CNPJ"></campo-form></div>
+                            <div class="col-12"><campo-form id-campo="cad-email-emp" titulo-form="E-mail Corporativo"
+                                    tipo="email" legenda="Email da Empresa"></campo-form></div>
+                            <div class="col-12"><campo-form id-campo="cad-telefone-emp" titulo-form="Telefone Comercial"
+                                    tipo="tel" legenda="Telefone"></campo-form></div>
+                            <div class="col-md-6"><campo-form id-campo="cad-senha-emp" titulo-form="Senha"
+                                    tipo="password" legenda="Crie uma Senha"></campo-form></div>
+                            <div class="col-md-6"><campo-form id-campo="cad-confirma-senha-emp"
+                                    titulo-form="Confirmar Senha" tipo="password" legenda="Confirme"></campo-form></div>
+                        </div>
+                        <button type="button" id="btn-avancar-emp" class="btn-primary-glass"
+                            style="background-color: #3aadde;">Concluir Cadastro Empresa</button>
+                    </div>
+
+                    <!-- EMPRESA: PASSO 2 (Novos Campos) -->
+                    <div id="passo2-emp" class="passo">
+                        <div class="row">
+                            <div class="col-12"><campo-form id-campo="cad-fantasia-emp" titulo-form="Nome Fantasia"
+                                    legenda="Como a empresa é conhecida"></campo-form></div>
+
+                            <div class="col-md-4"><campo-form id-campo="cad-cep-emp" titulo-form="CEP"
+                                    legenda="00000-000"></campo-form></div>
+                            <div class="col-md-8"><campo-form id-campo="cad-logradouro-emp" titulo-form="Logradouro"
+                                    legenda="Rua, Avenida..."></campo-form></div>
+
+                            <div class="col-md-4"><campo-form id-campo="cad-num-emp" titulo-form="Número"
+                                    legenda="Ex: 1000"></campo-form></div>
+                            <div class="col-md-8"><campo-form id-campo="cad-comp-emp" titulo-form="Complemento"
+                                    legenda="Sala, Andar..."></campo-form></div>
+
+                            <div class="col-md-6"><campo-form id-campo="cad-cidade-emp" titulo-form="Cidade"
+                                    legenda="Sua Cidade"></campo-form></div>
+                            <div class="col-md-6"><campo-form id-campo="cad-uf-emp" titulo-form="Estado"
+                                    legenda="Seu Estado"></campo-form></div>
+                        </div>
+                        <button type="submit" class="btn-primary-glass" style="background-color: #3aadde;">Finalizar
+                            Cadastro Empresa</button>
+                        <button type="button" id="btn-voltar-emp" class="btn-voltar">Voltar</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div> <!-- FIM CONTAINER 3D -->
+
+        <div class="links-uteis mt-4">
+            Já possui uma conta? <a href="./Login.html">Fazer login.</a>
+        </div>
+
+    </div> <!-- FIM LADO DIREITO -->
+</div> <!-- FIM GLASS CARD -->
+
+<footer class="footer-discreto">
+    <div class="container text-center">
+        <p class="m-0">© 2026 Care Plus Family. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<script src="../Login2/Cadastro.js" defer></script>
 
 </html>
