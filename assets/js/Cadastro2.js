@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         concluirEmpresa.style.display = 'none';
         
         caixaNome.style.display = 'block';
-        caixaCpf.style.display = 'flex'; // Use flex para manter as colunas do CPF/Nascimento
+        caixaCpf.style.display = 'flex'; 
         concluirPessoal.style.display = 'block';
     });
 });
