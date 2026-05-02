@@ -1,6 +1,6 @@
 /* ==========================================================================
    Care Plus Family - CSS EXCLUSIVO DO AVATAR
-   Centraliza o visual do Boneco (Shadow DOM) e da Vitrine (Página Global).
+   Ajustado para eliminar o scroll da página e focar no scroll do grid.
    ========================================================================== */
 
 /* --- A. ESTILO INTERNO DO BONECO (USADO NO SHADOW DOM) --- */
@@ -16,62 +16,65 @@
 .avatar-container {
     position: relative;
     width: 100%;
-    max-width: 550px; /* Boneco imponente */
-    /* Proporção Real 829x1000 */
+    max-width: 450px; 
+    max-height: 500px; 
     aspect-ratio: 829 / 1000; 
     border-radius: 20px;
-    background-color: #fff; /* Fundo branco para respiro */
-
+    background-color: #ffffff;
+    margin: auto; 
 }
 
-/* Estilo para TODAS as camadas de imagem (Base, Cabelo, etc.) */
 .avatar-container img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Impede que o desenho deforme */
-    pointer-events: none; /* Garante que o clique passe pelas camadas transparentes */
+    object-fit: contain;
+    pointer-events: none;
 }
 
-/* Camada da Base (Corpo) - Fica no fundo */
 .base { z-index: 1; }
-
-/* Camadas de personalização (Cabelo, etc.) - Ficam por cima */
 .layer {
     z-index: 2;
-    opacity: 0; /* Começa invisível para o efeito Fade */
-    transition: opacity 0.4s ease-in-out; /* Transição fluida */
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
 }
 
-/* Classe de animação aplicada via JS quando o atributo muda */
 .visible {
     opacity: 1;
 }
 
-/* --- B. ESTILO DAS OPÇÕES DA VITRINE (MENU LATERAL - PÁGINA GLOBAL) --- */
-/* Estes seletores serão injetados na página principal pelo JS do componente. */
+/* --- B. ESTILO DAS OPÇÕES DA VITRINE (MENU LATERAL) --- */
 
-/* 1. O PAI: Garante que o container tenha espaço para os 3 itens */
 #opcoes-grid {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 8px !important; /* Espaço entre os cards */
-    justify-content: flex-start !important; /* Alinha à esquerda para preencher as colunas */
+    gap: 8px !important;
+    /* ALINHADO À ESQUERDA: Garante que a última linha comece pela esquerda */
+    justify-content: flex-start !important; 
     width: 100% !important;
     
-    /* ALTURA PARA 4 LINHAS: Ajuste esse valor para ver a 4ª linha sem scroll */
-    height: 520px !important; 
+    flex: 1 !important; 
     overflow-y: auto !important;
+    
+    /* O SEGREDO: Padding lateral para centralizar o bloco de 3 itens no menu de 400px */
+    padding: 10px 22px !important; 
 }
 
-/* 2. O FILHO: O cálculo para as 3 colunas */
+/* Estilização da barra de rolagem interna */
+#opcoes-grid::-webkit-scrollbar {
+    width: 6px;
+}
+#opcoes-grid::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
 .item-opcao {
-    /* MATEMÁTICA: 33% menos o desconto do GAP */
+    /* LARGURA CALCULADA: 3 por linha respeitando o gap e o novo padding */
     width: calc(33.33% - 8px) !important; 
-    height: 120px !important; /* Altura do card para caber as 4 linhas */
-    
+    height: 90px !important; 
     background-color: #ffffff;
     border: 2px solid #dee2e6;
     border-radius: 10px;
@@ -79,71 +82,69 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    flex-shrink: 0; 
+    transition: 0.2s;
 }
 
 .item-opcao img {
-    width: 100%; /* Deixa um respiro interno para a máscara */
+    width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-/* Classe de seleção aplicada via JS ao clicar na miniatura */
 .item-active {
     border-color: #92C444 !important;
     background-color: #f8fff0;
     box-shadow: inset 0 0 8px rgba(146, 196, 68, 0.2);
 }
 
-/* Pequeno texto descritivo abaixo da miniatura */
 .small-desc {
     font-size: 10px;
     color: #6c757d;
     margin-top: 4px;
     display: block;
     text-transform: uppercase;
-    text-align: center; /* Centraliza abaixo do card */
+    text-align: center;
     width: 100%;
 }
-/* --- ESTRUTURA PRINCIPAL (PAI DE TUDO) --- */
 
-/* A folha branca centralizada */
+/* --- C. ESTRUTURA PRINCIPAL (PAI DE TUDO) --- */
+
 .customizador-wrapper {
-    max-width: 1200px; /* LARGURA DA CAIXA TODA */
-    margin: 40px auto; /* Centraliza na tela com respiro no topo */
+    max-width: 1200px;
+    margin: 10px auto; 
     font-family: 'Montserrat', sans-serif;
 }
 
-/* O Retângulo do Título */
 .customizador-header {
-    background: white;
-    padding: 25px;
-    border-radius: 20px 20px 0 0; /* Arredonda só em cima */
+    background: rgb(255, 255, 255);
+    padding: 20px 25px; 
+    border-radius: 20px 20px 0 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #eee;
+    flex-shrink: 0; 
 }
 
-/* O Retângulo do Conteúdo (Boneco + Menu) */
 .customizador-body {
-    background: white;
+    background: rgb(255, 255, 255);
     display: flex;
-    min-height: 750px; /* ALTURA DA CAIXA TODA */
-    border-radius: 0 0 20px 20px; /* Arredonda só embaixo */
+    min-height: 540px; 
+    border-radius: 0 0 20px 20px; 
     overflow: hidden;
 }
 
-/* Coluna 1: Ícones Laterais (Verdes) */
 .sidebar-icones {
     width: 80px;
     background: #f8f9fa;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 0;
-    gap: 25px;
+    padding: 20px 0;
+    gap: 15px;
     border-right: 1px solid #eee;
+    flex-shrink: 0;
 }
 
 .btn-icone-lateral {
@@ -153,34 +154,115 @@
     transition: 0.3s;
 }
 
-/* Coluna 2: Onde o Boneco fica */
+.btn-icone-lateral.active i {
+    color: #92C444;
+    transform: scale(1.2);
+}
+
 .area-preview {
-    flex: 1; /* Ocupa o máximo de espaço possível */
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 10px;
+    height: 100%; 
+    overflow: hidden; 
 }
 
-/* Coluna 3: Onde o Menu de Cabelos fica */
 .area-menu {
-    width: 400px; /* LARGURA FIXA DO MENU DA DIREITA */
+    width: 400px;
     background: #f8f9fa;
-    padding: 30px;
+    padding: 10px;
     border-left: 1px solid #eee;
+    display: flex;
+    flex-direction: column; 
 }
 
-/* O GRID DE 5PX (O que você queria!) */
-#opcoes-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px; /* DISTÂNCIA EXATA ENTRE OS QUADRADINHOS */
-    justify-content: center;
-    max-height: 600px;
-    overflow-y: auto;
+/* --- D. AJUSTES FINAIS DE ELEMENTOS INTERNOS --- */
+
+.area-menu h5 {
+    flex-shrink: 0;
 }
-/* Quando o botão estiver com a classe .active, o ícone dentro dele muda de cor */
-.btn-icone-lateral.active i {
-    color: #92C444; /* O verde claro que você usa no grid */
-    transform: scale(1.2); /* Dá um leve aumento para destacar */
+
+.area-menu .d-grid {
+    margin-top: 0px;
+    flex-shrink: 0; 
+}
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE & TABLET)
+   ========================================================================== */
+
+@media (max-width: 992px) {
+    .customizador-wrapper {
+        height: auto; /* Libera a altura fixa para permitir scroll na página no celular */
+        max-width: 95%;
+        margin: 20px auto;
+    }
+
+    .customizador-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .customizador-body {
+        flex-direction: column; /* Empilha a sidebar, preview e menu */
+        min-height: auto;
+    }
+
+    /* Sidebar de ícones agora vira uma barra horizontal */
+    .sidebar-icones {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: center;
+        padding: 10px 0;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        gap: 30px;
+    }
+
+    .area-preview {
+        padding: 30px 10px;
+        background: #fff;
+    }
+
+    .avatar-container {
+        max-width: 280px; /* Boneco um pouco menor no mobile */
+    }
+
+    /* Menu de opções agora ocupa a largura total embaixo */
+    .area-menu {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #eee;
+        padding: 20px;
+    }
+
+    #opcoes-grid {
+        max-height: 350px; /* Garante que o grid não estique a tela infinitamente */
+        justify-content: center !important;
+    }
+
+    .item-opcao {
+        width: calc(33.33% - 10px) !important; /* Mantém 3 por linha no tablet */
+        height: 80px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .item-opcao {
+        width: calc(50% - 10px) !important; /* 2 por linha em celulares pequenos para facilitar o toque */
+        height: 100px !important;
+    }
+    
+    .customizador-header h2 {
+        font-size: 1.4rem;
+    }
+
+    #btn-salvar-avatar {
+        position: sticky;
+        bottom: 10px;
+        z-index: 10;
+    }
 }

@@ -39,7 +39,8 @@ class AvatarPreview extends HTMLElement {
     connectedCallback() {
         this.render();
         this.injetarStyleGlobal();
-        this.inicializarLogicaMenu(); 
+        // Pequeno delay para garantir que o DOM principal carregou o botão salvar
+        setTimeout(() => this.inicializarLogicaMenu(), 100);
     }
 
     render() {
@@ -141,10 +142,11 @@ class AvatarPreview extends HTMLElement {
         const botoesMenuLateral = document.querySelectorAll('.menu-item-lateral');
         const gridOpcoes = document.getElementById('opcoes-grid');
 
-        // LÓGICA DO BOTÃO SALVAR
+        // LÓGICA DO BOTÃO SALVAR REFORÇADA
         const btnSalvar = document.getElementById('btn-salvar-avatar');
         if (btnSalvar) {
-            btnSalvar.addEventListener('click', () => {
+            // Removemos listeners antigos para evitar duplicação se o componente reconectar
+            btnSalvar.onclick = () => {
                 const config = {
                     genero: this.getAttribute('genero'),
                     cabelo: this.getAttribute('cabelo'),
@@ -153,7 +155,8 @@ class AvatarPreview extends HTMLElement {
                     roupa: this.getAttribute('roupa')
                 };
                 localStorage.setItem('careplus_avatar', JSON.stringify(config));
-            });
+                alert("✅ Avatar salvo com sucesso!");
+            };
         }
 
         botoesMenuLateral.forEach((botao, index) => {
