@@ -1,0 +1,117 @@
+/* ==========================================================================
+   MODO COMPACTO - UNIFIED PROFILE CARD (SINGLE PAGE SETTINGS)
+   ========================================================================== */
+
+/* Fundo leve da página para destacar a caixa branca */
+.bg-light-custom {
+    background-color: #f4f7f6; 
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* 1. O Cartão Flutuante Único */
+.unified-profile-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px 50px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); /* Sombra elegante e difusa */
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* 2. Cabeçalho do Cartão */
+.profile-main-title {
+    font-weight: 700; 
+    color: #333; 
+    margin: 0;
+}
+
+.status-badge {
+    background-color: #e0f2f1; 
+    color: #00897b; 
+    font-size: 0.85rem; 
+    padding: 8px 12px; 
+    border-radius: 20px;
+}
+
+/* 3. Divisores de Seção (Dados, Contato, Endereço, etc) */
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2c3e50;
+    border-bottom: 2px solid #f0f2f5;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* 4. Rótulos dos campos (Labels) */
+.field-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #888;
+    margin-bottom: 5px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* 5. A Mágica do "Clique para Editar" (Inputs) */
+.editable-input {
+    width: 100%;
+    background-color: #f8f9fa; /* Fundo cinza bem suave simulando texto estático */
+    border: 1px solid transparent; 
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Interação Visual: Mouse por cima */
+.editable-input:hover {
+    background-color: #eef1f4;
+    cursor: pointer;
+}
+
+/* Interação Visual: Clicou para digitar */
+.editable-input:focus {
+    background-color: #ffffff;
+    border-color: #3aadde; /* Cor secundária da marca */
+    box-shadow: 0 0 0 4px rgba(58, 173, 222, 0.15);
+    outline: none;
+    cursor: text;
+}
+
+/* 6. Botões do Rodapé do Formulário */
+.btn-cancelar {
+    color: #888; 
+    text-decoration: none; 
+    font-weight: 600; 
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.btn-cancelar:hover {
+    color: #333;
+}
+
+.btn-salvar-perfil {
+    padding: 8px 24px;
+    color: white;
+    background-color: #92C444; 
+    font-weight: 700; 
+    border: none;
+    border-radius: 8px; 
+    transition: transform 0.2s, box-shadow 0.2s; 
+    box-shadow: 0 4px 15px rgba(146, 196, 68, 0.3);
+}
+
+.btn-salvar-perfil:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(146, 196, 68, 0.5);
+}
+
+/* 7. Ajuste de espaçamento do Grid Bootstrap */
+.row.g-3 > div {
+    margin-bottom: 8px;
+}
