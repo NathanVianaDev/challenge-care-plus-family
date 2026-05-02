@@ -16,8 +16,8 @@
 .avatar-container {
     position: relative;
     width: 100%;
-    max-width: 450px; 
-    max-height: 500px; 
+    max-width: 600px; 
+    max-height: 650px; 
     aspect-ratio: 829 / 1000; 
     border-radius: 20px;
     background-color: #ffffff;
@@ -71,7 +71,7 @@
 
 .item-opcao {
     width: calc(33.33% - 8px) !important; 
-    height: 90px !important; 
+    height: 110px !important; 
     background-color: #ffffff;
     border: 2px solid #dee2e6;
     border-radius: 10px;
@@ -127,7 +127,7 @@
 .customizador-body {
     background: rgb(255, 255, 255);
     display: flex;
-    min-height: 540px; 
+    min-height: 690px; 
     border-radius: 0 0 20px 20px; 
     overflow: hidden;
 }
