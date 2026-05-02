@@ -16,10 +16,9 @@
     <script type="module" src="../../Components/BotaoGenero/BotaoGenero.js"></script>
     <script type="module" src="../../Components/AvatarPreview/AvatarPreview.js"></script>
     <script type="module" src="/assets/js/LayoutGlobal.js"></script>
-
 </head>
 <body class="bg-light">
- 
+
     <main class="customizador-wrapper"> 
         <div class="customizador-header shadow-sm">
             <h2 class="fw-light m-0">Personalize seu <span id="text-avatar" class="fw-bold">Avatar</span></h2>
@@ -32,11 +31,8 @@
         <div class="customizador-body shadow-sm">
             <div class="sidebar-icones"> 
                 <button class="btn-icone-lateral menu-item-lateral"><i class="bi bi-scissors fs-2"></i></button>
-                
                 <button class="btn-icone-lateral menu-item-lateral"><i class="bi bi-eye-fill fs-2"></i></button>
-                
                 <button class="btn-icone-lateral menu-item-lateral"><i class="bi bi-emoji-smile-fill fs-2"></i></button>
-
                 <button class="btn-icone-lateral menu-item-lateral"><i class="bi bi-person-vcard fs-2"></i></button>
             </div>
             
@@ -46,15 +42,27 @@
             
             <div class="area-menu">
                 <h5 class="fw-bold mb-4 text-secondary text-center">Escolha uma opção</h5>
-                <div id="opcoes-grid">
-                </div>
+                <div id="opcoes-grid"></div>
                 <div class="d-grid mt-4">
                     <button id="btn-salvar-avatar" class="btn btn-success btn-lg shadow-sm w-100">
                         <i class="bi bi-check-circle-fill me-2"></i>Salvar Avatar
                     </button>
                 </div>
             </div>
+        </div>
     </main>
+
+    <!-- Estrutura de Modal Padronizada (Estilo Zamboni) -->
+    <div id="modalSucessoAvatar" class="modal-overlay hidden">
+        <div class="custom-modal">
+            <!-- Logo opcional conforme o código do seu colega -->
+            <img src="/assets/Images/logo-care-plus.png" alt="Care Plus" class="modal-logo" onerror="this.style.display='none';">
+            <h3 class="modal-title" style="color: #92C444;" id="modalTituloAvatar">Sucesso!</h3>
+            <p class="modal-message" id="modalTextoAvatar">Configurações salvas.</p>
+            <button class="btn-modal" id="btnFecharModalAvatar">Entendi</button>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../js/script.js"></script>
 </body>

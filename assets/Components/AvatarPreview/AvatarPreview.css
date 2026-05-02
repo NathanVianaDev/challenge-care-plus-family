@@ -54,11 +54,9 @@
     /* ALINHADO À ESQUERDA: Garante que a última linha comece pela esquerda */
     justify-content: flex-start !important; 
     width: 100% !important;
-    
     flex: 1 !important; 
     overflow-y: auto !important;
-    
-    /* O SEGREDO: Padding lateral para centralizar o bloco de 3 itens no menu de 400px */
+    /* O SEGREDO: Padding lateral para centralizar o bloco de 3 itens no menu */
     padding: 10px 22px !important; 
 }
 
@@ -72,7 +70,6 @@
 }
 
 .item-opcao {
-    /* LARGURA CALCULADA: 3 por linha respeitando o gap e o novo padding */
     width: calc(33.33% - 8px) !important; 
     height: 90px !important; 
     background-color: #ffffff;
@@ -188,15 +185,58 @@
     margin-top: 0px;
     flex-shrink: 0; 
 }
+
+/* --- E. ESTILOS DO MODAL (PADRÃO ZAMBONI) --- */
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.hidden { display: none !important; }
+
+.custom-modal {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.modal-logo {
+    max-width: 120px;
+    margin-bottom: 20px;
+}
+
+.btn-modal {
+    background-color: #92C444;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
 /* ==========================================================================
    RESPONSIVIDADE (MOBILE & TABLET)
    ========================================================================== */
 
 @media (max-width: 992px) {
     .customizador-wrapper {
-        height: auto; /* Libera a altura fixa para permitir scroll na página no celular */
+        height: auto; 
         max-width: 95%;
-        margin: 20px auto;
+        margin: 10px auto;
     }
 
     .customizador-header {
@@ -206,11 +246,10 @@
     }
 
     .customizador-body {
-        flex-direction: column; /* Empilha a sidebar, preview e menu */
+        flex-direction: column;
         min-height: auto;
     }
 
-    /* Sidebar de ícones agora vira uma barra horizontal */
     .sidebar-icones {
         width: 100%;
         height: auto;
@@ -223,36 +262,38 @@
     }
 
     .area-preview {
-        padding: 30px 10px;
+        padding: 20px 10px;
         background: #fff;
+        order: 2; /* Boneco logo abaixo dos ícones */
     }
 
     .avatar-container {
-        max-width: 280px; /* Boneco um pouco menor no mobile */
+        max-width: 280px;
     }
 
-    /* Menu de opções agora ocupa a largura total embaixo */
     .area-menu {
         width: 100%;
         border-left: none;
         border-top: 1px solid #eee;
         padding: 20px;
+        order: 3;
     }
 
     #opcoes-grid {
-        max-height: 350px; /* Garante que o grid não estique a tela infinitamente */
-        justify-content: center !important;
+        max-height: 350px;
+        justify-content: flex-start !important;
+        padding: 10px 15px !important;
     }
 
     .item-opcao {
-        width: calc(33.33% - 10px) !important; /* Mantém 3 por linha no tablet */
+        width: calc(33.33% - 10px) !important;
         height: 80px !important;
     }
 }
 
 @media (max-width: 576px) {
     .item-opcao {
-        width: calc(50% - 10px) !important; /* 2 por linha em celulares pequenos para facilitar o toque */
+        width: calc(50% - 10px) !important;
         height: 100px !important;
     }
     

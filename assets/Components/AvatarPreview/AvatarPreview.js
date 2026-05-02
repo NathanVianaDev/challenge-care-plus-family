@@ -142,10 +142,15 @@ class AvatarPreview extends HTMLElement {
         const botoesMenuLateral = document.querySelectorAll('.menu-item-lateral');
         const gridOpcoes = document.getElementById('opcoes-grid');
 
+        // ELEMENTOS DO MODAL (ESTILO ZAMBONI)
+        const modal = document.getElementById('modalSucessoAvatar');
+        const modalTitulo = document.getElementById('modalTituloAvatar');
+        const modalTexto = document.getElementById('modalTextoAvatar');
+        const btnFecharModal = document.getElementById('btnFecharModalAvatar');
+
         // LÓGICA DO BOTÃO SALVAR REFORÇADA
         const btnSalvar = document.getElementById('btn-salvar-avatar');
         if (btnSalvar) {
-            // Removemos listeners antigos para evitar duplicação se o componente reconectar
             btnSalvar.onclick = () => {
                 const config = {
                     genero: this.getAttribute('genero'),
@@ -155,8 +160,22 @@ class AvatarPreview extends HTMLElement {
                     roupa: this.getAttribute('roupa')
                 };
                 localStorage.setItem('careplus_avatar', JSON.stringify(config));
-                alert("✅ Avatar salvo com sucesso!");
+
+                // DISPARA O MODAL DO ZAMBONI
+                if (modal && modalTitulo && modalTexto) {
+                    modalTitulo.innerText = "Visual Salvo!";
+                    modalTexto.innerHTML = "Seu avatar foi personalizado com sucesso.<br><br>As alterações já foram aplicadas ao seu perfil da Care Plus Family!";
+                    modal.classList.remove('hidden');
+                }
             };
+        }
+
+        // FECHAR O MODAL
+        if (btnFecharModal && modal) {
+            btnFecharModal.addEventListener('click', () => {
+                modal.classList.add('hidden');
+                window.location.reload(); // Recarrega para o Header ler o novo avatar
+            });
         }
 
         botoesMenuLateral.forEach((botao, index) => {
