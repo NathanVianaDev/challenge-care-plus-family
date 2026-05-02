@@ -1,0 +1,227 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS E CONTAINER PAI
+   ========================================================================== */
+
+.container-mae {
+    margin-top: 20px !important;
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   COLUNA DA ESQUERDA: PERFIL DO GESTOR (DIV AZUL)
+   ========================================================================== */
+
+.usuario-empresa {
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 2px solid #00000017;
+    /* Sombra mais intensa para dar profundidade */
+    box-shadow: 7px 7px 15px #00000017 !important;
+    color: #333; /* Texto escuro para fundo branco */
+    padding: 25px;
+    min-height: 350px;
+}
+
+/* O Ring (Aro) ao redor da foto com as cores da Care Plus */
+.profile-ring {
+    padding: 5px; 
+    border-radius: 50%;
+    background: linear-gradient(45deg, #8CC63F, #3aadde);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#user-photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 4px solid #ffffff; 
+    background-color: white;
+}
+
+.usuario-empresa h3 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+}
+
+#display-name {
+    color: #3aadde; /* Nome em azul para destaque */
+}
+
+/* ==========================================================================
+   COLUNA DA DIREITA: PAINEL DA EMPRESA (MICROSOFT)
+   ========================================================================== */
+
+.painel-funcionarios {
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 1px solid #00000017;
+    box-shadow: 7px 7px 15px #00000017 !important;
+    
+    /* TRAVA O LAYOUT: Altura fixa para alinhar com a esquerda e ativar scroll */
+    height: 750px; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+}
+
+/* Header fixo no topo */
+.header-empresa {
+    background-color: #f8f9fa;
+    padding: 20px 30px;
+    border-bottom: 2px solid #3aadde;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0; /* Não deixa o header achatar */
+}
+
+.header-empresa h2 {
+    color: #333;
+    letter-spacing: -1px;
+}
+
+/* Botão de Cadastro Estilizado */
+#btn-cadastrar-func {
+    background-color: #8CC63F; /* Verde Care Plus */
+    border: none;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#btn-cadastrar-func:hover {
+    background-color: #7ab336;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(140, 198, 63, 0.4) !important;
+}
+
+/* ==========================================================================
+   LISTA DE FUNCIONÁRIOS E BARRA DE ROLAGEM (SCROLL)
+   ========================================================================== */
+
+.corpo-lista {
+    padding: 30px 15px; /* Reduzi o padding lateral de 30 para 15 */
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden; /* FORÇA o sumiço da barra horizontal */
+    box-sizing: border-box;
+}
+
+/* Customização da Scrollbar (Chrome/Edge/Safari) */
+.corpo-lista::-webkit-scrollbar {
+    width: 8px;
+}
+
+.corpo-lista::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.corpo-lista::-webkit-scrollbar-thumb {
+    background: #3aadde; /* Azul Care Plus */
+    border-radius: 10px;
+}
+
+.corpo-lista::-webkit-scrollbar-thumb:hover {
+    background: #8CC63F; /* Verde Care Plus ao passar o mouse */
+}
+
+/* ==========================================================================
+   MENU AUXILIAR (EMBAIXO DO PERFIL)
+   ========================================================================== */
+
+.menu {
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 1px solid #00000017;
+    box-shadow: 7px 7px 15px #00000017 !important;
+    padding: 5px !important;
+}
+/* Estilo do Menu (Card de Status) */
+.menu {
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 1px solid #00000017;
+    box-shadow: 7px 7px 15px #00000017 !important;
+}
+
+/* Círculos dos Ícones */
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.bg-primary-light { background-color: #e3f2fd; }
+.bg-success-light { background-color: #e8f5e9; }
+
+/* Container da Medalha */
+.medalha-container {
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 12px;
+    border: 1px dashed #dee2e6;
+}
+
+.text-warning {
+    color: #ffc107 !important; /* Cor ouro para as estrelas e medalha */
+}
+
+/* Ajuste de tipografia */
+.small.uppercase {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+/* ==========================================================================
+   AJUSTE DE RESPONSIVIDADE: STATUS E LIXEIRA
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* Permite que os itens da direita se organizem melhor */
+    .info-secundaria {
+        display: flex;
+        flex-wrap: wrap; /* Permite quebrar linha se o celular for muito fino */
+        justify-content: flex-start; /* Alinha à esquerda no mobile */
+        gap: 10px;
+        width: 100%;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+    }
+
+    /* Ajusta o box de status para não estourar a tela */
+    .status-box {
+        min-width: 120px; /* Reduz um pouco o tamanho mínimo */
+        flex: 1; /* Faz o botão de status tentar ocupar o espaço disponível */
+        max-width: 180px;
+        padding: 6px 10px;
+        font-size: 0.75rem; /* Diminui levemente a fonte */
+    }
+
+    /* Garante que a lixeira fique visível e alinhada */
+    .btn-excluir {
+        margin-left: auto; /* Empurra a lixeira para o canto direito */
+        padding: 10px; /* Aumenta a área de toque para o mobile */
+    }
+
+    .idade-box {
+        width: 100%; /* Faz a idade ocupar a linha de cima no setor secundário */
+        text-align: left;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 400px) {
+    /* Para celulares muito pequenos */
+    .status-box {
+        min-width: 100%; /* Status vira uma barra inteira */
+        order: 2; /* Joga o status para baixo */
+    }
+    
+    .btn-excluir {
+        order: 1; /* Mantém a lixeira acessível no topo do setor */
+    }
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home Page - Empresa Logada</title>
+
+    <link rel="stylesheet" href="../../CSS/HomePageEmpresa/HomePageEmpresa.CSS">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script type="module" src="/assets/js/LayoutGlobalEmpresa.js"></script>
+    <script type="module" src="../../Components/CadastrarFuncionario/CadastrarFuncionario.js"></script>
+</head>
+<body>
+    <div class="container-mae container mt-4">
+        <div class="row">
+            <!-- Coluna da Esquerda (Lado A) -->
+            <div class="col-lg-4 d-flex flex-column gap-3">
+                
+                <!-- CONTEÚDO DO USUÁRIO (DIV AZUL) -->
+                <div class="usuario-empresa d-flex flex-column align-items-center justify-content-center text-center p-4">
+                    
+                    <!-- Botão de Configurações -->
+                    <div class="w-100 text-start mb-2">
+                        <button class="btn btn-link text-black p-0 opacity-75" id="btn-config">
+                            <i class="bi bi-gear-fill" style="font-size: 1.5rem;"></i>
+                        </button>
+                    </div>
+
+                    <!-- Avatar com o Ring Colorido -->
+                    <div class="position-relative d-inline-block mb-3">
+                        <div class="profile-ring">
+                            <img src="/assets/Images/avatar-padrao.png" id="user-photo" class="rounded-circle shadow-sm" alt="Perfil">
+                        </div>
+                    </div>
+
+                    <!-- Mensagem de Boas-vindas -->
+                    <h3 class="fw-light text-black">Bem Vindo, <br>
+                        <span id="display-name" class="fw-semibold text-black">Gestor Care Plus</span>.
+                    </h3>
+                </div>
+
+                <div class="menu shadow-sm p-3">
+                    
+                    <!-- Pontuação da Empresa -->
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <div>
+                            <span class="text-muted d-block small uppercase fw-bold">PONTUAÇÃO TOTAL</span>
+                            <h3 class="m-0 fw-bold text-primary">12.850 <small class="fs-6 text-muted">pts</small></h3>
+                        </div>
+                        <div class="icon-circle bg-primary-light">
+                            <i class="bi bi-lightning-charge-fill text-primary"></i>
+                        </div>
+                    </div>
+
+                    <!-- Posição no Ranking -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="text-muted d-block small uppercase fw-bold">RANKING GLOBAL</span>
+                            <h3 class="m-0 fw-bold text-success">1º <small class="fs-6 text-muted">Lugar</small></h3>
+                        </div>
+                        <div class="icon-circle bg-success-light">
+                            <i class="bi bi-trophy-fill text-success"></i>
+                        </div>
+                    </div>
+
+                    <hr class="my-4 opacity-25">
+
+                    <!-- Medalha de Recomendação -->
+                    <div class="medalha-container text-center p-2">
+                        <div class="mb-2">
+                            <i class="bi bi-patch-check-fill text-warning" style="font-size: 3rem;"></i>
+                        </div>
+                        <h6 class="fw-bold ">Selo de Excelência</h6>
+                        <p class="small text-muted">Empresa 5 Estrelas para trabalhar</p>
+                        
+                        <!-- Estrelas de Avaliação -->
+                        <div class="text-warning mb-2">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna da Direita (Lado B) -->
+            <div class="col-lg-8">
+                <div class="painel-funcionarios shadow-sm">
+                    <!-- Div com o nome da Empresa -->
+                    <div class="header-empresa">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="bi bi-microsoft fs-2 text-primary"></i>
+                            <h2 class="m-0 fw-bold">Microsoft</h2>
+                        </div>
+                        
+                        <!-- Botão que abre o Modal -->
+                        <button class="btn btn-success d-flex align-items-center gap-2 fw-bold px-4 py-2 rounded-pill shadow-sm" 
+                                id="btn-cadastrar-func"
+                                data-bs-toggle="modal" 
+                                data-bs-target="#modalCadastro">
+                            <i class="bi bi-person-plus-fill"></i>
+                            Cadastrar Funcionário
+                        </button>
+                    </div>
+
+                    <!-- Área onde entrará a lista de funcionários (Web Component) -->
+                    <div class="corpo-lista">
+                        <h5 class="text-secondary mb-4">Quadro de Colaboradores</h5>
+                        
+                        <cadastrar-funcionario nome="Bill Gates" admissao="04/04/1975" idade="68" status="ativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Satya Nadella" admissao="04/02/2014" idade="56" status="ativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Steve Ballmer" admissao="13/01/2000" idade="67" status="inativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Harry Potter" admissao="31/07/1991" idade="43" status="ativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Hermione Granger" admissao="01/09/1991" idade="44" status="ativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Ronald Weasley" admissao="01/09/1991" idade="44" status="ativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Alvo Dumbledore" admissao="10/10/1892" idade="115" status="inativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Severo Snape" admissao="01/09/1981" idade="38" status="inativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Draco Malfoy" admissao="01/09/1991" idade="43" status="ativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Luna Lovegood" admissao="01/09/1992" idade="42" status="ativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Neville Longbottom" admissao="01/09/1991" idade="43" status="ativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Gina Weasley" admissao="01/09/1992" idade="42" status="ativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Minerva McGonagall" admissao="01/12/1956" idade="88" status="ativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Rúbeo Hagrid" admissao="01/09/1943" idade="95" status="ativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Sirius Black" admissao="01/09/1971" idade="36" status="inativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Remo Lupin" admissao="01/09/1971" idade="38" status="inativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Bellatrix Lestrange" admissao="01/09/1962" idade="47" status="inativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Cedrico Diggory" admissao="01/09/1989" idade="17" status="inativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Lúcio Malfoy" admissao="01/09/1965" idade="69" status="ativo"></cadastrar-funcionario>
+                        <cadastrar-funcionario nome="Cho Chang" admissao="01/09/1990" idade="44" status="ativo"></cadastrar-funcionario>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Cadastro -->
+    <div class="modal fade" id="modalCadastro" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 15px;">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold">Cadastrar Novo Funcionário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="formCadastroFunc">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Nome Completo</label>
+                            <input type="text" class="form-control" id="nomeFunc" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-semibold">Idade</label>
+                                <input type="number" class="form-control" id="idadeFunc" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-semibold">Data Admissão</label>
+                                <input type="date" class="form-control" id="admissaoFunc" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Status do Plano</label>
+                            <select class="form-select" id="statusFunc">
+                                <option value="ativo">Ativo</option>
+                                <option value="inativo">Inativo</option>
+                            </select>
+                        </div>
+                        <div class="text-end mt-4">
+                            <button type="button" class="btn btn-light fw-bold me-2" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-success fw-bold px-4">Salvar Colaborador</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/HomePageEmpresa.js"></script>
+</body>
+</html>

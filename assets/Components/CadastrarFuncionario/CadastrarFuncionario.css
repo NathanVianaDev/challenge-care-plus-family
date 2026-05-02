@@ -1,0 +1,165 @@
+:host {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.funcionario-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 15px 20px;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.03);
+    max-width: 100%; 
+    box-sizing: border-box;
+    overflow: hidden; /* Evita que itens vazem para fora */
+}
+
+.funcionario-card:hover {
+    border-color: #3aadde;
+    transform: translateX(8px);
+    background-color: #f8fcff;
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.info-principal {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 0; /* Permite que o container encolha */
+}
+
+.avatar-mini {
+    width: 48px;
+    height: 48px;
+    background: #f0f4f8;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3aadde;
+    font-size: 1.5rem;
+    border: 1px solid #e1e8ed;
+    flex-shrink: 0;
+}
+
+.dados {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.nome {
+    font-weight: 700;
+    color: #2c3e50;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Corta o nome com "..." se for muito grande */
+}
+
+.detalhe {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+}
+
+.info-secundaria {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Reduzi levemente o gap padrão de 35px */
+    flex-shrink: 0;
+}
+
+.idade-box {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    min-width: 80px;
+}
+
+.idade-box .label {
+    font-size: 0.7rem;
+    color: #bdc3c7;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.idade-box .valor {
+    font-weight: 600;
+    color: #34495e;
+}
+
+.status-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.status-ativo {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+.status-inativo {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+
+.btn-excluir {
+    background: none;
+    border: none;
+    color: #ced4da;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.2s, transform 0.2s;
+    padding: 5px;
+    flex-shrink: 0;
+}
+
+.btn-excluir:hover {
+    color: #dc3545;
+    transform: scale(1.1);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE: Ocultar "Plano" e ajustar gaps para evitar scroll lateral
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+    .info-secundaria {
+        gap: 12px;
+    }
+
+    /* Remove a palavra "Plano" para ganhar espaço */
+    .texto-status span {
+        display: none;
+    }
+
+    .status-box {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 850px) {
+    /* Ajuste fino para telas intermediárias antes de quebrar o layout */
+    .idade-box {
+        min-width: 60px;
+    }
+    
+    .idade-box .label {
+        font-size: 0.6rem;
+    }
+}
