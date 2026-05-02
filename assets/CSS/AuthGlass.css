@@ -126,7 +126,7 @@ body {
     margin-bottom: 1.5rem; 
 }
 
-/* Redução de fonte para as labels do componente form */
+
 campo-form label, 
 campo-form .titulo-form {
     font-size: 0.85rem !important; 
@@ -219,7 +219,7 @@ campo-form .titulo-form {
     .glass-right { padding-bottom: 4rem; }
     .glass-left { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.3); padding: 1.5rem; align-items: center; }
     
-    /* CORREÇÃO DO BUG: A regra abaixo agora está isolada apenas para o mobile! */
+    
     .glass-left h1, .glass-left ul { display: none; }
     
     .glass-left img.logo-img { margin-bottom: 0; transform: translateY(0); }
