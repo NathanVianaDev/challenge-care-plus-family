@@ -40,12 +40,6 @@ class FormularioEmpresa extends HTMLElement {
                 <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
                     <h2 class="fw-light m-0 fs-3">Dados da <span class="fw-bold">Empresa</span></h2>
                     <div class="d-flex gap-2">
-                        <button onclick="window.location.href='/assets/Pages/Avatar/Avatar.html'" class="btn btn-azul fw-bold px-4 rounded-pill shadow-sm">
-                            Avatar
-                        </button>
-                        <button onclick="window.location.href='/assets/Pages/Familia/Familia.html'" class="btn btn-azul fw-bold px-4 rounded-pill shadow-sm">
-                            Familia
-                        </button>
                     </div>
                 </div>
 

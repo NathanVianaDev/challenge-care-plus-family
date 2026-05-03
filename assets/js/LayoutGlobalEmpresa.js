@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'AmbienteEmpresa.html',
         'CadastrarFuncionario.html',
         'DashboardEmpresa.html',
-        'ConfiguracoesEmpresa.html'
+        'ConfiguracoesEmpresa.html',
+        'IncluindoEmpresa.html'
     ];
 
     // Verifica se a página atual é uma página de empresa

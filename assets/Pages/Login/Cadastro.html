@@ -20,8 +20,13 @@
 
 <body>
 
+        <!-- LOGO MOBILE FORA DA DIV FLUTUANTE (Aparece só no celular) -->
+        <div class="d-md-none w-100 text-center pb-2">
+                <img src="../../Images/logo-care-plus.png" alt="Care Plus Family" style="max-width: 180px;">
+        </div>
+
         <div class="glass-card">
-                <!-- LADO ESQUERDO -->
+                <!-- LADO ESQUERDO (Visível apenas no Desktop) -->
                 <div class="glass-left">
                         <img src="../../Images/logo-care-plus.png" alt="Care Plus Family" class="logo-img">
                         <h1>Crie sua conta e acesse o Hub de Saúde.</h1>
@@ -89,8 +94,11 @@
                                                                                 tipo="password"
                                                                                 legenda="Confirme"></campo-form></div>
                                                         </div>
+
+                                                        <!-- Classe mb-4 adicionada para dar o respiro no botão -->
                                                         <button type="button" id="btn-avancar-ben"
-                                                                class="btn-primary-glass">Concluir seu Cadastro</button>
+                                                                class="btn-primary-glass mb-4">Concluir
+                                                                Cadastro</button>
                                                 </div>
 
                                                 <!-- BENEFICIÁRIO: PASSO 2 -->
@@ -136,15 +144,14 @@
                                                                 </div>
                                                         </div>
 
-                                                        <!-- Botão de Finalizar com Link -->
+                                                        <!-- Botão de Finalizar com Link e respiro (mb-4) -->
                                                         <a href="/assets/Pages/HomePageLogado/HomePageLogado.html"
                                                                 class="text-decoration-none">
                                                                 <button type="button"
-                                                                        class="btn-primary-glass">Finalizar
+                                                                        class="btn-primary-glass mb-4">Finalizar
                                                                         Cadastro</button>
                                                         </a>
 
-                                                        <!-- Botão Voltar (Estava faltando) -->
                                                         <button type="button" id="btn-voltar-ben"
                                                                 class="btn-voltar">Voltar</button>
                                                 </div>
@@ -186,10 +193,12 @@
                                                                                 tipo="password"
                                                                                 legenda="Confirme"></campo-form></div>
                                                         </div>
+
+                                                        <!-- Classe mb-4 adicionada -->
                                                         <button type="button" id="btn-avancar-emp"
-                                                                class="btn-primary-glass"
+                                                                class="btn-primary-glass mb-4"
                                                                 style="background-color: #3aadde;">Concluir Cadastro
-                                                                Empresa</button>
+                                                                </button>
                                                 </div>
 
                                                 <!-- EMPRESA: PASSO 2 -->
@@ -225,12 +234,12 @@
                                                                                 legenda="Seu Estado"></campo-form></div>
                                                         </div>
 
-                                                        <!-- Botão de Finalizar com Link (Ajustado) -->
+                                                        <!-- Classe mb-4 adicionada -->
                                                         <a href="/assets/Pages/HomePageLogado/HomePageLogado.html"
                                                                 class="text-decoration-none">
-                                                                <button type="button" class="btn-primary-glass"
+                                                                <button type="button" class="btn-primary-glass mb-4"
                                                                         style="background-color: #3aadde;">Finalizar
-                                                                        Cadastro Empresa</button>
+                                                                        Cadastro</button>
                                                         </a>
 
                                                         <button type="button" id="btn-voltar-emp"
@@ -246,10 +255,17 @@
                                 Já possui uma conta? <a href="./Login.html">Fazer login.</a>
                         </div>
 
+                        <!-- FOOTER DENTRO DA DIV (Aparece só no Mobile, no finalzinho do cartão) -->
+                        <div class="d-md-none text-center mt-5 pt-3">
+                                <p class="m-0" style="font-size: 0.8rem; color: #666;">© 2026 Care Plus Family. Todos os
+                                        direitos reservados.</p>
+                        </div>
+
                 </div>
         </div>
 
-        <footer class="footer-discreto">
+        <!-- O Footer Original agora é escondido no Mobile (d-none d-md-block) -->
+        <footer class="footer-discreto d-none d-md-block">
                 <div class="container text-center">
                         <p class="m-0">© 2026 Care Plus Family. Todos os direitos reservados.</p>
                 </div>
