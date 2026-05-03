@@ -172,6 +172,15 @@ campo-form .titulo-form {
 
 .btn-primary-glass:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(146, 196, 68, 0.6); }
 
+/* Troca a sombra verde pela azul nos botões da Empresa (Verso do cartão) */
+.back .btn-primary-glass {
+    box-shadow: 0 4px 15px rgba(58, 173, 222, 0.4) !important;
+}
+
+.back .btn-primary-glass:hover {
+    box-shadow: 0 6px 20px rgba(58, 173, 222, 0.6) !important;
+}
+
 .btn-voltar {
     background: transparent; color: #777; border: none; width: 100%;
     margin-top: 15px; padding: 10px; font-weight: 600; cursor: pointer; transition: color 0.3s ease;
