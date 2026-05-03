@@ -5,7 +5,7 @@ export class CalendarioDinamico extends HTMLElement {
         const larguraCalendario = this.getAttribute('larguraCalendario') || '100%';
         const alturaCalendario = this.getAttribute('alturaCalendario') || 'auto';
         const legendaCalendario = this.getAttribute('legendaCalendario') || '';
-        const tituloExternoCalendario = this.getAttribute('tituloExternoCalendario') || 'Escolha uma data:';
+        const tituloExternoCalendario = this.getAttribute('tituloExternoCalendario') || '';
 
         // Configurações de data e meses
         this.dataHoje = new Date();
