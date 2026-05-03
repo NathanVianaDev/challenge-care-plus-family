@@ -1,0 +1,96 @@
+.tarefas-container {
+    background-color: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
+    padding: 40px;
+}
+
+.tarefas-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    color: #1a1a1a;
+}
+
+.tarefas-header {
+    display: flex;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #999;
+    padding: 0 15px 10px 15px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #f0f0f0;
+    margin-bottom: 15px;
+}
+
+.col-num { width: 8%; text-align: center; }
+.col-desc { width: 52%; padding-left: 15px; }
+.col-pontos { width: 20%; text-align: center; }
+.col-status { width: 20%; text-align: center; }
+
+.tarefa-row {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa; /* Fundo gelo original */
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 12px;
+    opacity: 0;
+    transform: translateY(15px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    animation: slideUpFade 0.4s forwards;
+}
+
+.tarefa-row:hover {
+    background-color: #ffffff; /* Acende no hover */
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(146, 196, 68, 0.12);
+    border-color: #92C444;
+}
+
+/* Tipografia */
+.tarefa-num {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: #3aadde;
+    background-color: #f0f8ff;
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 10px;
+}
+
+.tarefa-desc { font-weight: 600; color: #333; margin: 0; }
+.tarefa-pontos { font-weight: 700; color: #666; margin: 0; }
+
+/* Status Badge e Barras */
+.status-badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px; height: 35px;
+    border-radius: 20px;
+    background-color: #f4f5f7;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.status-fill {
+    position: absolute;
+    left: 0; top: 0; height: 100%; width: 0%;
+    z-index: -1;
+    animation: fillProgress 1.2s forwards;
+}
+
+.fill-green { background-color: #92C444; }
+.fill-yellow { background-color: #f1c40f; }
+.fill-red { background-color: #ff6b6b; }
+
+@keyframes slideUpFade { to { opacity: 1; transform: translateY(0); } }
+@keyframes fillProgress { to { width: var(--target-width); } }
+
+/* Efeito Completed */
+.status-badge.completed { animation: pulseGlow 2.5s infinite; }
+.text-white-final { color: #fff !important; }

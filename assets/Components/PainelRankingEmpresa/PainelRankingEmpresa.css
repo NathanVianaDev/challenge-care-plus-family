@@ -1,0 +1,109 @@
+/* Herda o layout do PainelRanking original com ajustes corporativos */
+.ranking-container {
+    background-color: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
+    padding: 40px;
+}
+
+.ranking-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    color: #3aadde;
+    margin-bottom: 30px;
+}
+
+.dashboard-card {
+    background-color: #f8f9fa;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #f0f0f0;
+    transition: 0.3s ease;
+}
+
+.profile-avatar-corp {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    background: #fff;
+    padding: 5px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.text-care-blue { color: #3aadde; }
+.text-care-green { color: #92C444; }
+
+.modern-tabs-wrapper { text-align: center; margin: 40px 0 30px 0; }
+.ranking-tabs { background-color: #f4f5f7; border-radius: 50px; padding: 6px; }
+
+.btn-tab {
+    padding: 10px 25px;
+    border-radius: 40px;
+    border: none;
+    font-weight: 700;
+    color: #666;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.btn-tab.active {
+    background-color: #ffffff;
+    color: #3aadde;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.leaderboard-header {
+    display: flex;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #999;
+    padding: 0 20px 15px 20px;
+    text-transform: uppercase;
+}
+
+.col-posicao { width: 10%; text-align: center; }
+.col-avatar { width: 15%; text-align: center; }
+.col-nome { width: 55%; padding-left: 15px; }
+.col-pontos { width: 20%; text-align: right; }
+
+.ranking-row {
+    display: flex;
+    align-items: center;
+    background-color: #fbfbfb;
+    border: 1px solid #f0f0f0;
+    border-radius: 16px;
+    padding: 12px 20px;
+    margin-bottom: 12px;
+    transition: 0.3s;
+    animation: slideUpFade 0.5s forwards;
+}
+
+.ranking-row:hover {
+    transform: translateX(8px);
+    border-color: #92C444;
+}
+
+.medalha {
+    width: 35px; height: 35px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; color: #fff;
+}
+.medalha-ouro { background: linear-gradient(135deg, #FFD700, #FDB931); }
+.medalha-prata { background: linear-gradient(135deg, #E0E0E0, #BDBDBD); }
+.medalha-bronze { background: linear-gradient(135deg, #cd7f32, #a0522d); }
+.medalha-padrao { background-color: #f0f0f0; color: #777; }
+
+.avatar-miniatura { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; }
+.nome-jogador { font-weight: 700; color: #333; margin: 0; }
+.pontos-jogador { font-weight: 800; color: #92C444; margin: 0; font-size: 1.1rem; }
+
+@keyframes slideUpFade { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }

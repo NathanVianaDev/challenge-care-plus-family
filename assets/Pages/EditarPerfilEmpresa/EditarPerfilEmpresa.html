@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil da Empresa - Care Plus</title>
+
+    <!-- Bootstrap & Fontes -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Específico da Tela (FormCompacto.css deve conter os estilos do card e inputs) -->
+    <link rel="stylesheet" href="../../CSS/FormCompacto.css">
+
+    <!-- Scripts de Layout e Componentes -->
+    <script type="module" src="/assets/js/LayoutGlobalEmpresa.js"></script>
+    <script type="module" src="../../Components/MenssagemExterna/MenssagemExterna.js"></script>
+</head>
+
+<body class="bg-light-custom">
+
+    <main class="container my-3">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-sm-12">
+
+                <!-- CAIXA FLUTUANTE ÚNICA -->
+                <div class="unified-profile-card">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="profile-main-title">Configurações da Empresa</h2>
+                        <span class="status-badge bold">Parceiro Care Plus</span>
+                    </div>
+
+                    <form id="formPerfilEmpresa">
+                        
+                        <!-- ==========================================
+                        SEÇÃO: IDENTIFICAÇÃO CORPORATIVA
+                        ========================================== -->
+                        <h4 class="section-title" style="margin-top: 0;">Identificação</h4>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-8">
+                                <label class="field-label">Razão Social</label>
+                                <input type="text" class="editable-input" value="Microsoft Corporation">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="field-label">CNPJ</label>
+                                <input type="text" class="editable-input" value="12.345.678/0001-99">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="field-label">Nome Fantasia</label>
+                                <input type="text" class="editable-input" value="Microsoft Brasil">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="field-label">Setor de Atuação</label>
+                                <select class="editable-input">
+                                    <option value="Tecnologia" selected>Tecnologia</option>
+                                    <option value="Saúde">Saúde</option>
+                                    <option value="Educação">Educação</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- ==========================================
+                        SEÇÃO: CONTATO ADMINISTRATIVO
+                        ========================================== -->
+                        <h4 class="section-title">Contato Administrativo</h4>
+                        <div class="row g-3 mb-4">
+                            <div class="col-12">
+                                <label class="field-label">E-mail de Faturamento/Suporte</label>
+                                <input type="email" class="editable-input" value="rh@microsoft.com.br">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="field-label">Telefone Comercial</label>
+                                <input type="tel" class="editable-input" value="(11) 3003-4321">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="field-label">Nome do Gestor Responsável</label>
+                                <input type="text" class="editable-input" value="Pacheco Ferreira">
+                            </div>
+                        </div>
+
+                        <!-- ==========================================
+                        SEÇÃO: ENDEREÇO SEDE
+                        ========================================== -->
+                        <h4 class="section-title">Endereço da Sede</h4>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-4">
+                                <label class="field-label">CEP</label>
+                                <input type="text" class="editable-input" value="04578-000">
+                            </div>
+                            <div class="col-md-8">
+                                <label class="field-label">Logradouro</label>
+                                <input type="text" class="editable-input" value="Av. das Nações Unidas">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="field-label">Número</label>
+                                <input type="text" class="editable-input" value="12901">
+                            </div>
+                            <div class="col-md-8">
+                                <label class="field-label">Complemento</label>
+                                <input type="text" class="editable-input" value="Torre Norte - Andar 31">
+                            </div>
+                            <div class="col-md-8">
+                                <label class="field-label">Cidade</label>
+                                <input type="text" class="editable-input" value="São Paulo">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="field-label">Estado</label>
+                                <input type="text" class="editable-input" value="SP">
+                            </div>
+                        </div>
+
+                        <!-- ==========================================
+                        RODAPÉ DO FORMULÁRIO (BOTÕES)
+                        ========================================== -->
+                        <div class="d-flex justify-content-end align-items-center pt-3" style="border-top: 1px solid #f0f2f5;">
+                            
+                            <a href="javascript:window.location.reload()" class="btn-cancelar">Cancelar</a>
+
+                            <!-- Dispara a função de sucesso que cria o Web Component -->
+                            <button type="button" class="btn-salvar-perfil" onclick="executarSalvamento()">
+                                Salvar Alterações
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div> <!-- FIM CARD -->
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Lógica para o Web Component MenssagemExterna -->
+    <script>
+        function executarSalvamento() {
+            const alerta = document.createElement('menssagem-externa');
+            
+            // Atributos baseados no seu componente
+            alerta.setAttribute('titulo', 'Perfil Atualizado!');
+            alerta.setAttribute('texto', 'Os dados da Microsoft Corporation foram salvos com sucesso no sistema Care Plus.');
+            alerta.setAttribute('link', '../HomePageEmpresaLogado/HomePageEmpresaLogado.html');
+            alerta.setAttribute('botao', 'Voltar para Home');
+
+            document.body.appendChild(alerta);
+        }
+    </script>
+
+</body>
+</html>

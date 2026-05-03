@@ -22,7 +22,6 @@ export class MeuHeader extends HTMLElement {
                             <a class="nav-link text-dark" href="#">AGENDAMENTOS</a>
                             <a class="nav-link text-dark" href="/assets/Pages/Ranking/Ranking.html">GAME PLUS +</a>
                             <a class="nav-link text-dark" href="/assets/Pages/AmbienteFamilia/AmbienteFamilia.html">FAMILIA</a>
-                            <a class="nav-link text-dark" href="/assets/Pages/AmbienteEmpresa/AmbienteEmpresa.html">EMPRESA</a>
                             <a class="nav-link text-dark" href="/assets/Pages/EditarPerfil/EditarPerfil.html">PERFIL</a>
                             <a href="/Index.html" class="btn-perfil-sair" >
                                 <span class="texto-sair">SAIR</span>
