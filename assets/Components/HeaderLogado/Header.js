@@ -24,25 +24,9 @@ export class MeuHeader extends HTMLElement {
                                 <img src="/assets/Images/logo-care-plus.png" alt="Logo Care Plus" height="80" onerror="this.style.display='none';">
                             </a>
                             
-<<<<<<< HEAD
-                            <a class="nav-link text-dark" href="#">AGENDAMENTOS</a>
-                            <a class="nav-link text-dark" href="/assets/Pages/Ranking/Ranking.html">GAME PLUS +</a>
-                            <a class="nav-link text-dark" href="/assets/Pages/AmbienteFamilia/AmbienteFamilia.html">FAMILIA</a>
-                            <a class="nav-link text-dark" href="/assets/Pages/EditarPerfil/EditarPerfil.html">PERFIL</a>
-                            <a href="/Index.html" class="btn-perfil-sair" >
-                                <span class="texto-sair">SAIR</span>
-                                <div class="circulo-azul">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" >
-                                        <path fill="white"
-                                            d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512h388.6c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
-                                    </svg>
-                                </div>
-                            </a>
-=======
                             
                             <a class="nav-link" href="/assets/Pages/Ranking/Ranking.html">GAME PLUS +</a>
                             <a class="nav-link" href="/assets/Pages/AmbienteFamilia/AmbienteFamilia.html">FAMÍLIA</a>
-                            <a class="nav-link" href="/assets/Pages/AmbienteEmpresa/AmbienteEmpresa.html">EMPRESA</a>
                             <a class="nav-link" href="/assets/Pages/EditarPerfil/EditarPerfil.html">PERFIL</a>
                             
                             <!-- Botão SAIR encapsulado para poder centralizar no Mobile -->
@@ -57,8 +41,6 @@ export class MeuHeader extends HTMLElement {
                                     </div>
                                 </a>
                             </div>
-                            
->>>>>>> 58c1e41cd16e68dd69eed114078853875a8b6c4f
                         </div>
                     </div>
                 </div>
