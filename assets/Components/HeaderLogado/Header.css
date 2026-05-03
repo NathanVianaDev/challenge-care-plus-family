@@ -1,52 +1,63 @@
-/* Estilização do Menu de Navegação */
-.nav-link {
+/* ==========================================================================
+   NAVBAR LOGADO - ESTILOS
+   ========================================================================== */
+
+/* Estilização da barra de navegação */
+.navbar-logado-custom {
+    padding-bottom: 0; 
+    background-color: white !important; 
+    border-bottom: 8px solid #3aadde; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-logado-custom .nav-link {
     color: #212529 !important;
     font-family: 'Montserrat', sans-serif; 
-    font-weight: 500;           
+    font-weight: 500 !important;          
     letter-spacing: 0.5px;
     transition: 0.3s;
     font-size: 1rem;            
 }
 
-/* Efeito ao passar o mouse para não ficar estático */
-.nav-link:hover {
+.navbar-logado-custom .nav-link:hover {
     color: #3aadde !important; 
-}
-
-/* Estilização da barra de navegação */
-.navbar {
-    padding-bottom: 0; 
-    background-color: white !important; 
-    border-bottom: 10px solid #3aadde; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .navbar-nav {
     padding-bottom: 10px; 
 }
 
+/* Botão Verde de SAIR (Padronizado com o LOGIN) */
 .btn-perfil-sair {
     display: flex;
     align-items: center;
     background-color: #92C444; 
-    border-radius: 18px;
-    height: 40px; 
+    border-radius: 25px;
+    height: 42px; 
     padding-left: 20px;
+    padding-right: 5px; 
     text-decoration: none;
     transition: 0.3s;
+}
+
+.btn-perfil-sair:hover {
+    background-color: #7da83a;
+    transform: scale(1.02);
 }
 
 .texto-sair {
     color: white;
     margin-right: 15px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
+    font-weight: 700;
+    font-size: 0.85rem;
 }
 
+/* Bolinha Azul do ícone */
 .circulo-azul {
     background-color: #3aadde; 
-    width: 40px;  
-    height: 40px;
+    width: 34px;  
+    height: 34px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -54,7 +65,38 @@
 }
 
 .circulo-azul svg {
-    width: 25px; 
-    height: 22px; 
+    width: 16px; 
+    height: 16px; 
     display: block; 
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE)
+   ========================================================================== */
+@media (max-width: 991px) {
+    .navbar-logado-custom .navbar-collapse {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    
+    /* Aqui miramos direto no .nav-link para criar as linhas divisórias */
+    .navbar-logado-custom .nav-link {
+        padding: 12px 0;
+        text-align: center; 
+        width: 100%;
+    }
+
+    .navbar-logado-custom .nav-link:last-of-type {
+        border-bottom: none;
+    }
+
+    /* Centraliza o botão SAIR no celular */
+    .container-btn-sair {
+        margin-top: 15px;
+        justify-content: center !important; 
+        width: 100%;
+    }
 }
