@@ -34,9 +34,6 @@ class FormularioFamilia extends HTMLElement {
                         <button onclick="window.location.href='/assets/Pages/Avatar/Avatar.html'" class="btn btn-azul fw-bold px-4 rounded-pill shadow-sm">
                             Avatar
                         </button>
-                        <button onclick="window.location.href='/assets/Pages/IncluindoEmpresa/IncluindoEmpresa.html'" class="btn btn-azul fw-bold px-4 rounded-pill shadow-sm">
-                            Empresa
-                        </button>
                     </div>
                 </div>
 

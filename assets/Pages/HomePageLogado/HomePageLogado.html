@@ -1,5 +1,3 @@
-</html>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -10,36 +8,40 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <link rel="stylesheet" href="/assets/CSS/Style.CSS">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chamada do CSS específico para o Modal de Encaixes -->
+    <link rel="stylesheet" href="/assets/CSS/HomePage/HomePageLogado.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
 
     <title>Home Page - Care Plus Family</title>
 
     <link rel="stylesheet" href="/assets/Components/CardConsulta/CardConsulta.css">
     <link rel="stylesheet" href="/assets/Components/CardHub/CardHub.css">
+    
     <script type="module" src="/assets/Components/CardConsulta/CardConsulta.js"></script>
     <script type="module" src="/assets/Components/Calendario/Calendario.js"></script>
     <script type="module" src="/assets/Components/CardHub/CardHub.js"></script>
     <script type="module" src="/assets/js/LayoutGlobal.js"></script>
-
+    <script type="module" src="/assets/Components/ModalAlerta/ModalAlerta.js"></script>
 </head>
 
 <body>
+
     <main class="container my-5">
         <div class="row">
 
             <div class="col-lg-4">
-
                 <div class="card p-5 text-center mb-4" id="perfil">
                     <div class="text-start mb-2">
-                        <a href="/assets/Pages/Avatar/Avatar.html"><button class="btn btn-link text-dark p-0"
-                                id="btn-config">
+                        <a href="/assets/Pages/Avatar/Avatar.html">
+                            <button class="btn btn-link text-dark p-0" id="btn-config">
                                 <i class="bi bi-gear-fill" style="font-size: 1.5rem;"></i>
-                            </button></a>
+                            </button>
+                        </a>
                     </div>
                     <div class="position-relative d-inline-block mx-auto mb-3">
                         <div class="profile-ring">
-                            <img src="/assets/Images/avatar-padrao.png" id="user-photo" class="rounded-circle shadow-sm"
-                                alt="Perfil">
+                            <img src="/assets/Images/avatar-padrao.png" id="user-photo" class="rounded-circle shadow-sm" alt="Perfil">
                         </div>
                     </div>
                     <h3 class="fw-light">Bem Vindo, <span id="display-name" class="fw-bold">Usuário</span>.</h3>
@@ -55,89 +57,71 @@
                             </button>
                         </a>
                         <a href="/assets/Pages/CancelarConsulta/CancelarConsulta.html" class="text-decoration-none">
-                            <button class="btn btn-danger rounded-pill fw-bold py-2"
-                                style="background-color: #ff5c5c; border: none; width: 100%;">
-                                REMARCAR CONSULTA
+                            <button class="btn btn-danger rounded-pill fw-bold py-2" style="background-color: #ff5c5c; border: none; width: 100%;">
+                                CANCELAR CONSULTA
                             </button>
                         </a>
+                        <!-- Botão Meus Encaixes aciona o JS externo -->
+                        <button id="btn-meus-encaixes" class="btn btn-warning rounded-pill fw-bold py-2 text-white" style="background-color: #f39c12; border: none; width: 100%;">
+                            MEUS ENCAIXES
+                        </button>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8">
 
+            <div class="col-lg-8">
+                <!-- Hub de Monitoramento -->
                 <div id="hub-monitoramento" class="mb-5">
                     <div class="titulo-hub" id="monitoramento">
                         <h2 class="text-center">Hub de Monitoramento</h2>
                     </div>
 
                     <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-3">
-                        <div>
-                            <card-hub titulo="Passos" cor="linear-gradient(205deg, #34D052, #ffffff)"
-                                cor-progresso="#34D052" meta-padrao="10000"
-                                icon-path="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 5.3 1.2z">
-                            </card-hub>
-                        </div>
-
-                        <div>
-                            <card-hub titulo="BPM" unidade="BPM" cor="linear-gradient(205deg, #B30101, #ffffff)"
-                                cor-progresso="#B30101" cor-botao="#92C444" label-esq="Menor" valor-esq="0 BPM"
-                                label-dir="Maior" valor-dir="0 BPM"
-                                icon-path="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z">
-                            </card-hub>
-                        </div>
-
-                        <div>
-                            <card-hub titulo="Glicemia" unidade=" mg/dL" cor="linear-gradient(205deg, #601060, #ffffff)"
-                                cor-progresso="#601060" cor-botao="#92C444" label-esq="Menor" valor-esq="0 mg/dl"
-                                label-dir="Maior" valor-dir="0 mg/dl"
-                                icon-path="M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8z">
-                            </card-hub>
-                        </div>
-
-                        <div>
-                            <card-hub titulo="Água" unidade="ml" cor="linear-gradient(205deg, #4369E4, #ffffff)"
-                                cor-progresso="#4369E4" cor-botao="#92C444" label-esq="Litros" valor-esq="0 L"
-                                label-dir="Meta" valor-dir="0 Litros"
-                                icon-path="M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8z">
-                            </card-hub>
-                        </div>
-
-                        <div>
-                            <card-hub titulo="Sono" unidade="h" cor="linear-gradient(205deg, #000000, #ffffff)"
-                                cor-progresso="#000000" cor-botao="#92C444" meta-padrao="8" label-esq="Profundo"
-                                valor-esq="0:00" label-dir="Leve" valor-dir="0:00" viewbox="0 0 29 29"
-                                icon-path="M10.1897 4.5127C9.85009 5.5655 9.66667 6.68846 9.66667 7.8542C9.66667 13.8603 14.5356 18.7292 20.5417 18.7292C22.073 18.7292 23.5304 18.4127 24.852 17.8416C23.442 22.2128 19.3403 25.375 14.5 25.375C8.49392 25.375 3.625 20.5061 3.625 14.5C3.625 10.0253 6.32768 6.18168 10.1897 4.5127Z M19.1281 6.0415H24.7707L18.729 10.8748H24.7707">
-                            </card-hub>
-                        </div>
+                        <!-- Cards do Hub (Passos, BPM, Glicemia, Água, Sono) -->
+                        <div><card-hub titulo="Passos" cor="linear-gradient(205deg, #34D052, #ffffff)" cor-progresso="#34D052" meta-padrao="10000" icon-path="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 5.3 1.2z"></card-hub></div>
+                        <div><card-hub titulo="BPM" unidade="BPM" cor="linear-gradient(205deg, #B30101, #ffffff)" cor-progresso="#B30101" cor-botao="#92C444" icon-path="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></card-hub></div>
+                        <div><card-hub titulo="Glicemia" unidade=" mg/dL" cor="linear-gradient(205deg, #601060, #ffffff)" cor-progresso="#601060" cor-botao="#92C444" icon-path="M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8z"></card-hub></div>
+                        <div><card-hub titulo="Água" unidade="ml" cor="linear-gradient(205deg, #4369E4, #ffffff)" cor-progresso="#4369E4" cor-botao="#92C444" icon-path="M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8z"></card-hub></div>
+                        <div><card-hub titulo="Sono" unidade="h" cor="linear-gradient(205deg, #000000, #ffffff)" cor-progresso="#000000" cor-botao="#92C444" icon-path="M10.1897 4.5127C9.85009 5.5655 9.66667 6.68846 9.66667 7.8542C9.66667 13.8603 14.5356 18.7292 20.5417 18.7292C22.073 18.7292 23.5304 18.4127 24.852 17.8416C23.442 22.2128 19.3403 25.375 14.5 25.375C8.49392 25.375 3.625 20.5061 3.625 14.5C3.625 10.0253 6.32768 6.18168 10.1897 4.5127Z M19.1281 6.0415H24.7707L18.729 10.8748H24.7707"></card-hub></div>
                     </div>
                 </div>
 
+                <!-- Próximas Consultas -->
                 <div id="secao-consultas">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h2 class="my-0">Próximas Consultas</h2>
-                        <button class="btn btn-sm fw-bold" style="color: #3aadde; background: none; border: none;">VER
-                            TODAS</button>
+                        <button class="btn btn-sm fw-bold" style="color: #3aadde; background: none; border: none;">VER TODAS</button>
                     </div>
-
-                    <card-consulta dia="05" mes="MAR" especialidade="Cardiologia" profissional="Dr. Roberto Silva"
-                        horario="09:30"></card-consulta>
-                    <card-consulta dia="17" mes="MAR" especialidade="Dermatologia" profissional="Dr. Roberto Silva"
-                        horario="14:30"></card-consulta>
-                    <card-consulta dia="27" mes="MAR" especialidade="Cardiologia" profissional="Dr. Roberto Silva"
-                        horario="09:30"></card-consulta>
+                    <card-consulta dia="05" mes="MAR" especialidade="Cardiologia" profissional="Dr. Roberto Silva" horario="09:30"></card-consulta>
+                    <card-consulta dia="17" mes="MAR" especialidade="Dermatologia" profissional="Dr. Roberto Silva" horario="14:30"></card-consulta>
+                    <card-consulta dia="27" mes="MAR" especialidade="Cardiologia" profissional="Dr. Roberto Silva" horario="09:30"></card-consulta>
                 </div>
             </div>
         </div>
     </main>
 
+    <!-- Estrutura do Modal de Encaixes (Gerenciado pelo HomePageLogado.js) -->
+    <div id="modalMeusEncaixes" class="modal-overlay hidden">
+        <div class="custom-modal">
+            <img src="/assets/Images/logo-care-plus.png" alt="Care Plus" class="modal-logo">
+            <h3 class="modal-title">Meus Encaixes Solicitados</h3>
+            <p id="mensagemEncaixe" class="modal-message"></p>
 
+            <div class="d-flex gap-3 justify-content-center">
+                <button id="btnDesistirEncaixe" class="btn btn-desistir rounded-pill fw-bold px-4 py-2">
+                    Desistir do Encaixe
+                </button>
+                <button id="btnFecharEncaixe" class="btn btn-fechar-encaixe rounded-pill fw-bold px-4 py-2">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
 
-
-
+    <!-- Scripts Finais -->
+    <script type="module" src="/assets/js/HomePageLogado.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/js/script.js"></script>
 </body>
-
-
 
 </html>
