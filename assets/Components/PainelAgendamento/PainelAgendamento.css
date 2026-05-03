@@ -315,3 +315,23 @@
 .modal-message { font-size: 1.05rem; color: #555; margin-bottom: 30px; line-height: 1.6; }
 .btn-modal { background-color: #3aadde; color: white; border: none; border-radius: 50px; padding: 12px 40px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; }
 .btn-modal:hover { background-color: #2b8baf; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(58, 173, 222, 0.3); }
+
+.waitlist-section.d-none {
+    display: none !important;
+}
+
+/* Modal Suspenso (Ajuste para inputs de data no modal) */
+#modalFilaEspera input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #f0f0f0;
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Alinhamento do botão de encaixe no formulário */
+.btn-waitlist-toggle {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    border-style: dashed; /* Visual diferenciado por ser uma opção alternativa */
+}
