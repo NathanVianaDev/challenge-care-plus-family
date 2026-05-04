@@ -2,32 +2,37 @@
 
 export class CardConsulta extends HTMLElement {
     connectedCallback() {
+        // --- 1. CAPTURANDO OS DADOS ---
         let dia = this.getAttribute('dia') || '00';
         let mes = this.getAttribute('mes') || 'MÊS';
         const especialidade = this.getAttribute('especialidade') || 'Especialidade';
         const profissional = this.getAttribute('profissional') || 'Nome do Profissional';
         let horario = this.getAttribute('horario') || '00:00';
-        
-        const modo = this.getAttribute('modo') || 'padrao'; 
-        const statusAtual = this.getAttribute('status') || 'aguardando'; 
-        
-        let isConfirmado = statusAtual === 'confirmado'; 
+
+        const endereco = this.getAttribute('endereco') || 'Endereço não informado';
+        const contato = this.getAttribute('contato') || 'Contato não informado';
+
+        const modo = this.getAttribute('modo') || 'padrao';
+        const statusAtual = this.getAttribute('status') || 'aguardando';
+
+        let isConfirmado = statusAtual === 'confirmado';
         const idUnico = Math.random().toString(36).substr(2, 9);
 
+        // --- 2. LÓGICA DAS CORES E IMAGENS ---
         const imgAzul = new URL('../../Images/FundoConsulta/consulta-azul.png', import.meta.url).href;
         const imgVerde = new URL('../../Images/FundoConsulta/consulta-verde.png', import.meta.url).href;
         const caminhoConsultaCSS = new URL('./CardConsulta.css', import.meta.url).href;
 
-        let bgImagem = imgAzul; 
-        let corPrincipal = '#3aadde';     
-        let bgData = '#f0f8ff'; 
+        let bgImagem = imgAzul;
+        let corPrincipal = '#3aadde';
+        let bgData = '#f0f8ff';
 
         const espMinuscula = especialidade.toLowerCase();
         if (espMinuscula.includes('derma') || espMinuscula.includes('odonto') || espMinuscula.includes('nutri') || espMinuscula.includes('psico')) {
             bgImagem = imgVerde;
-            corPrincipal = '#8cc63f';     
-            bgData = '#f4faeb'; 
-        } 
+            corPrincipal = '#8cc63f';
+            bgData = '#f4faeb';
+        }
 
         let textoStatus = isConfirmado ? 'Confirmado' : 'Aguardando confirmação';
         let classeStatus = isConfirmado ? 'novo-badge-status confirmado' : 'novo-badge-status';
@@ -35,27 +40,30 @@ export class CardConsulta extends HTMLElement {
         const gerarOpcoesRemarcacao = (diaAtual, mesAtual) => {
             const meses = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
             const indexMesAtual = meses.indexOf(mesAtual);
-            
-            const opcoes = [
+
+            return [
                 { dia: String((parseInt(diaAtual) + 2) % 28 || 28).padStart(2, '0'), mes: meses[(indexMesAtual + (parseInt(diaAtual) + 2 > 28 ? 1 : 0)) % 12], hora: '10:00' },
                 { dia: String((parseInt(diaAtual) + 5) % 28 || 28).padStart(2, '0'), mes: meses[(indexMesAtual + (parseInt(diaAtual) + 5 > 28 ? 1 : 0)) % 12], hora: '15:30' },
                 { dia: String((parseInt(diaAtual) + 7) % 28 || 28).padStart(2, '0'), mes: meses[(indexMesAtual + (parseInt(diaAtual) + 7 > 28 ? 1 : 0)) % 12], hora: '08:45' }
             ];
-            return opcoes;
         };
-
         const opcoesData = gerarOpcoesRemarcacao(dia, mes);
 
+        // --- 3. CONSTRUINDO OS BLOCOS DINAMICAMENTE ---
         let areaBotoes = '';
         let areaModais = '';
+        let painelExpansivel = '';
+        let iconeSeta = ''; // Variável para a nossa nova seta!
 
-        if (modo === 'padrao') {
+        let classeComSeta = modo === 'detalhes' ? 'com-seta' : ''; // Adiciona um padding extra embaixo se tiver seta
+
+        if (modo === 'padrao' || modo === 'detalhes') {
             areaBotoes = `
                 <button class="novo-btn-confirmar ${isConfirmado ? 'confirmado' : ''}" title="Confirmar Consulta">
                     <i class="bi bi-check-lg"></i>
                 </button>
             `;
-            
+
             areaModais = `
                 <div class="modal fade" id="modal-${idUnico}" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
@@ -65,8 +73,8 @@ export class CardConsulta extends HTMLElement {
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body text-muted">
-                                <h4>Deseja confirmar sua consulta de <strong>${especialidade}</strong> com <strong>${profissional}</strong>?</h4><br><br>
-                                <h6 class="text-danger fw-bold"><i class="bi bi-exclamation-triangle-fill"></i> Atenção: Após confirmada, não será desmarcada por aqui.</h6>
+                                Deseja confirmar sua consulta de <strong>${especialidade}</strong> com <strong>${profissional}</strong>?<br><br>
+                                <small class="text-danger fw-bold"><i class="bi bi-exclamation-triangle-fill"></i> Atenção: Após confirmada, não será desmarcada por aqui.</small>
                             </div>
                             <div class="modal-footer border-0 pt-0">
                                 <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancelar</button>
@@ -76,14 +84,39 @@ export class CardConsulta extends HTMLElement {
                     </div>
                 </div>
             `;
+
+            if (modo === 'detalhes') {
+                // AQUI INJETAMOS A SETA ANIMADA
+                iconeSeta = `
+                    <div class="indicador-expansao" id="indicador-${idUnico}" style="color: ${corPrincipal};">
+                        <i class="bi bi-chevron-down icone-seta"></i>
+                    </div>
+                `;
+
+                painelExpansivel = `
+                    <div class="painel-expansivel" id="painel-${idUnico}">
+                        <div class="divisor-painel" style="background-color: ${corPrincipal}40;"></div>
+                        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+                            <div class="infos-clinica text-muted small">
+                                <div class="mb-1"><i class="bi bi-geo-alt-fill" style="color: ${corPrincipal};"></i> <strong class="text-dark">Endereço:</strong> ${endereco}</div>
+                                <div><i class="bi bi-telephone-fill" style="color: ${corPrincipal};"></i> <strong class="text-dark">Contato:</strong> ${contato}</div>
+                            </div>
+                            <div class="d-flex gap-2 botoes-extras">
+                                <button class="btn btn-sm btn-outline-marca-azul rounded-pill px-3 fw-bold btn-acao-extra" onclick="executarSalvamento()"><i class="bi bi-sign-turn-right-fill me-1"></i> Rotas</button>
+                                <button class="btn btn-sm btn-outline-marca-verde rounded-pill px-3 fw-bold btn-acao-extra" onclick="executarSalvamento()"><i class="bi bi-cloud-sun-fill me-1"></i> Clima</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
         } else if (modo === 'edicao') {
             areaBotoes = `
                 <div class="caixa-botoes-edicao d-flex flex-column gap-2">
-                    <button class="btn btn-success rounded-pill px-4 fw-bold shadow-sm btn-remarcar w-100">Remarcar</button>
-                    <button class="btn btn-danger rounded-pill px-4 fw-bold shadow-sm btn-cancelar w-100">Cancelar</button>
+                <button class="btn btn-success rounded-pill px-4 fw-bold shadow-sm btn-remarcar w-100" style="background-color: #8CC63F; border: none;">Remarcar</button>
+                <button class="btn btn-danger rounded-pill px-4 fw-bold shadow-sm btn-cancelar w-100" style="background-color: #ff5c5c; border: none;">Cancelar</button>
                 </div>
             `;
-
+            // Modais edição mantidos idênticos...
             areaModais = `
                 <div class="modal fade" id="modal-cancelar-${idUnico}" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
@@ -147,19 +180,19 @@ export class CardConsulta extends HTMLElement {
             `;
         }
 
+        // --- 4. INJETANDO O HTML DO COMPONENTE ---
         this.innerHTML = `
             <link rel="stylesheet" href="${caminhoConsultaCSS}">
             
-            <div class="card-novo-wrapper" id="caixa-card-${idUnico}" 
-                style="background-image: url('${bgImagem}'); border-left-color: ${corPrincipal}; --bg-mobile: ${bgData};">
-                <div class="card-novo-content">
-                    
+            <div class="card-novo-wrapper" id="caixa-card-${idUnico}" style="border-left-color: ${corPrincipal}; background-color: #ffffff;">
+                
+                <!-- Adicionamos a classe ${classeComSeta} para dar espaço ao ícone -->
+                <div class="card-novo-content topo-card-bg ${classeComSeta}" style="background-image: url('${bgImagem}'); --bg-mobile: ${bgData};">
                     <div class="novo-bloco-principal">
                         <div class="novo-badge-data" style="background-color: ${bgData};">
                             <span class="novo-dia" id="txt-dia-${idUnico}" style="color: ${corPrincipal};">${dia}</span>
                             <span class="novo-mes" id="txt-mes-${idUnico}">${mes}</span>
                         </div>
-                        
                         <div class="novo-info-textos">
                             <h5 class="novo-titulo" style="color: ${corPrincipal};">${especialidade}</h5>
                             <p class="novo-medico"><i class="bi bi-person-fill"></i> ${profissional}</p>
@@ -171,26 +204,33 @@ export class CardConsulta extends HTMLElement {
                             <span class="novo-horario" id="txt-hora-${idUnico}">${horario}</span>
                             <span class="${classeStatus}" id="badge-status-${idUnico}">${textoStatus}</span>
                         </div>
-                        
                         <div class="novo-area-botoes">
                             ${areaBotoes}
                         </div>
                     </div>
-
+                    
+                    <!-- Injeta a seta no fundo da caixa apenas se for modo Detalhes -->
+                    ${iconeSeta}
                 </div>
+
+                ${painelExpansivel}
+
             </div>
 
             ${areaModais}
         `;
 
-        if (modo === 'padrao') {
+        // --- 5. INTERATIVIDADE ---
+        if (modo === 'padrao' || modo === 'detalhes') {
             const botaoCard = this.querySelector('.novo-btn-confirmar');
             const badgeStatus = this.querySelector(`#badge-status-${idUnico}`);
             const modalElement = this.querySelector(`#modal-${idUnico}`);
             const btnConfirmarModal = this.querySelector('.btn-confirmar-modal');
             const modalBootstrap = new bootstrap.Modal(modalElement);
 
-            botaoCard.addEventListener('click', () => { if (!isConfirmado) modalBootstrap.show(); });
+            botaoCard.addEventListener('click', (e) => {
+                if (!isConfirmado) modalBootstrap.show();
+            });
 
             btnConfirmarModal.addEventListener('click', () => {
                 isConfirmado = true;
@@ -200,7 +240,24 @@ export class CardConsulta extends HTMLElement {
                 botaoCard.title = 'Consulta Confirmada';
                 modalBootstrap.hide();
             });
+
+            if (modo === 'detalhes') {
+                const wrapperCard = this.querySelector(`#caixa-card-${idUnico}`);
+                const painelExpandir = this.querySelector(`#painel-${idUnico}`);
+                const indicadorSeta = this.querySelector(`#indicador-${idUnico}`);
+
+                wrapperCard.style.cursor = 'pointer';
+
+                wrapperCard.addEventListener('click', (e) => {
+                    if (e.target.closest('.novo-btn-confirmar') || e.target.closest('.btn-acao-extra')) {
+                        return;
+                    }
+                    painelExpandir.classList.toggle('aberto');
+                    indicadorSeta.classList.toggle('aberto');
+                });
+            }
         } else if (modo === 'edicao') {
+            // Interatividade da edição idêntica
             const btnCancelar = this.querySelector('.btn-cancelar');
             const modalCancelamentoEl = this.querySelector(`#modal-cancelar-${idUnico}`);
             const btnConfirmarCancelamento = this.querySelector('.btn-confirmar-cancelamento');
@@ -211,7 +268,7 @@ export class CardConsulta extends HTMLElement {
             const modalRemarcarEl = this.querySelector(`#modal-remarcar-${idUnico}`);
             const modalRemarcarBs = new bootstrap.Modal(modalRemarcarEl);
             const botoesOpcaoData = this.querySelectorAll('.btn-opcao-data');
-            
+
             const telaEscolha = this.querySelector('.tela-escolha-data');
             const footerEscolha = this.querySelector('.footer-escolha-data');
             const telaSucesso = this.querySelector('.tela-sucesso-remarcacao');
@@ -249,7 +306,7 @@ export class CardConsulta extends HTMLElement {
                     txtDia.textContent = btnClicado.getAttribute('data-dia');
                     txtMes.textContent = btnClicado.getAttribute('data-mes');
                     txtHora.textContent = btnClicado.getAttribute('data-hora');
-                    
+
                     badgeStatus.textContent = 'Confirmado';
                     badgeStatus.classList.add('confirmado');
                     isConfirmado = true;
@@ -258,6 +315,7 @@ export class CardConsulta extends HTMLElement {
 
             btnFecharSucesso.addEventListener('click', () => { modalRemarcarBs.hide(); });
             btnXFechar.addEventListener('click', () => { modalRemarcarBs.hide(); });
+
         }
     }
 }

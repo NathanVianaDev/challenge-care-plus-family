@@ -4,11 +4,9 @@
     box-sizing: border-box;
     margin-bottom: 20px;
     border-radius: 12px;
-    background-color: #f5f0f5;
+    background-color: #ffffff; /* Fundo branco garantido para quando a gaveta abrir */
     border-left: 6px solid #ccc; 
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    overflow: hidden; 
+    overflow: hidden; /* Corta as pontas quadradas para ficar com a borda arredondada */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     font-family: 'Montserrat', sans-serif;
@@ -17,6 +15,12 @@
 .card-novo-wrapper:hover {
     transform: translateX(5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* NOVA MÁGICA: A imagem de fundo fica congelada aqui, apenas na parte superior do card! */
+.topo-card-bg {
+    background-position: center !important;
+    background-repeat: no-repeat !important;
 }
 
 .card-novo-content {
@@ -107,18 +111,110 @@
 
 
 /* =======================================================
-   MÁGICA DA RESPONSIVIDADE (Telas menores que 768px)
+   PAINEL EXPANSÍVEL (Modo Detalhes)
+   ======================================================= */
+.painel-expansivel {
+    background-color: #ffffff;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease-in-out;
+    padding: 0 24px;
+}
+
+.painel-expansivel.aberto {
+    max-height: 200px; 
+    opacity: 1;
+    padding: 0 24px 20px 24px;
+}
+
+.divisor-painel {
+    height: 1px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.btn-acao-extra {
+    transition: 0.3s;
+    background-color: white; 
+}
+
+.btn-acao-extra:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* =======================================================
+   SETA DE EXPANSÃO
+   ======================================================= */
+
+.com-seta {
+    position: relative;
+    padding-bottom: 30px !important;    
+}
+
+.indicador-expansao {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: flutuarSeta 2s infinite ease-in-out; /* Animação de chamar a atenção */
+}
+
+/* Animação que faz a seta subir e descer devagarzinho */
+@keyframes flutuarSeta {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 4px); }
+}
+
+.icone-seta {
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Giro com efeitinho de "mola" */
+    display: inline-block;
+}
+
+/* Quando o card abre, a seta gira para cima e para de flutuar */
+.indicador-expansao.aberto {
+    animation: none; 
+}
+
+.indicador-expansao.aberto .icone-seta {
+    transform: rotate(180deg);
+}
+
+.btn-outline-marca-azul {
+    color: #3aadde;
+    border: 2px solid #3aadde;
+    background-color: transparent;
+}
+.btn-outline-marca-azul:hover {
+    background-color: #3aadde;
+    color: white;
+}
+
+.btn-outline-marca-verde {
+    color: #8cc63f;
+    border: 2px solid #8cc63f;
+    background-color: transparent;
+}
+.btn-outline-marca-verde:hover {
+    background-color: #8cc63f;
+    color: white;
+}
+
+/* =======================================================
+   RESPONSIVIDADE (Telas menores que 768px)
    ======================================================= */
 @media (max-width: 768px) {
-    .card-novo-wrapper {
-        /* Remove a imagem mágica e coloca a cor de fundo que veio do JS! */
+    .topo-card-bg {
         background-image: none !important;
         background-color: var(--bg-mobile) !important;
     }
     
-    .card-novo-wrapper:hover {
-        transform: none; 
-    }
+    .card-novo-wrapper:hover { transform: none; }
 
     .card-novo-content {
         flex-direction: column; 
@@ -127,12 +223,9 @@
         gap: 15px;
     }
 
-    .novo-bloco-principal {
-        width: 100%;
-    }
+    .novo-bloco-principal { width: 100%; }
 
     .novo-badge-data {
-        /* Como o fundo todo agora é colorido, o quadradinho fica branco para dar destaque */
         background-color: #ffffff !important;
         box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
@@ -166,10 +259,22 @@
 
     .novo-titulo { font-size: 18px; }
     .novo-badge-status { font-size: 11px; padding: 4px 10px; }
+
+    /* Ajustes da gaveta no mobile */
+    .painel-expansivel { padding: 0 15px; }
+    .painel-expansivel.aberto {
+        max-height: 300px; 
+        padding: 0 15px 15px 15px;
+    }
+    .botoes-extras {
+        width: 100%;
+        margin-top: 15px;
+        justify-content: center;
+    }
+    .botoes-extras button { flex: 1; }
 }
 
 @media (max-width: 400px) {
-    .caixa-botoes-edicao {
-        flex-direction: column !important; 
-    }
+    .caixa-botoes-edicao { flex-direction: column !important; }
 }
+

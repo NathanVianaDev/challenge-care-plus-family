@@ -24,6 +24,7 @@ export class MeuHeader extends HTMLElement {
                                 <img src="/assets/Images/logo-care-plus.png" alt="Logo Care Plus" height="80" onerror="this.style.display='none';">
                             </a>
                             
+                            <a class="nav-link" href="/assets/Pages/Agendamentos/Agendamentos.html">AGENDAMENTOS</a>
                             <a class="nav-link" href="/assets/Pages/Ranking/Ranking.html">GAME PLUS +</a>
                             <a class="nav-link" href="/assets/Pages/AmbienteFamilia/AmbienteFamilia.html">FAMÍLIA</a>
                             <a class="nav-link" href="/assets/Pages/EditarPerfil/EditarPerfil.html">PERFIL</a>
