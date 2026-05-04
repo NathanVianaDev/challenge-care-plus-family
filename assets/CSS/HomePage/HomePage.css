@@ -3,7 +3,7 @@
    ========================================================================== */
 :root {
     --careplus-blue: #3aadde;
-    --careplus-green: #8CC63F; /* Verde oficial padronizado com as outras telas */
+    --careplus-green: #8CC63F;
     --text-dark: #333333;
     --text-grey: #636262;
 }
@@ -15,14 +15,11 @@
     /* Foco na família à direita */
     background: url('/assets/Images/HeaderDeslogado/HeaderDeslogado.png') no-repeat center right;
     background-size: cover;
-    
-    /* Altura padronizada igual às páginas de especialidades */
     height: 380px; 
     width: 100%;
-    
     display: flex;
     align-items: center;
-    border-bottom: 4px solid var(--careplus-blue); /* Borda padronizada de 4px */
+    border-bottom: 4px solid var(--careplus-blue); 
 }
 
 .hero-content {
@@ -55,23 +52,22 @@
     margin-bottom: 30px;
 }
 
-/* Botão Verde "Saiba Mais" - Agora com a cor oficial */
 .btn-saiba-mais {
     background-color: var(--careplus-green); 
     color: white !important; 
     padding: 12px 60px; 
     font-size: 1.1rem;
     font-weight: 700; 
-    border-radius: 6px; /* Arredondamento sutil moderno */
+    border-radius: 6px;
     border: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     display: inline-block;
 }
 
 .btn-saiba-mais:hover {
-    background-color: #7ab035; /* Tom ligeiramente mais escuro no hover */
+    background-color: #7ab035; 
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(140, 198, 63, 0.4); /* Glow verde suave */
+    box-shadow: 0 8px 20px rgba(140, 198, 63, 0.4);
 }
 
 /* ==========================================================================
@@ -98,7 +94,7 @@
     line-height: 1.8; 
     font-weight: 500; 
     color: var(--text-dark); 
-    text-align: justify; /* Alinha o texto perfeitamente nas laterais */
+    text-align: justify; 
 }
 
 /* ==========================================================================
@@ -107,10 +103,8 @@
 @media (max-width: 991px) {
     
     .hero-section {
-        /* Altura padronizada para mobile! */
         height: 250px; 
         
-        /* Película branca translúcida para garantir a leitura do texto */
         background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), 
                     url('/assets/Images/HeaderDeslogado/HeaderDeslogado-Mobile.png') no-repeat center center;
         background-size: cover;
@@ -141,7 +135,7 @@
     
     .about-text {
         font-size: 1rem;
-        text-align: justify; /* Mantém o texto justificado na tela do celular */
+        text-align: justify; 
     }
 }
 /* ==========================================================================
@@ -222,9 +216,8 @@
    SEÇÃO 3: GAME PLUS + (HOME)
    ========================================================================== */
 .gameplus-banner {
-    /* Fundo com gradiente suave usando sua cor light-blue e branco */
     background: linear-gradient(135deg, var(--bg-light-blue) 0%, #ffffff 100%);
-    /* Bordas para destacar a seção das demais */
+
     border-top: 3px solid var(--careplus-green);
     border-bottom: 3px solid var(--careplus-green);
     overflow: hidden;
@@ -237,7 +230,6 @@
     letter-spacing: -0.5px;
 }
 
-/* Destacando o nome do programa com a cor verde da marca */
 .gameplus-title span {
     color: var(--careplus-green);
 }
@@ -249,40 +241,37 @@
     max-width: 90%;
 }
 
-/* Botão super chamativo para conversão */
 .btn-careplus-green {
     background-color: var(--careplus-green);
     color: #ffffff;
     font-weight: 700;
     padding: 14px 32px;
-    border-radius: 50px; /* Bordas bem arredondadas, remetendo à gamificação */
+    border-radius: 50px;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
     border: none;
-    box-shadow: 0 6px 15px rgba(140, 198, 63, 0.4); /* Sombra verde */
+    box-shadow: 0 6px 15px rgba(140, 198, 63, 0.4); 
     text-decoration: none;
     display: inline-block;
 }
 
 .btn-careplus-green:hover {
-    background-color: #7ab332; /* Um tom ligeiramente mais escuro do verde */
+    background-color: #7ab332; 
     color: #ffffff;
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(140, 198, 63, 0.5);
 }
 
-/* Estilo para a imagem flutuante */
 .gameplus-img {
     max-width: 90%;
     height: auto;
-    /* Se você usar uma imagem PNG sem fundo, o drop-shadow cria um efeito 3D muito legal */
     filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
     transition: transform 0.5s ease;
 }
 
 .gameplus-img:hover {
-    transform: scale(1.03) translateY(-5px); /* Efeito sutil de flutuação ao passar o mouse */
+    transform: scale(1.03) translateY(-5px);
 }
 
 /* Ajustes para Mobile */
@@ -317,7 +306,6 @@
 }
 
 .card-depoimento::before {
-    content: "“";
     font-family: 'Montserrat', sans-serif;
     font-size: 6rem;
     color: var(--careplus-blue);

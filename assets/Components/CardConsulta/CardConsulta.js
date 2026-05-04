@@ -147,7 +147,6 @@ export class CardConsulta extends HTMLElement {
             `;
         }
 
-        // --- MÁGICA DA VARIÁVEL CSS AQUI (--bg-mobile) ---
         this.innerHTML = `
             <link rel="stylesheet" href="${caminhoConsultaCSS}">
             
