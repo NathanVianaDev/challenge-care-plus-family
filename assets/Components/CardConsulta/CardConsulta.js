@@ -152,7 +152,7 @@ export class CardConsulta extends HTMLElement {
             <link rel="stylesheet" href="${caminhoConsultaCSS}">
             
             <div class="card-novo-wrapper" id="caixa-card-${idUnico}" 
-                 style="background-image: url('${bgImagem}'); border-left-color: ${corPrincipal}; --bg-mobile: ${bgData};">
+                style="background-image: url('${bgImagem}'); border-left-color: ${corPrincipal}; --bg-mobile: ${bgData};">
                 <div class="card-novo-content">
                     
                     <div class="novo-bloco-principal">

@@ -4,9 +4,8 @@
     box-sizing: border-box;
     margin-bottom: 20px;
     border-radius: 12px;
-    background-color: #ffffff;
+    background-color: #f5f0f5;
     border-left: 6px solid #ccc; 
-    background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
     overflow: hidden; 
