@@ -53,9 +53,9 @@ export class CardConsulta extends HTMLElement {
         let areaBotoes = '';
         let areaModais = '';
         let painelExpansivel = '';
-        let iconeSeta = ''; // Variável para a nossa nova seta!
+        let iconeSeta = '';
 
-        let classeComSeta = modo === 'detalhes' ? 'com-seta' : ''; // Adiciona um padding extra embaixo se tiver seta
+        let classeComSeta = modo === 'detalhes' ? 'com-seta' : '';
 
         if (modo === 'padrao' || modo === 'detalhes') {
             areaBotoes = `
@@ -68,6 +68,7 @@ export class CardConsulta extends HTMLElement {
                 <div class="modal fade" id="modal-${idUnico}" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content border-0 shadow">
+                            <img src="/assets/Images/logo-care-plus.png" alt="Care Plus" class="modal-logo" style="width: 10rem; align-self: center; margin-top: 20px;">
                             <div class="modal-header border-0 pb-0">
                                 <h5 class="modal-title fw-bold" style="color: #3aadde;">Confirmar Agendamento</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -86,7 +87,7 @@ export class CardConsulta extends HTMLElement {
             `;
 
             if (modo === 'detalhes') {
-                // AQUI INJETAMOS A SETA ANIMADA
+                // SETA ANIMADA
                 iconeSeta = `
                     <div class="indicador-expansao" id="indicador-${idUnico}" style="color: ${corPrincipal};">
                         <i class="bi bi-chevron-down icone-seta"></i>
@@ -102,8 +103,24 @@ export class CardConsulta extends HTMLElement {
                                 <div><i class="bi bi-telephone-fill" style="color: ${corPrincipal};"></i> <strong class="text-dark">Contato:</strong> ${contato}</div>
                             </div>
                             <div class="d-flex gap-2 botoes-extras">
-                                <button class="btn btn-sm btn-outline-marca-azul rounded-pill px-3 fw-bold btn-acao-extra" onclick="executarSalvamento()"><i class="bi bi-sign-turn-right-fill me-1"></i> Rotas</button>
-                                <button class="btn btn-sm btn-outline-marca-verde rounded-pill px-3 fw-bold btn-acao-extra" onclick="executarSalvamento()"><i class="bi bi-cloud-sun-fill me-1"></i> Clima</button>
+                                <button class="btn btn-sm btn-outline-marca-azul rounded-pill px-3 fw-bold btn-acao-extra btn-rotas"><i class="bi bi-sign-turn-right-fill me-1"></i> Rotas</button>
+                                <button class="btn btn-sm btn-outline-marca-verde rounded-pill px-3 fw-bold btn-acao-extra btn-clima"><i class="bi bi-cloud-sun-fill me-1"></i> Clima</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                areaModais += `
+                    <!-- Modal Dinâmico para Rotas e Clima -->
+                    <div class="modal fade" id="modal-aviso-${idUnico}" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-sm">
+                            <div class="modal-content text-center shadow" style="border-radius: 20px; border: none; padding: 20px;">
+                                <div class="modal-body p-1">
+                                    <div id="aviso-icone-${idUnico}" class="mb-2" style="font-size: 50px;"></div>
+                                    <h5 class="fw-bold mb-3" id="aviso-titulo-${idUnico}" style="color: ${corPrincipal};">Título</h5>
+                                    <p class="text-muted small mb-4" id="aviso-texto-${idUnico}">Texto</p>
+                                    <button type="button" class="btn btn-light rounded-pill px-4 w-100 fw-bold" data-bs-dismiss="modal" style="color: ${corPrincipal}; background-color: ${bgData};">Entendi</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -246,6 +263,9 @@ export class CardConsulta extends HTMLElement {
                 const painelExpandir = this.querySelector(`#painel-${idUnico}`);
                 const indicadorSeta = this.querySelector(`#indicador-${idUnico}`);
 
+                const btnRotas = this.querySelector('.btn-rotas');
+                const btnClima = this.querySelector('.btn-clima');
+
                 wrapperCard.style.cursor = 'pointer';
 
                 wrapperCard.addEventListener('click', (e) => {
@@ -255,6 +275,41 @@ export class CardConsulta extends HTMLElement {
                     painelExpandir.classList.toggle('aberto');
                     indicadorSeta.classList.toggle('aberto');
                 });
+
+                // Captura os elementos do nosso novo modal bonitinho
+                const modalAvisoEl = this.querySelector(`#modal-aviso-${idUnico}`);
+                const modalAvisoBs = new bootstrap.Modal(modalAvisoEl);
+                const avisoIcone = this.querySelector(`#aviso-icone-${idUnico}`);
+                const avisoTitulo = this.querySelector(`#aviso-titulo-${idUnico}`);
+                const avisoTexto = this.querySelector(`#aviso-texto-${idUnico}`);
+
+                // AÇÃO: Clique no botão Rotas
+                if (btnRotas) {
+                    btnRotas.addEventListener('click', () => {
+                        // Prepara o visual do modal para a Rota
+                        avisoIcone.innerHTML = `<i class="bi bi-whatsapp" style="color: #25D366;"></i>`;
+                        avisoTitulo.textContent = "Rota Enviada!";
+                        avisoTexto.innerHTML = "A rota até a clínica foi enviada com sucesso para o seu <strong>WhatsApp</strong> cadastrado.";
+                        
+                        modalAvisoBs.show(); // Abre o modal
+                    });
+                }
+
+                // AÇÃO: Clique no botão Clima
+                if (btnClima) {
+                    btnClima.addEventListener('click', () => {
+                        // Puxa o dia e o mês atualizados do card para avisar o usuário
+                        const diaAtualizado = this.querySelector(`#txt-dia-${idUnico}`).textContent;
+                        const mesAtualizado = this.querySelector(`#txt-mes-${idUnico}`).textContent;
+                        
+                        // Prepara o visual do modal para o Clima
+                        avisoIcone.innerHTML = `<i class="bi bi-cloud-sun-fill text-warning"></i>`;
+                        avisoTitulo.textContent = "Previsão do Tempo";
+                        avisoTexto.innerHTML = `Para o dia <strong>${diaAtualizado} de ${mesAtualizado}</strong> a previsão é de 26°C, com dia ensolarado e poucas nuvens.`;
+                        
+                        modalAvisoBs.show(); // Abre o modal
+                    });
+                }
             }
         } else if (modo === 'edicao') {
             // Interatividade da edição idêntica
