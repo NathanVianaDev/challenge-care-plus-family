@@ -17,18 +17,53 @@
 
 <body class="bg-light">
     <main class="container my-5">
-        <div class=" card shadow-lg border-0 p-4 p-md-5 mx-auto" style="max-width: 65rem; border-radius: 20px; background-color: white;">
+        <div class=" card shadow-lg border-0 p-4 p-md-5 mx-auto"
+            style="max-width: 65rem; border-radius: 20px; background-color: white;">
             <div class="col-lg-12">
 
                 <h2 class="mb-4 fw-bold p-md-2">Meus Agendamentos</h2>
 
+                <div class="container">
+
+                    <div class="row mb-4">
+                        <div class="col-md-4 mb-3">
+                            <a href="/assets/Pages/PainelAgendamento/PainelAgendamento.html"
+                                class="text-decoration-none">
+                                <button class="btn btn-primary rounded-pill fw-bold py-2"
+                                    style="background-color: #3aadde; border: none; width: 100%;">
+                                    NOVA CONSULTA
+                                </button>
+                            </a>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <a href="/assets/Pages/CancelarConsulta/CancelarConsulta.html" class="text-decoration-none">
+                                <button class="btn btn-danger rounded-pill fw-bold py-2"
+                                    style="background-color: #ff5c5c; border: none; width: 100%;">
+                                    CANCELAR CONSULTA
+                                </button>
+                            </a>
+                        </div>
+                        <!-- Botão Meus Encaixes aciona o JS externo -->
+                        <div class="col-md-4 mb-3">
+                            <button id="btn-meus-encaixes" class="btn btn-warning rounded-pill fw-bold py-2 text-white"
+                                style="background-color: #f39c12; border: none; width: 100%;">
+                                MEUS ENCAIXES
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
                 <card-consulta dia="05" mes="JUN" especialidade="Cardiologia" profissional="Dr. Roberto Silva"
-                    horario="09:30" modo="detalhes" endereco="Rua Luís Coelho, 223 Térreo | Bairro Consolação - São Paulo - SP"
+                    horario="09:30" modo="detalhes"
+                    endereco="Rua Luís Coelho, 223 Térreo | Bairro Consolação - São Paulo - SP"
                     contato="(11) 99640-2599">></card-consulta>
                 <card-consulta dia="17" mes="JUN" especialidade="Dermatologia" profissional="Dr. Roberto Silva"
-                    horario="14:30" modo="detalhes" endereco="Alameda Araguaia, 871 Térreo | Bairro Alphaville - Barueri - SP" contato="(11) 99640-2599"></card-consulta>
+                    horario="14:30" modo="detalhes"
+                    endereco="Alameda Araguaia, 871 Térreo | Bairro Alphaville - Barueri - SP"
+                    contato="(11) 99640-2599"></card-consulta>
                 <card-consulta dia="27" mes="JUN" especialidade="Cardiologia" profissional="Dr. Roberto Silva"
-                    horario="09:30" modo="detalhes" endereco="Rua Luís Coelho, 223 Térreo | Bairro Consolação - São Paulo - SP"
+                    horario="09:30" modo="detalhes"
+                    endereco="Rua Luís Coelho, 223 Térreo | Bairro Consolação - São Paulo - SP"
                     contato="(11) 99640-2599"></card-consulta>
 
             </div>
