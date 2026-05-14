@@ -8,7 +8,7 @@ export class PainelRanking extends HTMLElement {
                 
                 <!-- Título com Botão Voltar lado a lado -->
                 <div class="d-flex align-items-center gap-3 mb-4">
-                    <botao-voltar texto="Voltar" href="../../Pages/HomePageLogado/HomePageLogado.html"></botao-voltar>
+                    <botao-voltar texto="Voltar" href="../../Pages/Ranking/Ranking.html"></botao-voltar>
                     <h2 class="ranking-title m-0">Game Plus: Ranking</h2>
                 </div>
                 
