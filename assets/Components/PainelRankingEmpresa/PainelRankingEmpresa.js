@@ -39,8 +39,6 @@ export class PainelRankingEmpresa extends HTMLElement {
                                     <h4 class="fw-bold text-care-green mb-0">45.000 pts</h4>
                                 </div>
                             </div>
-                        </div>
-
                         <div class="col-lg-4">
                             <div class="dashboard-card h-100 d-flex flex-column justify-content-center">
                                 <div class="mb-3">
