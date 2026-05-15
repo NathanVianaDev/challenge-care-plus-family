@@ -18,37 +18,46 @@
     <script type="module" src="../../Components/ModalAlerta/ModalAlerta.js"></script>
     <script type="module" src="/assets/Components/Calendario/Calendario.js"></script>
     <script type="module" src="../../Components/CardConsulta/CardConsulta.js"></script>
+    <!-- Chamada do CSS específico para o Modal de Encaixes -->
+    <link rel="stylesheet" href="/assets/CSS/HomePage/HomePageLogado.css">
 
 
 </head>
 
 <body class="bg-light">
+    <main class="container my-3 my-md-5">
 
-    <main class="container my-5">
-        <botao-voltar texto="Voltar ao Painel" href="../HomePageLogado/HomePageLogado.html"></botao-voltar>
-
-        <div class="row mt-4 gap-4 gap-lg-0">
-            <!-- COLUNA ESQUERDA: Calendário -->
-            <div class="col-lg-4">
-                <div class="card shadow-sm border-0 p-4" style="border-radius: 20px;">
-                    <calendario-dinamico></calendario-dinamico>
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <div>
-                            <button class="btn btn-sm btn-light border-0"><i class="bi bi-chevron-left"></i></button>
-                            <button class="btn btn-sm btn-light border-0"><i class="bi bi-chevron-right"></i></button>
-                        </div>
-                    </div>
-
+        <div class="card shadow-sm border-0 p-3 p-md-5 mx-auto"
+            style="max-width: 65rem; border-radius: 20px; background-color: white;">
+            <div class="row g-3 mb-5">
+                <div class="col-12 col-md-3">
+                    <botao-voltar texto="Voltar" href="../HomePageLogado/HomePageLogado.html"></botao-voltar>
+                </div>
+                <div class="col-12 col-md-8 d-flex align-items-center justify-content-center justify-content-md-start">
+                    <h2 class="mb-4 fw-bold text-center text-md-start">Remarque <span class="fw-light m-0">ou</span> Cancele <span class="fw-light m-0">suas Consultas</span></h2>
                 </div>
             </div>
+            <div class="row g-3 mb-5 d-flex justify-content-center">
 
-            <!-- COLUNA DIREITA: Lista de Consultas -->
-            <div class="col-lg-8">
-                <div class="d-flex justify-content-between align-items-end mb-4">
-                    <h2 class="fw-light m-0">Próximas <span class="fw-bold">Consultas</span></h2>
+                <div class="col-12 col-md-4">
+                    <a href="/assets/Pages/PainelAgendamento/PainelAgendamento.html" class="text-decoration-none">
+                        <button class="btn rounded-pill fw-bold py-2 w-100 text-white"
+                            style="background-color: #3aadde; border: none;">
+                            NOVA CONSULTA
+                        </button>
+                    </a>
                 </div>
 
-                <div id="">
+                <div class="col-12 col-md-4">
+                    <button id="btn-meus-encaixes" class="btn rounded-pill fw-bold py-2 w-100 text-white"
+                        style="background-color: #f39c12; border: none;">
+                        MEUS ENCAIXES
+                    </button>
+                </div>
+
+            </div>
+
+            <div id="">
                     <card-consulta modo="edicao" status="aguardando" especialidade="Cardiologia"
                         profissional="Dr. Roberto Silva" dia="05" mes="JUN" horario="09:30">
                     </card-consulta>
@@ -58,38 +67,30 @@
                     <card-consulta modo="edicao" status="aguardando" especialidade="Cardiologia"
                         profissional="Dr. Roberto Silva" dia="27" mes="JUN" horario="09:30">
                     </card-consulta>
-                    <!-- As consultas serão injetadas via JavaScript para podermos validar as datas -->
                 </div>
-            </div>
+
         </div>
     </main>
 
-    <!--   Modal Nativo do Bootstrap para Motivo do Cancelamento 
-    <div class="modal fade" id="modalMotivoCancelamento" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" style="border-radius: 16px; border: none;">
-                <div class="modal-header border-0 pb-0">
-                    <h5 class="modal-title fw-bold">Motivo do Cancelamento</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="text-muted small">Por favor, informe o motivo para cancelar esta consulta.</p>
-                    <textarea id="texto-motivo" class="form-control" rows="3"
-                        placeholder="Ex: Imprevisto no trabalho..."></textarea>
-                </div>
-                <div class="modal-footer border-0 pt-0">
-                    <button type="button" class="btn btn-light rounded-pill px-4"
-                        data-bs-dismiss="modal">Voltar</button>
-                    <button type="button" id="btn-confirmar-cancelamento"
-                        class="btn btn-danger rounded-pill px-4">Confirmar Cancelamento</button>
-                </div>
+    <!-- Estrutura do Modal de Encaixes (Gerenciado pelo HomePageLogado.js) -->
+    <div id="modalMeusEncaixes" class="modal-overlay hidden">
+        <div class="custom-modal">
+            <img src="/assets/Images/logo-care-plus.png" alt="Care Plus" class="modal-logo">
+            <h3 class="modal-title">Meus Encaixes Solicitados</h3>
+            <p id="mensagemEncaixe" class="modal-message"></p>
+
+            <div class="d-flex gap-3 justify-content-center">
+                <button id="btnDesistirEncaixe" class="btn btn-desistir rounded-pill fw-bold px-4 py-2">
+                    Desistir do Encaixe
+                </button>
+                <button id="btnFecharEncaixe" class="btn btn-fechar-encaixe rounded-pill fw-bold px-4 py-2">
+                    Fechar
+                </button>
             </div>
         </div>
     </div>
 
-    Nosso Componente Customizado de Alerta
-    <modal-alerta id="alerta-global"></modal-alerta> -->
-
+    <script type="module" src="/assets/js/HomePageLogado.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../js/GerenciarConsultas.js"></script>
 </body>

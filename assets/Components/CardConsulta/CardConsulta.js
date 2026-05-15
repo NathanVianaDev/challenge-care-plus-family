@@ -64,43 +64,53 @@ export class CardConsulta extends HTMLElement {
                 </button>
             `;
 
+            // Modal restaurado com a imagem e textos maiores, mas respeitando o espaçamento!
             areaModais = `
                 <div class="modal fade" id="modal-${idUnico}" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content border-0 shadow">
-                            <img src="/assets/Images/logo-care-plus.png" alt="Care Plus" class="modal-logo" style="width: 10rem; align-self: center; margin-top: 20px;">
+                            
+                            <img src="/assets/Images/logo-care-plus.png" alt="Care Plus" class="modal-logo mx-auto mt-4" style="width: 10rem;">
+                            
                             <div class="modal-header border-0 pb-0">
                                 <h5 class="modal-title fw-bold" style="color: #3aadde;">Confirmar Agendamento</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
+                            
                             <div class="modal-body text-muted">
-                                Deseja confirmar sua consulta de <strong>${especialidade}</strong> com <strong>${profissional}</strong>?<br><br>
-                                <small class="text-danger fw-bold"><i class="bi bi-exclamation-triangle-fill"></i> Atenção: Após confirmada, não será desmarcada por aqui.</small>
+                                <p class="fs-5 mb-4">Deseja confirmar sua consulta de <strong>${especialidade}</strong> com <strong>${profissional}</strong>?</p>
+                                
+                                <p class="text-danger fw-bold mb-0" style="font-size: 1.05rem;">
+                                    <i class="bi bi-exclamation-triangle-fill"></i> Atenção: Após confirmada, não será possível desmarcar por aqui.
+                                </p>
                             </div>
-                            <div class="modal-footer border-0 pt-0">
+                            
+                            <div class="modal-footer border-0 pt-0 mt-2">
                                 <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancelar</button>
                                 <button type="button" class="btn btn-success rounded-pill px-4 btn-confirmar-modal">Sim, Confirmar</button>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
             `;
 
             if (modo === 'detalhes') {
-                // SETA ANIMADA
+                // AQUI: Injetamos a classe "aberto" para que a seta já nasça virada para cima!
                 iconeSeta = `
-                    <div class="indicador-expansao" id="indicador-${idUnico}" style="color: ${corPrincipal};">
+                    <div class="indicador-expansao aberto" id="indicador-${idUnico}" style="color: ${corPrincipal};">
                         <i class="bi bi-chevron-down icone-seta"></i>
                     </div>
                 `;
 
+                // AQUI: Injetamos a classe "aberto" para que a gaveta já nasça expandida!
                 painelExpansivel = `
-                    <div class="painel-expansivel" id="painel-${idUnico}">
+                    <div class="painel-expansivel aberto" id="painel-${idUnico}">
                         <div class="divisor-painel" style="background-color: ${corPrincipal}40;"></div>
                         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
                             <div class="infos-clinica text-muted small">
-                                <div class="mb-1"><i class="bi bi-geo-alt-fill" style="color: ${corPrincipal};"></i> <strong class="text-dark">Endereço:</strong> ${endereco}</div>
-                                <div><i class="bi bi-telephone-fill" style="color: ${corPrincipal};"></i> <strong class="text-dark">Contato:</strong> ${contato}</div>
+                                <h6 class="mb-1"><i class="bi bi-geo-alt-fill" style="color: ${corPrincipal};"></i> <strong class="text-dark">Endereço:</strong> ${endereco}</h6>
+                                <h6 class="mb-1"><i class="bi bi-telephone-fill" style="color: ${corPrincipal};"></i> <strong class="text-dark">Contato:</strong> ${contato}</h6>
                             </div>
                             <div class="d-flex gap-2 botoes-extras">
                                 <button class="btn btn-sm btn-outline-marca-azul rounded-pill px-3 fw-bold btn-acao-extra btn-rotas"><i class="bi bi-sign-turn-right-fill me-1"></i> Rotas</button>
@@ -111,7 +121,6 @@ export class CardConsulta extends HTMLElement {
                 `;
                 
                 areaModais += `
-                    <!-- Modal Dinâmico para Rotas e Clima -->
                     <div class="modal fade" id="modal-aviso-${idUnico}" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-sm">
                             <div class="modal-content text-center shadow" style="border-radius: 20px; border: none; padding: 20px;">
@@ -133,7 +142,7 @@ export class CardConsulta extends HTMLElement {
                 <button class="btn btn-danger rounded-pill px-4 fw-bold shadow-sm btn-cancelar w-100" style="background-color: #ff5c5c; border: none;">Cancelar</button>
                 </div>
             `;
-            // Modais edição mantidos idênticos...
+            
             areaModais = `
                 <div class="modal fade" id="modal-cancelar-${idUnico}" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
@@ -203,7 +212,6 @@ export class CardConsulta extends HTMLElement {
             
             <div class="card-novo-wrapper" id="caixa-card-${idUnico}" style="border-left-color: ${corPrincipal}; background-color: #ffffff;">
                 
-                <!-- Adicionamos a classe ${classeComSeta} para dar espaço ao ícone -->
                 <div class="card-novo-content topo-card-bg ${classeComSeta}" style="background-image: url('${bgImagem}'); --bg-mobile: ${bgData};">
                     <div class="novo-bloco-principal">
                         <div class="novo-badge-data" style="background-color: ${bgData};">
@@ -226,7 +234,6 @@ export class CardConsulta extends HTMLElement {
                         </div>
                     </div>
                     
-                    <!-- Injeta a seta no fundo da caixa apenas se for modo Detalhes -->
                     ${iconeSeta}
                 </div>
 
@@ -269,6 +276,7 @@ export class CardConsulta extends HTMLElement {
                 wrapperCard.style.cursor = 'pointer';
 
                 wrapperCard.addEventListener('click', (e) => {
+                    // Evita que clicar nos botões expanda/recolha a gaveta
                     if (e.target.closest('.novo-btn-confirmar') || e.target.closest('.btn-acao-extra')) {
                         return;
                     }
@@ -276,43 +284,36 @@ export class CardConsulta extends HTMLElement {
                     indicadorSeta.classList.toggle('aberto');
                 });
 
-                // Captura os elementos do nosso novo modal bonitinho
                 const modalAvisoEl = this.querySelector(`#modal-aviso-${idUnico}`);
                 const modalAvisoBs = new bootstrap.Modal(modalAvisoEl);
                 const avisoIcone = this.querySelector(`#aviso-icone-${idUnico}`);
                 const avisoTitulo = this.querySelector(`#aviso-titulo-${idUnico}`);
                 const avisoTexto = this.querySelector(`#aviso-texto-${idUnico}`);
 
-                // AÇÃO: Clique no botão Rotas
                 if (btnRotas) {
                     btnRotas.addEventListener('click', () => {
-                        // Prepara o visual do modal para a Rota
                         avisoIcone.innerHTML = `<i class="bi bi-whatsapp" style="color: #25D366;"></i>`;
                         avisoTitulo.textContent = "Rota Enviada!";
                         avisoTexto.innerHTML = "A rota até a clínica foi enviada com sucesso para o seu <strong>WhatsApp</strong> cadastrado.";
                         
-                        modalAvisoBs.show(); // Abre o modal
+                        modalAvisoBs.show(); 
                     });
                 }
 
-                // AÇÃO: Clique no botão Clima
                 if (btnClima) {
                     btnClima.addEventListener('click', () => {
-                        // Puxa o dia e o mês atualizados do card para avisar o usuário
                         const diaAtualizado = this.querySelector(`#txt-dia-${idUnico}`).textContent;
                         const mesAtualizado = this.querySelector(`#txt-mes-${idUnico}`).textContent;
                         
-                        // Prepara o visual do modal para o Clima
                         avisoIcone.innerHTML = `<i class="bi bi-cloud-sun-fill text-warning"></i>`;
                         avisoTitulo.textContent = "Previsão do Tempo";
                         avisoTexto.innerHTML = `Para o dia <strong>${diaAtualizado} de ${mesAtualizado}</strong> a previsão é de 26°C, com dia ensolarado e poucas nuvens.`;
                         
-                        modalAvisoBs.show(); // Abre o modal
+                        modalAvisoBs.show(); 
                     });
                 }
             }
         } else if (modo === 'edicao') {
-            // Interatividade da edição idêntica
             const btnCancelar = this.querySelector('.btn-cancelar');
             const modalCancelamentoEl = this.querySelector(`#modal-cancelar-${idUnico}`);
             const btnConfirmarCancelamento = this.querySelector('.btn-confirmar-cancelamento');
@@ -370,7 +371,6 @@ export class CardConsulta extends HTMLElement {
 
             btnFecharSucesso.addEventListener('click', () => { modalRemarcarBs.hide(); });
             btnXFechar.addEventListener('click', () => { modalRemarcarBs.hide(); });
-
         }
     }
 }
