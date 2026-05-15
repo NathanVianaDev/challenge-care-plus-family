@@ -16,8 +16,8 @@ export class CardHubUniversal extends HTMLElement {
         this.viewBox = this.getAttribute('viewbox') || '0 0 24 24';
 
         // Atributos das Infos Inferiores
-        this.labelEsq = this.getAttribute('label-esq') || 'Calorias';
-        this.labelDir = this.getAttribute('label-dir') || 'distância';
+        this.labelEsq = this.getAttribute('label-esq') || '';
+        this.labelDir = this.getAttribute('label-dir') || '';
         this.valorEsqPadrao = this.getAttribute('valor-esq') || '0';
         this.valorDirPadrao = this.getAttribute('valor-dir') || '0';
 
@@ -53,6 +53,26 @@ export class CardHubUniversal extends HTMLElement {
             if (this.titulo === 'Passos') {
                 valEsq.textContent = `${(atual * 0.045).toFixed(0)} kcal`;
                 valDir.textContent = `${(atual / 1320).toFixed(1).replace('.', ',')} km`;
+            }
+
+            if (this.titulo === 'BPM') {
+                valEsq.textContent = `${(atual * 0.045).toFixed(0)} bpm`;
+                valDir.textContent = `${(atual / 1320).toFixed(1).replace('.', ',')} bpm`;
+            }
+
+            if (this.titulo === 'Glicemia') {
+                valEsq.textContent = `${(atual * 0.045).toFixed(0)} mg/dL`;
+                valDir.textContent = `${(atual / 1320).toFixed(1).replace('.', ',')} mg/dl`;
+            }
+
+            if (this.titulo === 'Água') {
+                valEsq.textContent = `${(atual * 0.045).toFixed(0)} L`;
+                valDir.textContent = `${(atual / 1320).toFixed(1).replace('.', ',')} L`;
+            }
+
+            if (this.titulo === 'Sono') {
+                valEsq.textContent = `${(atual * 0.045).toFixed(0)} h`;
+                valDir.textContent = `${(atual / 1320).toFixed(1).replace('.', ',')} h`;
             }
 
             progresso.style.strokeDasharray = `${porcentagem}, 100`;
