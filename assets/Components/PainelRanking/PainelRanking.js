@@ -91,20 +91,20 @@ export class PainelRanking extends HTMLElement {
             familiar: {
                 tituloColuna: "Nome do Membro",
                 lista: [
-                    { pos: 1, nome: "Alvo Severo Potter", pontos: "4500", avatar: "avatar-padrao.png" },
-                    { pos: 2, nome: "Harry Potter", pontos: "4100", avatar: "avatar-padrao.png" },
-                    { pos: 3, nome: "Ginevra Molly Potter", pontos: "3800", avatar: "avatar-padrao.png" },
-                    { pos: 4, nome: "Tiago Sirius Potter", pontos: "3200", avatar: "avatar-padrao.png" },
-                    { pos: 5, nome: "Lilian Luna Potter", pontos: "2900", avatar: "avatar-padrao.png" }
+                    { pos: 1, nome: "Alvo Severo Potter", pontos: "4500", avatar: "avatar-carlos.png" },
+                    { pos: 2, nome: "Harry Potter", pontos: "4100", avatar: "avatar-cleuber.png" },
+                    { pos: 3, nome: "Ginevra Molly Potter", pontos: "3800", avatar: "avatar-suzan.png" },
+                    { pos: 4, nome: "Tiago Sirius Potter", pontos: "3200", avatar: "avatar-carlos.png" },
+                    { pos: 5, nome: "Lilian Luna Potter", pontos: "2900", avatar: "avatar-ana.png" }
                 ]
             },
             empresarial: {
                 tituloColuna: "Nome da Empresa",
                 lista: [
-                    { pos: 1, nome: "Grifinória", pontos: "15500", avatar: "avatar-padrao.png" },
-                    { pos: 2, nome: "Sonserina", pontos: "14800", avatar: "avatar-padrao.png" },
-                    { pos: 3, nome: "Corvinal", pontos: "13900", avatar: "avatar-padrao.png" },
-                    { pos: 4, nome: "Lufa-Lufa", pontos: "12500", avatar: "avatar-padrao.png" }
+                    { pos: 1, nome: "Grifinória", pontos: "15500", avatar: "#" },
+                    { pos: 2, nome: "Sonserina", pontos: "14800", avatar: "#" },
+                    { pos: 3, nome: "Corvinal", pontos: "13900", avatar: "#" },
+                    { pos: 4, nome: "Lufa-Lufa", pontos: "12500", avatar: "#" }
                 ]
             }
         };

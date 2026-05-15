@@ -24,7 +24,7 @@ class PainelTarefasEmpresa extends HTMLElement {
                         <div class="col-status">Status</div>
                     </div>
                     
-                    ${this.createTarefa(1, "Workshop de Soft Skills (Nohall AI)", 150, 100, "green")}
+                    ${this.createTarefa(1, "Workshop de Soft Skills", 150, 100, "green")}
                     ${this.createTarefa(2, "Treinamento: Diversidade e Inclusão", 100, 75, "yellow")}
                     ${this.createTarefa(3, "Engajamento Semanal Care Plus", 200, 40, "red")}
                     ${this.createTarefa(4, "Check-up Semestral da Equipe", 200, 100, "green")}
