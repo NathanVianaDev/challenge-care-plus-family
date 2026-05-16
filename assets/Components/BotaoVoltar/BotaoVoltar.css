@@ -16,3 +16,18 @@
     background-color: #f8f9fa; /* Fundo leve do bootstrap */
     color: #000;
 }
+
+/* =======================================================
+   RESPONSIVIDADE (Telas menores que 768px - Mobile)
+   ======================================================= */
+@media (max-width: 768px) {
+    .texto-voltar {
+        display: none; /* Esconde completamente o texto */
+    }
+    
+    .btn-voltar-custom {
+        gap: 0; /* Remove o espaço que ficava entre o ícone e o texto */
+        padding: 8px 12px; /* Deixa o botão proporcional apenas para o ícone */
+        justify-content: center;
+    }
+}

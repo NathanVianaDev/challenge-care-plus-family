@@ -28,12 +28,12 @@ class FormularioFamilia extends HTMLElement {
 
             <div class="card shadow-lg border-0 p-4 mx-auto" style="border-radius: 20px; background-color: white; max-width: 1200px;">
                 
-                <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-3">
-                    <h2 class="fw-light m-0 fs-3">Personalize sua <span class="fw-bold">Família</span></h2>
-                    <div class="d-flex gap-2">
-                        <button onclick="window.location.href='/assets/Pages/Avatar/Avatar.html'" class="btn btn-azul fw-bold px-4 rounded-pill shadow-sm">
-                            Avatar
-                        </button>
+                <div class="">
+                    <div class="row g-3 mb-5">
+                        <div class="col-12 col-md-3">
+                            <botao-voltar texto="Voltar" href="../AmbienteFamilia/AmbienteFamilia.html"></botao-voltar>
+                        </div>
+                        <h2 class="fw-light m-0 fs-3 w-100 text-center">Personalize sua <span class="fw-bold">Família</span></h2>
                     </div>
                 </div>
 

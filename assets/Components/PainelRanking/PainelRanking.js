@@ -1,14 +1,27 @@
+// Arquivo: PainelRanking.js
+
 export class PainelRanking extends HTMLElement {
     connectedCallback() {
         const basePath = '/assets/Images/MiniAvatar/';
         
+        // Captura o atributo para saber em qual tela o componente foi instanciado
+        const tela = this.getAttribute('tela') || 'padrao';
+
+        // 1. Configurações dinâmicas de acordo com a tela
+        let linkVoltar = "../../Pages/Ranking/Ranking.html";
+        let abaInicial = "individual";
+
+        if (tela === 'familia') {
+            linkVoltar = "../../Pages/AmbienteFamilia/AmbienteFamilia.html";
+            abaInicial = "familiar";
+        }
+
         // Estrutura HTML Base do Componente
         this.innerHTML = `
             <div class="ranking-container">
                 
-                <!-- Título com Botão Voltar lado a lado -->
                 <div class="d-flex align-items-center gap-3 mb-4">
-                    <botao-voltar texto="Voltar" href="../../Pages/Ranking/Ranking.html"></botao-voltar>
+                    <botao-voltar texto="Voltar" href="${linkVoltar}"></botao-voltar>
                     <h2 class="ranking-title m-0">Game Plus: Ranking</h2>
                 </div>
                 
@@ -56,9 +69,9 @@ export class PainelRanking extends HTMLElement {
 
                 <div class="modern-tabs-wrapper">
                     <div class="ranking-tabs shadow-sm">
-                        <button class="btn-tab active" data-target="individual">Individual</button>
-                        <button class="btn-tab" data-target="familiar">Familiar</button>
-                        <button class="btn-tab" data-target="empresarial">Empresarial</button>
+                        <button class="btn-tab ${abaInicial === 'individual' ? 'active' : ''}" data-target="individual">Individual</button>
+                        <button class="btn-tab ${abaInicial === 'familiar' ? 'active' : ''}" data-target="familiar">Familiar</button>
+                        <button class="btn-tab ${abaInicial === 'empresarial' ? 'active' : ''}" data-target="empresarial">Empresarial</button>
                     </div>
                 </div>
 
@@ -70,7 +83,6 @@ export class PainelRanking extends HTMLElement {
                         <div class="col-pontos">Pontos</div>
                     </div>
 
-                    <!-- Lista dinâmica de ranking será injetada aqui -->
                     <div id="ranking-list-container"></div>
                 </div>
             </div>
@@ -112,8 +124,8 @@ export class PainelRanking extends HTMLElement {
         this.basePath = basePath;
         this.configurarEventos();
         
-        // Renderiza a primeira aba por padrão
-        this.renderizarLista('individual');
+        // Renderiza a aba inicial correta baseada na tela atual
+        this.renderizarLista(abaInicial);
     }
 
     configurarEventos() {
@@ -148,7 +160,6 @@ export class PainelRanking extends HTMLElement {
         // Monta o novo HTML iterando sobre os dados
         dados.lista.forEach(item => {
             
-            // Define a classe da medalha e cor do texto com base na posição
             let classeMedalha = 'medalha-padrao';
             let classeTextoPontos = 'text-secondary';
             

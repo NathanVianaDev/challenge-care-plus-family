@@ -11,7 +11,7 @@ class BotaoVoltar extends HTMLElement {
 
         this.innerHTML = `
             <button class="btn btn-outline-secondary btn-voltar-custom shadow-sm mb-3" onclick="${acaoClick}">
-                <i class="bi bi-arrow-left"></i> ${texto}
+                <i class="bi bi-arrow-left"></i> <span class="texto-voltar">${texto}</span>
             </button>
         `;
     }

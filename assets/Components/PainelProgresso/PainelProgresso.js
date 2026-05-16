@@ -1,6 +1,34 @@
 class PainelProgresso extends HTMLElement {
     connectedCallback() {
-        // 1. Renderiza o HTML do Componente
+        // Capturamos o atributo para saber em qual tela estamos
+        const tela = this.getAttribute('tela') || 'padrao';
+
+        let areaBotaoTroca = '';
+        
+        // 1. Definimos os links padrão (para a tela principal)
+        let linkTarefas = '../PainelTarefas/PainelTarefas.html';
+        let linkRanking = '../PainelRanking/PainelRanking.html';
+
+        // Lógica condicional
+        if (tela === 'padrao') {
+            // Se for padrão, mostra o botão de troca de pontos
+            areaBotaoTroca = `
+                <div class="col-12 mt-3">
+                    <a href="../TrocadePontos/TrocadePontos.html">
+                        <button class="btn btn-acao w-100 rounded-pill py-2 fw-bold text-white shadow-sm">
+                            Troque seus pontos
+                        </button>
+                    </a>
+                </div>
+            `;
+        } else if (tela === 'familia') {
+            // Se for família, esconde o botão de pontos e ALTERA OS LINKS!
+            // ATENÇÃO: Altere os caminhos abaixo para o nome real das suas telas da família
+            linkTarefas = '../PainelTarefasFamilia/PainelTarefasFamilia.html';
+            linkRanking = '../PainelRankingFamilia/PainelRankingFamilia.html';
+        }
+
+        // 2. Renderiza o HTML do Componente injetando os links dinâmicos
         this.innerHTML = `
             <div class="row g-3 mb-4 text-center">
                 <div class="col-6">
@@ -11,11 +39,9 @@ class PainelProgresso extends HTMLElement {
                     <label class="fw-bold small mb-2 d-block text-muted">Ranking</label>
                     <div class="p-2 rounded-pill text-white fw-bold shadow-sm btn-acao">1º Lugar</div>
                 </div>
-                <div class="col-12 mt-3">
-                    <a href="../TrocadePontos/TrocadePontos.html"><button class="btn btn-acao w-100 rounded-pill py-2 fw-bold text-white shadow-sm">
-                        Troque seus pontos
-                    </button><a>
-                </div>
+                
+                ${areaBotaoTroca}
+                
             </div>
 
             <div class="mb-4">
@@ -40,20 +66,18 @@ class PainelProgresso extends HTMLElement {
             </div>
 
             <div class="d-grid gap-3 mt-4">
-                <a href="../PainelTarefas/PainelTarefas.html"><button class="btn btn-acao btn-lg rounded-pill fw-bold text-white shadow-sm">Tarefas +</button></a>
-                <a href="../PainelRanking/PainelRanking.html"><button class="btn btn-acao btn-lg rounded-pill fw-bold text-white shadow-sm">Ranking Global</button></a>
+                <a href="${linkTarefas}"><button class="btn btn-acao btn-lg rounded-pill fw-bold text-white shadow-sm w-100">Tarefas +</button></a>
+                <a href="${linkRanking}"><button class="btn btn-acao btn-lg rounded-pill fw-bold text-white shadow-sm w-100">Ranking Global</button></a>
             </div>
         `;
 
-        // 2. Executa as funções que ficavam no antigo ranking.js
+        // 3. Executa as funções
         this.carregarUsuario();
-        setTimeout(() => this.animarBarras(), 300); // Aguarda 300ms para a transição ficar bonita
+        setTimeout(() => this.animarBarras(), 300);
     }
 
     animarBarras() {
-        // Busca apenas as barras que estão dentro deste componente
         const barras = this.querySelectorAll('.progress-bar');
-
         barras.forEach(barra => {
             const valorFinal = barra.getAttribute('data-target');
             if (valorFinal) {
@@ -64,14 +88,10 @@ class PainelProgresso extends HTMLElement {
     }
 
     carregarUsuario() {
-        // 1. O componente "lê" o atributo que você colocou lá no HTML. 
-        // Se por acaso você esquecer de colocar o atributo, ele usa "Usuário" como padrão.
         const nomeRecebido = this.getAttribute('nome-usuario') || "Usuário";
-
-        // 2. Busca o elemento na página global
         const elementoNome = document.getElementById('display-name');
         if (elementoNome) {
-            elementoNome.innerText = nomeRecebido; // Escreve o nome dinâmico na tela!
+            elementoNome.innerText = nomeRecebido;
         }
     }
 }
