@@ -85,6 +85,8 @@ body, html {
     background-color: #f8fafc; /* Um cinza bem clarinho quase azulado */
     padding: 15px;
     border-radius: 15px;
+    box-shadow: #21252967 0 0px 7px;
+    margin: 8px;
 }
 
 .main-container {
@@ -311,8 +313,10 @@ body, html {
     border-radius: 15px;
     padding: 8px;
     width: 100%;
-    min-height: 360px;
+    min-height: 361px;
     display: flex;
+    box-shadow: #21252967 0 0px 7px;
+    margin: 8px;
 }
 
 /* O card interno azul com gradiente */

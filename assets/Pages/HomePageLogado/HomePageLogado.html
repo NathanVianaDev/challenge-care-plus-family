@@ -185,12 +185,10 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const btnAlexa = document.getElementById('btn-conectar-alexa');
-            // Pega o componente modal-alerta que está na página
             const modalAlexa = document.querySelector('modal-alerta');
 
             if (btnAlexa && modalAlexa) {
                 btnAlexa.addEventListener('click', () => {
-                    // Chama a sua função disparar passando o título e a mensagem!
                     modalAlexa.disparar(
                         "Conexão Realizada!",
                         "Sua conta foi conectada com a Alexa com sucesso!"

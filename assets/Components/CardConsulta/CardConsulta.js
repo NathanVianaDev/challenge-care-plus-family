@@ -72,12 +72,11 @@ export class CardConsulta extends HTMLElement {
                             
                             <img src="/assets/Images/logo-care-plus.png" alt="Care Plus" class="modal-logo mx-auto mt-4" style="width: 10rem;">
                             
-                            <div class="modal-header border-0 pb-0">
-                                <h5 class="modal-title fw-bold" style="color: #3aadde;">Confirmar Agendamento</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="border-0 pb-0">
+                                <h5 class="modal-title fw-bold text-center" style="color: #3aadde;">Confirmar Agendamento</h5>
                             </div>
                             
-                            <div class="modal-body text-muted">
+                            <div class="modal-body text-muted text-center">
                                 <p class="fs-5 mb-4">Deseja confirmar sua consulta de <strong>${especialidade}</strong> com <strong>${profissional}</strong>?</p>
                                 
                                 <p class="text-danger fw-bold mb-0" style="font-size: 1.05rem;">
@@ -96,14 +95,12 @@ export class CardConsulta extends HTMLElement {
             `;
 
             if (modo === 'detalhes') {
-                // AQUI: Injetamos a classe "aberto" para que a seta já nasça virada para cima!
                 iconeSeta = `
                     <div class="indicador-expansao aberto" id="indicador-${idUnico}" style="color: ${corPrincipal};">
                         <i class="bi bi-chevron-down icone-seta"></i>
                     </div>
                 `;
 
-                // AQUI: Injetamos a classe "aberto" para que a gaveta já nasça expandida!
                 painelExpansivel = `
                     <div class="painel-expansivel aberto" id="painel-${idUnico}">
                         <div class="divisor-painel" style="background-color: ${corPrincipal}40;"></div>
@@ -149,7 +146,6 @@ export class CardConsulta extends HTMLElement {
                         <div class="modal-content" style="border-radius: 16px; border: none;">
                             <div class="modal-header border-0 pb-0">
                                 <h5 class="modal-title fw-bold">Motivo do Cancelamento</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <p class="text-muted small">Por favor, informe o motivo para cancelar esta consulta de <strong>${especialidade}</strong>.</p>
@@ -168,7 +164,6 @@ export class CardConsulta extends HTMLElement {
                         <div class="modal-content" style="border-radius: 16px; border: none;">
                             <div class="modal-header border-0 pb-0">
                                 <h5 class="modal-title fw-bold" style="color: #198754;">Remarcar Consulta</h5>
-                                <button type="button" class="btn-close btn-close-remarcar" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body tela-escolha-data">
                                 <p class="text-muted mb-3">Selecione uma nova data e horário para <strong>${especialidade}</strong>:</p>
@@ -294,7 +289,7 @@ export class CardConsulta extends HTMLElement {
                     btnRotas.addEventListener('click', () => {
                         avisoIcone.innerHTML = `<i class="bi bi-whatsapp" style="color: #25D366;"></i>`;
                         avisoTitulo.textContent = "Rota Enviada!";
-                        avisoTexto.innerHTML = "A rota até a clínica foi enviada com sucesso para o seu <strong>WhatsApp</strong> cadastrado.";
+                        avisoTexto.innerHTML = `<h6>A rota até a clínica foi enviada com sucesso para o seu <strong>WhatsApp</strong> cadastrado.</h6>`;
                         
                         modalAvisoBs.show(); 
                     });
@@ -307,7 +302,7 @@ export class CardConsulta extends HTMLElement {
                         
                         avisoIcone.innerHTML = `<i class="bi bi-cloud-sun-fill text-warning"></i>`;
                         avisoTitulo.textContent = "Previsão do Tempo";
-                        avisoTexto.innerHTML = `Para o dia <strong>${diaAtualizado} de ${mesAtualizado}</strong> a previsão é de 26°C, com dia ensolarado e poucas nuvens.`;
+                        avisoTexto.innerHTML = `<h6>Para o dia <strong>${diaAtualizado} de ${mesAtualizado}</strong> a previsão é de 26°C, com dia ensolarado e poucas nuvens.</h6>`;
                         
                         modalAvisoBs.show(); 
                     });
