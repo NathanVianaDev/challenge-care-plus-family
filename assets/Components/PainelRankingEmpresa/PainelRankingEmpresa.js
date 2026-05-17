@@ -11,14 +11,21 @@ export class PainelRankingEmpresa extends HTMLElement {
             <div class="ranking-container">
                 
                 <div class="d-flex align-items-center gap-3 mb-4">
-                    <h2 class="ranking-title m-0">Corporate Ranking</h2>
+                    <h2 class="ranking-title m-0">Ranking Corporativo</h2>
                 </div>
                 
                 <div class="user-dashboard">
                     <div class="row g-4">
                         <div class="col-lg-5">
                             <div class="dashboard-card d-flex align-items-center h-100">
-                                <img src="/assets/Images/logo-microsoft.png" alt="Microsoft" class="profile-avatar-corp" onerror="this.src='https://via.placeholder.com/75';">
+                                <div class="profile-avatar-corp d-flex align-items-center justify-content-center flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" width="52" height="52" aria-label="Microsoft">
+                                        <path fill="#f35325" d="M1 1h10v10H1z"/>
+                                        <path fill="#81bc06" d="M12 1h10v10H12z"/>
+                                        <path fill="#05a6f0" d="M1 12h10v10H1z"/>
+                                        <path fill="#ffba08" d="M12 12h10v10H12z"/>
+                                    </svg>
+                                </div>
                                 <div class="ms-4">
                                     <h4 class="fw-bold mb-1 text-dark">Microsoft Brasil</h4>
                                     <span class="badge bg-primary mb-2">Unidade Sede - SP</span>
@@ -39,6 +46,7 @@ export class PainelRankingEmpresa extends HTMLElement {
                                     <h4 class="fw-bold text-care-green mb-0">45.000 pts</h4>
                                 </div>
                             </div>
+                        </div>
                         <div class="col-lg-4">
                             <div class="dashboard-card h-100 d-flex flex-column justify-content-center">
                                 <div class="mb-3">

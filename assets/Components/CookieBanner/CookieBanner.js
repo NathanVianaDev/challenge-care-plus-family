@@ -12,8 +12,14 @@ export class CookieBanner extends HTMLElement {
     render() {
         const caminhoCookieCSS = new URL('./CookieBanner.css', import.meta.url).href;
 
+        if (!document.querySelector(`link[href="${caminhoCookieCSS}"]`)) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = caminhoCookieCSS;
+            document.head.appendChild(link);
+        }
+
         this.innerHTML = `
-            <link rel="stylesheet" href="${caminhoCookieCSS}">
             
             <div class="cookie-wrapper" id="cookie-banner">
                 <div class="cookie-card">
