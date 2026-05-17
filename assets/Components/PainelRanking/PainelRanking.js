@@ -10,10 +10,24 @@ export class PainelRanking extends HTMLElement {
         // 1. Configurações dinâmicas de acordo com a tela
         let linkVoltar = "../../Pages/Ranking/Ranking.html";
         let abaInicial = "individual";
+        
+        // Valores Padrão para a tela comum
+        let nomePerfil = "Harry Potter";
+        let subtextoPerfil = "32 anos &bull; Ilhabela";
+        let labelFamiliaBox = "Família";
+        let nomeFamiliaBox = "Potter";
 
         if (tela === 'familia') {
             linkVoltar = "../../Pages/AmbienteFamilia/AmbienteFamilia.html";
             abaInicial = "familiar";
+            
+            // Valores alterados exclusivamente para a tela Família
+            nomePerfil = "Família Potter";
+            subtextoPerfil = "Ilhabela"; // Idade removida
+            
+            // Retira a nomenclatura "Família" e altera o nome
+            labelFamiliaBox = "Titular"; 
+            nomeFamiliaBox = "Harry Potter";
         }
 
         // Estrutura HTML Base do Componente
@@ -31,9 +45,9 @@ export class PainelRanking extends HTMLElement {
                             <div class="dashboard-card d-flex align-items-center h-100">
                                 <img src="${basePath}avatar-cleuber.png" alt="Cleuber" class="profile-avatar" onerror="this.src='https://via.placeholder.com/75';">
                                 <div class="ms-4">
-                                    <h4 class="fw-bold mb-1 text-dark">Harry Potter</h4>
+                                    <h4 class="fw-bold mb-1 text-dark">${nomePerfil}</h4>
                                     <span class="badge bg-light text-secondary border mb-2">ID: 00.000.01</span>
-                                    <p class="text-muted small mb-0 fw-medium">32 anos &bull; Ilhabela</p>
+                                    <p class="text-muted small mb-0 fw-medium">${subtextoPerfil}</p>
                                 </div>
                             </div>
                         </div>
@@ -55,8 +69,8 @@ export class PainelRanking extends HTMLElement {
                         <div class="col-lg-4">
                             <div class="dashboard-card h-100 d-flex flex-column justify-content-center">
                                 <div class="mb-3">
-                                    <p class="stat-label">Família</p>
-                                    <h5 class="fw-bold text-dark mb-0">Potter</h5>
+                                    <p class="stat-label">${labelFamiliaBox}</p>
+                                    <h5 class="fw-bold text-dark mb-0">${nomeFamiliaBox}</h5>
                                 </div>
                                 <div>
                                     <p class="stat-label">Empresa</p>
@@ -133,13 +147,9 @@ export class PainelRanking extends HTMLElement {
         
         botoesAba.forEach(botao => {
             botao.addEventListener('click', (e) => {
-                // Remove classe active de todos
                 botoesAba.forEach(b => b.classList.remove('active'));
-                
-                // Adiciona active no botão clicado
                 e.target.classList.add('active');
                 
-                // Renderiza a lista correspondente
                 const alvo = e.target.getAttribute('data-target');
                 this.renderizarLista(alvo);
             });
@@ -151,15 +161,10 @@ export class PainelRanking extends HTMLElement {
         const tituloColuna = this.querySelector('#titulo-coluna-nome');
         const dados = this.dadosRanking[categoria];
 
-        // Atualiza o título da coluna
         tituloColuna.textContent = dados.tituloColuna;
-
-        // Limpa a lista atual
         container.innerHTML = '';
 
-        // Monta o novo HTML iterando sobre os dados
         dados.lista.forEach(item => {
-            
             let classeMedalha = 'medalha-padrao';
             let classeTextoPontos = 'text-secondary';
             
