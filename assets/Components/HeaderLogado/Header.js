@@ -2,8 +2,14 @@ export class MeuHeader extends HTMLElement {
     connectedCallback() {
         const caminhoHeaderCSS = new URL('./Header.css', import.meta.url).href;
 
+        if (!document.querySelector(`link[href="${caminhoHeaderCSS}"]`)) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = caminhoHeaderCSS;
+            document.head.appendChild(link);
+        }
+
         this.innerHTML = `
-            <link rel="stylesheet" href="${caminhoHeaderCSS}">
 
             <nav class="navbar navbar-expand-lg bg-white sticky-top navbar-logado-custom">
                 <div class="container-fluid px-4 px-lg-5">

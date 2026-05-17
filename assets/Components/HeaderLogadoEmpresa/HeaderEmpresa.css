@@ -58,3 +58,47 @@
     height: 22px; 
     display: block; 
 }
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE — até 991px, ponto de quebra do navbar-expand-lg)
+   ========================================================================== */
+@media (max-width: 991px) {
+
+    /* Painel do menu aberto: fundo diferenciado para separar do conteúdo da página */
+    .navbar-empresa-custom .navbar-collapse {
+        background-color: #f8f9fa;
+        padding: 16px;
+        border-radius: 8px;
+        margin-top: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    }
+
+    /* Remove o gap-5 do desktop (3rem), pois no mobile os itens ficam empilhados */
+    .navbar-empresa-custom .navbar-nav {
+        gap: 0 !important;
+        width: 100%;
+        align-items: center !important;
+    }
+
+    /* Logo centralizado dentro do menu mobile */
+    .navbar-empresa-custom .navbar-brand {
+        display: block;
+        text-align: center;
+        padding: 8px 0 12px;
+        width: 100%;
+    }
+
+    /* Cada link ocupa a linha inteira e é centralizado */
+    .navbar-empresa-custom .nav-link {
+        padding: 12px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Botão SAIR centralizado com espaçamento superior */
+    .navbar-empresa-custom .container-btn-sair {
+        margin-top: 14px;
+        padding-bottom: 4px;
+        width: 100%;
+        justify-content: center !important;
+    }
+}

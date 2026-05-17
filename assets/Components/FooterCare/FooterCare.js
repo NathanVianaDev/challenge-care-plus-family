@@ -2,10 +2,16 @@
 
 export class FooterCare extends HTMLElement {
     connectedCallback() {
-       const caminhoFooterCSS = new URL('./FooterCare.css', import.meta.url).href;
+        const caminhoFooterCSS = new URL('./FooterCare.css', import.meta.url).href;
+
+        if (!document.querySelector(`link[href="${caminhoFooterCSS}"]`)) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = caminhoFooterCSS;
+            document.head.appendChild(link);
+        }
 
         this.innerHTML = `
-            <link rel="stylesheet" href="${caminhoFooterCSS}">
             
             <footer class="footer-container">
                 <div class="footer-content">
