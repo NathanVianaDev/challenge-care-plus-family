@@ -32,7 +32,7 @@ class FormularioEmpresa extends HTMLElement {
                 .btn-azul:hover { background-color: #2c8eb5 !important; transform: translateY(-2px); }
                 
                 /* Estilo do logo dentro da mensagem */
-                .logo-mensagem { max-height: 30px; width: auto; opacity: 0.8; }
+                .logo-mensagem { max-height: 80px; width: auto; opacity: 0.8; }
             </style>
 
             <div class="card shadow-lg border-0 p-4 mx-auto" style="border-radius: 20px; background-color: white; max-width: 1200px;">

@@ -6,12 +6,15 @@
 export class PainelRankingEmpresa extends HTMLElement {
     connectedCallback() {
         const basePath = '/assets/Images/MiniAvatar/';
+        let linkVoltar = "/assets/Pages/AmbienteEmpresa/AmbienteEmpresa.html";
         
         this.innerHTML = `
             <div class="ranking-container">
-                
                 <div class="d-flex align-items-center gap-3 mb-4">
-                    <h2 class="ranking-title m-0">Ranking Corporativo</h2>
+                    <botao-voltar texto="Voltar" href="${linkVoltar}"></botao-voltar>
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <h2 class="ranking-title m-0">Ranking Corporativo</h2>
+                    </div>
                 </div>
                 
                 <div class="user-dashboard">

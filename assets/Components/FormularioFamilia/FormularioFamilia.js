@@ -3,6 +3,10 @@ class FormularioFamilia extends HTMLElement {
         super();
         this.membros = [];
         this.mensagemModal = null;
+        this.modalInclusao = null;
+        this.modalRemocao = null;
+        this.membroTemporario = null; // Guarda os dados antes de confirmar
+        this.indexRemocaoAtiva = null; // Guarda quem vamos deletar
     }
 
     connectedCallback() {
@@ -19,11 +23,7 @@ class FormularioFamilia extends HTMLElement {
                 .tabela-membros-scroll::-webkit-scrollbar-thumb { background-color: #3aadde; border-radius: 10px; }
                 @media (max-width: 991px) { .container-img-familia { height: 350px; } }
                 
-                .logo-mensagem {
-                    max-height: 30px;
-                    width: auto;
-                    opacity: 0.8;
-                }
+                .logo-mensagem { max-height: 30px; width: auto; opacity: 0.8; }
             </style>
 
             <div class="card shadow-lg border-0 p-4 mx-auto" style="border-radius: 20px; background-color: white; max-width: 1200px;">
@@ -42,7 +42,6 @@ class FormularioFamilia extends HTMLElement {
                     <div class="col-lg-5 order-1 order-lg-2">
                         <div class="d-block position-relative rounded-4 overflow-hidden border border-4 border-white shadow container-img-familia">
                             <img src="/assets/Images/FamiliaCarplus/Familia-CarPlus01.png" class="img-fluid w-100 h-100 object-fit-cover position-absolute top-0 start-0" alt="Sua Família Care Plus">
->>>>>>> bb5d9d7657688bfaa0335b3f24d33ae498fe8774
                         </div>
                     </div>
 
@@ -90,12 +89,14 @@ class FormularioFamilia extends HTMLElement {
                                 <h5 class="fw-bold mb-2 fs-6" style="color: #3aadde;">Cadastre sua Família</h5>
                                 <div class="row g-2">
                                     <div class="col-md-6">
-                                        <label class="form-label small fw-bold mb-1">Nome Completo</label>
+                                        <label class="form-label small fw-bold mb-1">Nome Completo <span class="text-danger">*</span></label>
                                         <input type="text" id="inputNomeMembro" class="form-control form-control-sm rounded-3">
+                                        <div id="erroNomeMembro" class="text-danger mt-1 d-none" style="font-size: 0.75rem; font-weight: 500;"><i class="bi bi-exclamation-circle"></i> O Nome é obrigatório.</div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label small fw-bold mb-1">CPF</label>
+                                        <label class="form-label small fw-bold mb-1">CPF <span class="text-danger">*</span></label>
                                         <input type="text" id="inputCpfMembro" class="form-control form-control-sm rounded-3">
+                                        <div id="erroCpfMembro" class="text-danger mt-1 d-none" style="font-size: 0.75rem; font-weight: 500;"><i class="bi bi-exclamation-circle"></i> O CPF é obrigatório.</div>
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mt-3">
@@ -113,6 +114,7 @@ class FormularioFamilia extends HTMLElement {
                                         <tr>
                                             <th class="ps-2 pt-3">Nome</th>
                                             <th class="text-center pt-3">Responsável</th>
+                                            <th class="text-center pt-3">Ações</th>
                                         </tr>
                                     </thead>
                                     <tbody id="corpoTabelaMembros"></tbody>
@@ -132,7 +134,7 @@ class FormularioFamilia extends HTMLElement {
                 <div class="modal-dialog modal-dialog-centered modal-sm">
                     <div class="modal-content rounded-4 border-0 shadow-lg">
                         <div class="modal-header border-0 pb-0 justify-content-center pt-4">
-                            <img src="/assets/Images//logo-care-plus.png" alt="Care Plus" class="logo-mensagem">
+                            <img src="/assets/Images/logo-care-plus.png" alt="Care Plus" class="logo">
                         </div>
                         <div class="modal-body text-center px-4 pb-4">
                             <h6 class="fw-bold mb-2 mt-3 text-dark">Atenção: Página de Teste</h6>
@@ -146,86 +148,192 @@ class FormularioFamilia extends HTMLElement {
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="modalConfirmarInclusao" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-sm">
+                    <div class="modal-content rounded-4 border-0 shadow-lg">
+                        <div class="modal-body text-center p-4">
+                            <h5 class="fw-bold mb-3" style="color: #3aadde;">Adicionar Membro</h5>
+                            <p class="small text-muted mb-3">Verifique os dados antes de incluir:</p>
+                            
+                            <div class="text-start bg-light p-3 rounded-3 mb-4 small border">
+                                <p class="mb-1 text-truncate"><strong>Nome:</strong> <span id="confirmNomeMembro"></span></p>
+                                <p class="mb-1"><strong>CPF:</strong> <span id="confirmCpfMembro"></span></p>
+                                <p class="mb-0"><strong>É Responsável?</strong> <span id="confirmRespMembro"></span></p>
+                            </div>
+
+                            <div class="d-flex gap-2 justify-content-center">
+                                <button type="button" class="btn btn-light btn-sm fw-bold px-3 rounded-pill w-100 border" data-bs-dismiss="modal">Revisar</button>
+                                <button type="button" class="btn btn-verde btn-sm fw-bold px-3 rounded-pill w-100" id="btnSimIncluir">Sim, Incluir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalConfirmarRemocao" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-sm">
+                    <div class="modal-content rounded-4 border-0 shadow-lg">
+                        <div class="modal-body text-center p-4">
+                            <i class="bi bi-trash3 text-danger mb-3" style="font-size: 2.5rem;"></i>
+                            <h5 class="fw-bold mb-2">Remover Membro?</h5>
+                            <p class="small text-muted mb-4">Tem certeza que deseja excluir <strong id="nomeMembroRemover" class="text-dark"></strong> da lista?</p>
+                            
+                            <div class="d-flex gap-2 justify-content-center">
+                                <button type="button" class="btn btn-light btn-sm fw-bold px-4 rounded-pill w-100 border" data-bs-dismiss="modal">Não</button>
+                                <button type="button" class="btn btn-danger btn-sm fw-bold px-4 rounded-pill w-100" id="btnSimRemover">Sim, Remover</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         `;
     }
 
     configurarEventos() {
         this.mensagemModal = new bootstrap.Modal(this.querySelector('#modalConfirmacaoTeste'));
+        this.modalInclusao = new bootstrap.Modal(this.querySelector('#modalConfirmarInclusao'));
+        this.modalRemocao = new bootstrap.Modal(this.querySelector('#modalConfirmarRemocao'));
 
         // --- LÓGICA DAS CHECKBOXES INTELIGENTES ---
         const checkNao = this.querySelector('#dadosNao');
         const checkFamilia = this.querySelector('#dadosFamilia');
         const checkEmpresa = this.querySelector('#dadosEmpresa');
 
-        // 1. Se marcar "Não compartilhar", limpa as outras opções
         checkNao.addEventListener('change', () => {
-            if (checkNao.checked) {
-                checkFamilia.checked = false;
-                checkEmpresa.checked = false;
-            }
+            if (checkNao.checked) { checkFamilia.checked = false; checkEmpresa.checked = false; }
         });
 
-        // 2. Função para desmarcar o "Não compartilhar" se escolher Família ou Empresa
         const desmarcarNao = () => {
-            if (checkFamilia.checked || checkEmpresa.checked) {
-                checkNao.checked = false;
-            } else if (!checkFamilia.checked && !checkEmpresa.checked) {
-                // Se o usuário desmarcar tudo, volta automaticamente para "Não compartilhar"
-                checkNao.checked = true;
-            }
+            if (checkFamilia.checked || checkEmpresa.checked) { checkNao.checked = false; } 
+            else if (!checkFamilia.checked && !checkEmpresa.checked) { checkNao.checked = true; }
         };
 
         checkFamilia.addEventListener('change', desmarcarNao);
         checkEmpresa.addEventListener('change', desmarcarNao);
-        // -------------------------------------------
 
+        // --- VALIDAÇÕES E INCLUSÃO DE MEMBRO ---
         const btnIncluir = this.querySelector('#btnIncluirMembro');
         const inputNome = this.querySelector('#inputNomeMembro');
+        const inputCpf = this.querySelector('#inputCpfMembro');
+        const erroNome = this.querySelector('#erroNomeMembro');
+        const erroCpf = this.querySelector('#erroCpfMembro');
+        const checkResp = this.querySelector('#checkResponsavel');
+
+        // Remove erro visual ao digitar
+        inputNome.addEventListener('input', () => { inputNome.classList.remove('is-invalid'); erroNome.classList.add('d-none'); });
+        inputCpf.addEventListener('input', () => { inputCpf.classList.remove('is-invalid'); erroCpf.classList.add('d-none'); });
+
         btnIncluir.addEventListener('click', () => {
             const nomeValido = inputNome.value.trim();
-            if (nomeValido) {
-                this.membros.push({
+            const cpfValido = inputCpf.value.trim();
+            let formValido = true;
+
+            // Validação
+            if (!nomeValido) {
+                inputNome.classList.add('is-invalid');
+                erroNome.classList.remove('d-none');
+                formValido = false;
+            }
+            if (!cpfValido) {
+                inputCpf.classList.add('is-invalid');
+                erroCpf.classList.remove('d-none');
+                formValido = false;
+            }
+
+            if (formValido) {
+                // Guarda dados na variável temporária
+                this.membroTemporario = {
                     nome: nomeValido,
-                    responsavel: this.querySelector('#checkResponsavel').checked
-                });
-                inputNome.value = '';
-                this.querySelector('#inputCpfMembro').value = '';
-                this.querySelector('#checkResponsavel').checked = false;
-                this.atualizarTabela();
-            } else {
-                alert("Por favor, preencha o Nome Completo.");
+                    cpf: cpfValido,
+                    responsavel: checkResp.checked
+                };
+
+                // Preenche o modal de confirmação
+                this.querySelector('#confirmNomeMembro').innerText = nomeValido;
+                this.querySelector('#confirmCpfMembro').innerText = cpfValido;
+                this.querySelector('#confirmRespMembro').innerHTML = checkResp.checked ? '<span class="text-success fw-bold">Sim</span>' : 'Não';
+
+                this.modalInclusao.show();
             }
         });
 
-        const btnSalvar = this.querySelector('#btnSalvarPrincipal');
-        btnSalvar.addEventListener('click', () => {
-            this.mensagemModal.show();
+        // Ação de confirmar do modal de inclusão
+        this.querySelector('#btnSimIncluir').addEventListener('click', () => {
+            if (this.membroTemporario) {
+                this.membros.push(this.membroTemporario);
+                
+                // Limpa formulário
+                inputNome.value = '';
+                inputCpf.value = '';
+                checkResp.checked = false;
+                this.membroTemporario = null;
+                
+                this.atualizarTabela();
+                this.modalInclusao.hide();
+            }
         });
+
+        // --- LÓGICA DE REMOÇÃO DE MEMBRO ---
+        // Usamos delegação de evento na tabela
+        this.querySelector('#corpoTabelaMembros').addEventListener('click', (e) => {
+            const btnRemover = e.target.closest('.btn-remover-membro');
+            if (btnRemover) {
+                this.indexRemocaoAtiva = parseInt(btnRemover.getAttribute('data-index'));
+                const nomeParaRemover = this.membros[this.indexRemocaoAtiva].nome;
+                
+                // Preenche o modal de remoção
+                this.querySelector('#nomeMembroRemover').innerText = nomeParaRemover;
+                this.modalRemocao.show();
+            }
+        });
+
+        // Ação de confirmar do modal de remoção
+        this.querySelector('#btnSimRemover').addEventListener('click', () => {
+            if (this.indexRemocaoAtiva !== null) {
+                this.membros.splice(this.indexRemocaoAtiva, 1);
+                this.indexRemocaoAtiva = null;
+                this.atualizarTabela();
+                this.modalRemocao.hide();
+            }
+        });
+
+        // --- SALVAR PRINCIPAL ---
+        const btnSalvar = this.querySelector('#btnSalvarPrincipal');
+        btnSalvar.addEventListener('click', () => { this.mensagemModal.show(); });
 
         const btnEntendi = this.querySelector('#btnEntendiMensagem');
         btnEntendi.addEventListener('click', () => {
-
-            // CORREÇÃO DE ACESSIBILIDADE: Tira o foco do botão para evitar o erro do aria-hidden
             btnEntendi.blur();
-
-            // Executa a limpeza da página
             const form = this.querySelector('#form-familia-principal');
             if (form) form.reset();
             this.membros = [];
             this.atualizarTabela();
-            console.log("Página limpa após confirmação do usuário.");
         });
     }
 
     atualizarTabela() {
         const containerTabela = this.querySelector('#containerTabelaMembros');
         const corpoTabela = this.querySelector('#corpoTabelaMembros');
+        
         if (this.membros.length > 0) {
             containerTabela.style.display = 'block';
             corpoTabela.innerHTML = '';
-            this.membros.forEach(membro => {
+            
+            this.membros.forEach((membro, index) => {
                 const iconResponsavel = membro.responsavel ? '<span class="icon-responsavel">✔ Sim</span>' : '<span class="text-muted">Não</span>';
-                corpoTabela.innerHTML += `<tr><td class="py-1 ps-2">${membro.nome}</td><td class="py-1 text-center">${iconResponsavel}</td></tr>`;
+                
+                corpoTabela.innerHTML += `
+                    <tr>
+                        <td class="py-2 ps-2 align-middle">${membro.nome}</td>
+                        <td class="py-2 text-center align-middle">${iconResponsavel}</td>
+                        <td class="py-2 text-center align-middle">
+                            <button type="button" class="btn btn-sm btn-remover-membro" data-index="${index}" title="Remover Membro">
+                                <i class="bi bi-trash3 text-danger"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
             });
             containerTabela.scrollTop = containerTabela.scrollHeight;
         } else {

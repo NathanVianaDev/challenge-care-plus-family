@@ -9,11 +9,14 @@ class PainelTarefasEmpresa extends HTMLElement {
     }
 
     render() {
+        let linkVoltar = "/assets/Pages/AmbienteEmpresa/AmbienteEmpresa.html";
         this.innerHTML = `
             <div class="tarefas-container">
-                <!-- Removido o botão voltar, mantendo apenas o título -->
-                <div class="d-flex align-items-center mb-4">
-                    <h2 class="tarefas-title m-0">Metas Corporativas</h2>
+                <div class="d-flex align-items-center gap-3 mb-4">
+                    <botao-voltar texto="Voltar" href="${linkVoltar}"></botao-voltar>
+                    <div class="d-flex align-items-center mb-4">
+                        <h2 class="tarefas-title m-0">Metas Corporativas</h2>
+                    </div>
                 </div>
                 
                 <div class="tarefas-lista">

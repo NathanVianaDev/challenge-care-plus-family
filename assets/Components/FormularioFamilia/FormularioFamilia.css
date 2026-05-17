@@ -25,8 +25,8 @@
 
 /* --- Estilização da Tabela de Membros --- */
 .tabela-membros-container {
-    max-height: 250px; /* Limita a altura se houver muitos membros */
-    overflow-y: auto; /* Adiciona scroll se necessário */
+    max-height: 250px; 
+    overflow-y: auto; 
     background-color: white;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .tabela-membros th {
-    color: #475569; /* text-muted */
+    color: #475569; 
     padding-bottom: 8px;
     border-bottom: 2px solid #e2e8f0;
 }
@@ -46,7 +46,9 @@
     border-bottom: 1px solid #f1f5f9;
 }
 
-/* Centraliza os textos na coluna Responsável */
+/* Centraliza colunas Responsável e Ações */
+.tabela-membros th:nth-child(2),
+.tabela-membros td:nth-child(2),
 .tabela-membros th:last-child,
 .tabela-membros td:last-child {
     text-align: center;
@@ -54,6 +56,24 @@
 
 /* Ícone do responsável */
 .icon-responsavel {
-    color: #92C444; /* Verde Care Plus */
+    color: #92C444; 
     font-weight: bold;
+}
+
+/* Estilo do botão de lixeira (Ações) */
+.btn-remover-membro {
+    background-color: transparent;
+    border: none;
+    transition: 0.2s ease-in-out;
+}
+
+.btn-remover-membro:hover {
+    background-color: #fee2e2; /* Fundo vermelho suave no hover */
+    border-radius: 50%;
+    transform: scale(1.1);
+}
+
+.logo {
+    display: flex;
+    width: 70% !important;
 }

@@ -59,6 +59,7 @@
     width: 40px; height: 40px;
     display: flex; align-items: center; justify-content: center;
     border-radius: 10px;
+    margin: 0 auto;
 }
 
 .tarefa-desc { font-weight: 600; color: #333; margin: 0; }
@@ -94,3 +95,69 @@
 /* Efeito Completed */
 .status-badge.completed { animation: pulseGlow 2.5s infinite; }
 .text-white-final { color: #fff !important; }
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE) - LAYOUT DINÂMICO
+   ========================================================================== */
+@media (max-width: 768px) {
+    .tarefas-header { 
+        display: none; 
+    }
+    
+    .tarefa-row { 
+        flex-direction: column; 
+        text-align: center; 
+        position: relative; /* Transforma o card em uma âncora para os itens absolutos */
+        padding: 50px 15px 20px 15px; /* Abre um "teto" de 50px para caber os itens dos cantos */
+        gap: 15px;
+    }
+
+    /* 1. Número no Canto Superior Esquerdo */
+    .col-num { 
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: auto; 
+        padding: 0;
+    }
+    
+    .tarefa-num {
+        margin: 0; /* Remove a margem automática para colar na esquerda */
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    /* 2. Pontuação no Canto Superior Direito */
+    .col-pontos { 
+        position: absolute;
+        top: 18px;
+        right: 15px;
+        width: auto; 
+        text-align: right;
+        padding: 0;
+    }
+
+    /* Adiciona a nomenclatura "PTS" via CSS magicamente apenas no mobile */
+    .tarefa-pontos::after {
+        content: ' PTS';
+        font-size: 0.8rem;
+        color: #999;
+        font-weight: 600;
+        margin-left: 2px;
+    }
+
+    /* 3. Descrição e Status Centralizados abaixo do "teto" */
+    .col-desc, .col-status { 
+        width: 100%; 
+        padding: 0; 
+        display: flex;
+        justify-content: center;
+    }
+    
+    .tarefa-desc { 
+        margin: 0; 
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+}

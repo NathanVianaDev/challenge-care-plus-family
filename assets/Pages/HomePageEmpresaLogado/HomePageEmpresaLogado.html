@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="bg-light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
     <script type="module" src="/assets/js/LayoutGlobalEmpresa.js"></script>
     <script type="module" src="../../Components/CadastrarFuncionario/CadastrarFuncionario.js"></script>
 </head>
-<body>
+<body class="bg-light">
     <div class="container-mae container mt-4">
         <div class="row">
             <!-- Coluna da Esquerda (Lado A) -->
@@ -91,13 +91,13 @@
                         </div>
                         
                         <!-- Botão que abre o Modal -->
-                        <button class="btn btn-success d-flex align-items-center gap-2 fw-bold px-4 py-2 rounded-pill shadow-sm" 
-                                id="btn-cadastrar-func"
-                                data-bs-toggle="modal" 
-                                data-bs-target="#modalCadastro">
-                            <i class="bi bi-person-plus-fill"></i>
-                            Cadastrar Funcionário
-                        </button>
+                        <button class="btn btn-success d-flex align-items-center justify-content-center gap-2 fw-bold px-4 py-2 rounded-pill shadow-sm btn-responsivo-icone" 
+        id="btn-cadastrar-func"
+        data-bs-toggle="modal" 
+        data-bs-target="#modalCadastro">
+    <i class="bi bi-person-plus-fill"></i>
+    <span class="btn-text">Cadastrar Funcionário</span>
+</button>
                     </div>
 
                     <!-- Área onde entrará a lista de funcionários (Web Component) -->

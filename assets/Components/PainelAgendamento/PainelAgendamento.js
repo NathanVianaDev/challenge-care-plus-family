@@ -24,7 +24,6 @@ export class PainelAgendamento extends HTMLElement {
             
             <div class="row">
                 <div class="col-lg-6 pr-lg-4">
-                    <!-- Seleção de Especialidade -->
                     <div class="form-floating-custom select-wrapper">
                         <label class="form-label">Especialidade <span class="text-danger">*</span></label>
                         <select class="filtro-obrigatorio" id="especialidade">
@@ -36,7 +35,6 @@ export class PainelAgendamento extends HTMLElement {
                         </select>
                     </div>
 
-                    <!-- Seleção de Unidade -->
                     <div class="form-floating-custom select-wrapper">
                         <label class="form-label">Unidade <span class="text-danger">*</span></label>
                         <select class="filtro-obrigatorio" id="unidade">
@@ -47,7 +45,6 @@ export class PainelAgendamento extends HTMLElement {
                         </select>
                     </div>
 
-                    <!-- Seleção de Profissional (Dinâmico) -->
                     <div class="form-floating-custom select-wrapper d-none" id="containerMedico">
                         <label class="form-label">Profissional Disponível</label>
                         <select id="medico">
@@ -55,12 +52,10 @@ export class PainelAgendamento extends HTMLElement {
                         </select>
                     </div>
 
-                    <!-- Botão de Fila de Espera -->
                     <div class="waitlist-section mb-4 d-none" id="containerWaitlistToggle">
                         <button class="btn-waitlist-toggle w-100" id="btnWaitlist">Precisa de um encaixe? Entre na fila de espera</button>
                     </div>
 
-                    <!-- Grade de Horários -->
                     <div id="horarios-container" style="display: none;">
                         <label class="form-label" style="color: #92C444;">Horários Disponíveis (1h/cada)</label>
                         <div class="time-slots-grid" id="time-slots-area"></div>
@@ -79,7 +74,6 @@ export class PainelAgendamento extends HTMLElement {
                         <div class="calendar-grid mt-3" id="calendarGrid"></div>
                     </div>
 
-                    <!-- Legenda do Calendário -->
                     <div class="calendar-legend mt-4">
                         <div class="legend-item"><div class="dot dot-green"></div> Horários disponíveis</div>
                         <div class="legend-item"><div class="dot dot-orange"></div> Poucos horários disponíveis</div>
@@ -88,13 +82,11 @@ export class PainelAgendamento extends HTMLElement {
                 </div>
             </div>
 
-            <!-- Botão Principal de Agendamento -->
             <div class="action-agendar-section mt-4 d-none" id="containerAgendarNormal">
                 <button class="btn-agendar-normal" id="btnAgendarNormal">Confirmar Agendamento</button>
             </div>
         </div>
 
-        <!-- 1. MODAL DE CONFIRMAÇÃO (Substitui o popup errado do print) -->
         <div id="modalConfirmacaoFinal" class="modal-overlay hidden">
             <div class="custom-modal" style="max-width: 500px; font-family: 'Montserrat', sans-serif;">
                 <img src="/assets/Images/logo-care-plus.png" alt="Care Plus" class="modal-logo" style="height: 50px; margin-bottom: 20px;">
@@ -113,7 +105,6 @@ export class PainelAgendamento extends HTMLElement {
             </div>
         </div>
 
-        <!-- 2. MODAL DE DADOS DA FILA DE ESPERA -->
         <div id="modalFilaEspera" class="modal-overlay hidden">
             <div class="custom-modal" style="max-width: 500px;">
                 <img src="/assets/Images/logo-care-plus.png" alt="Care Plus" class="modal-logo">
@@ -122,10 +113,15 @@ export class PainelAgendamento extends HTMLElement {
                     <p class="mb-1"><strong>Especialidade:</strong> <span id="resumoEsp"></span></p>
                     <p class="mb-1"><strong>Unidade:</strong> <span id="resumoUni"></span></p>
                 </div>
+                
                 <div class="form-floating-custom mb-3 text-start">
                     <label class="form-label">Dia que deseja aguardar</label>
-                    <input type="date" id="filaData" class="form-control">
+                    <input type="date" id="filaData" class="form-control" required>
+                    <div id="erroFilaData" class="text-danger mt-1 d-none" style="font-size: 0.85rem; font-weight: 500;">
+                        <i class="bi bi-exclamation-circle"></i> Por favor, preencha este campo.
+                    </div>
                 </div>
+                
                 <div class="form-floating-custom mb-4 text-start select-wrapper">
                     <label class="form-label">Período preferencial</label>
                     <select id="filaPeriodo" class="form-control">
@@ -136,12 +132,11 @@ export class PainelAgendamento extends HTMLElement {
                 </div>
                 <div class="d-flex gap-2">
                     <button class="btn btn-secondary rounded-pill w-100" id="btnFecharFila">Voltar</button>
-                    <button class="btn-confirmar w-100" id="btnConfirmarFilaFinal">Entrar na Fila</button>
+                    <button class="btn-confirmar rounded-pill w-100" id="btnConfirmarFilaFinal">Entrar na Fila</button>
                 </div>
             </div>
         </div>
 
-        <!-- 3. MODAL DE SUCESSO FINAL -->
         <div id="modalSucessoInterno" class="modal-overlay hidden">
             <div class="custom-modal">
                 <img src="/assets/Images/logo-care-plus.png" alt="Care Plus" class="modal-logo">
@@ -221,6 +216,10 @@ export class PainelAgendamento extends HTMLElement {
         const modalSucesso = this.querySelector('#modalSucessoInterno');
         const tituloSucesso = this.querySelector('#tituloSucesso');
         const msgSucesso = this.querySelector('#mensagemSucesso');
+        
+        // Elementos de Validação
+        const inputFilaData = this.querySelector('#filaData');
+        const erroFilaData = this.querySelector('#erroFilaData');
 
         btnWaitlist.addEventListener('click', () => {
             this.querySelector('#resumoEsp').innerText = this.querySelector('#especialidade').value;
@@ -228,14 +227,35 @@ export class PainelAgendamento extends HTMLElement {
             modalFila.classList.remove('hidden');
         });
 
-        this.querySelector('#btnFecharFila').addEventListener('click', () => modalFila.classList.add('hidden'));
+        // Evento para limpar o erro quando o usuário escolhe uma data
+        inputFilaData.addEventListener('change', () => {
+            if (inputFilaData.value) {
+                inputFilaData.classList.remove('is-invalid');
+                inputFilaData.style.borderColor = ''; // Reseta a cor da borda
+                erroFilaData.classList.add('d-none'); // Esconde a mensagem
+            }
+        });
+
+        this.querySelector('#btnFecharFila').addEventListener('click', () => {
+            modalFila.classList.add('hidden');
+            // Limpa o erro ao fechar o modal
+            inputFilaData.classList.remove('is-invalid');
+            inputFilaData.style.borderColor = '';
+            erroFilaData.classList.add('d-none');
+        });
 
         btnConfirmarFila.addEventListener('click', () => {
-            const data = this.querySelector('#filaData').value;
+            const data = inputFilaData.value;
             const periodo = this.querySelector('#filaPeriodo').value;
             const esp = this.querySelector('#especialidade').value;
 
-            if (!data) return alert("Selecione a data.");
+            // NOVA LÓGICA DE VALIDAÇÃO
+            if (!data) {
+                inputFilaData.classList.add('is-invalid');
+                inputFilaData.style.borderColor = '#dc3545'; // Fica vermelho
+                erroFilaData.classList.remove('d-none'); // Aparece a mensagem abaixo
+                return;
+            }
 
             modalFila.classList.add('hidden');
             tituloSucesso.innerText = "Fila de Espera Confirmada!";
@@ -279,7 +299,7 @@ export class PainelAgendamento extends HTMLElement {
 
         for (let i = 1; i <= dadosMes.diasTotal; i++) {
             const diaSemana = (i + dadosMes.diaInicioSemana - 1) % 7;
-            const isFimDeSemana = (diaSemana === 0 || diaSemana === 6); // Sáb e Dom[cite: 4]
+            const isFimDeSemana = (diaSemana === 0 || diaSemana === 6); 
             const isPassado = (this.mesAtualIndice === 0 && i < this.diaHojeCalculo);
 
             if (!this.calendarioDesbloqueado || isPassado || isFimDeSemana) {
@@ -304,7 +324,7 @@ export class PainelAgendamento extends HTMLElement {
         const horarios = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
 
         area.innerHTML = horarios.map(h => {
-            const isOcupado = Math.random() < 0.3; // 30% ocupado[cite: 3]
+            const isOcupado = Math.random() < 0.3; 
             return `<button class="time-slot-btn" ${isOcupado ? 'disabled' : ''}>${h}</button>`;
         }).join('');
 

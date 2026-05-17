@@ -377,3 +377,57 @@
         display: none; 
     }
 }
+
+.especialidades-home {
+    border-top: 3px solid var(--careplus-green);
+}
+
+/* ==========================================================================
+   SEÇÃO: ASSISTENTES VIRTUAIS
+   ========================================================================== */
+.assistente-banner {
+    background-color: #f4f9fb;
+    border-bottom: 3px solid var(--careplus-blue);
+    overflow: hidden;
+}
+
+.assistente-title {
+    color: var(--text-dark);
+    font-weight: 800;
+    font-size: 2.6rem;
+    letter-spacing: -0.5px;
+}
+
+.assistente-title span {
+    color: var(--careplus-blue);
+}
+
+.assistente-text {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 95%;
+}
+
+.assistente-img {
+    max-width: 85%;
+    height: auto;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1));
+    transition: transform 0.5s ease;
+}
+
+.assistente-img:hover {
+    transform: scale(1.03) translateY(-5px);
+}
+
+/* Ajustes para Mobile da nova seção */
+@media (max-width: 991px) {
+    .assistente-title {
+        font-size: 2.2rem;
+    }
+    
+    .assistente-text {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}

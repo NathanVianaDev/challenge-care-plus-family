@@ -15,11 +15,6 @@ class PainelProgressoEmpresa extends HTMLElement {
                     <label class="fw-bold small mb-2 d-block text-muted">Posição Global</label>
                     <div class="p-2 rounded-pill text-white fw-bold shadow-sm btn-acao-corp">3º Lugar</div>
                 </div>
-                <div class="col-12 mt-3">
-                    <button class="btn btn-acao-corp w-100 rounded-pill py-2 fw-bold text-white shadow-sm">
-                        Relatório de Engajamento
-                    </button>
-                </div>
             </div>
 
             <div class="mb-4">

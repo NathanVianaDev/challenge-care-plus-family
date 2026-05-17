@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="bg-light">
 
 <head>
     <meta charset="UTF-8">
@@ -16,9 +16,10 @@
     <link rel="stylesheet" href="../../CSS/FormCompacto.css">
 
     <script type="module" src="/assets/js/LayoutGlobal.js"></script>
+    <script type="module" src="../../Components/MenssagemExterna/MenssagemExterna.js"></script>
 </head>
 
-<body class="bg-light-custom">
+<body class="bg-light">
 
     <main class="container my-3">
 
@@ -140,8 +141,7 @@
                             <a href="javascript:window.location.reload()" class="btn-cancelar">Cancelar</a>
 
                             <!-- Botão Verde de Salvar com redirecionamento -->
-                            <button type="button" class="btn-salvar-perfil"
-                                onclick="window.location.href='../../Pages/HomePageLogado/HomePageLogado.html'">
+                            <button type="button" class="btn-salvar-perfil" onclick="executarSalvamento()">
                                 Salvar Alterações
                             </button>
                         </div>
@@ -153,6 +153,21 @@
             </div>
         </div>
     </main>
+
+    <!-- Lógica para o Web Component MenssagemExterna -->
+    <script>
+        function executarSalvamento() {
+            const alerta = document.createElement('menssagem-externa');
+            
+            // Atributos baseados no seu componente
+            alerta.setAttribute('titulo', 'Perfil Atualizado!');
+            alerta.setAttribute('texto', 'Seus dados pessoais foram salvos com sucesso no sistema Care Plus.');
+            alerta.setAttribute('link', '/assets/Pages/HomePageLogado/HomePageLogado.html');
+            alerta.setAttribute('botao', 'Voltar para Home');
+
+            document.body.appendChild(alerta);
+        }
+    </script>
 
 </body>
 

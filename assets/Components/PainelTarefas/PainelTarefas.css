@@ -38,20 +38,15 @@
 /* ==========================================================================
    EFEITO DE PROFUNDIDADE (HOVER E TRANSIÇÃO)
    ========================================================================== */
-/* 1. Estado Padrão (Baixo, Pequeno e Sombra Sutil) */
 .tarefa-row {
     display: flex;
     align-items: center;
-    
-    /* MUDANÇA AQUI: Trocamos o #ffffff (branco) por um cinza bem clarinho/gelo */
     background-color: #f8f9fa; 
-    
     border: 1px solid #f0f0f0;
     border-radius: 12px;
     padding: 15px;
     margin-bottom: 12px;
     
-    /* Configuração da Blindagem de Profundidade */
     opacity: 0;
     transform: translateY(15px) scale(1);
     box-shadow: 0 2px 5px rgba(56, 56, 56, 0.1); 
@@ -60,11 +55,8 @@
     animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* 2. Estado Elevado ao Passar o Mouse (:hover) */
 .tarefa-row:hover {
-    /* MANTÉM BRANCO AQUI: Assim o cartão "acende" quando o mouse passa por cima! */
     background-color: #ffffff; 
-    
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 15px 35px rgba(146, 196, 68, 0.12), 0 5px 15px rgba(0, 0, 0, 0.05);
     border-color: #92C444;
@@ -123,7 +115,7 @@
     font-size: 0.95rem;
     color: #333;
     background-color: #f4f5f7;
-    overflow: hidden; /* Importante para o brilho não vazar */
+    overflow: hidden; 
     z-index: 1;
 }
 
@@ -155,11 +147,9 @@
    EFEITO 100% - PREMIUM (SHIMMER E PULSE)
    ========================================================================== */
 .status-badge.completed {
-    /* EFEITO 2 (PULSE): Onda verde pulsante */
     animation: pulseGlow 2.5s infinite;
 }
 
-/* EFEITO 1 (SHIMMER): Barra de luz reflexiva */
 .status-badge.completed::after {
     content: '';
     position: absolute;
@@ -170,7 +160,7 @@
     background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
     transform: skewX(-25deg);
     animation: shimmerSweep 3s infinite;
-    animation-delay: 1.5s; /* Aguarda o preenchimento terminar */
+    animation-delay: 1.5s; 
 }
 
 @keyframes shimmerSweep {
@@ -186,11 +176,67 @@
 }
 
 /* ==========================================================================
-   RESPONSIVIDADE
+   RESPONSIVIDADE (MOBILE) - LAYOUT DINÂMICO
    ========================================================================== */
 @media (max-width: 768px) {
-    .tarefas-header { display: none; }
-    .tarefa-row { flex-wrap: wrap; text-align: center; gap: 10px; }
-    .col-num, .col-desc, .col-pontos, .col-status { width: 100%; text-align: center; padding: 0; }
-    .tarefa-desc { margin: 10px 0; }
+    .tarefas-header { 
+        display: none; 
+    }
+    
+    .tarefa-row { 
+        flex-direction: column; 
+        text-align: center; 
+        position: relative; /* Transforma o card em uma âncora para os itens absolutos */
+        padding: 50px 15px 20px 15px; /* Abre um "teto" de 50px para caber os itens dos cantos */
+        gap: 15px;
+    }
+
+    /* 1. Número no Canto Superior Esquerdo */
+    .col-num { 
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: auto; 
+        padding: 0;
+    }
+    
+    .tarefa-num {
+        margin: 0; /* Remove a margem automática para colar na esquerda */
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    /* 2. Pontuação no Canto Superior Direito */
+    .col-pontos { 
+        position: absolute;
+        top: 18px;
+        right: 15px;
+        width: auto; 
+        text-align: right;
+        padding: 0;
+    }
+
+    /* Adiciona a nomenclatura "PTS" via CSS magicamente apenas no mobile */
+    .tarefa-pontos::after {
+        content: ' PTS';
+        font-size: 0.8rem;
+        color: #999;
+        font-weight: 600;
+        margin-left: 2px;
+    }
+
+    /* 3. Descrição e Status Centralizados abaixo do "teto" */
+    .col-desc, .col-status { 
+        width: 100%; 
+        padding: 0; 
+        display: flex;
+        justify-content: center;
+    }
+    
+    .tarefa-desc { 
+        margin: 0; 
+        font-size: 1rem;
+        padding: 0 10px;
+    }
 }
