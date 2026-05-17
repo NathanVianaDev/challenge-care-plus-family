@@ -11,25 +11,32 @@ export class MeuHeader extends HTMLElement {
 
         this.innerHTML = `
             <nav class="navbar navbar-expand-lg bg-white sticky-top navbar-empresa-custom">
-                <div class="container-fluid">
+                <div class="container-fluid px-4 px-lg-5">
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    <!-- Logo mobile: fora do collapse, sempre visível à esquerda -->
+                    <a class="navbar-brand m-0 d-lg-none" href="/assets/Pages/HomePageEmpresaLogado/HomePageEmpresaLogado.html">
+                        <img src="/assets/Images/logo-care-plus.png" alt="Logo Care Plus" height="60" onerror="this.style.display='none';">
+                    </a>
+
+                    <!-- Hambúrguer: posicionado após o logo, empurrado para a direita pelo Bootstrap -->
+                    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
                     <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-                        <div class="navbar-nav align-items-center gap-5">
+                        <div class="navbar-nav align-items-center gap-3 gap-lg-4">
 
-                            <a class="navbar-brand m-0" href="/assets/Pages/HomePageEmpresaLogado/HomePageEmpresaLogado.html">
-                                <img src="/assets/Images/logo-care-plus.png" alt="Logo Care Plus" height="80">
+                            <!-- Logo desktop: dentro do collapse, oculto no mobile -->
+                            <a class="navbar-brand m-0 d-none d-lg-block" href="/assets/Pages/HomePageEmpresaLogado/HomePageEmpresaLogado.html">
+                                <img src="/assets/Images/logo-care-plus.png" alt="Logo Care Plus" height="80" onerror="this.style.display='none';">
                             </a>
 
-                            <a class="nav-link text-dark" href="/assets/Pages/AmbienteEmpresa/AmbienteEmpresa.html">GAME PLUS +</a>
-                            <a class="nav-link text-dark" href="/assets/Pages/EditarPerfilEmpresa/EditarPerfilEmpresa.html">PERFIL</a>
-                            <a class="nav-link text-dark" href="/assets/Pages/IncluindoEmpresa/IncluindoEmpresa.html">EMPRESA</a>
+                            <a class="nav-link" href="/assets/Pages/AmbienteEmpresa/AmbienteEmpresa.html">GAME PLUS +</a>
+                            <a class="nav-link" href="/assets/Pages/EditarPerfilEmpresa/EditarPerfilEmpresa.html">PERFIL</a>
+                            <a class="nav-link" href="/assets/Pages/IncluindoEmpresa/IncluindoEmpresa.html">EMPRESA</a>
 
-                            <div class="container-btn-sair d-flex justify-content-center">
+                            <div class="container-btn-sair d-flex ms-lg-2">
                                 <a href="/Index.html" class="btn-perfil-sair">
                                     <span class="texto-sair">SAIR</span>
                                     <div class="circulo-azul">
