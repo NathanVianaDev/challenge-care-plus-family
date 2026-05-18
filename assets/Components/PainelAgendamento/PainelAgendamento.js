@@ -20,6 +20,11 @@ export class PainelAgendamento extends HTMLElement {
     render() {
         this.innerHTML = `
         <div class="agendamento-container">
+            <div class="row">
+                <div class=" col-12 col-md-4">
+                    <botao-voltar texto="&larr; Voltar" href="../Agendamentos/Agendamentos.html"></botao-voltar>
+                </div>
+            </div>
             <h2 class="section-title">Agendar Nova Consulta</h2>
             
             <div class="row">
