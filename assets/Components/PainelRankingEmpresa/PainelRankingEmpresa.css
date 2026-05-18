@@ -72,7 +72,7 @@
 }
 
 .col-posicao { width: 10%; text-align: center; }
-.col-avatar { width: 15%; text-align: center; }
+.col-avatar { width: 15%; display: flex; justify-content: center; align-items: center; }
 .col-nome { width: 55%; padding-left: 15px; }
 .col-pontos { width: 20%; text-align: right; }
 

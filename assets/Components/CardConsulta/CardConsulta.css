@@ -232,29 +232,33 @@
 
     .novo-bloco-acoes {
         width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 15px;
-        border-top: 1px solid rgba(0, 0, 0, 0.08); 
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
         padding-top: 15px;
     }
 
     .novo-status-box {
-        flex-direction: row; 
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        width: auto;
+        flex-shrink: 0;
     }
 
     .caixa-botoes-edicao {
         margin-left: 0;
-        width: 100%; 
-        flex-direction: row !important; 
+        width: 100%;
+        flex-direction: row !important;
+        gap: 10px;
     }
 
     .novo-area-botoes {
         display: flex;
-        justify-content: center;
+        width: 100%;
+        justify-content: stretch;
     }
 
     .novo-titulo { font-size: 18px; }
