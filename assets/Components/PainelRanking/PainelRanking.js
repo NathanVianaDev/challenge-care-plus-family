@@ -115,13 +115,13 @@ export class PainelRanking extends HTMLElement {
                 ]
             },
             familiar: {
-                tituloColuna: "Nome do Membro",
+                tituloColuna: "FAMíLiAS",
                 lista: [
-                    { pos: 1, nome: "Alvo Severo Potter", pontos: "4500", avatar: "avatar-carlos.png" },
-                    { pos: 2, nome: "Harry Potter", pontos: "4100", avatar: "avatar-cleuber.png" },
-                    { pos: 3, nome: "Ginevra Molly Potter", pontos: "3800", avatar: "avatar-suzan.png" },
-                    { pos: 4, nome: "Tiago Sirius Potter", pontos: "3200", avatar: "avatar-carlos.png" },
-                    { pos: 5, nome: "Lilian Luna Potter", pontos: "2900", avatar: "avatar-ana.png" }
+                    { pos: 1, nome: "Família Silva", pontos: "4500", avatar: "avatar-carlos.png" },
+                    { pos: 2, nome: "Família Potter", pontos: "4100", avatar: "avatar-cleuber.png" },
+                    { pos: 3, nome: "Família Granger", pontos: "3800", avatar: "avatar-suzan.png" },
+                    { pos: 4, nome: "Família Sirius", pontos: "3200", avatar: "avatar-carlos.png" },
+                    { pos: 5, nome: "Família Luna", pontos: "2900", avatar: "avatar-ana.png" }
                 ]
             },
             empresarial: {

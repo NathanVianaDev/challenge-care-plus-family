@@ -134,15 +134,119 @@
 }
 
 /* ==========================================================================
-   RESPONSIVIDADE: Ocultar "Plano" e ajustar gaps para evitar scroll lateral
+   MODAL DE CONFIRMAÇÃO (SHADOW DOM)
    ========================================================================== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
 
+.modal-overlay.active {
+    display: flex;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    transform: scale(0.9);
+    animation: scaleUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.icone-alerta {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 15px;
+    color: #dc3545;
+}
+
+.modal-titulo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+}
+
+.modal-texto {
+    font-size: 1rem;
+    color: #6c757d;
+    margin: 0 0 25px 0;
+    line-height: 1.5;
+}
+
+.modal-acoes {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-modal {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+}
+
+.btn-cancelar {
+    background-color: #f8f9fa;
+    color: #495057;
+    border: 1px solid #dee2e6;
+}
+
+.btn-cancelar:hover {
+    background-color: #e2e6ea;
+}
+
+.btn-confirmar {
+    background-color: #dc3545;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+}
+
+.btn-confirmar:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4);
+}
+
+/* Animações do Modal */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
 @media (max-width: 1100px) {
     .info-secundaria {
         gap: 12px;
     }
 
-    /* Remove a palavra "Plano" para ganhar espaço */
     .texto-status span {
         display: none;
     }
@@ -154,7 +258,6 @@
 }
 
 @media (max-width: 850px) {
-    /* Ajuste fino para telas intermediárias antes de quebrar o layout */
     .idade-box {
         min-width: 60px;
     }
