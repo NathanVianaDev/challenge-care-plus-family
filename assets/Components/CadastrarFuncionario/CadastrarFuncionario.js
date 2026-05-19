@@ -32,7 +32,6 @@ class CadastrarFuncionario extends HTMLElement {
         const statusIcon = status ? 'bi-check-circle-fill' : 'bi-x-circle-fill';
         const statusClass = status ? 'status-ativo' : 'status-inativo';
         
-        // Ajuste aqui: Envolvendo "Plano" em um span para controle de visibilidade
         const statusText = status 
             ? '<span>Plano</span> Ativo' 
             : '<span>Plano</span> Inativo';
@@ -63,23 +62,28 @@ class CadastrarFuncionario extends HTMLElement {
                         <span class="texto-status">${statusText}</span>
                     </div>
 
-                    <button class="btn-excluir" title="Excluir Funcionário">
-                        <i class="bi bi-trash3-fill"></i>
+                    <button type="button" class="btn-excluir" title="Excluir funcionário">
+                        <i class="bi bi-trash3"></i>
                     </button>
                 </div>
             </div>
         `;
 
+        // Vincula o evento de clique ao botão existente no Shadow DOM
         this.shadowRoot.querySelector('.btn-excluir').addEventListener('click', () => {
             this.excluir();
         });
     }
 
     excluir() {
+        // Envia o nome e a própria referência do elemento a ser deletado
         const eventoExcluir = new CustomEvent('deletar-funcionario', {
-            detail: { nome: this.getAttribute('nome') },
-            bubbles: true,
-            composed: true
+            detail: { 
+                nome: this.getAttribute('nome'),
+                element: this 
+            },
+            bubbles: true,   // Permite que o evento suba na árvore DOM
+            composed: true   // Permite que o evento atravesse a barreira do Shadow DOM
         });
         this.dispatchEvent(eventoExcluir);
     }

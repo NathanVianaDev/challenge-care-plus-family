@@ -12,8 +12,10 @@ export class PainelTroca extends HTMLElement {
             <div class="troca-container">
                 <div class="row">
                     <div class="col-lg-8 order-2 order-lg-1">
+                    <div class="d-flex align-items-center mt-3 mt-md-0 gap-4">
                     <botao-voltar texto="Voltar" href="../../Pages/Ranking/Ranking.html"></botao-voltar>
                         <h2 class="troca-title">Troque seus pontos</h2>
+                    </div>
                         <div class="rewards-list">
                             ${this.createReward('Gift Card', 'Ganhe um gift card de R$10 para<br>usar nas lojas parceiras.', 500)}
                             ${this.createReward('Gift Card', 'Ganhe um gift card de R$50 para<br>usar nas lojas parceiras.', 2500)}
