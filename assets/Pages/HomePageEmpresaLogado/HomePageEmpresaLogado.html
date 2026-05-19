@@ -17,20 +17,16 @@
 <body class="bg-light">
     <div class="container-mae container mt-4">
         <div class="row">
-            <!-- Coluna da Esquerda (Lado A) -->
             <div class="col-lg-4 d-flex flex-column gap-3">
                 
-                <!-- CONTEÚDO DO USUÁRIO (DIV AZUL) -->
                 <div class="usuario-empresa d-flex flex-column align-items-center justify-content-center text-center p-4">
 
-                    <!-- Avatar com o Ring Colorido -->
                     <div class="position-relative d-inline-block mb-3">
                         <div class="profile-ring">
                             <img src="/assets/Images/avatar-padrao.png" id="user-photo" class="rounded-circle shadow-sm" alt="Perfil">
                         </div>
                     </div>
 
-                    <!-- Mensagem de Boas-vindas -->
                     <h3 class="fw-light text-black">Bem Vindo, <br>
                         <span id="display-name" class="fw-semibold text-black">Gestor Care Plus</span>.
                     </h3>
@@ -38,7 +34,6 @@
 
                 <div class="menu shadow-sm p-3">
                     
-                    <!-- Pontuação da Empresa -->
                     <div class="d-flex justify-content-between align-items-center mb-1">
                         <div>
                             <span class="text-muted d-block small uppercase fw-bold">PONTUAÇÃO TOTAL</span>
@@ -49,7 +44,6 @@
                         </div>
                     </div>
 
-                    <!-- Posição no Ranking -->
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <span class="text-muted d-block small uppercase fw-bold">RANKING GLOBAL</span>
@@ -62,7 +56,6 @@
 
                     <hr class="my-4 opacity-25">
 
-                    <!-- Medalha de Recomendação -->
                     <div class="medalha-container text-center p-2">
                         <div class="mb-2">
                             <i class="bi bi-patch-check-fill text-warning" style="font-size: 3rem;"></i>
@@ -70,7 +63,6 @@
                         <h6 class="fw-bold ">Selo de Excelência</h6>
                         <p class="small text-muted">Empresa 5 Estrelas para trabalhar</p>
                         
-                        <!-- Estrelas de Avaliação -->
                         <div class="text-warning mb-2">
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
@@ -82,17 +74,14 @@
                 </div>
             </div>
 
-            <!-- Coluna da Direita (Lado B) -->
             <div class="col-lg-8">
                 <div class="painel-funcionarios shadow-sm">
-                    <!-- Div com o nome da Empresa -->
                     <div class="header-empresa">
                         <div class="d-flex align-items-center gap-3">
                             <i class="bi bi-microsoft fs-2 text-primary"></i>
                             <h2 class="m-0 fw-bold">Microsoft</h2>
                         </div>
                         
-                        <!-- Botão que abre o Modal -->
                         <button class="btn btn-success d-flex align-items-center justify-content-center gap-2 fw-bold px-4 py-2 rounded-pill shadow-sm btn-responsivo-icone" 
         id="btn-cadastrar-func"
         data-bs-toggle="modal" 
@@ -102,7 +91,6 @@
 </button>
                     </div>
 
-                    <!-- Área onde entrará a lista de funcionários (Web Component) -->
                     <div class="corpo-lista">
                         <h5 class="text-secondary mb-4">Quadro de Colaboradores</h5>
                         
@@ -132,7 +120,6 @@
         </div>
     </div>
 
-    <!-- Modal de Cadastro -->
     <div class="modal fade" id="modalCadastro" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="border-radius: 15px;">

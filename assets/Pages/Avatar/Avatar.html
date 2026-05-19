@@ -52,10 +52,11 @@
         </div>
     </main>
 
-    <!-- Estrutura de Modal Padronizada (Estilo Zamboni) -->
+    <!-- Modal de confirmação exibido após salvar o avatar -->
     <div id="modalSucessoAvatar" class="modal-overlay hidden">
         <div class="custom-modal">
-            <!-- Logo opcional conforme o código do seu colega -->
+            <!-- onerror oculta a logo caso o arquivo de imagem não seja encontrado,
+                 evitando quebra visual no modal -->
             <img src="/assets/Images/logo-care-plus.png" alt="Care Plus" class="modal-logo" onerror="this.style.display='none';">
             <h3 class="modal-title" style="color: #92C444;" id="modalTituloAvatar">Sucesso!</h3>
             <p class="modal-message" id="modalTextoAvatar">Configurações salvas.</p>

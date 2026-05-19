@@ -20,13 +20,13 @@
 
 <body>
 
-        <!-- LOGO MOBILE FORA DA DIV FLUTUANTE (Aparece só no celular) -->
+        <!-- Logo duplicada fora do card para exibição em mobile,
+             onde o glass-left com a logo principal é ocultado -->
         <div class="d-md-none w-100 text-center pb-2">
                 <img src="../../Images/logo-care-plus.png" alt="Care Plus Family" style="max-width: 180px;">
         </div>
 
         <div class="glass-card">
-                <!-- LADO ESQUERDO (Visível apenas no Desktop) -->
                 <div class="glass-left">
                         <img src="../../Images/logo-care-plus.png" alt="Care Plus Family" class="logo-img">
                         <h1>Crie sua conta e acesse o Hub de Saúde.</h1>
@@ -42,21 +42,19 @@
                         </ul>
                 </div>
 
-                <!-- LADO DIREITO -->
                 <div class="glass-right">
                         <h2 class="titulo-auth">Cadastre-se</h2>
 
-                        <!-- Botões de Toggle -->
                         <div class="toggle-group">
                                 <button id="btn-cad-beneficiario" class="btn-toggle ativo">Beneficiário</button>
                                 <button id="btn-cad-empresa" class="btn-toggle inativo">Empresa</button>
                         </div>
 
-                        <!-- CONTAINER DO EFEITO 3D -->
+                        <!-- min-height fixo evita colapso do contêiner durante a animação CSS 3D,
+                             pois o filho com position absolute sai do fluxo normal -->
                         <div class="flip-container" id="flip-container">
                                 <div class="flipper">
 
-                                        <!-- FRENTE: FORMULÁRIO DE BENEFICIÁRIO -->
                                         <div class="front">
 
                                                 <!-- BENEFICIÁRIO: PASSO 1 -->
@@ -95,7 +93,6 @@
                                                                                 legenda="Confirme"></campo-form></div>
                                                         </div>
 
-                                                        <!-- Classe mb-4 adicionada para dar o respiro no botão -->
                                                         <button type="button" id="btn-avancar-ben"
                                                                 class="btn-primary-glass mb-4">Concluir
                                                                 Cadastro</button>
@@ -144,7 +141,6 @@
                                                                 </div>
                                                         </div>
 
-                                                        <!-- Botão de Finalizar com Link e respiro (mb-4) -->
                                                         <a href="/assets/Pages/HomePageLogado/HomePageLogado.html"
                                                                 class="text-decoration-none">
                                                                 <button type="button"
@@ -158,7 +154,6 @@
 
                                         </div>
 
-                                        <!-- VERSO: FORMULÁRIO DE EMPRESA -->
                                         <div class="back">
 
                                                 <!-- EMPRESA: PASSO 1 -->
@@ -194,7 +189,6 @@
                                                                                 legenda="Confirme"></campo-form></div>
                                                         </div>
 
-                                                        <!-- Classe mb-4 adicionada -->
                                                         <button type="button" id="btn-avancar-emp"
                                                                 class="btn-primary-glass mb-4"
                                                                 style="background-color: #3aadde;">Concluir Cadastro
@@ -234,7 +228,6 @@
                                                                                 legenda="Seu Estado"></campo-form></div>
                                                         </div>
 
-                                                        <!-- Classe mb-4 adicionada -->
                                                         <a href="/assets/Pages/HomePageEmpresaLogado/HomePageEmpresaLogado.html"
                                                                 class="text-decoration-none">
                                                                 <button type="button" class="btn-primary-glass mb-4"
@@ -255,7 +248,8 @@
                                 Já possui uma conta? <a href="./Login.html">Fazer login.</a>
                         </div>
 
-                        <!-- FOOTER DENTRO DA DIV (Aparece só no Mobile, no finalzinho do cartão) -->
+                        <!-- Footer duplicado dentro do card apenas para mobile,
+                             pois o footer externo é ocultado com d-none d-md-block nessa resolução -->
                         <div class="d-md-none text-center mt-5 pt-3">
                                 <p class="m-0" style="font-size: 0.8rem; color: #666;">© 2026 Care Plus Family. Todos os
                                         direitos reservados.</p>
@@ -264,7 +258,6 @@
                 </div>
         </div>
 
-        <!-- O Footer Original agora é escondido no Mobile (d-none d-md-block) -->
         <footer class="footer-discreto d-none d-md-block">
                 <div class="container text-center">
                         <p class="m-0">© 2026 Care Plus Family. Todos os direitos reservados.</p>

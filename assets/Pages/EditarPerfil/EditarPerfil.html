@@ -11,7 +11,6 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- CSS Global e CSS Específico da Tela (SoC aplicado) -->
     <link rel="stylesheet" href="../../CSS/Style.CSS">
     <link rel="stylesheet" href="../../CSS/FormCompacto.css">
 
@@ -23,11 +22,9 @@
 
     <main class="container my-3">
 
-        <!-- Lógica de grade: Centralizado, limitando a 8 colunas no Desktop -->
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10 col-sm-12">
 
-                <!-- CAIXA FLUTUANTE ÚNICA -->
                 <div class="unified-profile-card">
 
                     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -137,10 +134,8 @@
                         ========================================== -->
                         <div class="d-flex justify-content-end align-items-center pt-3"
                             style="border-top: 1px solid #f0f2f5;">
-                            <!-- Botão de Cancelar (Recarrega a página) -->
                             <a href="javascript:window.location.reload()" class="btn-cancelar">Cancelar</a>
 
-                            <!-- Botão Verde de Salvar com redirecionamento -->
                             <button type="button" class="btn-salvar-perfil" onclick="executarSalvamento()">
                                 Salvar Alterações
                             </button>
@@ -148,7 +143,7 @@
 
                     </form>
 
-                </div> <!-- FIM CAIXA FLUTUANTE -->
+                </div>
 
             </div>
         </div>
@@ -156,12 +151,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Lógica para o Web Component MenssagemExterna -->
     <script>
         function executarSalvamento() {
             const alerta = document.createElement('menssagem-externa');
-            
-            // Atributos baseados no seu componente
+
             alerta.setAttribute('titulo', 'Perfil Atualizado!');
             alerta.setAttribute('texto', 'Seus dados pessoais foram salvos com sucesso no sistema Care Plus.');
             alerta.setAttribute('link', '/assets/Pages/HomePageLogado/HomePageLogado.html');
