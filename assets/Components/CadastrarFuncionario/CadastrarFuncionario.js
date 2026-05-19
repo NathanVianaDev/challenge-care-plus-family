@@ -107,7 +107,7 @@ class CadastrarFuncionario extends HTMLElement {
             }
         });
 
-        // Confirmar Exclusão
+        // Confirmar Exclusão: Fecha o modal e chama a função de excluir
         btnConfirmar.addEventListener('click', () => {
             modalOverlay.classList.remove('active');
             this.excluir();
@@ -115,14 +115,16 @@ class CadastrarFuncionario extends HTMLElement {
     }
 
     excluir() {
-        // Envia o nome e a própria referência do elemento a ser deletado
+        // 1. Remove o componente da tela imediatamente (sem pedir permissão pro browser)
+        this.remove();
+
+        // 2. Dispara o evento apenas como um "Aviso" para a página (caso ela queira atualizar um contador, por exemplo)
         const eventoExcluir = new CustomEvent('deletar-funcionario', {
             detail: { 
-                nome: this.getAttribute('nome'),
-                element: this 
+                nome: this.getAttribute('nome') 
             },
-            bubbles: true,   // Permite que o evento suba na árvore DOM
-            composed: true   // Permite que o evento atravesse a barreira do Shadow DOM
+            bubbles: true,
+            composed: true
         });
         this.dispatchEvent(eventoExcluir);
     }
