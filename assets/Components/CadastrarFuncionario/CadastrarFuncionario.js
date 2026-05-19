@@ -1,6 +1,6 @@
 /**
  * CadastrarFuncionario - Care Plus Family
- * Componente para exibir a linha de dados de um colaborador com opção de exclusão.
+ * Componente para exibir a linha de dados de um colaborador com opção de exclusão e modal de confirmação.
  */
 
 const CSS_URL = '../../Components/CadastrarFuncionario/CadastrarFuncionario.css';
@@ -67,10 +67,49 @@ class CadastrarFuncionario extends HTMLElement {
                     </button>
                 </div>
             </div>
+
+            <div class="modal-overlay" id="modalConfirmacao">
+                <div class="modal-content">
+                    <i class="bi bi-exclamation-triangle text-danger icone-alerta"></i>
+                    <h4 class="modal-titulo">Excluir Funcionário?</h4>
+                    <p class="modal-texto">Tem certeza que deseja remover <strong>${nome}</strong> do quadro de colaboradores? Esta ação não pode ser desfeita.</p>
+                    <div class="modal-acoes">
+                        <button type="button" class="btn-modal btn-cancelar">Cancelar</button>
+                        <button type="button" class="btn-modal btn-confirmar">Sim, Excluir</button>
+                    </div>
+                </div>
+            </div>
         `;
 
-        // Vincula o evento de clique ao botão existente no Shadow DOM
-        this.shadowRoot.querySelector('.btn-excluir').addEventListener('click', () => {
+        this.configurarEventos();
+    }
+
+    configurarEventos() {
+        const btnExcluir = this.shadowRoot.querySelector('.btn-excluir');
+        const btnCancelar = this.shadowRoot.querySelector('.btn-cancelar');
+        const btnConfirmar = this.shadowRoot.querySelector('.btn-confirmar');
+        const modalOverlay = this.shadowRoot.querySelector('#modalConfirmacao');
+
+        // Abrir Modal
+        btnExcluir.addEventListener('click', () => {
+            modalOverlay.classList.add('active');
+        });
+
+        // Fechar Modal (Botão Cancelar)
+        btnCancelar.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+        });
+
+        // Fechar Modal clicando fora dele
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+            }
+        });
+
+        // Confirmar Exclusão
+        btnConfirmar.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
             this.excluir();
         });
     }
