@@ -1,14 +1,9 @@
-// Arquivo: PerfilFormulario.js
-
 export class PerfilFormulario extends HTMLElement {
     connectedCallback() {
-        // 1. Guarda todos os campos que você digitou DENTRO da tag lá no HTML
         const camposQueOUserColocou = Array.from(this.children);
 
-        // 2. Você pode até mudar o título da caixa se quiser!
         const titulo = this.getAttribute('titulo-caixa') || 'Meus Dados';
 
-        // 3. Monta a estrutura da caixa principal
         this.innerHTML = `
             <link rel="stylesheet" href="PerfilFormulario.css">
             <div class="perfil-container">
@@ -29,13 +24,11 @@ export class PerfilFormulario extends HTMLElement {
             </div>
         `;
 
-        // 4. Injeta os seus campos de volta, agora no lugar certo!
         const containerCampos = this.querySelector('#container-campos');
         camposQueOUserColocou.forEach(campo => {
             containerCampos.appendChild(campo);
         });
 
-        // 5. Inicia a lógica de bloqueio
         setTimeout(() => {
             this.iniciarLogica();
         }, 50);
@@ -47,41 +40,36 @@ export class PerfilFormulario extends HTMLElement {
         const btnCancelar = this.querySelector('#btn-cancelar');
         const containerBotoes = this.querySelector('#botoes-acao');
         
-        // Agora nós pegamos inputs, selects e textareas!
         const campos = this.querySelectorAll('input, select, textarea');
         let valoresOriginais = {};
 
-        // Bloqueia tudo assim que a tela abre
         campos.forEach(campo => {
             campo.disabled = true;
         });
 
-        // Clicou no Lápis
         btnEditar.addEventListener('click', () => {
             campos.forEach((campo, index) => {
-                valoresOriginais[index] = campo.value; // Salva o que estava escrito
-                campo.disabled = false; // Destrava
+                valoresOriginais[index] = campo.value;
+                campo.disabled = false; 
             });
 
             btnEditar.style.display = 'none';
             containerBotoes.style.display = 'flex';
         });
 
-        // Clicou em Cancelar
         btnCancelar.addEventListener('click', () => {
             campos.forEach((campo, index) => {
-                campo.value = valoresOriginais[index]; // Devolve o texto antigo
-                campo.disabled = true; // Trava de novo
+                campo.value = valoresOriginais[index];
+                campo.disabled = true; 
             });
 
             btnEditar.style.display = 'flex';
             containerBotoes.style.display = 'none';
         });
 
-        // Clicou em Salvar
         btnSalvar.addEventListener('click', () => {
             campos.forEach(campo => {
-                campo.disabled = true; // Apenas trava, mantendo o novo texto
+                campo.disabled = true; 
             });
 
             btnEditar.style.display = 'flex';

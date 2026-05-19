@@ -14,30 +14,25 @@
 }
 
 #calendario-area {
-    flex-grow: 1; /* Faz a caixa branca do calendário preencher todo o resto do espaço */
+    flex-grow: 1;
     width: 100%;
-    
     box-shadow: #21252967 0 0px 7px;
     border-radius: 15px;
-    padding: 1rem; /* Diminuí um pouco o padding (margem interna) para caber melhor em espaços curtos */
+    padding: 1rem;
     background-color: white;
-    
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    
-    /* O SEGREDO 1: Impede rigorosamente que o conteúdo saia da caixa */
     overflow: hidden; 
 }
 
-/* O Cabeçalho (Mês e Setinhas) */
 #calendario-area .d-flex {
-    flex-shrink: 0; /* Impede o cabeçalho de ser esmagado */
+    flex-shrink: 0;
 }
 
 #tabela-calendario {
     width: 100%;
-    flex: 1 1 auto; /* Permite que a tabela cresça ou encolha ocupando o espaço livre */
+    flex: 1 1 auto;
     table-layout: fixed;
     margin: 0 !important;
 }
@@ -53,26 +48,24 @@
     vertical-align: middle;
     text-align: center;
     cursor: pointer;
-    padding: 2px 0; /* Reduz o espaçamento rígido para os números não empurrarem a tabela para fora */
+    padding: 2px 0;
 }
 
-/* O SEGREDO 2: O círculo perfeito agora encolhe se faltar espaço */
 .dia-numero {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     
     width: 100%;
-    max-width: 35px; /* Ele não passa de 35px... */
-    aspect-ratio: 1 / 1; /* ...mas sempre vai manter a proporção de um quadrado/círculo se encolher! */
+    max-width: 35px;
+    aspect-ratio: 1 / 1;
     
     border-radius: 50%;
     transition: 0.3s;
     margin: 0 auto;
-    font-size: clamp(0.7rem, 3vw, 0.9rem); /* A fonte do número diminui sozinha se a tela for pequena */
+    font-size: clamp(0.7rem, 3vw, 0.9rem);
 }
 
-/* Efeito Hover e Cores (Mesma lógica de antes) */
 #tabela-calendario td:hover:not(.dia-inativo) .dia-numero {
     background-color: #f0f8ff;
     color: #3aadde !important;
@@ -106,15 +99,14 @@
     border-radius: 8px;
 }
 
-/* O SEGREDO 3: A legenda se adapta e corta o texto se não couber na largura */
 .legenda-calendario {
     font-size: 0.85rem;
     color: #070707;
     text-align: right;
     margin-top: 10px;
-    flex-shrink: 0; /* Impede a legenda de ser esmagada pela tabela */
+    flex-shrink: 0;
     
-    white-space: nowrap; /* Evita que a legenda quebre em duas linhas vazando para baixo */
+    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; /* Coloca '...' no final se o texto for maior que a caixa */
+    text-overflow: ellipsis;
 }

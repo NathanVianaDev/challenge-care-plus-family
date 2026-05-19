@@ -1,11 +1,9 @@
-/* Arquivo: CookieBanner.css */
-
 .cookie-wrapper {
     position: fixed;
     bottom: 20px;
     left: 20px;
     right: 20px;
-    z-index: 9998; /* Um pouco menor que o pop-up */
+    z-index: 9998;
     display: none; 
 }
 
@@ -31,7 +29,6 @@
     margin: 0;
 }
 
-/* Transformamos o link em um botão disfarçado de texto */
 .link-politica {
     color: #1d4b70;
     text-decoration: underline;
@@ -76,22 +73,19 @@
 .btn-cookie-decline:hover { background-color: #f8f9fa; }
 
 
-/* =========================================
-   ESTILOS DO POP-UP DA POLÍTICA (MODAL)
-   ========================================= */
+
 .modal-overlay {
-    display: none; /* Escondido por padrão */
+    display: none;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro transparente */
-    z-index: 9999; /* Fica acima de TUDO na tela, inclusive do banner */
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
     align-items: center;
     justify-content: center;
     padding: 20px;
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Classe que o JS vai adicionar para mostrar o pop-up */
 .modal-overlay.ativo {
     display: flex;
 }
@@ -101,7 +95,7 @@
     border-radius: 12px;
     width: 100%;
     max-width: 600px;
-    max-height: 80vh; /* Não deixa ficar maior que a tela */
+    max-height: 80vh; 
     display: flex;
     flex-direction: column;
     position: relative;
@@ -133,12 +127,12 @@
 }
 
 .btn-fechar-modal:hover {
-    color: #dc3545; /* Fica vermelho ao passar o mouse */
+    color: #dc3545; 
 }
 
 .modal-body {
     padding: 20px 30px;
-    overflow-y: auto; /* Se o texto for longo, cria uma barra de rolagem só aqui dentro */
+    overflow-y: auto; 
 }
 
 .modal-body p {
@@ -148,7 +142,6 @@
     margin-bottom: 15px;
 }
 
-/* Responsividade para celular */
 @media (max-width: 768px) {
     .cookie-card {
         flex-direction: column;

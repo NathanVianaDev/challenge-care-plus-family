@@ -1,12 +1,8 @@
-/* assets/Components/PainelProgressoEmpresa/PainelProgressoEmpresa.css */
-
-/* Garantir a tipografia Montserrat no componente */
 :host {
     font-family: 'Montserrat', sans-serif;
     display: block;
 }
 
-/* Botões de Ação Verdes (Pontuação, Ranking, Metas) */
 .btn-acao-corp {
     background-color: #92C444 !important;
     color: white !important;
@@ -25,19 +21,17 @@
     color: white !important;
 }
 
-/* Sombra Interna Profundidade (fundo das barras) */
 .shadow-inset-corp {
     background-color: #f1f5f9 !important;
     box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.15) !important;
     border: none !important;
 }
 
-/* Gradiente Dourado animado (O Shimmer Premium) */
 .progress-gold-corp {
     background: linear-gradient(to right, #ffd700, #b8860b, #ffd700) !important;
     background-size: 200% 100% !important;
     animation: move-shimmer-corp 2s infinite linear;
-    color: #43381c !important; /* Texto escuro para leitura sobre o dourado */
+    color: #43381c !important;
     box-shadow: 2px 0 10px rgba(0,0,0,0.2);
     transition: width 1.5s ease-in-out !important;
     display: flex;
@@ -46,13 +40,11 @@
     font-size: 0.9rem;
 }
 
-/* Animação do brilho passando pela barra */
 @keyframes move-shimmer-corp {
     0% { background-position: 200% 0; }
     100% { background-position: -200% 0; }
 }
 
-/* Ajustes de Labels e Textos */
 label.text-muted {
     font-size: 0.75rem;
     text-transform: uppercase;
@@ -63,13 +55,11 @@ label.fw-bold:not(.text-muted) {
     color: #2c3e50;
 }
 
-/* Garante que os links dentro dos botões não fiquem azuis */
 a.text-decoration-none {
     color: inherit;
     width: 100%;
 }
 
-/* Ajuste para dispositivos móveis */
 @media (max-width: 576px) {
     .progress-gold-corp {
         font-size: 0.75rem;

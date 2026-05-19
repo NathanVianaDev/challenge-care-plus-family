@@ -2,8 +2,6 @@
    COMPONENT: CardHub Universal (Monitoramento Hub)
    ========================================================================== */
 
-/* CONTAINER PRINCIPAL
-   Define o tamanho, bordas e o comportamento do card como um todo */
 .Card {
     min-height: 250px !important;
     border: none;
@@ -11,22 +9,16 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
     transition: 0.3s;
     border-bottom: 6px solid transparent;
-    
-    /* Alinhamento dos elementos internos em coluna */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 0.1rem;
-
-    /* Essencial para que o Modal (janela interna) funcione corretamente */
     position: relative; 
     overflow: hidden; 
     font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
-/* CABEÇALHO DO CARD
-   Agrupa o Título e a Data Automática */
 .cabecalho {
     display: flex;
     flex-direction: column;
@@ -38,17 +30,15 @@
     font-size: 0.8rem;
     font-weight: bold;
     color: #ffffff;
-    text-transform: uppercase; /* Mantém o padrão visual de etiquetas */
+    text-transform: uppercase;
 }
 
 .data-atual {
     font-size: 0.65rem;
-    color: rgba(255, 255, 255, 0.85); /* Branco suave para não brilhar mais que o título */
+    color: rgba(255, 255, 255, 0.85);
     margin-top: 2px;
 }
 
-/* GRÁFICO CIRCULAR E CENTRO
-   Controla o círculo de progresso e os textos internos (Número/Meta) */
 .grafico-circular {
     position: relative;
     width: 130px;
@@ -70,7 +60,6 @@
     fill: none;
     stroke-width: 2.8;
     stroke-linecap: round;
-    /* Transição suave para o efeito de "carregamento" da barra */
     transition: stroke-dasharray 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -106,8 +95,6 @@
     font-weight: 600;
 }
 
-/* SEÇÃO DE INFORMAÇÕES ADICIONAIS
-   Exibe Calorias/Distância ou Menor/Maior no rodapé do card */
 .info-adicional {
     display: flex;
     align-items: center;
@@ -139,11 +126,9 @@
 .divisor {
     width: 1.5px;
     height: 30px;
-    background-color: rgba(255, 255, 255, 0.5); /* Linha divisória vertical sutil */
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
-/* BOTÕES E INTERATIVIDADE
-   Estilo dos botões e do Modal de edição de metas */
 .btn-interativo {
     color: white;
     border: none;
@@ -159,7 +144,7 @@
 }
 
 .btn-interativo:hover {
-    filter: brightness(0.9); /* Escurece levemente no hover */
+    filter: brightness(0.9);
 }
 
 .modal-interativo {
@@ -176,8 +161,6 @@
     justify-content: center;
     padding: 10px;
     box-sizing: border-box;
-
-    /* Efeito de subir/descer (Slide) */
     transform: translateY(100%);
     opacity: 0;
     pointer-events: none;
@@ -208,10 +191,10 @@
 }
 
 .modal-interativo input:focus {
-    border-color: #34D052; /* Foco do input na cor principal */
+    border-color: #34D052;
 }
 
 #btn-fechar {
-    background: #333; /* Botão de salvar com cor neutra */
+    background: #333;
     margin-top: 15px;
 }

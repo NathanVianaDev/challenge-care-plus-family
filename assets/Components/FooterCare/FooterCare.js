@@ -1,5 +1,3 @@
-// Arquivo: FooterCare.js
-
 export class FooterCare extends HTMLElement {
     connectedCallback() {
         const caminhoFooterCSS = new URL('./FooterCare.css', import.meta.url).href;

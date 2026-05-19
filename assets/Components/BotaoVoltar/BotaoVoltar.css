@@ -1,5 +1,3 @@
-/* assets/Components/BotaoVoltar/BotaoVoltar.css */
-
 .btn-voltar-custom {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
@@ -10,10 +8,9 @@
     transition: all 0.3s ease-in-out;
 }
 
-/* Pequena animação para a seta ir um pouco para trás ao passar o mouse */
 .btn-voltar-custom:hover {
     transform: translateX(-4px);
-    background-color: #f8f9fa; /* Fundo leve do bootstrap */
+    background-color: #f8f9fa;
     color: #000;
 }
 
@@ -22,12 +19,12 @@
    ======================================================= */
 @media (max-width: 768px) {
     .texto-voltar {
-        display: none; /* Esconde completamente o texto */
+        display: none;
     }
     
     .btn-voltar-custom {
-        gap: 0; /* Remove o espaço que ficava entre o ícone e o texto */
-        padding: 8px 12px; /* Deixa o botão proporcional apenas para o ícone */
+        gap: 0;
+        padding: 8px 12px;
         justify-content: center;
     }
 }

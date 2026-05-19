@@ -1,6 +1,6 @@
 import { FooterCare } from '../Components/FooterCare/FooterCare.js';
 import { CookieBanner } from '../Components/CookieBanner/CookieBanner.js';
-import { NavbarDeslogado } from '../Components/NavbarDeslogado/NavbarDeslogado.js'; // Ajuste os nomes das pastas
+import { NavbarDeslogado } from '../Components/NavbarDeslogado/NavbarDeslogado.js';
 import { MeuHeader } from '../Components/HeaderLogado/Header.js';
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -5,7 +5,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #f5f0f5; /* Fundo cinza claro para destacar os cards */
+    background-color: #f5f0f5; 
     font-family: 'Montserrat', 'Segoe UI', Roboto, sans-serif;
     scroll-behavior: smooth;
 }
@@ -27,7 +27,7 @@ body, html {
 
 .profile-ring {
     padding: 5px;
-    background: linear-gradient(45deg, #a4d34c, #3aadde); /* Verde e Azul do logo */
+    background: linear-gradient(45deg, #a4d34c, #3aadde);
     border-radius: 50%;
     display: inline-block;
 }
@@ -59,7 +59,7 @@ body, html {
     cursor: pointer;
     font-size: 0.9rem;
     transition: 0.3s;
-    border-radius: 50%; /* Faz o efeito de hover ser circular */
+    border-radius: 50%; 
 }
 
 #tabela-calendario td:hover:not(.text-muted) {
@@ -67,7 +67,6 @@ body, html {
     color: #3aadde;
 }
 
-/* Círculo azul no dia atual */
 .dia-atual {
     background-color: #3aadde !important;
     color: white !important;
@@ -79,10 +78,10 @@ body, html {
    4. HUB DE MONITORAMENTO (ESTRUTURA E TITULOS)
    ========================================================================== */
 #hub-monitoramento {
-    min-height: 345px !important; /* Ajuste para igualar à altura do card de perfil */
+    min-height: 345px !important; 
     display: flex;
     flex-direction: column;
-    background-color: #f8fafc; /* Um cinza bem clarinho quase azulado */
+    background-color: #f8fafc;
     padding: 15px;
     border-radius: 15px;
     box-shadow: #21252967 0 0px 7px;
@@ -96,11 +95,10 @@ body, html {
     padding: 20px;
 }
 
-/* Estilo da barra de título do Hub */
 .hub-header, #monitoramento {
     width: 100%;
     max-width: 1200px;
-    background-color: #92C444; /* Verde do logo */
+    background-color: #92C444;
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -109,7 +107,6 @@ body, html {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Ajuste específico para o ID monitoramento original */
 #monitoramento {
     padding: 0.2rem;
     margin-bottom: 0.5rem;
@@ -126,7 +123,6 @@ body, html {
     justify-content: center;
 }
 
-/* Container do Grid de Cards */
 .hub-container {
     display: grid;
     grid-template-columns: repeat(5, minmax(220px, 1fr)); 
@@ -148,7 +144,7 @@ body, html {
 }
 
 .progress-ring {
-    transform: rotate(-90deg); /* Inicia o progresso pelo topo */
+    transform: rotate(-90deg);
 }
 
 .progress-ring__bar {
@@ -172,14 +168,12 @@ body, html {
     margin-bottom: 2px;
 }
 
-/* Cores das Bordas Inferiores */
 .borda-azul { border-bottom-color: #B30101; }
 .borda-verde { border-bottom-color: #92C444; }
 .borda-laranja { border-bottom-color: #000000; }
 .borda-roxa { border-bottom-color: #9b59b6; }
 .borda-azul-claro { border-bottom-color: #4369E4; }
 
-/* Auxiliares de Card */
 .card-value-container {
     flex-grow: 1;
     display: flex;
@@ -228,7 +222,7 @@ body, html {
     border-radius: 20px;
     background-color: #ffffff;
     transition: all 0.3s ease;
-    border-left: 6px solid #3aadde !important; /* Identidade de agendamento */
+    border-left: 6px solid #3aadde !important;
 }
 
 .card-consulta:hover {
@@ -257,9 +251,8 @@ body, html {
 }
 
 /* ==========================================================================
-    8. ESTILIZAÇÃO DAS MINIATURAS DA VITRINE (GLOBAL)
+    8. ESTILIZAÇÃO DAS MINIATURAS DA VITRINE
    ========================================================================== */
-/* --- ESTILO DAS MINIATURAS DA VITRINE (PÁGINA GLOBAL) --- */
 .item-opcao {
     display: flex !important;
     flex-direction: column !important;
@@ -271,8 +264,6 @@ body, html {
     border-radius: 8px !important;
     cursor: pointer;
     margin: 0 auto;
-    
-    /* PROPORÇÃO VERTICAL 250x385 EM TAMANHO PEQUENO */
     width: 80px !important; 
     aspect-ratio: 250 / 385 !important; 
     overflow: hidden;
@@ -319,7 +310,6 @@ body, html {
     margin: 8px;
 }
 
-/* O card interno azul com gradiente */
 .banner-card {
     border-radius: 10px;
     background: linear-gradient(110deg, #3aadde 10%, #2b80a6 60%, #1e5a74 100%);
@@ -330,7 +320,6 @@ body, html {
     overflow: hidden;
 }
 
-/* Layout Flexbox do conteúdo interno */
 .banner-content {
     display: flex;
     justify-content: space-between;
@@ -339,7 +328,6 @@ body, html {
     height: 100%;
 }
 
-/* Contêiner de texto à esquerda */
 .banner-text {
     flex: 1.2;
     color: white;
@@ -365,7 +353,6 @@ body, html {
     margin: 0 0 20px 0;
 }
 
-/* Estilo do botão "Conectar" idêntico ao modal */
 .conectar-button {
     background-color: #29b6f6;
     color: white;
@@ -385,7 +372,6 @@ body, html {
     box-shadow: 0 6px 15px rgba(0,0,0,0.4);
 }
 
-/* Contêiner de imagens à direita */
 .banner-images {
     flex: 0.8;
     position: relative;
@@ -395,7 +381,6 @@ body, html {
     min-height: 180px;
 }
 
-/* Posicionamento e estilização das imagens das assistentes */
 .img-home-max {
     width: 120%;
     height: 100%;
@@ -404,9 +389,6 @@ body, html {
     z-index: 1;
 }
 
-/* ==========================================================================
-   10. MÁGICA MOBILE: DESLIGANDO O CARROSSEL (Telas menores que 991px)
-   ========================================================================== */
 @media (max-width: 991px) {
     
     #hubCarousel .carousel-item {

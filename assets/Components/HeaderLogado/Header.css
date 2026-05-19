@@ -2,7 +2,6 @@
    NAVBAR LOGADO - ESTILOS
    ========================================================================== */
 
-/* Estilização da barra de navegação */
 .navbar-logado-custom {
     padding-bottom: 0; 
     background-color: white !important; 
@@ -27,7 +26,6 @@
     padding-bottom: 10px; 
 }
 
-/* Botão Verde de SAIR (Padronizado com o LOGIN) */
 .btn-perfil-sair {
     display: flex;
     align-items: center;
@@ -53,7 +51,6 @@
     font-size: 0.85rem;
 }
 
-/* Bolinha Azul do ícone */
 .circulo-azul {
     background-color: #3aadde; 
     width: 34px;  
@@ -82,7 +79,6 @@
         box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
     
-    /* Aqui miramos direto no .nav-link para criar as linhas divisórias */
     .navbar-logado-custom .nav-link {
         padding: 12px 0;
         text-align: center; 
@@ -93,7 +89,6 @@
         border-bottom: none;
     }
 
-    /* Centraliza o botão SAIR no celular */
     .container-btn-sair {
         margin-top: 15px;
         justify-content: center !important; 

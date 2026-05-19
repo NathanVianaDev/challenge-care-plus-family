@@ -1,17 +1,13 @@
 class PainelProgresso extends HTMLElement {
     connectedCallback() {
-        // Capturamos o atributo para saber em qual tela estamos
         const tela = this.getAttribute('tela') || 'padrao';
 
         let areaBotaoTroca = '';
         
-        // 1. Definimos os links padrão (para a tela principal)
         let linkTarefas = '../PainelTarefas/PainelTarefas.html';
         let linkRanking = '../PainelRanking/PainelRanking.html';
 
-        // Lógica condicional
         if (tela === 'padrao') {
-            // Se for padrão, mostra o botão de troca de pontos
             areaBotaoTroca = `
                 <div class="col-12 mt-3">
                     <a href="../TrocadePontos/TrocadePontos.html">
@@ -22,13 +18,10 @@ class PainelProgresso extends HTMLElement {
                 </div>
             `;
         } else if (tela === 'familia') {
-            // Se for família, esconde o botão de pontos e ALTERA OS LINKS!
-            // ATENÇÃO: Altere os caminhos abaixo para o nome real das suas telas da família
             linkTarefas = '../PainelTarefasFamilia/PainelTarefasFamilia.html';
             linkRanking = '../PainelRankingFamilia/PainelRankingFamilia.html';
         }
 
-        // 2. Renderiza o HTML do Componente injetando os links dinâmicos
         this.innerHTML = `
             <div class="row g-3 mb-4 text-center">
                 <div class="col-6">
@@ -71,7 +64,6 @@ class PainelProgresso extends HTMLElement {
             </div>
         `;
 
-        // 3. Executa as funções
         this.carregarUsuario();
         setTimeout(() => this.animarBarras(), 300);
     }

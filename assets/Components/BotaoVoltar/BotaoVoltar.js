@@ -1,12 +1,8 @@
-// assets/Components/BotaoVoltar/BotaoVoltar.js
-
 class BotaoVoltar extends HTMLElement {
     connectedCallback() {
-        // Pega os atributos customizados, se existirem
         const href = this.getAttribute('href');
-        const texto = this.getAttribute('texto') || 'Voltar'; // 'Voltar' é o texto padrão
+        const texto = this.getAttribute('texto') || 'Voltar';
         
-        // Define a ação: se tiver href vai pra ele, se não, usa o histórico do navegador
         const acaoClick = href ? `window.location.href='${href}'` : 'window.history.back()';
 
         this.innerHTML = `
@@ -17,5 +13,4 @@ class BotaoVoltar extends HTMLElement {
     }
 }
 
-// Define a tag <botao-voltar> para ser usada no HTML
 customElements.define('botao-voltar', BotaoVoltar);

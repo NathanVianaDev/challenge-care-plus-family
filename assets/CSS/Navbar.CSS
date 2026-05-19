@@ -1,39 +1,32 @@
 /* Estilização do Menu de Navegação */
 .nav-link {
     color: #212529 !important;
-    font-family: 'Montserrat', sans-serif; /* Garante que o menu use a fonte certa */
-    font-weight: 500;           /* Agora o 500 vai funcionar de verdade! */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500; 
     letter-spacing: 0.5px;
     transition: 0.3s;
-    font-size: 1rem;            /* Um tamanho padrão e limpo */
+    font-size: 1rem;
 }
 
-/* Efeito ao passar o mouse para não ficar estático */
 .nav-link:hover {
-    color: #3aadde !important; /* Muda para o azul da Care Plus ao passar o mouse */
+    color: #3aadde !important;
 }
-/* Estilização da barra de navegação */
 .navbar {
-    padding-bottom: 0; /* Remove espaço extra abaixo para a linha colar bem */
-    background-color: white !important; /* Garante que o fundo seja sólido */
-    
-    /* Adiciona a linha azul */
-    border-bottom: 10px solid #3aadde; /* Cor azul (você pode trocar pelo código da sua logo) */
-    
-    /* Opcional: uma sombra bem leve para dar profundidade */
+    padding-bottom: 0; 
+    background-color: white !important; 
+    border-bottom: 10px solid #3aadde; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Garante que os itens fiquem bem distribuídos com a nova altura */
 .navbar-nav {
-    padding-bottom: 10px; /* Um pequeno respiro antes da linha azul */
+    padding-bottom: 10px; 
 }
 .btn-perfil-sair {
     display: flex;
     align-items: center;
-    background-color: #92C444; /* Verde da foto */
+    background-color: #92C444; 
     border-radius: 18px;
-    height: 40px; /* Ajustei a altura para ficar proporcional aos nomes */
+    height: 40px;
     padding-left: 20px;
     text-decoration: none;
     transition: 0.3s;
@@ -45,8 +38,8 @@
 }
 
 .circulo-azul {
-    background-color: #3aadde; /* Azul da foto */
-    width: 40px;  /* Mesma altura do botão para ser um círculo perfeito */
+    background-color: #3aadde;
+    width: 40px;
     height: 40px;
     border-radius: 50%;
     display: flex;
@@ -54,7 +47,7 @@
     justify-content: center;
 }
 .circulo-azul svg {
-    width: 25px; /* Tamanho controlado do ícone */
-    height: 22px; /* Mantém a proporção */
-    display: block; /* Evita espaços indesejados */
+    width: 25px; 
+    height: 22px; 
+    display: block; 
 }

@@ -1,8 +1,3 @@
-/**
- * PainelRankingEmpresa - Care Plus Family
- * Componente de Ranking voltado para a visão do Gestor/Empresa.
- */
-
 export class PainelRankingEmpresa extends HTMLElement {
     connectedCallback() {
         const basePath = '/assets/Images/MiniAvatar/';

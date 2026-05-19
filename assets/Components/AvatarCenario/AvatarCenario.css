@@ -10,10 +10,10 @@ avatar-cenario .position-relative {
 /* PADRONIZAÇÃO DESKTOP: Altura fixa para igualar Ranking e Familia */
 #img-avatar-bg {
     width: 100%;
-    height: 580px; /* Esta é a altura ideal para alinhar com o painel ao lado */
+    height: 580px; /
     display: block;
-    object-fit: cover; /* Preenche a moldura sem distorcer ou amassar */
-    object-position: top center; /* Foca no topo da imagem para não cortar as cabeças */
+    object-fit: cover; 
+    object-position: top center;
 }
 
 /* ESTILO DO BOTÃO EDITAR (Flutuante) */

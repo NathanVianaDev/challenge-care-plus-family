@@ -1,12 +1,10 @@
-/* Arquivo: CardConsulta.css */
-
 .card-novo-wrapper {
     box-sizing: border-box;
     margin-bottom: 20px;
     border-radius: 12px;
-    background-color: #ffffff; /* Fundo branco garantido para quando a gaveta abrir */
+    background-color: #ffffff;
     border-left: 6px solid #ccc; 
-    overflow: hidden; /* Corta as pontas quadradas para ficar com a borda arredondada */
+    overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     font-family: 'Montserrat', sans-serif;
@@ -17,7 +15,6 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* NOVA MÁGICA: A imagem de fundo fica congelada aqui, apenas na parte superior do card! */
 .topo-card-bg {
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -162,21 +159,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: flutuarSeta 2s infinite ease-in-out; /* Animação de chamar a atenção */
+    animation: flutuarSeta 2s infinite ease-in-out;
 }
 
-/* Animação que faz a seta subir e descer devagarzinho */
 @keyframes flutuarSeta {
     0%, 100% { transform: translate(-50%, 0); }
     50% { transform: translate(-50%, 4px); }
 }
 
 .icone-seta {
-    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Giro com efeitinho de "mola" */
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     display: inline-block;
 }
 
-/* Quando o card abre, a seta gira para cima e para de flutuar */
 .indicador-expansao.aberto {
     animation: none; 
 }
@@ -264,7 +259,6 @@
     .novo-titulo { font-size: 18px; }
     .novo-badge-status { font-size: 11px; padding: 4px 10px; }
 
-    /* Ajustes da gaveta no mobile */
     .painel-expansivel { padding: 0 15px; }
     .painel-expansivel.aberto {
         max-height: 300px; 

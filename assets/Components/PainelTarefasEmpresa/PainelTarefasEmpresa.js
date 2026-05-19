@@ -1,8 +1,3 @@
-/**
- * PainelTarefasEmpresa - Care Plus Family
- * Componente voltado para metas e objetivos corporativos da empresa parceira.
- */
-
 class PainelTarefasEmpresa extends HTMLElement {
     connectedCallback() {
         this.render();

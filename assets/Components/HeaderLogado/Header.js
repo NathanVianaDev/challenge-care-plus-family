@@ -55,5 +55,4 @@ export class MeuHeader extends HTMLElement {
     }
 }
 
-// Avisa ao navegador que a tag <meu-header> agora existe
 customElements.define('meu-header', MeuHeader);

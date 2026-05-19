@@ -15,7 +15,7 @@
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.03);
     max-width: 100%; 
     box-sizing: border-box;
-    overflow: hidden; /* Evita que itens vazem para fora */
+    overflow: hidden;
 }
 
 .funcionario-card:hover {
@@ -29,7 +29,7 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    min-width: 0; /* Permite que o container encolha */
+    min-width: 0;
 }
 
 .avatar-mini {
@@ -58,7 +58,7 @@
     font-size: 1.1rem;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; /* Corta o nome com "..." se for muito grande */
+    text-overflow: ellipsis;
 }
 
 .detalhe {
@@ -69,7 +69,7 @@
 .info-secundaria {
     display: flex;
     align-items: center;
-    gap: 30px; /* Reduzi levemente o gap padrão de 35px */
+    gap: 30px;
     flex-shrink: 0;
 }
 

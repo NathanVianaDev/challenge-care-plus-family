@@ -2,15 +2,13 @@
    NAVBAR DESLOGADO - ESTILOS
    ========================================================================== */
 
-/* Estilização da barra de navegação principal */
 .navbar-deslogado-custom {
     padding-bottom: 0; 
     background-color: white !important; 
-    border-bottom: 8px solid #3aadde; /* A borda azul grossa do seu print */
+    border-bottom: 8px solid #3aadde;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Estilização dos Links do Menu */
 .navbar-deslogado-custom .nav-link {
     color: #212529 !important;
     font-family: 'Montserrat', sans-serif; 
@@ -24,7 +22,6 @@
     color: #3aadde !important; 
 }
 
-/* Botão Verde de LOGIN */
 .btn-login {
     display: flex;
     align-items: center;
@@ -32,7 +29,7 @@
     border-radius: 25px;
     height: 42px; 
     padding-left: 20px;
-    padding-right: 5px; /* Espaço para a bolinha azul se acomodar perfeitamente */
+    padding-right: 5px;
     text-decoration: none;
     transition: 0.3s;
 }
@@ -50,7 +47,6 @@
     font-size: 0.85rem;
 }
 
-/* Bolinha Azul com Ícone */
 .circulo-azul-login {
     background-color: #3aadde; 
     width: 34px;  

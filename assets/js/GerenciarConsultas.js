@@ -1,18 +1,15 @@
-// assets/js/GerenciarConsultas.js
-
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Mock de Dados com as cores exatas do Layout Original (Simulando DAO)
     const consultas = [
         { 
             id: 1, dia: '05', mes: 'MAR', especialidade: 'Cardiologia', medico: 'Dr. Roberto Silva', horario: '09:30', status: 'Aguardando confirmação', 
-            corBase: '#3aadde', /* Azul vivo da Care Plus */
+            corBase: '#3aadde', 
             fundoGradiente: 'linear-gradient(to right, #d4f0fa, #8ed5f3)', 
             dataReal: new Date('2026-05-05T09:30:00') 
         },
         { 
             id: 2, dia: '17', mes: 'MAR', especialidade: 'Dermatologia', medico: 'Dra. Ana Costa', horario: '14:30', status: 'Aguardando confirmação', 
-            corBase: '#92C444', /* Verde vivo da Care Plus */
+            corBase: '#92C444',
             fundoGradiente: 'linear-gradient(to right, #eff7e1, #c8e899)', 
             dataReal: new Date('2026-05-17T14:30:00') 
         },
@@ -20,27 +17,24 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 3, dia: '27', mes: 'MAR', especialidade: 'Cardiologia', medico: 'Dr. Roberto Silva', horario: '09:30', status: 'Realizada', 
             corBase: '#3aadde', 
             fundoGradiente: 'linear-gradient(to right, #d4f0fa, #8ed5f3)', 
-            dataReal: new Date('2026-02-10T10:00:00') // Data no passado para testar o bloqueio
+            dataReal: new Date('2026-02-10T10:00:00')
         }
     ];
 
     const containerConsultas = document.getElementById('lista-consultas');
     const dataAtual = new Date('2026-04-30'); 
 
-    // 2. Renderizar as consultas na tela
     function renderizarConsultas() {
-        if (!containerConsultas) return; // Trava de segurança caso o elemento não exista
+        if (!containerConsultas) return; 
 
         containerConsultas.innerHTML = '';
 
         consultas.forEach(consulta => {
             const isFutura = consulta.dataReal > dataAtual;
             
-            // Controle de opacidade e botões
             const botoesDisabled = !isFutura ? 'disabled' : '';
             const opacityClass = !isFutura ? 'opacity-50' : '';
 
-            // Estrutura HTML idêntica ao CardConsulta.css com a injeção dos botões
             const cardHTML = `
                 <div class="card-consulta ${opacityClass} position-relative overflow-hidden" style="background: ${consulta.fundoGradiente}; padding: 0;">
                     
@@ -82,9 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         adicionarEventosBotoes();
     }
 
-    // 3. Adicionar os Event Listeners aos botões
     function adicionarEventosBotoes() {
-        // Evento de Remarcar
         document.querySelectorAll('.btn-remarcar').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const modalGlobal = document.getElementById('alerta-global');
@@ -104,11 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Evento de Cancelar (Abre o modal nativo pedindo motivo)
         let consultaIdParaCancelar = null;
         const elementoModalMotivo = document.getElementById('modalMotivoCancelamento');
         
-        // Só inicializa o modal se o elemento existir na tela
         if (elementoModalMotivo) {
             const modalMotivo = new bootstrap.Modal(elementoModalMotivo);
 
@@ -120,7 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
-            // Confirmação final do Cancelamento
             const btnConfirmar = document.getElementById('btn-confirmar-cancelamento');
             if (btnConfirmar) {
                 btnConfirmar.addEventListener('click', () => {
@@ -147,6 +136,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Inicia a renderização
     renderizarConsultas();
 });

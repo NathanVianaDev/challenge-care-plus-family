@@ -5,17 +5,14 @@ export class CardHubUniversal extends HTMLElement {
     }
 
     connectedCallback() {
-        // Atributos de Identidade
         this.titulo = this.getAttribute('titulo') || 'Monitor';
         this.unidade = this.getAttribute('unidade') || '';
         this.corFundo = this.getAttribute('cor') || 'linear-gradient(205deg, #34D052, #ffffff)';
         this.corProgresso = this.getAttribute('cor-progresso') || '#34D052';
         this.iconPath = this.getAttribute('icon-path') || '';
         
-        // NOVIDADE: Viewbox dinâmico para aceitar o ícone do sono (29 29) ou outros (24 24)
         this.viewBox = this.getAttribute('viewbox') || '0 0 24 24';
 
-        // Atributos das Infos Inferiores
         this.labelEsq = this.getAttribute('label-esq') || '';
         this.labelDir = this.getAttribute('label-dir') || '';
         this.valorEsqPadrao = this.getAttribute('valor-esq') || '0';
@@ -37,7 +34,6 @@ export class CardHubUniversal extends HTMLElement {
         const valEsq = this.shadowRoot.querySelector('#val-esq');
         const valDir = this.shadowRoot.querySelector('#val-dir');
 
-        // Data Automática
         const hoje = new Date();
         txtData.textContent = hoje.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' }).replace('.', '');
 
@@ -49,7 +45,6 @@ export class CardHubUniversal extends HTMLElement {
             txtQuantidade.textContent = atual.toLocaleString();
             txtLabelMeta.textContent = this.titulo === 'Passos' ? `/${meta}` : this.unidade;
 
-            // Lógica Específica para Passos (Cálculos automáticos)
             if (this.titulo === 'Passos') {
                 valEsq.textContent = `${(atual * 0.045).toFixed(0)} kcal`;
                 valDir.textContent = `${(atual / 1320).toFixed(1).replace('.', ',')} km`;

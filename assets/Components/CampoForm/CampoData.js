@@ -40,14 +40,12 @@ export class CampoData extends HTMLElement {
         this.corpoCalendario = this.querySelector('.corpo-calendario-popup');
         this.tituloMes = this.querySelector('.titulo-mes-popup');
         
-        // Abrir/Fechar o calendário ao clicar no input
         this.inputCampo.addEventListener('click', (e) => {
-            e.stopPropagation(); // Evita que o clique feche imediatamente
+            e.stopPropagation();
             this.popup.classList.toggle('ativo');
             this.renderizarCalendario();
         });
 
-        // Fechar o calendário ao clicar em qualquer lugar fora dele
         document.addEventListener('click', (e) => {
             if (!this.contains(e.target)) {
                 this.popup.classList.remove('ativo');
@@ -90,7 +88,6 @@ export class CampoData extends HTMLElement {
                     if (this.anoVisivel === this.dataHoje.getFullYear() && this.mesVisivel === this.dataHoje.getMonth() && diaContador === this.dataHoje.getDate()) {
                         classesCss = 'dia-hoje';
                     }
-                    // Adicionamos um data-attribute para o JS saber qual dia foi clicado
                     htmlSemana += `<td class="${classesCss} dia-selecionavel" data-dia="${diaContador}"><span class="dia-numero">${diaContador}</span></td>`;
                     diaContador++;
                 } else {
@@ -103,19 +100,16 @@ export class CampoData extends HTMLElement {
         }
         this.corpoCalendario.innerHTML = htmlLinhas;
 
-        // Adiciona a lógica de clique para cada dia válido
         const diasClicaveis = this.querySelectorAll('.dia-selecionavel');
         diasClicaveis.forEach(diaTd => {
             diaTd.addEventListener('click', (e) => {
                 e.stopPropagation();
                 const diaEscolhido = diaTd.getAttribute('data-dia');
                 
-                // Formata a data para DD/MM/AAAA
                 const diaFormatado = diaEscolhido.padStart(2, '0');
                 const mesFormatado = String(this.mesVisivel + 1).padStart(2, '0');
                 const dataFinal = `${diaFormatado}/${mesFormatado}/${this.anoVisivel}`;
                 
-                // Preenche o input e fecha o calendário
                 this.inputCampo.value = dataFinal;
                 this.popup.classList.remove('ativo');
             });

@@ -5,8 +5,8 @@ class FormularioFamilia extends HTMLElement {
         this.mensagemModal = null;
         this.modalInclusao = null;
         this.modalRemocao = null;
-        this.membroTemporario = null; // Guarda os dados antes de confirmar
-        this.indexRemocaoAtiva = null; // Guarda quem vamos deletar
+        this.membroTemporario = null;
+        this.indexRemocaoAtiva = null;
     }
 
     connectedCallback() {
@@ -195,7 +195,6 @@ class FormularioFamilia extends HTMLElement {
         this.modalInclusao = new bootstrap.Modal(this.querySelector('#modalConfirmarInclusao'));
         this.modalRemocao = new bootstrap.Modal(this.querySelector('#modalConfirmarRemocao'));
 
-        // --- LÓGICA DAS CHECKBOXES INTELIGENTES ---
         const checkNao = this.querySelector('#dadosNao');
         const checkFamilia = this.querySelector('#dadosFamilia');
         const checkEmpresa = this.querySelector('#dadosEmpresa');
@@ -212,7 +211,6 @@ class FormularioFamilia extends HTMLElement {
         checkFamilia.addEventListener('change', desmarcarNao);
         checkEmpresa.addEventListener('change', desmarcarNao);
 
-        // --- VALIDAÇÕES E INCLUSÃO DE MEMBRO ---
         const btnIncluir = this.querySelector('#btnIncluirMembro');
         const inputNome = this.querySelector('#inputNomeMembro');
         const inputCpf = this.querySelector('#inputCpfMembro');
@@ -220,7 +218,6 @@ class FormularioFamilia extends HTMLElement {
         const erroCpf = this.querySelector('#erroCpfMembro');
         const checkResp = this.querySelector('#checkResponsavel');
 
-        // Remove erro visual ao digitar
         inputNome.addEventListener('input', () => { inputNome.classList.remove('is-invalid'); erroNome.classList.add('d-none'); });
         inputCpf.addEventListener('input', () => { inputCpf.classList.remove('is-invalid'); erroCpf.classList.add('d-none'); });
 
@@ -229,7 +226,6 @@ class FormularioFamilia extends HTMLElement {
             const cpfValido = inputCpf.value.trim();
             let formValido = true;
 
-            // Validação
             if (!nomeValido) {
                 inputNome.classList.add('is-invalid');
                 erroNome.classList.remove('d-none');
@@ -242,14 +238,12 @@ class FormularioFamilia extends HTMLElement {
             }
 
             if (formValido) {
-                // Guarda dados na variável temporária
                 this.membroTemporario = {
                     nome: nomeValido,
                     cpf: cpfValido,
                     responsavel: checkResp.checked
                 };
 
-                // Preenche o modal de confirmação
                 this.querySelector('#confirmNomeMembro').innerText = nomeValido;
                 this.querySelector('#confirmCpfMembro').innerText = cpfValido;
                 this.querySelector('#confirmRespMembro').innerHTML = checkResp.checked ? '<span class="text-success fw-bold">Sim</span>' : 'Não';
@@ -258,12 +252,10 @@ class FormularioFamilia extends HTMLElement {
             }
         });
 
-        // Ação de confirmar do modal de inclusão
         this.querySelector('#btnSimIncluir').addEventListener('click', () => {
             if (this.membroTemporario) {
                 this.membros.push(this.membroTemporario);
                 
-                // Limpa formulário
                 inputNome.value = '';
                 inputCpf.value = '';
                 checkResp.checked = false;
@@ -274,21 +266,17 @@ class FormularioFamilia extends HTMLElement {
             }
         });
 
-        // --- LÓGICA DE REMOÇÃO DE MEMBRO ---
-        // Usamos delegação de evento na tabela
         this.querySelector('#corpoTabelaMembros').addEventListener('click', (e) => {
             const btnRemover = e.target.closest('.btn-remover-membro');
             if (btnRemover) {
                 this.indexRemocaoAtiva = parseInt(btnRemover.getAttribute('data-index'));
                 const nomeParaRemover = this.membros[this.indexRemocaoAtiva].nome;
                 
-                // Preenche o modal de remoção
                 this.querySelector('#nomeMembroRemover').innerText = nomeParaRemover;
                 this.modalRemocao.show();
             }
         });
 
-        // Ação de confirmar do modal de remoção
         this.querySelector('#btnSimRemover').addEventListener('click', () => {
             if (this.indexRemocaoAtiva !== null) {
                 this.membros.splice(this.indexRemocaoAtiva, 1);
@@ -298,7 +286,6 @@ class FormularioFamilia extends HTMLElement {
             }
         });
 
-        // --- SALVAR PRINCIPAL ---
         const btnSalvar = this.querySelector('#btnSalvarPrincipal');
         btnSalvar.addEventListener('click', () => { this.mensagemModal.show(); });
 

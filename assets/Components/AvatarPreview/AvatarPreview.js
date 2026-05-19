@@ -1,8 +1,3 @@
-/**
- * AvatarPreview - Care Plus Family
- * Componente Modular para visualização do Avatar com camadas e injeção de CSS Global.
- */
-
 const CSS_URL = '../../Components/AvatarPreview/AvatarPreview.css';
 
 class AvatarPreview extends HTMLElement {
@@ -39,7 +34,6 @@ class AvatarPreview extends HTMLElement {
     connectedCallback() {
         this.render();
         this.injetarStyleGlobal();
-        // Pequeno delay para garantir que o DOM principal carregou o botão salvar
         setTimeout(() => this.inicializarLogicaMenu(), 100);
     }
 
@@ -142,13 +136,13 @@ class AvatarPreview extends HTMLElement {
         const botoesMenuLateral = document.querySelectorAll('.menu-item-lateral');
         const gridOpcoes = document.getElementById('opcoes-grid');
 
-        // ELEMENTOS DO MODAL (ESTILO ZAMBONI)
+        // ELEMENTOS DO MODAL
         const modal = document.getElementById('modalSucessoAvatar');
         const modalTitulo = document.getElementById('modalTituloAvatar');
         const modalTexto = document.getElementById('modalTextoAvatar');
         const btnFecharModal = document.getElementById('btnFecharModalAvatar');
 
-        // LÓGICA DO BOTÃO SALVAR REFORÇADA
+        // LÓGICA DO BOTÃO SALVAR
         const btnSalvar = document.getElementById('btn-salvar-avatar');
         if (btnSalvar) {
             btnSalvar.onclick = () => {
@@ -161,7 +155,6 @@ class AvatarPreview extends HTMLElement {
                 };
                 localStorage.setItem('careplus_avatar', JSON.stringify(config));
 
-                // DISPARA O MODAL DO ZAMBONI
                 if (modal && modalTitulo && modalTexto) {
                     modalTitulo.innerText = "Visual Salvo!";
                     modalTexto.innerHTML = "Seu avatar foi personalizado com sucesso.<br><br>As alterações já foram aplicadas ao seu perfil da Care Plus Family!";
@@ -174,7 +167,7 @@ class AvatarPreview extends HTMLElement {
         if (btnFecharModal && modal) {
             btnFecharModal.addEventListener('click', () => {
                 modal.classList.add('hidden');
-                window.location.reload(); // Recarrega para o Header ler o novo avatar
+                window.location.reload();
             });
         }
 

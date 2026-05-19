@@ -41,13 +41,11 @@ export class CaixaAcaoConsulta extends HTMLElement {
         // Lógica de Interatividade Corrigida
         const radios = this.querySelectorAll('input[name="tipo_acao"]');
         
-        // Agora nós buscamos o COMPONENTE inteiro, e não apenas o textarea
         const componenteMotivo = this.querySelector('#componente-motivo');
 
         radios.forEach(radio => {
             radio.addEventListener('change', (e) => {
                 
-                // Agora ele acha a label perfeitamente!
                 const labelMotivo = componenteMotivo.querySelector('label');
 
                 if (e.target.value === 'cancelar') {

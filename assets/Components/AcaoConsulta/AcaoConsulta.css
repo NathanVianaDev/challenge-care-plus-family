@@ -1,16 +1,7 @@
-/*.caixa-escolha-container {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: #21252967 0 0px 7px;
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 20px;
-}*/
-
 .radio-group {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Espaço entre a opção cancelar e remarcar */
+    gap: 10px;
     padding-bottom: 15px;
    
 }

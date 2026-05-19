@@ -8,7 +8,7 @@
 }
 
 /* ==========================================================================
-   HERO SECTION (BANNER PADRONIZADO)
+   HERO SECTION 
    ========================================================================== */
 .hero-contatos {
     background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), 
@@ -28,10 +28,10 @@
 }
 
 /* ==========================================================================
-   ÁREA DE CONTATOS (Layout Limpo)
+   ÁREA DE CONTATOS 
    ========================================================================== */
 .container-contatos {
-    max-width: 900px; /* Um pouco mais estreito para o texto não espalhar muito */
+    max-width: 900px; 
     padding: 0 20px;
 }
 
@@ -45,7 +45,7 @@
 .contato-header {
     display: flex;
     align-items: center;
-    gap: 12px; /* Espaço entre ícone e título */
+    gap: 12px; 
     margin-bottom: 8px;
 }
 
@@ -57,7 +57,6 @@
 }
 
 .contato-numeros {
-    /* Indentação para o número ficar alinhado com a palavra, não com o ícone */
     padding-left: 36px; 
 }
 
@@ -68,7 +67,6 @@
     margin-bottom: 5px;
 }
 
-/* Linha divisória sutil entre os blocos */
 .border-bottom {
     border-bottom: 1px solid #e0e5eb !important;
 }

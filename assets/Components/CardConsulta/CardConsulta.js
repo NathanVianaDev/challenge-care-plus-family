@@ -1,5 +1,3 @@
-// Arquivo: CardConsulta.js
-
 export class CardConsulta extends HTMLElement {
     connectedCallback() {
         // --- 1. CAPTURANDO OS DADOS ---
@@ -63,8 +61,6 @@ export class CardConsulta extends HTMLElement {
                     <i class="bi bi-check-lg"></i>
                 </button>
             `;
-
-            // Modal restaurado com a imagem e textos maiores, mas respeitando o espaçamento!
             areaModais = `
                 <div class="modal fade" id="modal-${idUnico}" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
@@ -271,7 +267,6 @@ export class CardConsulta extends HTMLElement {
                 wrapperCard.style.cursor = 'pointer';
 
                 wrapperCard.addEventListener('click', (e) => {
-                    // Evita que clicar nos botões expanda/recolha a gaveta
                     if (e.target.closest('.novo-btn-confirmar') || e.target.closest('.btn-acao-extra')) {
                         return;
                     }

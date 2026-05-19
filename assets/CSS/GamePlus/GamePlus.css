@@ -1,17 +1,13 @@
 /* ==========================================================================
-   CONFIGURAÇÕES GERAIS DE CORES E EFEITOS (UI/UX PREMIUM)
+   CONFIGURAÇÕES GERAIS DE CORES E EFEITOS 
    ========================================================================== */
 :root {
     --careplus-blue: #3aadde;
     --careplus-blue-light: #dcf2fa;
     --text-dark: #1a1a1a;
     --text-grey: #4a4a4a;
-    
-    /* Vidro mais "cristalino" e focado na leitura */
     --bg-glass-card: rgba(255, 255, 255, 0.98); 
     --border-glass: rgba(58, 173, 222, 0.5);   
-    
-    /* Sombreamento refinado: Menos sombra preta, mais glow azul */
     --shadow-spectacular: 0 5px 20px rgba(0, 0, 0, 0.04), 0 0 15px rgba(58, 173, 222, 0.1); 
     --shadow-spectacular-hover: 0 10px 30px rgba(0, 0, 0, 0.08), 0 0 35px rgba(58, 173, 222, 0.35); 
 }
@@ -22,10 +18,8 @@
 .hero-gameplus {
     background: url('/assets/Images/GamePlus/GamePlus.png') no-repeat center center;
     background-size: cover;
-    /* Adicionado para focar na parte mais importante da imagem */
     background-position: center 30%; 
     width: 100%;
-    /* Altura reduzida de 558px para 380px para um visual de "faixa" */
     height: 380px; 
     border-bottom: 4px solid var(--careplus-blue);
 }
@@ -38,7 +32,7 @@
 }
 
 /* ==========================================================================
-   SEÇÃO 2: TIMELINE VERTICAL (A MÁGICA GAMIFICADA)
+   SEÇÃO 2: TIMELINE VERTICAL
    ========================================================================== */
 .timeline-section {
     position: relative;
@@ -53,7 +47,6 @@
     position: relative;
 }
 
-/* Linha Central: Agora é um feixe de luz azul degradê */
 .timeline-linha-central {
     position: absolute;
     left: 50%;
@@ -66,7 +59,6 @@
     box-shadow: 0 0 10px rgba(58, 173, 222, 0.3);
 }
 
-/* Checkpoints Luminosos (Nodos da Trilha) */
 .timeline-node {
     position: absolute;
     left: 50%;
@@ -82,18 +74,16 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Interação com o Nodo ao passar o mouse na seção */
 .timeline-item:hover .timeline-node {
     transform: translate(-50%, -50%) scale(1.3);
     box-shadow: 0 0 25px rgba(58, 173, 222, 0.9);
 }
 
-/* Container de cada linha (Texto + Imagem) */
 .timeline-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 7rem; /* Respiro maior entre as seções */
+    margin-bottom: 7rem;
     position: relative;
     z-index: 2;
 }
@@ -104,19 +94,17 @@
 
 .timeline-conteudo,
 .timeline-imagem {
-    width: 44%; /* Dá um espaço perfeito no centro para a linha respirar */
+    width: 44%; 
 }
 
 /* ==========================================================================
-   ESTILOS DOS CARDS (DESIGN FIDELIZADO) E IMAGENS
+   ESTILOS DOS CARDS E IMAGENS
    ========================================================================== */
 .card-glass-game {
     background-color: var(--bg-glass-card);
-    border: 2px solid var(--border-glass); /* Borda mais limpa e fina, como no Figma */
-    border-radius: 12px; /* Arredondamento suave */
+    border: 2px solid var(--border-glass);
+    border-radius: 12px;
     padding: 40px 30px;
-    
-    /* O texto agora fica centralizado dentro do card, idêntico ao Figma original */
     text-align: center; 
     
     -webkit-backdrop-filter: blur(4px);
@@ -129,7 +117,7 @@
 .card-glass-game:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-spectacular-hover);
-    border-color: rgba(58, 173, 222, 0.9); /* Borda "acende" no hover */
+    border-color: rgba(58, 173, 222, 0.9); 
 }
 
 .card-glass-game h3 {
@@ -146,7 +134,6 @@
     margin: 0;
 }
 
-/* Imagens do Sistema (Tratamento para parecerem "Telas de Computador" flutuando) */
 .sombra-imagem {
     border-radius: 12px;
     border: 1px solid #eef1f5;
@@ -155,7 +142,7 @@
 }
 
 .timeline-item:hover .sombra-imagem {
-    transform: translateY(-8px); /* A imagem flutua junto com o card */
+    transform: translateY(-8px); 
     box-shadow: 0 25px 45px rgba(0,0,0,0.12);
 }
 
@@ -163,12 +150,10 @@
    RESPONSIVIDADE (Mobile e Tablets)
    ========================================================================== */
 @media (max-width: 991px) {
-    /* Altura reduzida de 350px para 250px no celular */
     .hero-gameplus { height: 250px; } 
 
     .subtitulo-destaque { font-size: 1.6rem; padding: 0 15px; }
 
-    /* Esconde elementos visuais complexos no mobile para foco na leitura */
     .timeline-linha-central, .timeline-node { display: none; }
 
     .timeline-item, .timeline-item.invertido {

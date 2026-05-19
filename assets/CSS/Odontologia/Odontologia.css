@@ -3,7 +3,7 @@
    ========================================================================== */
 :root {
     --careplus-blue: #3aadde;
-    --careplus-green: #8CC63F; /* O verde do botão de Login adicionado aqui! */
+    --careplus-green: #8CC63F;
     --bg-light-blue: #dcf2fa;
     --text-dark: #333333;
     
@@ -50,9 +50,8 @@
     min-height: 566px; 
 }
 
-/* Título Geral (Agora com o Verde Care Plus!) */
 .titulo-secao {
-    color: var(--careplus-green); /* Alterado de blue para green */
+    color: var(--careplus-green);
     font-weight: 700; 
     font-size: 1.4rem; 
 }
@@ -179,9 +178,6 @@
     box-shadow: 0 0 8px rgba(58, 173, 222, 0.6); 
 }
 
-/* ==========================================================================
-   CARROSSEL FUNCIONAL (ESTRUTURA CORRIGIDA)
-   ========================================================================== */
 .carousel-tratamentos {
     overflow: hidden; 
     width: 100%;
@@ -192,16 +188,13 @@
     display: flex;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     width: 100%;
-    align-items: stretch; /* Garante que os cards acompanhem a altura máxima */
+    align-items: stretch;
 }
 
 .carousel-slide {
-    flex: 0 0 100%; /* Trava o tamanho do slide em exatos 100% do container pai */
+    flex: 0 0 100%; 
     width: 100%;
-    max-width: 100%; /* Impede o vazamento horizontal */
-    
-    /* O padding lateral (15px) neutraliza as margens negativas da .row do Bootstrap.
-       O padding vertical (20px) garante que a sombra do :hover não seja cortada. */
+    max-width: 100%;
     padding: 20px 15px; 
     box-sizing: border-box;
 }

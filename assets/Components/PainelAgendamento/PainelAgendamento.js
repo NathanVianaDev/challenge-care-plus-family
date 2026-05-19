@@ -1,5 +1,3 @@
-// assets/Components/PainelAgendamento/PainelAgendamento.js
-
 export class PainelAgendamento extends HTMLElement {
     connectedCallback() {
         this.mesAtualIndice = 0;
@@ -225,7 +223,6 @@ export class PainelAgendamento extends HTMLElement {
         const tituloSucesso = this.querySelector('#tituloSucesso');
         const msgSucesso = this.querySelector('#mensagemSucesso');
         
-        // Elementos de Validação
         const inputFilaData = this.querySelector('#filaData');
         const erroFilaData = this.querySelector('#erroFilaData');
 
@@ -235,18 +232,16 @@ export class PainelAgendamento extends HTMLElement {
             modalFila.classList.remove('hidden');
         });
 
-        // Evento para limpar o erro quando o usuário escolhe uma data
         inputFilaData.addEventListener('change', () => {
             if (inputFilaData.value) {
                 inputFilaData.classList.remove('is-invalid');
-                inputFilaData.style.borderColor = ''; // Reseta a cor da borda
-                erroFilaData.classList.add('d-none'); // Esconde a mensagem
+                inputFilaData.style.borderColor = ''; 
+                erroFilaData.classList.add('d-none');
             }
         });
 
         this.querySelector('#btnFecharFila').addEventListener('click', () => {
             modalFila.classList.add('hidden');
-            // Limpa o erro ao fechar o modal
             inputFilaData.classList.remove('is-invalid');
             inputFilaData.style.borderColor = '';
             erroFilaData.classList.add('d-none');
@@ -257,11 +252,10 @@ export class PainelAgendamento extends HTMLElement {
             const periodo = this.querySelector('#filaPeriodo').value;
             const esp = this.querySelector('#especialidade').value;
 
-            // NOVA LÓGICA DE VALIDAÇÃO
             if (!data) {
                 inputFilaData.classList.add('is-invalid');
-                inputFilaData.style.borderColor = '#dc3545'; // Fica vermelho
-                erroFilaData.classList.remove('d-none'); // Aparece a mensagem abaixo
+                inputFilaData.style.borderColor = '#dc3545';
+                erroFilaData.classList.remove('d-none'); 
                 return;
             }
 

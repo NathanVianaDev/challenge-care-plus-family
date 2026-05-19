@@ -1,5 +1,3 @@
-// Arquivo: CalendarioDinamico.js
-
 export class CalendarioDinamico extends HTMLElement {
     connectedCallback() {
         const larguraCalendario = this.getAttribute('larguraCalendario') || '100%';
@@ -13,7 +11,7 @@ export class CalendarioDinamico extends HTMLElement {
         this.anoVisivel = this.dataHoje.getFullYear();
         this.nomesMeses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 
-        // Montagem do HTML
+        //HTML
         this.innerHTML = `
             <link rel="stylesheet" href="Calendario.css">
             <div class="calendario-wrapper-externo" style="width: ${larguraCalendario}; height: ${alturaCalendario};">
@@ -43,13 +41,11 @@ export class CalendarioDinamico extends HTMLElement {
             </div>
         `;
 
-        // Capturando os elementos criados
         this.corpoCalendario = this.querySelector('.corpo-calendario');
         this.tituloMes = this.querySelector('.titulo-mes');
         const btnAnterior = this.querySelector('.btn-mes-anterior');
         const btnProximo = this.querySelector('.btn-mes-proximo');
 
-        // Eventos de clique nas setas (com prevenção de recarregamento da tela)
         btnAnterior.addEventListener('click', (e) => {
             e.preventDefault();
             this.mudarMes(-1);
@@ -60,11 +56,9 @@ export class CalendarioDinamico extends HTMLElement {
             this.mudarMes(1);
         });
 
-        // Desenha o calendário pela primeira vez
         this.renderizarCalendario();
     }
 
-    // Função que calcula a mudança de mês/ano
     mudarMes(direcao) {
         this.mesVisivel += direcao;
         if (this.mesVisivel < 0) {
@@ -77,7 +71,6 @@ export class CalendarioDinamico extends HTMLElement {
         this.renderizarCalendario();
     }
 
-    // Função que injeta os dias na tabela
     renderizarCalendario() {
         this.tituloMes.textContent = `${this.nomesMeses[this.mesVisivel]} ${this.anoVisivel}`;
 
@@ -98,7 +91,6 @@ export class CalendarioDinamico extends HTMLElement {
                 } else if (diaContador <= diasNoMes) {
                     let classesCss = '';
 
-                    // Lógica de cores (passado, presente, futuro)
                     if (this.anoVisivel === this.dataHoje.getFullYear() && this.mesVisivel === this.dataHoje.getMonth()) {
                         if (diaContador === this.dataHoje.getDate()) classesCss = 'dia-atual';
                         else if (diaContador < this.dataHoje.getDate()) classesCss = 'dia-passado';
@@ -124,5 +116,4 @@ export class CalendarioDinamico extends HTMLElement {
     }
 }
 
-// Registra o componente final no navegador
 customElements.define('calendario-dinamico', CalendarioDinamico);

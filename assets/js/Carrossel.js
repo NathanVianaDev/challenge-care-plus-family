@@ -7,29 +7,23 @@ document.addEventListener('DOMContentLoaded', () => {
     let slideAtual = 0;
     const totalSlides = dots.length;
 
-    // Função que atualiza a posição e as bolinhas do carrossel
     function atualizarCarrossel() {
-        // Move a trilha usando porcentagem (100% = 1 slide inteiro)
         track.style.transform = `translateX(-${slideAtual * 100}%)`;
         
-        // Atualiza o visual da bolinha ativa
         dots.forEach(dot => dot.classList.remove('ativo'));
         dots[slideAtual].classList.add('ativo');
     }
 
-    // Clique na Seta Direita
     setaDir.addEventListener('click', () => {
-        slideAtual = (slideAtual + 1) % totalSlides; // Volta para o 0 ao chegar no fim
+        slideAtual = (slideAtual + 1) % totalSlides;
         atualizarCarrossel();
     });
 
-    // Clique na Seta Esquerda
     setaEsq.addEventListener('click', () => {
-        slideAtual = (slideAtual - 1 + totalSlides) % totalSlides; // Vai pro último se estiver no 0
+        slideAtual = (slideAtual - 1 + totalSlides) % totalSlides;
         atualizarCarrossel();
     });
 
-    // Clique direto nas bolinhas
     dots.forEach(dot => {
         dot.addEventListener('click', (e) => {
             slideAtual = parseInt(e.target.getAttribute('data-index'));

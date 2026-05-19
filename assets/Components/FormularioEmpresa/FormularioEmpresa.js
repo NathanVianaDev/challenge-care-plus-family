@@ -9,7 +9,6 @@ class FormularioEmpresa extends HTMLElement {
             { nome: 'Neville Longbottom', iniciais: 'NL' },
             { nome: 'Luna Lovegood', iniciais: 'LL' }
         ];
-        // Variável para controlar a mensagem do modal
         this.mensagemModal = null;
     }
 
@@ -117,32 +116,26 @@ class FormularioEmpresa extends HTMLElement {
     }
 
     configurarEventos() {
-        // 1. Inicializa a mensagem do Bootstrap
         this.mensagemModal = new bootstrap.Modal(this.querySelector('#modalConfirmacaoTeste'));
 
-        // 2. Lógica do campo de Busca
         const inputBusca = this.querySelector('#inputBuscaColaborador');
         inputBusca.addEventListener('input', (evento) => {
             const termoBusca = evento.target.value.toLowerCase();
             this.atualizarListaColaboradores(termoBusca);
         });
 
-        // 3. Abrir a mensagem ao clicar em Salvar
         const btnSalvar = this.querySelector('#btnSalvarEmpresa');
         btnSalvar.addEventListener('click', () => {
             this.mensagemModal.show();
         });
 
-        // 4. Limpar o formulário ao clicar em Entendi (com a correção de acessibilidade)
         const btnEntendi = this.querySelector('#btnEntendiMensagem');
         btnEntendi.addEventListener('click', () => {
-            btnEntendi.blur(); // Tira o foco para evitar o erro do aria-hidden
-
-            // Limpa os campos de texto
+            btnEntendi.blur();
             const form = this.querySelector('#form-empresa-principal');
             if (form) form.reset();
 
-            // Limpa a barra de busca e restaura a lista completa de colaboradores
+            
             if (inputBusca) inputBusca.value = '';
             this.atualizarListaColaboradores();
         });

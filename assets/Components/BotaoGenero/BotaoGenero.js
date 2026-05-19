@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
         btnMasc.addEventListener('click', () => atualizarEstado('masculino'));
         btnFem.addEventListener('click', () => atualizarEstado('feminino'));
         
-        // Inicialização: Se o masculino começa ativo, pinta o texto de azul
         if (btnMasc.hasAttribute('active')) {
             textAvatar.style.color = '#0d6efd';
         }

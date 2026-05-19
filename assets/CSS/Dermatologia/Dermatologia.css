@@ -1,9 +1,9 @@
 /* ==========================================================================
-   CONFIGURAÇÕES GERAIS DE CORES E EFEITOS (UI/UX PREMIUM)
+   CONFIGURAÇÕES GERAIS DE CORES E EFEITOS
    ========================================================================== */
 :root {
     --careplus-blue: #3aadde;
-    --careplus-green: #8CC63F; /* O verde do botão de Login */
+    --careplus-green: #8CC63F;
     --text-dark: #333333;
     --text-grey: #666666;
     
@@ -14,14 +14,14 @@
 }
 
 /* ==========================================================================
-   SEÇÃO 1: HERO (BANNER PADRONIZADO)
+   SEÇÃO 1: HERO 
    ========================================================================== */
 .hero-dermatologia {
     background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), 
                 url('/assets/Images/Dermatologia/Dermatologia.png') no-repeat center 65%;
     background-size: cover;
     width: 100%;
-    height: 380px; /* Altura reduzida para o padrão de faixa */
+    height: 380px;
     border-bottom: 3px solid var(--careplus-blue);
 }
 
@@ -42,7 +42,7 @@
 }
 
 /* ==========================================================================
-   SEÇÃO 2: ESPECIALIDADES (Melhoria UI/UX com Cards)
+   SEÇÃO 2: ESPECIALIDADES
    ========================================================================== */
 .container-especialidades {
     max-width: 1200px; 
@@ -50,7 +50,6 @@
     padding: 0 15px; 
 }
 
-/* Título Geral em Verde */
 .titulo-secao-geral {
     color: var(--careplus-green); 
     font-weight: 700;
@@ -105,7 +104,7 @@
    ========================================================================== */
 @media (max-width: 991px) {
     .hero-dermatologia {
-        height: 250px; /* Altura de mobile padronizada! */
+        height: 250px;
     }
     
     .hero-title {

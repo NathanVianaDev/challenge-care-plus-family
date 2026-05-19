@@ -1,10 +1,10 @@
 /* ==========================================================================
-   PAINEL DE RANKING - UI/UX MODERNO
+   PAINEL DE RANKING
    ========================================================================== */
 .ranking-container {
     background-color: #ffffff;
-    border-radius: 24px; /* Bordas mais arredondadas (Moderno) */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04); /* Sombra super suave e ampla */
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04); 
     padding: 40px;
 }
 
@@ -12,12 +12,11 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     font-size: 2rem;
-    color: #3aadde; /* Título no azul da marca */
+    color: #3aadde; 
     margin-bottom: 30px;
     letter-spacing: -0.5px;
 }
 
-/* --- Dashboard do Usuário (Cards do Topo) --- */
 .dashboard-card {
     background-color: #5f5a5a18;
     border-radius: 16px;
@@ -34,7 +33,7 @@
 .profile-avatar {
     width: 75px;
     height: 75px;
-    border-radius: 50%; /* Foto redonda fica muito mais elegante */
+    border-radius: 50%;
     object-fit: cover;
     border: 3px solid #fff;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -52,7 +51,6 @@
 .text-care-blue { color: #3aadde; }
 .text-care-green { color: #92C444; }
 
-/* --- Abas Modernas (Segmented Control) --- */
 .modern-tabs-wrapper {
     text-align: center;
     margin: 40px 0 30px 0;
@@ -86,7 +84,6 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-/* --- Leaderboard (Lista Elegante) --- */
 .leaderboard-header {
     display: flex;
     font-size: 0.8rem;
@@ -112,27 +109,23 @@
     margin-bottom: 12px;
     transition: all 0.3s ease;
     
-    /* Animação em Cascata */
     opacity: 0;
     transform: translateY(15px);
     animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Micro-interação: Efeito maravilhoso ao passar o mouse na linha */
 .ranking-row:hover {
     transform: translateX(8px) scale(1.01);
     border-color: #92C444;
     box-shadow: 0 8px 20px rgba(146, 196, 68, 0.1);
 }
 
-/* Tempos da Animação */
 .ranking-row:nth-child(2) { animation-delay: 0.1s; }
 .ranking-row:nth-child(3) { animation-delay: 0.2s; }
 .ranking-row:nth-child(4) { animation-delay: 0.3s; }
 .ranking-row:nth-child(5) { animation-delay: 0.4s; }
 .ranking-row:nth-child(6) { animation-delay: 0.5s; }
 
-/* Tipografia e Ícones da Lista */
 .medalha {
     width: 35px;
     height: 35px;

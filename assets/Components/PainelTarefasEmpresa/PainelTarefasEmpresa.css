@@ -31,7 +31,7 @@
 .tarefa-row {
     display: flex;
     align-items: center;
-    background-color: #f8f9fa; /* Fundo gelo original */
+    background-color: #f8f9fa;
     border: 1px solid #f0f0f0;
     border-radius: 12px;
     padding: 15px;
@@ -44,13 +44,12 @@
 }
 
 .tarefa-row:hover {
-    background-color: #ffffff; /* Acende no hover */
+    background-color: #ffffff;
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 15px 35px rgba(146, 196, 68, 0.12);
     border-color: #92C444;
 }
 
-/* Tipografia */
 .tarefa-num {
     font-weight: 800;
     font-size: 1.2rem;
@@ -65,7 +64,6 @@
 .tarefa-desc { font-weight: 600; color: #333; margin: 0; }
 .tarefa-pontos { font-weight: 700; color: #666; margin: 0; }
 
-/* Status Badge e Barras */
 .status-badge {
     position: relative;
     display: inline-flex;
@@ -92,12 +90,11 @@
 @keyframes slideUpFade { to { opacity: 1; transform: translateY(0); } }
 @keyframes fillProgress { to { width: var(--target-width); } }
 
-/* Efeito Completed */
 .status-badge.completed { animation: pulseGlow 2.5s infinite; }
 .text-white-final { color: #fff !important; }
 
 /* ==========================================================================
-   RESPONSIVIDADE (MOBILE) - LAYOUT DINÂMICO
+   RESPONSIVIDADE (MOBILE) 
    ========================================================================== */
 @media (max-width: 768px) {
     .tarefas-header { 
@@ -107,12 +104,11 @@
     .tarefa-row { 
         flex-direction: column; 
         text-align: center; 
-        position: relative; /* Transforma o card em uma âncora para os itens absolutos */
-        padding: 50px 15px 20px 15px; /* Abre um "teto" de 50px para caber os itens dos cantos */
+        position: relative;
+        padding: 50px 15px 20px 15px; 
         gap: 15px;
     }
 
-    /* 1. Número no Canto Superior Esquerdo */
     .col-num { 
         position: absolute;
         top: 15px;
@@ -122,13 +118,12 @@
     }
     
     .tarefa-num {
-        margin: 0; /* Remove a margem automática para colar na esquerda */
+        margin: 0;
         width: 32px;
         height: 32px;
         font-size: 1rem;
     }
 
-    /* 2. Pontuação no Canto Superior Direito */
     .col-pontos { 
         position: absolute;
         top: 18px;
@@ -138,7 +133,6 @@
         padding: 0;
     }
 
-    /* Adiciona a nomenclatura "PTS" via CSS magicamente apenas no mobile */
     .tarefa-pontos::after {
         content: ' PTS';
         font-size: 0.8rem;
@@ -147,7 +141,6 @@
         margin-left: 2px;
     }
 
-    /* 3. Descrição e Status Centralizados abaixo do "teto" */
     .col-desc, .col-status { 
         width: 100%; 
         padding: 0; 

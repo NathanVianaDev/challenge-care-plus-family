@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CONFIGURAÇÕES GERAIS E CONTAINER PAI
+   CONFIGURAÇÕES GERAIS
    ========================================================================== */
 
 .container-mae {
@@ -8,21 +8,19 @@
 }
 
 /* ==========================================================================
-   COLUNA DA ESQUERDA: PERFIL DO GESTOR (DIV AZUL)
+   COLUNA DA ESQUERDA: PERFIL DO GESTOR
    ========================================================================== */
 
 .usuario-empresa {
     background-color: #ffffff;
     border-radius: 15px;
     border: 2px solid #00000017;
-    /* Sombra mais intensa para dar profundidade */
     box-shadow: 7px 7px 15px #00000017 !important;
-    color: #333; /* Texto escuro para fundo branco */
+    color: #333; 
     padding: 25px;
     min-height: 350px;
 }
 
-/* O Ring (Aro) ao redor da foto com as cores da Care Plus */
 .profile-ring {
     padding: 5px; 
     border-radius: 50%;
@@ -46,11 +44,11 @@
 }
 
 #display-name {
-    color: #3aadde; /* Nome em azul para destaque */
+    color: #3aadde; 
 }
 
 /* ==========================================================================
-   COLUNA DA DIREITA: PAINEL DA EMPRESA (MICROSOFT)
+   COLUNA DA DIREITA: PAINEL DA EMPRESA
    ========================================================================== */
 
 .painel-funcionarios {
@@ -58,15 +56,12 @@
     border-radius: 15px;
     border: 1px solid #00000017;
     box-shadow: 7px 7px 15px #00000017 !important;
-    
-    /* TRAVA O LAYOUT: Altura fixa para alinhar com a esquerda e ativar scroll */
     height: 750px; 
     display: flex;
     flex-direction: column;
     overflow: hidden; 
 }
 
-/* Header fixo no topo */
 .header-empresa {
     background-color: #f8f9fa;
     padding: 20px 30px;
@@ -74,7 +69,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-shrink: 0; /* Não deixa o header achatar */
+    flex-shrink: 0; 
 }
 
 .header-empresa h2 {
@@ -82,9 +77,8 @@
     letter-spacing: -1px;
 }
 
-/* Botão de Cadastro Estilizado */
 #btn-cadastrar-func {
-    background-color: #8CC63F; /* Verde Care Plus */
+    background-color: #8CC63F;
     border: none;
     transition: transform 0.2s, background-color 0.2s;
 }
@@ -96,18 +90,17 @@
 }
 
 /* ==========================================================================
-   LISTA DE FUNCIONÁRIOS E BARRA DE ROLAGEM (SCROLL)
+   LISTA DE FUNCIONÁRIOS E BARRA DE ROLAGEM
    ========================================================================== */
 
 .corpo-lista {
-    padding: 30px 15px; /* Reduzi o padding lateral de 30 para 15 */
+    padding: 30px 15px; 
     flex: 1;
     overflow-y: auto;
-    overflow-x: hidden; /* FORÇA o sumiço da barra horizontal */
+    overflow-x: hidden; 
     box-sizing: border-box;
 }
 
-/* Customização da Scrollbar (Chrome/Edge/Safari) */
 .corpo-lista::-webkit-scrollbar {
     width: 8px;
 }
@@ -118,16 +111,16 @@
 }
 
 .corpo-lista::-webkit-scrollbar-thumb {
-    background: #3aadde; /* Azul Care Plus */
+    background: #3aadde;
     border-radius: 10px;
 }
 
 .corpo-lista::-webkit-scrollbar-thumb:hover {
-    background: #8CC63F; /* Verde Care Plus ao passar o mouse */
+    background: #8CC63F;
 }
 
 /* ==========================================================================
-   MENU AUXILIAR (EMBAIXO DO PERFIL)
+   MENU AUXILIAR
    ========================================================================== */
 
 .menu {
@@ -137,7 +130,6 @@
     box-shadow: 7px 7px 15px #00000017 !important;
     padding: 5px !important;
 }
-/* Estilo do Menu (Card de Status) */
 .menu {
     background-color: #ffffff;
     border-radius: 15px;
@@ -145,7 +137,6 @@
     box-shadow: 7px 7px 15px #00000017 !important;
 }
 
-/* Círculos dos Ícones */
 .icon-circle {
     width: 50px;
     height: 50px;
@@ -159,7 +150,6 @@
 .bg-primary-light { background-color: #e3f2fd; }
 .bg-success-light { background-color: #e8f5e9; }
 
-/* Container da Medalha */
 .medalha-container {
     background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
     border-radius: 12px;
@@ -167,10 +157,9 @@
 }
 
 .text-warning {
-    color: #ffc107 !important; /* Cor ouro para as estrelas e medalha */
+    color: #ffc107 !important; 
 }
 
-/* Ajuste de tipografia */
 .small.uppercase {
     font-size: 0.7rem;
     letter-spacing: 1px;
@@ -180,11 +169,10 @@
    ========================================================================== */
 
 @media (max-width: 768px) {
-    /* Permite que os itens da direita se organizem melhor */
     .info-secundaria {
         display: flex;
-        flex-wrap: wrap; /* Permite quebrar linha se o celular for muito fino */
-        justify-content: flex-start; /* Alinha à esquerda no mobile */
+        flex-wrap: wrap;
+        justify-content: flex-start; 
         gap: 10px;
         width: 100%;
         margin-top: 10px;
@@ -192,47 +180,42 @@
         border-top: 1px solid #eee;
     }
 
-    /* Ajusta o box de status para não estourar a tela */
     .status-box {
-        min-width: 120px; /* Reduz um pouco o tamanho mínimo */
-        flex: 1; /* Faz o botão de status tentar ocupar o espaço disponível */
+        min-width: 120px; 
+        flex: 1; 
         max-width: 180px;
         padding: 6px 10px;
-        font-size: 0.75rem; /* Diminui levemente a fonte */
+        font-size: 0.75rem; 
     }
 
-    /* Garante que a lixeira fique visível e alinhada */
     .btn-excluir {
-        margin-left: auto; /* Empurra a lixeira para o canto direito */
-        padding: 10px; /* Aumenta a área de toque para o mobile */
+        margin-left: auto;
+        padding: 10px; 
     }
 
     .idade-box {
-        width: 100%; /* Faz a idade ocupar a linha de cima no setor secundário */
+        width: 100%;
         text-align: left;
         margin-bottom: 5px;
     }
 }
 
 @media (max-width: 400px) {
-    /* Para celulares muito pequenos */
     .status-box {
-        min-width: 100%; /* Status vira uma barra inteira */
-        order: 2; /* Joga o status para baixo */
+        min-width: 100%;
+        order: 2;
     }
     
     .btn-excluir {
-        order: 1; /* Mantém a lixeira acessível no topo do setor */
+        order: 1;
     }
 }
 
 @media (max-width: 768px) {
-    /* Esconde o texto do botão */
     .btn-responsivo-icone .btn-text {
         display: none;
     }
 
-    /* Ajusta o botão para ficar proporcional apenas com o ícone */
     .btn-responsivo-icone {
         padding: 10px 15px !important;
         border-radius: 100% !important;

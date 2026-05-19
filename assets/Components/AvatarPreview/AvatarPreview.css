@@ -1,9 +1,4 @@
-/* ==========================================================================
-   Care Plus Family - CSS EXCLUSIVO DO AVATAR
-   Ajustado para eliminar o scroll da página e focar no scroll do grid.
-   ========================================================================== */
-
-/* --- A. ESTILO INTERNO DO BONECO (USADO NO SHADOW DOM) --- */
+/* --- A. ESTILO INTERNO DO BONECO --- */
 :host {
     display: flex;
     justify-content: center;
@@ -51,12 +46,10 @@
     display: flex !important;
     flex-wrap: wrap !important;
     gap: 8px !important;
-    /* ALINHADO À ESQUERDA: Garante que a última linha comece pela esquerda */
     justify-content: flex-start !important; 
     width: 100% !important;
     flex: 1 !important; 
     overflow-y: auto !important;
-    /* O SEGREDO: Padding lateral para centralizar o bloco de 3 itens no menu */
     padding: 10px 22px !important; 
 }
 
@@ -105,7 +98,7 @@
     width: 100%;
 }
 
-/* --- C. ESTRUTURA PRINCIPAL (PAI DE TUDO) --- */
+/* --- C. ESTRUTURA PRINCIPAL --- */
 
 .customizador-wrapper {
     max-width: 1200px;
@@ -186,7 +179,7 @@
     flex-shrink: 0; 
 }
 
-/* --- E. ESTILOS DO MODAL (PADRÃO ZAMBONI) --- */
+/* --- E. ESTILOS DO MODAL --- */
 
 .modal-overlay {
     position: fixed;
@@ -264,7 +257,7 @@
     .area-preview {
         padding: 20px 10px;
         background: #fff;
-        order: 2; /* Boneco logo abaixo dos ícones */
+        order: 2;
     }
 
     .avatar-container {

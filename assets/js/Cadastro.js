@@ -1,4 +1,3 @@
-// Cadastro.js
 document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // LÓGICA DE ETAPAS - BENEFICIÁRIO
@@ -11,23 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnAvancarBen = document.getElementById('btn-avancar-ben');
     const btnVoltarBen = document.getElementById('btn-voltar-ben');
 
-    // Quando o usuário clica em Empresa
     btnEmpresa.addEventListener('click', () => {
-        // Altera o visual dos botões
         btnEmpresa.classList.replace('inativo', 'ativo');
         btnBeneficiario.classList.replace('ativo', 'inativo');
 
-        // Gira o cartão para mostrar o verso
         flipContainer.classList.add('girar');
     });
 
-    // Quando o usuário clica em Beneficiário
     btnBeneficiario.addEventListener('click', () => {
-        // Altera o visual dos botões
         btnBeneficiario.classList.replace('inativo', 'ativo');
         btnEmpresa.classList.replace('ativo', 'inativo');
 
-        // Remove a classe para girar o cartão de volta para a frente
         flipContainer.classList.remove('girar');
     });
 

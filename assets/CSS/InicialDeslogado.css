@@ -8,7 +8,7 @@ body {
 .hero-section {
     background: url('/assets/Images/image_b9a77c.jpg') no-repeat center center;
     background-size: cover;
-    height: 600px; /* Ajuste conforme a necessidade */
+    height: 600px; 
     position: relative;
 }
 
@@ -37,7 +37,6 @@ body {
     margin-bottom: 30px;
 }
 
-/* Botão Saiba Mais (Verde Care Plus) */
 .btn-saiba-mais {
     background-color: #92C444;
     color: white;

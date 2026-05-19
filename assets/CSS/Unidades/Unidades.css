@@ -5,7 +5,7 @@
     --careplus-blue: #3aadde;
     --text-dark: #333333;
     --text-grey: #555555;
-    --bg-glass-card: #f8f9fa; /* Fundo sólido bem suave puxado pro cinza claro (estilo do print) */
+    --bg-glass-card: #f8f9fa;
     --border-glass: rgba(58, 173, 222, 0.2);
     --shadow-spectacular: 0 10px 25px rgba(0, 0, 0, 0.05); 
     --shadow-spectacular-hover: 0 15px 35px rgba(0, 0, 0, 0.08), 0 0 15px rgba(58, 173, 222, 0.15); 
@@ -40,7 +40,7 @@
 
 .card-unidade {
     background-color: var(--bg-glass-card);
-    border: 2px solid #eef1f5; /* Borda bem sutil */
+    border: 2px solid #eef1f5;
     border-radius: 12px;
     padding: 30px 20px;
     
@@ -74,10 +74,9 @@
     font-size: 0.85rem;
     line-height: 1.5;
     margin-bottom: 25px;
-    min-height: 60px; /* Alinha a altura dos cards que têm textos menores */
+    min-height: 60px;
 }
 
-/* Contatos dentro do Card */
 .unidade-contatos {
     border-top: 1px solid #e0e5eb;
     padding-top: 15px;
@@ -86,7 +85,7 @@
 .contato-item {
     display: flex;
     align-items: center;
-    gap: 8px; /* Espaço entre o ícone e o número */
+    gap: 8px; 
     font-size: 0.9rem;
     color: var(--text-dark);
     margin-bottom: 8px;

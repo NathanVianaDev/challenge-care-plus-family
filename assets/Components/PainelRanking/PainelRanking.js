@@ -1,17 +1,12 @@
-// Arquivo: PainelRanking.js
-
 export class PainelRanking extends HTMLElement {
     connectedCallback() {
         const basePath = '/assets/Images/MiniAvatar/';
         
-        // Captura o atributo para saber em qual tela o componente foi instanciado
         const tela = this.getAttribute('tela') || 'padrao';
 
-        // 1. Configurações dinâmicas de acordo com a tela
         let linkVoltar = "../../Pages/Ranking/Ranking.html";
         let abaInicial = "individual";
         
-        // Valores Padrão para a tela comum
         let nomePerfil = "Harry Potter";
         let subtextoPerfil = "32 anos &bull; Ilhabela";
         let labelFamiliaBox = "Família";
@@ -21,16 +16,12 @@ export class PainelRanking extends HTMLElement {
             linkVoltar = "../../Pages/AmbienteFamilia/AmbienteFamilia.html";
             abaInicial = "familiar";
             
-            // Valores alterados exclusivamente para a tela Família
             nomePerfil = "Família Potter";
-            subtextoPerfil = "Ilhabela"; // Idade removida
-            
-            // Retira a nomenclatura "Família" e altera o nome
+            subtextoPerfil = "Ilhabela";
             labelFamiliaBox = "Titular"; 
             nomeFamiliaBox = "Harry Potter";
         }
 
-        // Estrutura HTML Base do Componente
         this.innerHTML = `
             <div class="ranking-container">
                 
@@ -102,7 +93,6 @@ export class PainelRanking extends HTMLElement {
             </div>
         `;
 
-        // Mock de Dados Organizado
         this.dadosRanking = {
             individual: {
                 tituloColuna: "Nome do Colaborador",
@@ -138,7 +128,6 @@ export class PainelRanking extends HTMLElement {
         this.basePath = basePath;
         this.configurarEventos();
         
-        // Renderiza a aba inicial correta baseada na tela atual
         this.renderizarLista(abaInicial);
     }
 

@@ -1,5 +1,3 @@
-// assets/Components/ModalAlerta/ModalAlerta.js
-
 class ModalAlerta extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `

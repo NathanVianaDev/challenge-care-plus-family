@@ -9,10 +9,9 @@
 }
 
 /* ==========================================================================
-   HERO SECTION (Banner Principal Padronizado)
+   HERO SECTION 
    ========================================================================== */
 .hero-section {
-    /* Foco na família à direita */
     background: url('/assets/Images/HeaderDeslogado/HeaderDeslogado.png') no-repeat center right;
     background-size: cover;
     height: 380px; 
@@ -71,7 +70,7 @@
 }
 
 /* ==========================================================================
-   ABOUT SECTION (Porque escolher)
+   ABOUT SECTION
    ========================================================================== */
 .about-section {
     background-color: #fcfcfc; 
@@ -98,7 +97,7 @@
 }
 
 /* ==========================================================================
-   RESPONSIVIDADE (AJUSTES EXCLUSIVOS PARA MOBILE)
+   RESPONSIVIDADE
    ========================================================================== */
 @media (max-width: 991px) {
     
@@ -274,7 +273,6 @@
     transform: scale(1.03) translateY(-5px);
 }
 
-/* Ajustes para Mobile */
 @media (max-width: 991px) {
     .gameplus-title {
         font-size: 2.2rem;
@@ -368,7 +366,6 @@
     transform: scale(1.2);
 }
 
-/* Ajuste Mobile */
 @media (max-width: 768px) {
     .card-depoimento {
         padding: 30px 20px;
@@ -420,7 +417,6 @@
     transform: scale(1.03) translateY(-5px);
 }
 
-/* Ajustes para Mobile da nova seção */
 @media (max-width: 991px) {
     .assistente-title {
         font-size: 2.2rem;

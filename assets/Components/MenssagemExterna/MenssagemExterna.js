@@ -1,8 +1,3 @@
-/**
- * MenssagemExterna - Care Plus Family
- * Componente de modal para confirmações e alertas de sucesso.
- */
-
 const CSS_URL = '../../Components/MenssagemExterna/MenssagemExterna.css';
 
 class MenssagemExterna extends HTMLElement {
@@ -12,7 +7,6 @@ class MenssagemExterna extends HTMLElement {
     }
 
     static get observedAttributes() {
-        // Atributos: titulo, texto, link (para onde ir ao clicar), e botao (texto do botão)
         return ['titulo', 'texto', 'link', 'botao'];
     }
 
@@ -29,7 +23,7 @@ class MenssagemExterna extends HTMLElement {
         if (link) {
             window.location.href = link;
         } else {
-            this.style.display = 'none'; // Apenas fecha se não houver link
+            this.style.display = 'none';
         }
     }
 

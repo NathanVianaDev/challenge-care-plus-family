@@ -56,7 +56,6 @@ export class MeuHeader extends HTMLElement {
     }
 }
 
-// Avisa ao navegador que a tag <meu-header> agora existe
 if (!customElements.get('meu-header')) {
     customElements.define('meu-header', MeuHeader);
 }

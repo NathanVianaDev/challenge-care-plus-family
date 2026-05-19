@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PAINEL DE TAREFAS - UI/UX MODERNO
+   PAINEL DE TAREFAS
    ========================================================================== */
 .tarefas-container {
     background-color: #ffffff;
@@ -17,7 +17,6 @@
     letter-spacing: -0.5px;
 }
 
-/* --- Cabeçalho da Lista --- */
 .tarefas-header {
     display: flex;
     font-size: 0.85rem;
@@ -35,9 +34,6 @@
 .col-pontos { width: 20%; text-align: center; }
 .col-status { width: 20%; text-align: center; }
 
-/* ==========================================================================
-   EFEITO DE PROFUNDIDADE (HOVER E TRANSIÇÃO)
-   ========================================================================== */
 .tarefa-row {
     display: flex;
     align-items: center;
@@ -62,7 +58,6 @@
     border-color: #92C444;
 }
 
-/* Tempos da Animação da Lista */
 .tarefa-row:nth-child(2) { animation-delay: 0.1s; }
 .tarefa-row:nth-child(3) { animation-delay: 0.15s; }
 .tarefa-row:nth-child(4) { animation-delay: 0.2s; }
@@ -71,7 +66,6 @@
 .tarefa-row:nth-child(7) { animation-delay: 0.35s; }
 .tarefa-row:nth-child(8) { animation-delay: 0.4s; }
 
-/* --- Tipografia interna --- */
 .tarefa-num {
     font-weight: 800;
     font-size: 1.2rem;
@@ -143,9 +137,6 @@
     to { width: var(--target-width); }
 }
 
-/* ==========================================================================
-   EFEITO 100% - PREMIUM (SHIMMER E PULSE)
-   ========================================================================== */
 .status-badge.completed {
     animation: pulseGlow 2.5s infinite;
 }
@@ -176,7 +167,7 @@
 }
 
 /* ==========================================================================
-   RESPONSIVIDADE (MOBILE) - LAYOUT DINÂMICO
+   RESPONSIVIDADE (MOBILE) 
    ========================================================================== */
 @media (max-width: 768px) {
     .tarefas-header { 
@@ -186,12 +177,11 @@
     .tarefa-row { 
         flex-direction: column; 
         text-align: center; 
-        position: relative; /* Transforma o card em uma âncora para os itens absolutos */
-        padding: 50px 15px 20px 15px; /* Abre um "teto" de 50px para caber os itens dos cantos */
+        position: relative; 
+        padding: 50px 15px 20px 15px; 
         gap: 15px;
     }
 
-    /* 1. Número no Canto Superior Esquerdo */
     .col-num { 
         position: absolute;
         top: 15px;
@@ -201,13 +191,12 @@
     }
     
     .tarefa-num {
-        margin: 0; /* Remove a margem automática para colar na esquerda */
+        margin: 0; 
         width: 32px;
         height: 32px;
         font-size: 1rem;
     }
 
-    /* 2. Pontuação no Canto Superior Direito */
     .col-pontos { 
         position: absolute;
         top: 18px;
@@ -217,7 +206,6 @@
         padding: 0;
     }
 
-    /* Adiciona a nomenclatura "PTS" via CSS magicamente apenas no mobile */
     .tarefa-pontos::after {
         content: ' PTS';
         font-size: 0.8rem;
@@ -226,7 +214,6 @@
         margin-left: 2px;
     }
 
-    /* 3. Descrição e Status Centralizados abaixo do "teto" */
     .col-desc, .col-status { 
         width: 100%; 
         padding: 0; 

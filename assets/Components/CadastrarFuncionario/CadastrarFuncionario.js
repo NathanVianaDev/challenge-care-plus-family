@@ -1,8 +1,3 @@
-/**
- * CadastrarFuncionario - Care Plus Family
- * Componente para exibir a linha de dados de um colaborador com opção de exclusão e modal de confirmação.
- */
-
 const CSS_URL = '../../Components/CadastrarFuncionario/CadastrarFuncionario.css';
 
 class CadastrarFuncionario extends HTMLElement {
@@ -90,24 +85,20 @@ class CadastrarFuncionario extends HTMLElement {
         const btnConfirmar = this.shadowRoot.querySelector('.btn-confirmar');
         const modalOverlay = this.shadowRoot.querySelector('#modalConfirmacao');
 
-        // Abrir Modal
         btnExcluir.addEventListener('click', () => {
             modalOverlay.classList.add('active');
         });
 
-        // Fechar Modal (Botão Cancelar)
         btnCancelar.addEventListener('click', () => {
             modalOverlay.classList.remove('active');
         });
 
-        // Fechar Modal clicando fora dele
         modalOverlay.addEventListener('click', (e) => {
             if (e.target === modalOverlay) {
                 modalOverlay.classList.remove('active');
             }
         });
 
-        // Confirmar Exclusão: Fecha o modal e chama a função de excluir
         btnConfirmar.addEventListener('click', () => {
             modalOverlay.classList.remove('active');
             this.excluir();
@@ -115,10 +106,8 @@ class CadastrarFuncionario extends HTMLElement {
     }
 
     excluir() {
-        // 1. Remove o componente da tela imediatamente (sem pedir permissão pro browser)
         this.remove();
 
-        // 2. Dispara o evento apenas como um "Aviso" para a página (caso ela queira atualizar um contador, por exemplo)
         const eventoExcluir = new CustomEvent('deletar-funcionario', {
             detail: { 
                 nome: this.getAttribute('nome') 

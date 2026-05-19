@@ -1,8 +1,3 @@
-/* ==========================================================================
-   MODO COMPACTO - UNIFIED PROFILE CARD (SINGLE PAGE SETTINGS)
-   ========================================================================== */
-
-/* Fundo leve da página para destacar a caixa branca */
 .bg-light-custom {
     font-family: 'Montserrat', sans-serif;
 }
@@ -12,7 +7,7 @@
     background: #ffffff;
     border-radius: 20px;
     padding: 40px 50px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); /* Sombra elegante e difusa */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); 
     border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
@@ -53,10 +48,10 @@
     letter-spacing: 0.5px;
 }
 
-/* 5. A Mágica do "Clique para Editar" (Inputs) */
+/* 5. Inputs */
 .editable-input {
     width: 100%;
-    background-color: #f8f9fa; /* Fundo cinza bem suave simulando texto estático */
+    background-color: #f8f9fa;
     border: 1px solid transparent; 
     border-radius: 8px;
     padding: 10px 15px;
@@ -66,16 +61,14 @@
     transition: all 0.3s ease;
 }
 
-/* Interação Visual: Mouse por cima */
 .editable-input:hover {
     background-color: #eef1f4;
     cursor: pointer;
 }
 
-/* Interação Visual: Clicou para digitar */
 .editable-input:focus {
     background-color: #ffffff;
-    border-color: #3aadde; /* Cor secundária da marca */
+    border-color: #3aadde;
     box-shadow: 0 0 0 4px rgba(58, 173, 222, 0.15);
     outline: none;
     cursor: text;

@@ -8,7 +8,7 @@ class AvatarCenario extends HTMLElement {
         let listaImagens = [];
         let prefixoTexto = "Cenário";
 
-        // 3. A MÁGICA CORRIGIDA: if / else if / else
+        // 3. A MÁGICA CORRIGIDA
         if (pasta === 'FamiliaCarplus') {
             prefixoTexto = "Família";
             listaImagens = [
@@ -18,13 +18,13 @@ class AvatarCenario extends HTMLElement {
                 'Familia-CarPlus04.png',
                 'Familia-CarPlus05.png'
             ];
-        } else if (pasta === 'AmbienteEmpresa') { // ✅ CORREÇÃO AQUI
+        } else if (pasta === 'AmbienteEmpresa') {
             prefixoTexto = "Ambiente Empresa";
             listaImagens = [
                 'AmbienteEmpresa.png'
             ];
         } else {
-            // Padrão (FundoAvatar) - Vai cair aqui se for a tela de Ranking ou se você não passar a tag
+            // Padrão (FundoAvatar)
             prefixoTexto = "Cenário";
             listaImagens = [
                 'fundo-avatar01.png',
@@ -39,7 +39,7 @@ class AvatarCenario extends HTMLElement {
         // 4. Monta o HTML do menu dropdown (os <li>) dinamicamente
         let menuItensHTML = '';
         listaImagens.forEach((img, index) => {
-            let numeroCenario = String(index + 1).padStart(2, '0'); // Transforma 1 em "01"
+            let numeroCenario = String(index + 1).padStart(2, '0');
             menuItensHTML += `<li><a class="dropdown-item mudar-cenario" href="#" data-bg="${img}">${prefixoTexto} ${numeroCenario}</a></li>`;
         });
 

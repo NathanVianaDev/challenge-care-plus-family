@@ -1,5 +1,3 @@
-// Arquivo: CookieBanner.js
-
 export class CookieBanner extends HTMLElement {
     connectedCallback() {
         const cookiesAceitos = localStorage.getItem('careplus_cookies_accepted');

@@ -72,16 +72,13 @@ export class PainelTroca extends HTMLElement {
         const botoesTrocar = this.querySelectorAll('.btn-trocar');
         const displayPontos = this.querySelector('.display-pontos');
         
-        // Elementos do Modal
         const modal = this.querySelector('#modalTroca');
         const btnFecharModal = this.querySelector('#btnFecharModal');
 
-        // Lógica de Fechar o Modal
         btnFecharModal.addEventListener('click', () => {
             modal.classList.add('hidden');
         });
 
-        // Lógica dos Botões de Troca
         botoesTrocar.forEach(botao => {
             botao.addEventListener('click', () => {
                 const custo = parseInt(botao.getAttribute('data-custo'));
@@ -92,7 +89,6 @@ export class PainelTroca extends HTMLElement {
                     
                     this.animarNumeros(displayPontos, saldoAntigo, this.pontuacaoAtual);
 
-                    // Mostra o Modal de Sucesso após a animação de descer os números começar
                     setTimeout(() => {
                         this.abrirModal(
                             'Resgate Realizado!', 
@@ -102,7 +98,6 @@ export class PainelTroca extends HTMLElement {
                     }, 300);
 
                 } else {
-                    // Mostra o Modal de Erro
                     const faltam = custo - this.pontuacaoAtual;
                     this.abrirModal(
                         'Saldo Insuficiente', 
@@ -114,7 +109,6 @@ export class PainelTroca extends HTMLElement {
         });
     }
 
-    // Função que injeta o texto e exibe o modal
     abrirModal(titulo, mensagem, isErro) {
         const modal = this.querySelector('#modalTroca');
         const modalTitulo = this.querySelector('#modalTitulo');
@@ -122,9 +116,7 @@ export class PainelTroca extends HTMLElement {
         const btnFecharModal = this.querySelector('#btnFecharModal');
 
         modalTitulo.innerText = titulo;
-        modalMensagem.innerHTML = mensagem; // Usamos innerHTML para renderizar as tags <b> (negrito)
-
-        // Se for erro, pinta o botão de vermelho, senão deixa o azul padrão
+        modalMensagem.innerHTML = mensagem;
         if (isErro) {
             btnFecharModal.classList.add('btn-erro');
             modalTitulo.style.color = '#ff6b6b';
